@@ -29,8 +29,10 @@ const authSchema = new mongoose.Schema(
             default: "user",
             required: true,
         },
-
-
+        isSubcription: {
+            type: Boolean,
+            default: false
+        },
         token: {
             type: String,
         },
