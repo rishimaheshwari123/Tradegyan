@@ -8,19 +8,8 @@ import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 // import logo from "../../../assest/logo.jpg"
 import { logout } from "../../../services/operations/auth";
-import { FcStart } from "react-icons/fc";
 
-import {
-  FcBullish,
-  FcPlus,
-  FcPieChart,
-  FcNews,
-  FcTreeStructure,
-  FcVideoCall,
-  FcAdvertising,
-  FcManager,
-  FcPortraitMode,
-} from "react-icons/fc";
+import { FcBullish } from "react-icons/fc";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -61,39 +50,7 @@ const Sidebar = () => {
   const navItems = [
     { to: "/", icon: <FaHome />, label: "Back To Home" },
     { to: "/admin/dashboard", icon: <FcBullish />, label: "Dashboard" },
-    { to: "/admin/addnews", icon: <FcPlus />, label: "Add News" },
-    { to: "/admin/allnews", icon: <FcPieChart />, label: "All News" },
-    { to: "/admin/breaking", icon: <FcNews />, label: "Breaking News" },
-    { to: "/admin/category", icon: <FcTreeStructure />, label: "Category" },
-    {
-      to: "/admin/subcategory",
-      icon: <FcTreeStructure />,
-      label: "Sub-Category",
-    },
-    { to: "/admin/ads", icon: <FcAdvertising />, label: "Ads" },
-    { to: "/admin/poll", icon: <FcAdvertising />, label: "Create Poll" },
-    {
-      to: "/admin/livestriming",
-      icon: <FcVideoCall />,
-      label: "Live Streaming",
-    },
-    { to: "/admin/yt", icon: <FcStart />, label: "Add Youtube Video" },
-    { to: "/admin/stories", icon: <FcPortraitMode />, label: "Story" },
   ];
-
-  // Conditionally add the "Manage Admin" item for superadmin
-  if (user?.role === "SuperAdmin") {
-    navItems.push({
-      to: "/admin/manageadmin",
-      icon: <FcManager />,
-      label: "Manage Admins",
-    });
-    navItems.push({
-      to: "/admin/users",
-      icon: <FcPortraitMode />,
-      label: "All Users",
-    });
-  }
 
   return (
     <div

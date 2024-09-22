@@ -33,6 +33,12 @@ export async function signUp(formData, navigate, dispatch) {
       text: `Have a nice day!`,
       icon: "success",
     });
+    dispatch(setToken(response?.data?.token))
+    dispatch(setUser(response?.data?.user))
+    localStorage.setItem("user", JSON.stringify(response.data.user))
+
+    localStorage.setItem("token", JSON.stringify(response.data.token))
+
     navigate("/");
   } catch (error) {
     console.log("SIGNUP API ERROR............", error);

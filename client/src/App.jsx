@@ -7,7 +7,7 @@ import PrivateRoute from "./components/admin/auth/PrivateRoute";
 import Layout from "./components/admin/pages/Layout";
 import Dashboard from "./components/admin/pages/Dashboard";
 import { useSelector } from "react-redux";
-import Home from "./components/admin/pages/Home";
+import Home from "./pages/Home";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
