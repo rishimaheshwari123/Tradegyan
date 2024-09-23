@@ -50,6 +50,8 @@ const Sidebar = () => {
   const navItems = [
     { to: "/", icon: <FaHome />, label: "Back To Home" },
     { to: "/admin/dashboard", icon: <FcBullish />, label: "Dashboard" },
+    { to: "/admin/add-service", icon: <FcBullish />, label: "Add Service" },
+    { to: "/admin/get-service", icon: <FcBullish />, label: "Get Service" },
   ];
 
   return (

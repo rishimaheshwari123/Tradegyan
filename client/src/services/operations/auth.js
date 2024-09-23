@@ -3,7 +3,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify"
-const { LOGIN_API, SIGNUP_API, CONTACT } = endpoints;
+const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE } = endpoints;
 
 
 
@@ -142,3 +142,49 @@ export const sendContactForm = async (formData) => {
     });
   }
 };
+
+export const createService = async (serviceData, token) => {
+  Swal.fire({
+    title: "Loading",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    showConfirmButton: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+  try {
+    const response = await apiConnector("POST", CREATE_SERVICE, serviceData, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      }
+    });
+
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    Swal.fire({
+      title: response?.data?.message,
+      icon: "success",
+    });
+    return response?.data?.success;
+  } catch (error) {
+    console.error('Error creating service:', error);
+    Swal.fire({
+      title: error?.response?.data?.message,
+      icon: "error",
+    });
+  }
+};
+
+export const getAllService = async () => {
+  try {
+    const response = await apiConnector("GET", GET_SERVICE);
+    const result = response?.data?.services
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}

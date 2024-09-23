@@ -9,6 +9,8 @@ import Dashboard from "./components/admin/pages/Dashboard";
 import { useSelector } from "react-redux";
 import Home from "./pages/Home";
 import Partner from "./pages/Partner";
+import AddService from "./components/admin/pages/AddService";
+import GetAllService from "./components/admin/pages/GetAllService";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -46,10 +48,26 @@ const App = () => {
             }
           >
             <Route
-              path="dashboard"
+              path="/admin/dashboard"
               element={
                 <PrivateRoute>
                   <Dashboard />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/add-service"
+              element={
+                <PrivateRoute>
+                  <AddService />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/get-service"
+              element={
+                <PrivateRoute>
+                  <GetAllService />
                 </PrivateRoute>
               }
             />
