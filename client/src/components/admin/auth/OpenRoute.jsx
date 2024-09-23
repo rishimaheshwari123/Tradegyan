@@ -6,13 +6,13 @@ function OpenRoute({ children }) {
 
   if (!token) {
     return children;
-  } else if (user.role === "Admin") {
-    return <Navigate to="/admin/dashboard" />;
-  } else if (user.role === "user") {
-    return <Navigate to="/" />;
   }
 
-  return <Navigate to="/login" />;
+  if (user?.role === "Admin") {
+    return <Navigate to="/admin/dashboard" />;
+  }
+
+  return <Navigate to="/" />;
 }
 
 export default OpenRoute;

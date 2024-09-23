@@ -8,12 +8,17 @@ import Layout from "./components/admin/pages/Layout";
 import Dashboard from "./components/admin/pages/Dashboard";
 import { useSelector } from "react-redux";
 import Home from "./pages/Home";
+import Partner from "./pages/Partner";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
+
   return (
     <div>
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/partner" element={<Partner />} />
+
         <Route
           path="/login"
           element={
@@ -31,18 +36,9 @@ const App = () => {
           }
         />
 
-        {user?.role === "user" && (
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          />
-        )}
         {user?.role === "Admin" && (
           <Route
+            path="/admin"
             element={
               <PrivateRoute>
                 <Layout />
@@ -50,7 +46,7 @@ const App = () => {
             }
           >
             <Route
-              path="/admin/dashboard"
+              path="dashboard"
               element={
                 <PrivateRoute>
                   <Dashboard />

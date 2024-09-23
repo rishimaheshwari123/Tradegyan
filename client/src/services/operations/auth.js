@@ -3,7 +3,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify"
-const { LOGIN_API, SIGNUP_API } = endpoints;
+const { LOGIN_API, SIGNUP_API, CONTACT } = endpoints;
 
 
 
@@ -111,3 +111,34 @@ export function logout(navigate) {
 
   }
 }
+
+
+export const sendContactForm = async (formData) => {
+  Swal.fire({
+    title: "Loading...",
+    text: "Please wait while we process your request.",
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+  try {
+    const response = await apiConnector("POST", CONTACT, formData);
+    if (response?.data) {
+      Swal.fire({
+        title: "Good job!",
+        text: "Your message has been sent successfully!",
+        icon: "success",
+      });
+    }
+    return response;
+
+  } catch (error) {
+    console.log(error);
+    Swal.fire({
+      title: "Error!",
+      text: "There was a problem sending your message. Please try again later.",
+      icon: "error",
+    });
+  }
+};

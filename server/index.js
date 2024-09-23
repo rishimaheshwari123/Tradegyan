@@ -15,7 +15,6 @@ connectDB();
 
 
 
-// middleware 
 app.use(express.json())
 app.use(cookieParser());
 app.use(bodyParser.json())
@@ -33,18 +32,13 @@ app.use(
 
 cloudinaryConnect();
 
-
-// routes  
 app.use("/api/v1/auth", require("./routes/authRoute"))
 app.use("/api/v1/image", require("./routes/imageRoute"));
+app.use("/api/v1/contact", require("./routes/contactRoute"));
 
 
 
 
-
-
-
-// default route 
 app.get("/", (req, res) => {
     return res.json({
         success: true,
