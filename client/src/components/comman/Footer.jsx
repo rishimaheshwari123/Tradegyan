@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { MdEmail, MdLocationCity } from "react-icons/md";
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 text-black py-10">
+    <footer className="bg-[#e9f5f9] text-black py-10">
       <div className="max-w-7xl mx-auto p-5">
         <div className="grid lg:grid-cols-3 gap-5">
           <div className=" ">
@@ -103,7 +103,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center text-xs mt-10 border-t border-blue-800 pt-4">
-          <p>Made By ❤️</p>
+          <p>Made By I Next Ets❤️</p>
         </div>
       </div>
     </footer>

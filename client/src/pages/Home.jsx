@@ -4,6 +4,7 @@ import HeroSection from "../components/core/home/HeroSection";
 import YoutubeSection from "../components/core/home/YoutubeSection";
 import GoalsSection from "../components/core/home/GoalSection";
 import StatsSection from "../components/core/home/StatsSection";
+import Footer from "../components/comman/Footer";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <YoutubeSection />
       <GoalsSection />
       <StatsSection />
+      <Footer />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify"
-const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE } = endpoints;
+const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE, GET_SINGLE_SERVICE } = endpoints;
 
 
 
@@ -183,6 +183,15 @@ export const getAllService = async () => {
   try {
     const response = await apiConnector("GET", GET_SERVICE);
     const result = response?.data?.services
+    return result
+  } catch (error) {
+    console.log(error)
+  }
+}
+export const getSingelService = async (id) => {
+  try {
+    const response = await apiConnector("GET", `${GET_SINGLE_SERVICE}/${id}`);
+    const result = response?.data?.service
     return result
   } catch (error) {
     console.log(error)

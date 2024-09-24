@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { sendContactForm } from "../services/operations/auth";
 import Navbar from "../components/comman/Navbar";
+import Footer from "../components/comman/Footer";
 
 const Partner = () => {
   const initialFormData = {
@@ -156,6 +157,7 @@ const Partner = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

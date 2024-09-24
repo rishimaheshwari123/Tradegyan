@@ -11,6 +11,9 @@ import Home from "./pages/Home";
 import Partner from "./pages/Partner";
 import AddService from "./components/admin/pages/AddService";
 import GetAllService from "./components/admin/pages/GetAllService";
+import About from "./components/admin/pages/About";
+import Service from "./pages/Service";
+import SingleService from "./pages/SingleService";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -20,6 +23,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/partner" element={<Partner />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/service/:id" element={<SingleService />} />
 
         <Route
           path="/login"

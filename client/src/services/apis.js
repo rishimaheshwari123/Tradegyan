@@ -7,6 +7,7 @@ export const endpoints = {
   SIGNUP_API: BASE_URL + "/auth/register",
   CONTACT: BASE_URL + "/contact/create",
   CREATE_SERVICE: BASE_URL + "/service/create",
-  GET_SERVICE: BASE_URL + "/service/getAll"
+  GET_SERVICE: BASE_URL + "/service/getAll",
+  GET_SINGLE_SERVICE: BASE_URL + "/service/get"
 }
 
