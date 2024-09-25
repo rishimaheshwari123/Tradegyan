@@ -13,7 +13,18 @@ body {
   overflow-x: hidden;
 }
 
-
+@keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-0%);
+    }
+  }
+  
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
 
 /* styles.css */
 .partnership-blk {
