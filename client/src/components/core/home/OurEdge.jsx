@@ -1,9 +1,9 @@
 import React from "react";
-import image from "../../../assests/our-edge-img.png";
-import img1 from "../../../assests/ouredge/35-Years.png";
-import img2 from "../../../assests/ouredge/License.png";
-import img3 from "../../../assests/ouredge/24-Hours.png";
-import img4 from "../../../assests/ouredge/Research.png";
+import image from "../../../assets/our-edge-img.png";
+import img1 from "../../../assets/ouredge/35-Years.png";
+import img2 from "../../../assets/ouredge/License.png";
+import img3 from "../../../assets/ouredge/24-Hours.png";
+import img4 from "../../../assets/ouredge/Research.png";
 
 const edge = [
   {
