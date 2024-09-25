@@ -1,3 +1,60 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+
+
+/* styles.css */
+.partnership-blk {
+    background-image: url("./assests/lastbanner.jpg"); /* Ensure the path is correct */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    min-height: 690px; /* Default height */
+}
+
+@media (max-width: 1023.98px) {
+    .partnership-blk {
+        min-height: 420px; /* Height for small screens */
+    background-position: center ;
+
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .partnership-blk {
+        min-height: 700px; /* Height for medium screens */
+    }
+}
+
+/* Responsive padding adjustments */
+@media (min-width: 576px) {
+    .pb-sm-5, .py-sm-5 {
+        padding-bottom: 3rem !important;
+    }
+    .pt-sm-5, .py-sm-5 {
+        padding-top: 3rem !important;
+    }
+}
+
+.pb-4, .py-4 {
+    padding-bottom: 1.5rem !important;
+}
+.pt-4, .py-4 {
+    padding-top: 1.5rem !important;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
