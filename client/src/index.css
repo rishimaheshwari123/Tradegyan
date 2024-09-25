@@ -26,13 +26,12 @@ body {
   animation: marquee 25s linear infinite;
 }
 
-/* styles.css */
 .partnership-blk {
-  background-image: url("./assets/lastbanner.jpg"); /* Ensure the path is correct */
+  background-image: url("./assets/lastbanner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
-  min-height: 690px; /* Default height */
+  min-height: 690px;
 }
 
 @media (max-width: 1023.98px) {

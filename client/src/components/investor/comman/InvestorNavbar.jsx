@@ -107,6 +107,9 @@ const InvestorNavbar = () => {
 
           <div className="container mx-auto flex justify-center py-2">
             <div className="flex space-x-8 font-bold text-[13px]">
+              <Link to="/" className="hover:underline">
+                MAIN HOME
+              </Link>
               <Link to="/investor" className="hover:underline">
                 HOME
               </Link>
@@ -119,16 +122,16 @@ const InvestorNavbar = () => {
               {/* <Link to="/knowledge-center" className="hover:underline">
                 KNOWLEDGE CENTER
               </Link> */}
-              <Link to="/women-empowerment" className="hover:underline">
+              {/* <Link to="/women-empowerment" className="hover:underline">
                 WOMEN EMPOWERMENT
               </Link>
               <Link to="/media" className="hover:underline">
                 MEDIA
-              </Link>
+              </Link> */}
               {/* <Link to="/careers" className="hover:underline">
                 CAREERS
               </Link> */}
-              <Link to="/contact-us" className="hover:underline">
+              <Link to="/investor/contact-us" className="hover:underline">
                 CONTACT US
               </Link>
               {/* <Link to="/podcasts" className="hover:underline">
@@ -149,6 +152,10 @@ const InvestorNavbar = () => {
           <FaTimes />
         </button>
         <div className="mt-10 flex flex-col space-y-3">
+          <Link to="/" onClick={toggleSidebar} className="hover:underline">
+            MAIN HOME
+          </Link>
+          <hr />
           <Link
             to="/investor"
             onClick={toggleSidebar}
@@ -184,19 +191,19 @@ const InvestorNavbar = () => {
           </Link>
           <hr /> */}
 
-          <Link
+          {/* <Link
             to="/women-empowerment"
             onClick={toggleSidebar}
             className="hover:underline"
           >
             WOMEN EMPOWERMENT
-          </Link>
+          </Link> */}
           <hr />
 
-          <Link to="/media" onClick={toggleSidebar} className="hover:underline">
+          {/* <Link to="/media" onClick={toggleSidebar} className="hover:underline">
             MEDIA
           </Link>
-          <hr />
+          <hr /> */}
           {/* 
           <Link
             to="/careers"
