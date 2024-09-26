@@ -130,7 +130,7 @@ const Footer = () => {
               <FaFacebookF className="text-xl text-[#3b5998] hover:text-gray-600" />
             </a>
             <a
-              href="https://www.twitter.com"
+              href="https://www.facebook.com/tradegyansolutions/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -144,7 +144,7 @@ const Footer = () => {
               <FaLinkedinIn className="text-xl text-[#0077b5] hover:text-gray-600" />
             </a>
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/tradegyan/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -262,6 +262,16 @@ export const Disclaimer = () => {
         This website's information is not intended for use by anybody residing
         outside UAE or where such use would violate local laws or regulations.
       </p>
+
+
+
+      <div className="w-full text-center py-4 mt-10 border-t border-gray-300">
+  <p className="text-sm text-gray-500">
+    &copy; {new Date().getFullYear()} Trade Gyan Solutions (Investment Advisor # INA000008808). All rights reserved.
+  </p>
+  <a className="text-sm text-gray-500 mt-1" href="https://inextets.online">Made by INEXT ETS</a>
+</div>
+
     </div>
   );
 };
