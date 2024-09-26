@@ -12,7 +12,7 @@ import img from "../../../assets/img1.png";
 const Opportunities = () => {
   return (
     <div
-      className="bg-[#fdf7e6ea] lg:py-32 py-16 bg-cover bg-center relative"
+      className="bg-[#fdf7e6ea]  bg-cover bg-center relative"
       style={{
         backgroundImage: `url('https://www.century.ae/public/default/frontend/custom/images/dotted-map.png')`,
       }}
