@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../../comman/Navbar";
-import Footer from "../../comman/Footer";
 
 const About = () => {
   const impactAreas = [
@@ -132,7 +131,6 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
