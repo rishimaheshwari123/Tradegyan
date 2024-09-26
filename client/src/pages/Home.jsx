@@ -10,6 +10,7 @@ import Resources from "../components/core/home/Resources";
 import OurEdge from "../components/core/home/OurEdge";
 import Banner from "../components/core/home/Banner";
 import LastBanner from "../components/core/home/LastBanner";
+import HomeQuote from "../components/core/home/HomeQuote";
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
       <OurEdge />
       <Banner />
       <LastBanner />
+      <HomeQuote />
     </div>
   );
 };
