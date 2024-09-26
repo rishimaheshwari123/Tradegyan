@@ -16,7 +16,7 @@ const Notification = () => {
     toggle && (
       <div className="bg-black text-white">
         <div className="relative max-w-7xl mx-auto p-5 md:p-5">
-          <p className="text-sm md:text-sm">
+          <p className="lg:text-sm md:text-sm text-[12px]">
             Century Financial Consultancy LLC ("Century") does not offer
             investment advisory or portfolio management services nor guarantees
             investment returns. We do not accept or make payments in
