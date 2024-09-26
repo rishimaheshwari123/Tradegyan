@@ -42,17 +42,18 @@ body {
 }
 @keyframes scroll {
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%); /* Start outside the right edge */
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* End outside the left edge */
   }
 }
 
 .animate-scroll {
   display: inline-block;
-  animation: scroll 30s linear infinite;
+  animation: scroll 30s linear infinite; /* Adjust timing to fit the speed you want */
 }
+
 
 .partnership-blk {
   background-image: url("./assets/lastbanner.jpg");

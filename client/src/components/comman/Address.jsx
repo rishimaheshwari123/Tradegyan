@@ -3,9 +3,9 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 const offices = [
   {
     city: 'Bhopal',
-    address: 'Mp Nagar Zonw 2',
-    phone: '+91234567890',
-    email: 'info@dummy.com'
+    address: 'Plot No.9, Sector C, JK Road Bhoapl, MP 462023 India',
+    phone: '+(91) 777-100 4878',
+    email: '121@tradegyan.co'
   },
  
 ];
