@@ -18,12 +18,33 @@ body {
     transform: translateX(100%);
   }
   100% {
-    transform: translateX(-0%);
+    transform: translateX(-100%);
   }
 }
 
 .animate-marquee {
-  animation: marquee 25s linear infinite;
+  animation: marquee 25s linear infinite;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  display: inline-block;
+  animation: scroll 30s linear infinite;
 }
 
 .partnership-blk {
@@ -32,6 +53,21 @@ body {
   background-repeat: no-repeat;
   background-position: center bottom;
   min-height: 690px;
+}
+/* App.css or other corresponding CSS file */
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @media (max-width: 1023.98px) {
@@ -42,9 +78,9 @@ body {
 }
 
 @media (max-width: 1199.98px) {
-    .partnership-blk {
-        min-height: 480px; /* Height for medium screens */
-    }
+  .partnership-blk {
+    min-height: 480px; /* Height for medium screens */
+  }
 }
 
 /* Responsive padding adjustments */
