@@ -33,7 +33,6 @@ const App = () => {
 
   return (
     <div>
-      <Notification />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/partner" element={<Partner />} />
