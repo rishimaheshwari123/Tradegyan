@@ -28,7 +28,7 @@ const Slider = () => {
     {
       id: 1,
       image:
-        "https://www.performancesuretybonds.com/blog/wp-content/uploads/2018/09/How_Investment_Advisor_Bonds_Work_45-1200x801.jpg",
+        "https://www.shareindia.com/wp-content/uploads/2023/12/Who-is-a-Share-Market-Advisor-_-How-Do-They-Work.webp",
       title: "Your Vision. Our Mission.",
       headline: "We Help To Build Your Dream",
       description:
@@ -39,7 +39,7 @@ const Slider = () => {
     {
       id: 2,
       image:
-        "https://caproasia.com/wp-content/uploads/2015/08/International-Banker-10.jpg",
+        "https://images.inc.com/uploaded_files/image/1920x1080/getty_660952912_374375.jpg",
       title: "Innovative Solutions",
       headline: "Building a Brighter Future",
       description:
@@ -50,7 +50,7 @@ const Slider = () => {
     {
       id: 3,
       image:
-        "https://www.bankrate.com/2022/12/13111152/GettyImages-1365436662.jpeg?auto=webp&optimize=high&crop=16:9",
+        "https://5.imimg.com/data5/SELLER/Default/2024/7/435428234/VD/MG/FA/223449165/stock-market-advisor-service.jpg",
       title: "Expert Financial Guidance",
       headline: "Your Wealth, Our Expertise",
       description:
@@ -93,7 +93,7 @@ const Slider = () => {
             <img
               src={item.image}
               alt={item.title} // Using item.title as alt text for accessibility
-              className="w-full h-[90vh] object-fill" // Ensure the image covers the area without distortion
+              className="w-full h-[90vh] object-cover" // Ensure the image covers the area without distortion
             />
             <div
               className={`absolute inset-0 right-0 z-0 bg-opacity-50 flex flex-col justify-center p-10 transition-opacity duration-1000 text-right ${
