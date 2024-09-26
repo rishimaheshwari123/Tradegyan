@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { sendContactForm } from "../../../services/operations/auth";
-import Navbar from "../../../components/comman/Navbar";
 
 const HomeQuote = () => {
   const initialFormData = {
@@ -30,7 +29,6 @@ const HomeQuote = () => {
 
   return (
     <>
-      <Navbar />
       <div className="flex flex-col md:flex-row justify-around p-10 bg-gray-50">
         {/* Google Map Section */}
         <div className="md:w-1/2 p-8 bg-white shadow-lg rounded-lg">
