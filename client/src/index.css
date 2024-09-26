@@ -45,7 +45,7 @@ body {
 
 @media (max-width: 1199.98px) {
     .partnership-blk {
-        min-height: 700px; /* Height for medium screens */
+        min-height: 480px; /* Height for medium screens */
     }
 }
 
