@@ -67,7 +67,7 @@ const Navbar = () => {
             ))}
             <li className="bg-green-500 px-8 py-2 rounded-full text-white">
               <a
-                href="https://wa.me/123456789"
+                href="https://wa.me/+917771004878"
                 target="_blank"
                 rel="noopener noreferrer"
               >

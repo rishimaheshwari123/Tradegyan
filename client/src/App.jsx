@@ -26,13 +26,14 @@ import Faq from "./pages/Faq";
 import Support from "./pages/Support";
 import Learn from "./pages/Learn";
 import SubNav from "./components/trader/comman/SubNav";
+import Notification from "./components/core/home/Notification";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
 
   return (
     <div>
-      <SubNav />
+      <Notification />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/partner" element={<Partner />} />

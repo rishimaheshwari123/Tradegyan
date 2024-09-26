@@ -17,7 +17,7 @@ import Notification from "../components/core/home/Notification";
 const Home = () => {
   return (
     <div>
-      <Notification />
+      {/* <Notification /> */}
       <Navbar />
       <Slider />
       <LivePrice />

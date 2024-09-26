@@ -17,16 +17,19 @@ const Notification = () => {
       <div className="bg-black text-white">
         <div className="relative max-w-7xl mx-auto p-5 md:p-5">
           <p className="lg:text-sm md:text-sm text-[12px]">
-            Century Financial Consultancy LLC ("Century") does not offer
-            investment advisory or portfolio management services nor guarantees
-            investment returns. We do not accept or make payments in
-            cryptocurrency or digital currency. Our official website is
-            www.century.ae. Beware of fraudulent companies or websites posing as
-            Century. We are not responsible for any losses from using fake
-            websites or entities. Trading in financial markets involves a
-            significant risk of loss which can exceed deposits and may not be
-            suitable for all investors. Before you start, please ensure you
-            fully understand the risks involved.
+          स्टॉक मार्केट में निवेश और व्यापार हमेशा बाजार जोखिमों के अधीन है, हमारी
+        संस्था - ट्रेड ज्ञान सोलूशन्स (निवेश सलाहकार) किसी भी तरह की आश्वस्त,
+        गारंटीकृत वापसी लाभ, लाभ साझेदारी सर्विस, और कोई भी ऐसी सर्विस जो कंपनी
+        की वेबसाइट में उल्लेख नहीं हैं, प्रदान नहीं करती है. और ना ही हम किसी के
+        डीमेट अकाउंट की जानकारी मांगते है. अगर कोई भी आपको ऐसी सेवाओं के बारे
+        में बताता है तो हमसे एक बार संपर्क करे - 7771004879. Investment &
+        Trading In Securities Market Is Always Subjected To Market Risks. Trade
+        Gyan Solutions. ( Investment Advisor) Do Not Provide Any Assured/
+        Guaranteed Return/Profit services, Any Profit Sharing Services, And
+        Services Which Are Not Mention In Company Website, Please Trade Only
+        Company SMS With Proper Stop Loss. We did not ask for Demat details to
+        anyone. Please call us if anyone provides a talk about these services.
+        7771004879
           </p>
           <span
             className="absolute top-2 right-0 lg:-right-2 cursor-pointer p-1 text-white border-2 border-white rounded-full hover:bg-white hover:text-black transition duration-300"

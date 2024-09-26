@@ -24,7 +24,7 @@ const Experience = () => {
             Transform Your Trading Journey
           </p>
           <p className="text-gray-700 mb-8 text-xl">
-            with Century Trader
+            with Trade Gyan Trader
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {/* Market Insights */}
@@ -86,7 +86,7 @@ const Experience = () => {
         </div>
         <div className="second flex justify-center items-center">
           <img
-            src={"https://img.lovepik.com/element/40217/1929.png_1200.png"}
+            src={"https://www.optionsplay.com/wp-content/themes/optionsplay/images/guy_using_tablet_graphic.png"}
             alt="Investment Opportunities"
             className="max-w-full h-auto rounded-lg"
           />
