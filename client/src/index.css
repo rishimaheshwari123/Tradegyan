@@ -84,7 +84,7 @@ body {
 
 .scroll-text {
   display: inline-block;
-  animation: scroll 40s linear infinite;
+  animation: scroll 60s linear infinite;
 }
 
 @media (max-width: 1023.98px) {
