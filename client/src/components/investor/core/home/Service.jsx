@@ -15,57 +15,44 @@ const services = [
     title: "Loan Against Securities",
     description: "We help you manage your portfolio",
     icon: <FaCoins />,
-    image: h2,
+    image:
+      "https://5.imimg.com/data5/SELLER/Default/2022/11/PU/NE/AL/3196176/loan-against-securities-services-500x500.jpeg",
   },
   {
     title: "Philanthropy and Social Investing",
     description:
       "Social change, donations, social impact investing, ESG investing.",
     icon: <FaHandshake />,
-    image: h2,
+    image:
+      "https://media.licdn.com/dms/image/C4D12AQGl8_zgBZqPQw/article-cover_image-shrink_720_1280/0/1626712989933?e=2147483647&v=beta&t=Rf6oSaMPdiv-g9jeE0PW0gY2qmSCaFvnFPa1Yvmvebc",
   },
   {
     title: "Wealth Management",
     description: "We build your investment portfolio",
     icon: <FaChartLine />,
-    image: h2,
+    image:
+      "https://img.etimg.com/thumb/width-1200,height-1200,imgsize-48114,resizemode-75,msid-106261484/markets/stocks/news/from-consumer-to-custodian-the-changing-face-of-wealth-management-for-indias-elite.jpg",
   },
   {
     title: "Financial Planning",
     description: "We plan your finances for your future",
     icon: <FaMoneyBillWave />,
-    image: h2,
+    image:
+      "https://cdn.corporatefinanceinstitute.com/assets/financial-plan.jpeg",
   },
   {
     title: "NRI Services",
     description: "We shrink borders to diversify your investments",
     icon: <FaUserShield />,
-    image: h2,
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5YDAepwbZngHqPAJ3S5EjAPRyYwwdw0qPsg&s",
   },
   {
     title: "Risk Management",
     description: "We build your investment portfolio",
     icon: <FaChess />,
-    image: h2,
-  },
-  {
-    title: "Loan Against Securities",
-    description: "We help you manage your portfolio",
-    icon: <FaCoins />,
-    image: h2,
-  },
-  {
-    title: "Philanthropy and Social Investing",
-    description:
-      "Social change, donations, social impact investing, ESG investing.",
-    icon: <FaHandshake />,
-    image: h2,
-  },
-  {
-    title: "Wealth Management",
-    description: "We build your investment portfolio",
-    icon: <FaChartLine />,
-    image: h2,
+    image:
+      "https://online.hbs.edu/Style%20Library/api/resize.aspx?imgpath=/PublishingImages/blog/posts/risk-management.jpg&w=1200&h=630",
   },
 ];
 

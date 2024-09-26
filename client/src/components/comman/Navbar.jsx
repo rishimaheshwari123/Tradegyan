@@ -29,7 +29,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="text-2xl font-bold">Logo</div>
+          <Link to="/" className="text-2xl font-bold">
+            Logo
+          </Link>
 
           {/* Desktop Links */}
           <ul className="hidden lg:flex space-x-6 items-center">
