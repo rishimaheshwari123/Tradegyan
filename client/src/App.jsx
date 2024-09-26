@@ -19,6 +19,9 @@ import InvestorAbout from "./pages/investor/InvestorAbout";
 import InvestorServices from "./pages/investor/InvestorServices";
 import InvestorContact from "./pages/investor/InvestorContact";
 import Footer from "./components/comman/Footer";
+import TraderAbout from "./pages/trader/TraderAbout";
+import TraderContact from "./pages/trader/TraderContact";
+import TraderHome from "./pages/trader/TraderHome";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -36,6 +39,9 @@ const App = () => {
         <Route path="/investor/about-us" element={<InvestorAbout />} />
         <Route path="/investor/services" element={<InvestorServices />} />
         <Route path="/investor/contact-us" element={<InvestorContact />} />
+        <Route path="/trader" element={<TraderHome />} />
+        <Route path="/trader/about-us" element={<TraderAbout />} />
+        <Route path="/trader/contact-us" element={<TraderContact />} />
 
         <Route
           path="/login"
