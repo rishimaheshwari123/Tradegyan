@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaWhatsapp, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
+import image from '../../assets/logo.png'
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -30,7 +31,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold">
-            Logo
+            <img src={image} alt="logo" className=" h-[70px]" />
           </Link>
 
           {/* Desktop Links */}
