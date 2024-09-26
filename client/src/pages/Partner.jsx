@@ -31,6 +31,42 @@ const Partner = () => {
   return (
     <>
       <Navbar />
+      <div className="relative flex justify-center items-center w-full min-h-[40vh] -mt-2 bg-gradient-to-r bg-black">
+  <div
+    className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat opacity-60"
+    style={{ backgroundImage: `url(https://static.vecteezy.com/system/resources/thumbnails/016/798/942/small_2x/contact-us-concept-business-man-consulting-customers-who-contact-us-call-center-service-customer-consulting-service-email-hotline-business-contact-digital-online-business-digital-service-photo.jpg)` }}
+  />
+  <div className="absolute bottom-2 z-50 text-[#fff5f5] font-semibold text-5xl bg-[#e2571a] p-1 rounded-2xl">
+    Contact Us
+  </div>
+</div>
+      <div className="w-11/12 mx-auto text-center flex lg:justify-between gap-3 mt-10 lg:gap-0 flex-wrap items-center justify-center">
+          <div className=" lg:w-[28%] w-[60%]">
+            <h3 className=" text-[#33536B] lg:text-3xl font-sans text-xl">
+              Address
+            </h3>
+            <p className=" text-[#7c7c7c] lg:text-xl text-sm">
+            Plot No.9, Sector C, JK Road Bhoapl, MP 462023 India
+            </p>
+          </div>
+          <div className=" lg:w-[28%] w-[60%]">
+            <h3 className=" text-[#33536B] lg:text-3xl font-sans text-xl">
+              Call Us
+            </h3>
+            <p className=" text-[#7c7c7c] lg:text-xl text-sm">+91777-100 4878</p>
+          </div>
+          <div className=" lg:w-[28%] w-[60%]">
+            <h3 className=" text-[#33536B] lg:text-3xl font-sans text-xl">
+              Mail Us
+            </h3>
+            <p className=" text-[#7c7c7c] lg:text-xl text-sm">
+              <a href="mailto:thebharatexporter@gmail.com">
+              121@tradegyan.co
+
+</a>
+            </p>
+          </div>
+        </div>
       <div className="flex flex-col md:flex-row justify-around p-10 bg-gray-50">
         <div className="md:w-1/2 p-8 bg-white shadow-lg rounded-lg">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">
