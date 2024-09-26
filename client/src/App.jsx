@@ -14,6 +14,10 @@ import GetAllService from "./components/admin/pages/GetAllService";
 import About from "./components/admin/pages/About";
 import Service from "./pages/Service";
 import SingleService from "./pages/SingleService";
+import InvestorHome from "./pages/investor/InvestorHome";
+import InvestorAbout from "./pages/investor/InvestorAbout";
+import InvestorServices from "./pages/investor/InvestorServices";
+import InvestorContact from "./pages/investor/InvestorContact";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -26,6 +30,10 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/service" element={<Service />} />
         <Route path="/service/:id" element={<SingleService />} />
+        <Route path="/investor" element={<InvestorHome />} />
+        <Route path="/investor/about-us" element={<InvestorAbout />} />
+        <Route path="/investor/services" element={<InvestorServices />} />
+        <Route path="/investor/contact-us" element={<InvestorContact />} />
 
         <Route
           path="/login"

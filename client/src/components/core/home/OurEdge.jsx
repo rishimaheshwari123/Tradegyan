@@ -1,9 +1,9 @@
 import React from "react";
-import image from "../../../assests/our-edge-img.png";
-import img1 from "../../../assests/ouredge/35-Years.png";
-import img2 from "../../../assests/ouredge/License.png";
-import img3 from "../../../assests/ouredge/24-Hours.png";
-import img4 from "../../../assests/ouredge/Research.png";
+import image from "../../../assets/our-edge-img.png";
+import img1 from "../../../assets/ouredge/35-Years.png";
+import img2 from "../../../assets/ouredge/License.png";
+import img3 from "../../../assets/ouredge/24-Hours.png";
+import img4 from "../../../assets/ouredge/Research.png";
 
 const edge = [
   {
@@ -26,7 +26,11 @@ const edge = [
 const OurEdge = () => {
   return (
     <div className=" lg:w-[80%] w-11/12 mx-auto  text-[#323232]">
+<<<<<<< HEAD
       <div className=" grid lg:grid-cols-2 flex-wrap ">
+=======
+      <div className=" flex flex-wrap ">
+>>>>>>> 529bc951d279f4c824035a83b9b933bf7b684039
         <div className="lg:hidden text-center w-full my-10">
           <p className=" text-4xl  font-bold ">Our edge </p>
           <p className=" mt-4 text-xl">
