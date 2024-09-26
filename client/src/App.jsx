@@ -22,6 +22,9 @@ import Footer from "./components/comman/Footer";
 import TraderAbout from "./pages/trader/TraderAbout";
 import TraderContact from "./pages/trader/TraderContact";
 import TraderHome from "./pages/trader/TraderHome";
+import Faq from "./pages/Faq";
+import Support from "./pages/Support";
+import Learn from "./pages/Learn";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -34,6 +37,9 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Partner />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/support" element={<Support />} />
+        <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />
         <Route path="/investor" element={<InvestorHome />} />
         <Route path="/investor/about-us" element={<InvestorAbout />} />

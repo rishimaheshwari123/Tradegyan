@@ -65,13 +65,13 @@ const Navbar = () => {
                 )}
               </li>
             ))}
-            <li>
+            <li className="bg-green-500 px-8 py-2 rounded-full text-white">
               <a
                 href="https://wa.me/123456789"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaWhatsapp color="green" size={24} />
+                <FaWhatsapp size={28} />
               </a>
             </li>
           </ul>
