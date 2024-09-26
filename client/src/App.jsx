@@ -18,6 +18,7 @@ import InvestorHome from "./pages/investor/InvestorHome";
 import InvestorAbout from "./pages/investor/InvestorAbout";
 import InvestorServices from "./pages/investor/InvestorServices";
 import InvestorContact from "./pages/investor/InvestorContact";
+import Footer from "./components/comman/Footer";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -88,6 +89,9 @@ const App = () => {
           </Route>
         )}
       </Routes>
+
+      <Footer />
+
     </div>
   );
 };
