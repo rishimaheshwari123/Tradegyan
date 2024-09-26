@@ -10,6 +10,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
+import logo from "../../../assets/logo.png";
 
 const InvestorNavbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -42,8 +43,9 @@ const InvestorNavbar = () => {
       <div className="max-w-7xl mx-auto p-5 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <div className="text-left">
-            <h1 className="text-lg font-bold">DILZER CONSULTANTS</h1>
-            <p className="text-xs">A PRIVATE LTD. COMPANY</p>
+            {/* <h1 className="text-lg font-bold">DILZER CONSULTANTS</h1>
+            <p className="text-xs">A PRIVATE LTD. COMPANY</p> */}
+            <img src={logo} alt="not found" className="bg-white" />
           </div>
         </div>
 

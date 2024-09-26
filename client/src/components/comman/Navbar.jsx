@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaWhatsapp, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
-import image from '../../assets/logo.png'
+import image from "../../assets/logo.png";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -100,7 +100,8 @@ const Navbar = () => {
         >
           {/* Sidebar Header with Logo and Close Icon */}
           <div className="flex justify-between items-center mb-4">
-            <div className="text-2xl font-bold">Sidebar Logo</div>
+            {/* <div className="text-2xl font-bold">Sidebar Logo</div> */}
+            <img src={image} alt="not found" className="h-14" />
             <button onClick={toggleSidebar}>
               <FaTimes size={24} />
             </button>

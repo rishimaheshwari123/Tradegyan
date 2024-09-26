@@ -8,8 +8,6 @@ import {
   FaMoneyBillWave,
 } from "react-icons/fa";
 
-import h2 from "../../../../assets/banner-2.png";
-
 const services = [
   {
     title: "Loan Against Securities",
@@ -60,23 +58,27 @@ const Service = () => {
   return (
     <div className="container mx-auto my-10 px-4">
       <h2 className="text-3xl font-bold text-center mb-10">Our Services</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <div
             key={index}
-            className="relative group text-white p-[1px]   overflow-hidden"
+            className="relative group text-white overflow-hidden"
           >
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-96 object-cover opacity-100 group-hover:opacity-90 transition-opacity duration-300"
+              className="w-full h-96 object-cover group-hover:opacity-80 transition-opacity duration-500"
             />
-            <div className="absolute inset-0"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+            {/* Hover content */}
+            <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
               <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-              <p className="text-sm mb-4">{service.description}</p>
-              <button className="mt-4 text-sm text-white border border-white py-2 px-4 rounded hover:bg-white hover:text-black transition-all">
+              <h3 className="text-2xl font-bold mb-2 text-center drop-shadow-lg">
+                {service.title}
+              </h3>
+              <p className="text-sm mb-4 text-center drop-shadow-lg">
+                {service.description}
+              </p>
+              <button className="mt-4 text-sm text-white border border-white py-2 px-4 rounded hover:bg-white hover:text-black transition-all drop-shadow-lg">
                 KNOW MORE
               </button>
             </div>

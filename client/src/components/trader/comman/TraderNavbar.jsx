@@ -101,7 +101,8 @@ const TraderNavbar = () => {
         >
           {/* Sidebar Header with Logo and Close Icon */}
           <div className="flex justify-between items-center mb-4">
-            <div className="text-2xl font-bold">Sidebar Logo</div>
+            {/* <div className="text-2xl font-bold">Sidebar Logo</div> */}
+            <img src={logo} alt="not found" className="h-14" />
             <button onClick={toggleSidebar}>
               <FaTimes size={24} />
             </button>

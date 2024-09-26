@@ -3,7 +3,7 @@ import React from "react";
 const SubNav = () => {
   return (
     <div className="overflow-hidden bg-black py-5">
-      <p className="animate-scroll text-sm text-white whitespace-nowrap">
+      <p className="scroll-text text-sm text-white whitespace-nowrap">
         स्टॉक मार्केट में निवेश और व्यापार हमेशा बाजार जोखिमों के अधीन है, हमारी
         संस्था - ट्रेड ज्ञान सोलूशन्स (निवेश सलाहकार) किसी भी तरह की आश्वस्त,
         गारंटीकृत वापसी लाभ, लाभ साझेदारी सर्विस, और कोई भी ऐसी सर्विस जो कंपनी

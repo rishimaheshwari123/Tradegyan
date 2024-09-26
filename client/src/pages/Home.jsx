@@ -12,10 +12,12 @@ import Banner from "../components/core/home/Banner";
 import LastBanner from "../components/core/home/LastBanner";
 import HomeQuote from "../components/core/home/HomeQuote";
 import Faq from "../components/core/home/Faq";
+import Notification from "../components/core/home/Notification";
 
 const Home = () => {
   return (
     <div>
+      <Notification />
       <Navbar />
       <Slider />
       <LivePrice />
