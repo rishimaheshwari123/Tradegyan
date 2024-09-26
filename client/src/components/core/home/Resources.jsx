@@ -1,27 +1,28 @@
 import React from "react";
+import { FaChalkboardTeacher, FaLightbulb, FaBookOpen } from "react-icons/fa";
 
 const Resources = () => {
   const resourcesData = [
     {
-      title: "Seminars and Training",
+      title: "Workshops & Webinars",
       description:
-        "Develop your trading skills with our suite of free educational tools and resources.",
-      buttonText: "Register Now",
-      icon: "📊", // You can replace this with any React Icon
+        "Enhance your trading skills with our comprehensive workshops and interactive webinars tailored for all levels.",
+      buttonText: "Join Now",
+      icon: <FaChalkboardTeacher className="text-4xl text-yellow-500" />,
     },
     {
-      title: "Trading Strategies",
+      title: "Strategic Insights",
       description:
-        "Choose to trade over 10,000 derivatives, with competitive spreads and margins.",
-      buttonText: "Learn More",
-      icon: "💡", // You can replace this with any React Icon
+        "Access a wide array of trading strategies covering over 10,000 derivatives, all with competitive spreads.",
+      buttonText: "Discover More",
+      icon: <FaLightbulb className="text-4xl text-yellow-500" />,
     },
     {
-      title: "Knowledge Center",
+      title: "Resource Hub",
       description:
-        "Take a look at all the ways you can keep up with the market.",
-      buttonText: "Learn More",
-      icon: "📚", // You can replace this with any React Icon
+        "Explore our extensive library filled with articles, videos, and market analyses to stay informed.",
+      buttonText: "Explore Now",
+      icon: <FaBookOpen className="text-4xl text-yellow-500" />,
     },
   ];
 
@@ -29,11 +30,10 @@ const Resources = () => {
     <section className="bg-gray-100 py-12 p-4">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold">
-          Resources to make you a better trader
+          Essential Resources for Every Trader
         </h2>
         <p className="text-gray-600 mt-2">
-          Decades of experience, dedicated services, regulated and more – you
-          have got it all on your side.
+          With years of experience and a wealth of knowledge at your fingertips, we’re here to support your trading journey.
         </p>
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
@@ -42,11 +42,8 @@ const Resources = () => {
             key={index}
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
-            <div className="mb-4">
-              <div className="flex items-center justify-center h-16 w-16 bg-yellow-100 rounded-full mx-auto">
-                <span className="text-4xl">{resource.icon}</span>{" "}
-                {/* Replace with Icon */}
-              </div>
+            <div className="mb-4 flex items-center justify-center h-16 w-16 bg-yellow-100 rounded-full mx-auto">
+              {resource.icon}
             </div>
             <h3 className="text-xl font-semibold mb-2">{resource.title}</h3>
             <p className="text-gray-600 mb-6">{resource.description}</p>

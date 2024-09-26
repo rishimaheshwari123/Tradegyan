@@ -1,53 +1,50 @@
 import React from "react";
-import image from "../../../assets/our-edge-img.png";
-import img1 from "../../../assets/ouredge/35-Years.png";
-import img2 from "../../../assets/ouredge/License.png";
-import img3 from "../../../assets/ouredge/24-Hours.png";
-import img4 from "../../../assets/ouredge/Research.png";
+import { FaStar, FaShieldAlt, FaHeadset, FaChartLine } from "react-icons/fa";
+import image from "../../../assets/ouredge/one.jpeg";
 
 const edge = [
   {
-    img: img1,
-    text: "Over 3 Decades of Experience",
+    icon: <FaStar className="text-5xl text-yellow-500" />,
+    text: "30+ Years of Expertise",
   },
   {
-    img: img2,
-    text: "Licensed and Regulated",
+    icon: <FaShieldAlt className="text-5xl text-yellow-500" />,
+    text: "Fully Licensed & Regulated",
   },
   {
-    img: img3,
-    text: "24x5 Dedicated Support",
+    icon: <FaHeadset className="text-5xl text-yellow-500" />,
+    text: "Dedicated Support 24/5",
   },
   {
-    img: img4,
-    text: "Research and Analysis",
+    icon: <FaChartLine className="text-5xl text-yellow-500" />,
+    text: "Comprehensive Research & Analysis",
   },
 ];
 
 const OurEdge = () => {
   return (
-    <div className="lg:w-[80%] w-11/12 mx-auto text-[#323232]">
+    <div className="lg:w-[80%] w-11/12 mx-auto text-[#323232] mt-10">
       <div className="grid lg:grid-cols-2 flex-wrap">
         <div className="lg:hidden text-center w-full my-10">
-          <p className="text-4xl font-bold">Our edge</p>
+          <p className="text-4xl font-bold">Our Edge</p>
           <p className="mt-4 text-xl">
-            We are confident in what we bring to the table.
+            Experience the confidence we bring to the trading world.
           </p>
         </div>
 
         <div className="relative">
-          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] border-t-[30px] border-r-[30px] max-w-[120px] lg:border-t-[40px] lg:border-r-[40px] border-[#f5c300] lg:top-[50px] lg:right-[100px] top-[10px] right-[10px]"></div>
+          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] border-t-[30px] border-r-[30px] max-w-[120px] lg:border-t-[40px] lg:border-r-[40px] border-[#f5c300] lg:-top-[50px] lg:right-[40px] -top-[40px] -right-[20px]"></div>
 
-          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] max-w-[120px] lg:border-b-[40px] lg:border-l-[40px] border-b-[30px] border-l-[30px] border-[#f5c300] lg:bottom-[50px] lg:-left-[20px] bottom-0 left-0"></div>
+          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] max-w-[120px] lg:border-b-[40px] lg:border-l-[40px] border-b-[30px] border-l-[30px] border-[#f5c300] lg:-bottom-[10px] lg:-left-[60px] -bottom-[50px] -left-[10px]"></div>
 
           <img src={image} alt="Our Edge" className="lg:h-[82%]" />
         </div>
 
         <div className="lg:w-[95%] mx-auto text-center lg:mt-0 mt-[20px]">
           <div className="hidden lg:block">
-            <p className="text-4xl font-bold">Our edge</p>
+            <p className="text-4xl font-bold">Our Edge</p>
             <p className="mt-4 text-xl">
-              We are confident in what we bring to the table.
+              Experience the confidence we bring to the trading world.
             </p>
           </div>
 
@@ -58,7 +55,7 @@ const OurEdge = () => {
                   key={ind}
                   className="w-[100px] text-[14px] text-center flex items-center flex-col mt-[60px]"
                 >
-                  <img src={ele.img} alt={ele.text} />
+                  <div className="mb-2">{ele.icon}</div>
                   <p>{ele.text}</p>
                 </li>
               ))}

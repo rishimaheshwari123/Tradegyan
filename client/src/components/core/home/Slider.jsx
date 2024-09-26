@@ -67,14 +67,7 @@ const Slider = () => {
   return (
     <div className="relative">
       <Swiper
-        modules={[
-          Navigation,
-          Pagination,
-          Scrollbar,
-          A11y,
-          Autoplay,
-          EffectFade,
-        ]}
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         effect="fade"
         fadeEffect={{ crossFade: true }}
@@ -99,8 +92,8 @@ const Slider = () => {
           <SwiperSlide key={item.id} className="relative">
             <img
               src={item.image}
-              alt="Service"
-              className="w-full h-[60vh] lg:h-[90vh] object-cover"
+              alt={item.title} // Using item.title as alt text for accessibility
+              className="w-full h-[90vh] object-fill" // Ensure the image covers the area without distortion
             />
             <div
               className={`absolute inset-0 right-0 z-0 bg-opacity-50 flex flex-col justify-center p-10 transition-opacity duration-1000 text-right ${

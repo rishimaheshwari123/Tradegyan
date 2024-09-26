@@ -1,12 +1,5 @@
 import React from "react";
-import { SiSimpleanalytics } from "react-icons/si";
-import { MdNotificationsActive } from "react-icons/md";
-import { FaChartLine } from "react-icons/fa6";
-import { SiCliqz } from "react-icons/si";
-import { GrNotes } from "react-icons/gr";
-import { FcSmartphoneTablet } from "react-icons/fc";
-import { SiMarketo } from "react-icons/si";
-import { MdLaptopMac } from "react-icons/md";
+import { FaRegNewspaper, FaBell, FaChartLine, FaUsersCog, FaLightbulb, FaMobileAlt, FaBullseye, FaLaptopCode } from "react-icons/fa";
 
 const Experience = () => {
   return (
@@ -18,69 +11,71 @@ const Experience = () => {
     >
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 lg:py-16">
         <div className="first">
-          <p className="lg:text-5xl text-3xl  font-bold mb-4">
-            Elevate Your Trading Experience
+          <p className="lg:text-5xl text-3xl font-bold mb-4">
+            Transform Your Trading Journey
           </p>
-          <br />
           <p className="text-gray-700 mb-8 text-xl">with Century Trader</p>
-          <br />
-          <br />
-          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-6 ">
-            {/* Shares */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-6">
+            {/* Market Insights */}
             <div className="text-center">
-              <SiSimpleanalytics className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">News</h4>
-              <p className="text-gray-600">Analysis</p>
+              <FaRegNewspaper className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">Market Insights</h4>
+              <p className="text-gray-600">Stay Updated</p>
             </div>
 
+            {/* Alerts & Notifications */}
             <div className="text-center">
-              <MdNotificationsActive className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">Notification</h4>
-              <p className="text-gray-600">& Alerts+</p>
+              <FaBell className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">Alerts & Notifications</h4>
+              <p className="text-gray-600">Be Informed</p>
             </div>
 
-            {/* Treasuries */}
+            {/* Advanced Charting */}
             <div className="text-center">
               <FaChartLine className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">Advance</h4>
-              <p className="text-gray-600">Charting</p>
+              <h4 className="text-xl font-bold text-gray-800">Advanced Charting</h4>
+              <p className="text-gray-600">Strategic Analysis</p>
             </div>
 
-            {/* ETFs */}
+            {/* User Insights */}
             <div className="text-center">
-              <SiCliqz className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">Client</h4>
-              <p className="text-gray-600">Sentiment</p>
+              <FaUsersCog className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">User Insights</h4>
+              <p className="text-gray-600">Client Sentiments</p>
             </div>
 
-            {/* Currencies */}
+            {/* Investment Strategies */}
             <div className="text-center">
-              <GrNotes className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">Investment</h4>
-              <p className="text-gray-600">Strategies</p>
+              <FaLightbulb className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">Investment Strategies</h4>
+              <p className="text-gray-600">Tailored Approaches</p>
             </div>
+
+            {/* One-Tap Trading */}
             <div className="text-center">
-              <FcSmartphoneTablet className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">One-tap</h4>
-              <p className="text-gray-600">Trading</p>
+              <FaMobileAlt className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">One-Tap Trading</h4>
+              <p className="text-gray-600">Easy Access</p>
             </div>
+
+            {/* Market Perspectives */}
             <div className="text-center">
-              <SiMarketo className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">Market Views</h4>
-              <p className="text-gray-600"> & Insights</p>
+              <FaBullseye className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">Market Perspectives</h4>
+              <p className="text-gray-600">Comprehensive Views</p>
             </div>
+
+            {/* Technical Analyses */}
             <div className="text-center">
-              <MdLaptopMac className="text-[#ffc400] text-6xl mx-auto" />
-              <h4 className="text-xl font-bold text-gray-800">
-                Market Technical
-              </h4>
-              <p className="text-gray-600">Views</p>
+              <FaLaptopCode className="text-[#ffc400] text-6xl mx-auto" />
+              <h4 className="text-xl font-bold text-gray-800">Technical Analyses</h4>
+              <p className="text-gray-600">In-Depth Insights</p>
             </div>
           </div>
         </div>
         <div className="second flex justify-center items-center">
           <img
-            src={"https://upload.century.ae/upload/700.png"}
+            src={"https://img.lovepik.com/element/40217/1929.png_1200.png"}
             alt="Investment Opportunities"
             className="max-w-full h-auto"
           />
