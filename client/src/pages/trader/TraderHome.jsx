@@ -6,10 +6,13 @@ import TradingTips from "../../components/trader/core/home/TradingTips";
 import WhoWeAre from "../../components/trader/core/home/WhoWeAre";
 import ScrollingBanner from "./ScrollingBanner";
 import ComplaintsTable from "../../components/trader/comman/ComplaintsTable";
+import Notification from "../../components/core/home/Notification";
 
 const TraderHome = () => {
   return (
     <div>
+      <Notification />
+
       <TraderNavbar />
       <Slider />
       <ComplaintsTable />
