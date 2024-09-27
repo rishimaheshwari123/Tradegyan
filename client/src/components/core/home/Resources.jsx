@@ -8,21 +8,21 @@ const Resources = () => {
       description:
         "Enhance your trading skills with our comprehensive workshops and interactive webinars tailored for all levels.",
       buttonText: "Join Now",
-      icon: <FaChalkboardTeacher className="text-4xl text-yellow-500" />,
+      icon: <FaChalkboardTeacher className="text-4xl text-[#800f22]" />,
     },
     {
       title: "Strategic Insights",
       description:
         "Access a wide array of trading strategies covering over 10,000 derivatives, all with competitive spreads.",
       buttonText: "Discover More",
-      icon: <FaLightbulb className="text-4xl text-yellow-500" />,
+      icon: <FaLightbulb className="text-4xl text-[#800f22]" />,
     },
     {
       title: "Resource Hub",
       description:
         "Explore our extensive library filled with articles, videos, and market analyses to stay informed.",
       buttonText: "Explore Now",
-      icon: <FaBookOpen className="text-4xl text-yellow-500" />,
+      icon: <FaBookOpen className="text-4xl text-[#800f22]" />,
     },
   ];
 
@@ -47,7 +47,7 @@ const Resources = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">{resource.title}</h3>
             <p className="text-gray-600 mb-6">{resource.description}</p>
-            <button className="bg-yellow-500 hover:bg-yellow-600 text-white flex m-auto font-bold py-2 px-4 rounded-full">
+            <button className="bg-[#800f22] hover:bg-yellow-600 text-white flex m-auto font-bold py-2 px-4 rounded-full">
               {resource.buttonText}
             </button>
           </div>

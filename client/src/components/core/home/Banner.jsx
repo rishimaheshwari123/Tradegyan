@@ -14,7 +14,7 @@ const Banner = () => {
             Join thousands who trust us as their premier financial partner.
           </p>
           <div className="flex justify-start lg:justify-start">
-            <button className="p-4 bg-[#f5c300] rounded-full font-bold">
+            <button className="p-4 bg-[#800f22] rounded-full font-bold text-gray-200">
               Get Started Today
             </button>
           </div>

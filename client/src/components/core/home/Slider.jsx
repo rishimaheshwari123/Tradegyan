@@ -65,7 +65,7 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative bg-[#62000f]"> {/* Set background to deep maroon */}
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -92,26 +92,28 @@ const Slider = () => {
           <SwiperSlide key={item.id} className="relative">
             <img
               src={item.image}
-              alt={item.title} // Using item.title as alt text for accessibility
-              className="w-full h-[90vh] object-cover" // Ensure the image covers the area without distortion
+              alt={item.title}
+              className="w-full h-[90vh] object-cover" 
             />
             <div
-              className={`absolute inset-0 right-0 z-0 bg-opacity-50 flex flex-col justify-center p-10 transition-opacity duration-1000 text-right ${
+              className={`absolute inset-0 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
                 textVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="max-w-lg text-left bg-[#efcc41] p-8 ml-auto">
-                <p className="text-white text-sm font-bold mb-2">
+              <div className="bg-[#62000f] bg-opacity-60 text-white p-8 max-w-lg ml-auto"> {/* Semi-transparent background */}
+                <p className="text-[#efcc41] text-sm font-bold mb-2">
                   {item.title}
                 </p>
-                <h2 className="text-black text-2xl md:text-5xl font-bold mb-4">
+                <h2 className="text-white text-2xl md:text-5xl font-bold mb-4">
                   {item.headline}
                 </h2>
-                <p className="text-white text-lg mb-6">{item.description}</p>
+                <p className="text-white text-lg mb-6">
+                  {item.description}
+                </p>
                 {item.buttonText && (
                   <Link
                     to={item.buttonLink ? item.buttonLink : "#"}
-                    className="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition duration-300"
+                    className="bg-[#efcc41] text-[#62000f] px-6 py-3 rounded-full font-semibold hover:bg-[#ffc107] transition duration-300"
                   >
                     {item.buttonText}
                   </Link>

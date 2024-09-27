@@ -24,7 +24,7 @@ const Helps = () => {
           <p className="text-xl text-[#555555]">
             Gain clarity and confidence with our expert insights and research.
           </p>
-          <Link className="w-fit bg-[#f5c300] rounded-full px-5 py-3 font-bold hover:opacity-90 transition duration-300">
+          <Link className="w-fit bg-[#800f22] rounded-full px-5 py-3 font-bold hover:opacity-90 transition duration-300 text-white">
             Explore More
           </Link>
         </div>

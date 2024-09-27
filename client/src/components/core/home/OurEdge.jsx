@@ -4,19 +4,19 @@ import image from "../../../assets/ouredge/one.jpeg";
 
 const edge = [
   {
-    icon: <FaStar className="text-5xl text-yellow-500" />,
+    icon: <FaStar className="text-5xl text-[#800f22]" />,
     text: "30+ Years of Expertise",
   },
   {
-    icon: <FaShieldAlt className="text-5xl text-yellow-500" />,
+    icon: <FaShieldAlt className="text-5xl text-[#800f22]" />,
     text: "Fully Licensed & Regulated",
   },
   {
-    icon: <FaHeadset className="text-5xl text-yellow-500" />,
+    icon: <FaHeadset className="text-5xl text-[#800f22]" />,
     text: "Dedicated Support 24/5",
   },
   {
-    icon: <FaChartLine className="text-5xl text-yellow-500" />,
+    icon: <FaChartLine className="text-5xl text-[#800f22]" />,
     text: "Comprehensive Research & Analysis",
   },
 ];
@@ -33,9 +33,9 @@ const OurEdge = () => {
         </div>
 
         <div className="relative">
-          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] border-t-[30px] border-r-[30px] max-w-[120px] lg:border-t-[40px] lg:border-r-[40px] border-[#f5c300] lg:-top-[50px] lg:right-[40px] -top-[40px] -right-[20px]"></div>
+          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] border-t-[30px] border-r-[30px] max-w-[120px] lg:border-t-[40px] lg:border-r-[40px] border-[#800f22] lg:-top-[50px] lg:right-[40px] -top-[40px] -right-[20px]"></div>
 
-          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] max-w-[120px] lg:border-b-[40px] lg:border-l-[40px] border-b-[30px] border-l-[30px] border-[#f5c300] lg:-bottom-[10px] lg:-left-[60px] -bottom-[50px] -left-[10px]"></div>
+          <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] max-w-[120px] lg:border-b-[40px] lg:border-l-[40px] border-b-[30px] border-l-[30px] border-[#800f22] lg:-bottom-[10px] lg:-left-[60px] -bottom-[50px] -left-[10px]"></div>
 
           <img src={image} alt="Our Edge" className="lg:h-[82%]" />
         </div>
@@ -55,7 +55,7 @@ const OurEdge = () => {
                   key={ind}
                   className="w-[100px] text-[14px] text-center flex items-center flex-col mt-[60px]"
                 >
-                  <div className="mb-2">{ele.icon}</div>
+                  <div className="mb-2 ">{ele.icon}</div>
                   <p>{ele.text}</p>
                 </li>
               ))}
