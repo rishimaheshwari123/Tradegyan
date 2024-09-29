@@ -27,6 +27,7 @@ import Support from "./pages/Support";
 import Learn from "./pages/Learn";
 import SubNav from "./components/trader/comman/SubNav";
 import Notification from "./components/core/home/Notification";
+import ClientLogin from "./pages/ClientLogin";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -35,6 +36,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
+       
         <Route path="/partner" element={<Partner />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Partner />} />
@@ -56,6 +58,14 @@ const App = () => {
           element={
             <OpenRoute>
               <Login />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="/client-login"
+          element={
+            <OpenRoute>
+              <ClientLogin />
             </OpenRoute>
           }
         />

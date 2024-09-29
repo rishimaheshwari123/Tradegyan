@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import logo from "../../../assest/logo.jpg"
 import { logout } from "../../../services/operations/auth";
 
-import { FcBullish } from "react-icons/fc";
+import { FcBullish, FcServices, FcViewDetails } from "react-icons/fc";
+
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -50,8 +51,8 @@ const Sidebar = () => {
   const navItems = [
     { to: "/", icon: <FaHome />, label: "Back To Home" },
     { to: "/admin/dashboard", icon: <FcBullish />, label: "Dashboard" },
-    { to: "/admin/add-service", icon: <FcBullish />, label: "Add Service" },
-    { to: "/admin/get-service", icon: <FcBullish />, label: "Get Service" },
+    { to: "/admin/add-service", icon: <FcServices />, label: "Add Service" },
+    { to: "/admin/get-service", icon: <FcViewDetails />, label: "Get Service" },
   ];
 
   return (
@@ -73,7 +74,7 @@ const Sidebar = () => {
             alt=""
             className="w-[50px] h-[50px] lg:w-12 lg:h-12 object-cover rounded-full"
           /> */}
-          <h2>NEWS</h2>
+          <h2>Trade Gyan</h2>
         </div>
         {/* Toggle button */}
         <button

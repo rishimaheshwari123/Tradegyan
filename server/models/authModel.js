@@ -15,7 +15,7 @@ const authSchema = new mongoose.Schema(
         },
         location: {
             type: String,
-            required: true,
+            // required: true,
 
         },
 

@@ -6,6 +6,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import { useLocation } from "react-router-dom"; // Import useLocation
 
 import logo from "../../assets/logo.png";
 import img1 from "../../assets/footer/1.png";
@@ -102,6 +103,15 @@ const websiteSections = [
 const footerImages = [img1, img2, img3, img4, img5, img6];
 
 const Footer = () => {
+
+  const location = useLocation(); // Get current location
+
+  // Check if the current URL includes "admin"
+  if (location.pathname.includes("admin")) {
+    return null; // Don't render the footer if "admin" is in the URL
+  }
+
+
   return (
     <div className="w-[90%] mx-auto text-[#323232] mt-10">
       {/* First section */}

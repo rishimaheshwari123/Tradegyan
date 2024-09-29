@@ -47,6 +47,7 @@ export async function signUp(formData, navigate, dispatch) {
 
 }
 
+
 export async function login(email, password, navigate, dispatch) {
   Swal.fire({
     title: "Loading",
