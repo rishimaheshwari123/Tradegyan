@@ -1,5 +1,5 @@
 const User = require("../models/authModel");
-
+const xlsx = require('xlsx');
 // Get all users
 // In your user controller or route handler
 const getAllUsers = async (req, res) => {
@@ -87,6 +87,44 @@ const getUserById = async (req, res) => {
   }
 };
 
+const downloadUsersExcel = async (req, res) => {
+    try {
+        const users = await User.find(); // Fetch all users
+  
+        // Map the user data to an array of objects
+        const usersData = users.map(user => ({
+            Name: user.name,
+            Email: user.email,
+            WhatsAppNumber: user.whatsappNumber,
+            ContactNumber: user.contactNumber,
+            CreatedAt: user.createdAt.toLocaleString(), // Format date
+        }));
+  
+        // Create a new workbook and a worksheet
+        const wb = xlsx.utils.book_new();
+        const ws = xlsx.utils.json_to_sheet(usersData);
+  
+        // Append the worksheet to the workbook
+        xlsx.utils.book_append_sheet(wb, ws, "Users");
+  
+        // Generate a buffer for the Excel file
+        const excelBuffer = xlsx.write(wb, { bookType: 'xlsx', type: 'buffer' });
+  
+        // Set the response headers
+        res.setHeader('Content-Disposition', 'attachment; filename=users.xlsx');
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  
+        // Send the buffer in the response
+        res.send(excelBuffer);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({
+            success: false,
+            message: "An error occurred while downloading the Excel file",
+            error: error.message,
+        });
+    }
+};
 
 
-module.exports = { getAllUsers,getUserById };
+module.exports = { getAllUsers,getUserById ,downloadUsersExcel};

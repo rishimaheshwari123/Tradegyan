@@ -47,10 +47,36 @@ function CRM() {
     setPage(1); // Reset to first page on new sort
   };
 
+  const handleDownloadExcel = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/admin/alluser/download`, {
+        responseType: "blob", // Important to set this for file download
+      });
+
+      // Create a URL for the file
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "users.xlsx"); // Set the file name
+      document.body.appendChild(link);
+      link.click(); // Trigger the download
+      link.remove(); // Clean up the link element
+    } catch (error) {
+      console.error("Error downloading the Excel file:", error);
+      alert("Error downloading the file. Please try again later.");
+    }
+  };
   return (
     <div className="p-6 bg-gray-100">
-      <h1 className="text-2xl font-bold mb-4">CRM - User Management</h1>
-
+      <div className=" flex justify-between my-5">
+        <h1 className="text-2xl font-bold mb-4">CRM - User Management</h1>
+        <button
+          onClick={handleDownloadExcel}
+          className="bg-blue-500 text-white p-2 rounded"
+        >
+          Download Users Excel
+        </button>
+      </div>
       {/* Search and Sort Inputs */}
       <div className="flex mb-4">
         <input
