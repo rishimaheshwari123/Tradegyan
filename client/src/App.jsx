@@ -28,8 +28,8 @@ import Learn from "./pages/Learn";
 import SubNav from "./components/trader/comman/SubNav";
 import Notification from "./components/core/home/Notification";
 import ClientLogin from "./pages/ClientLogin";
-import CRM from "./components/admin/pages/CRM";
-import UserDetails from "./components/admin/pages/UserDetails";
+import ProfileLayout from "./components/profile/ProfileLayout";
+import Profile from "./pages/profile/Profile";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -38,7 +38,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-       
+
         <Route path="/partner" element={<Partner />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Partner />} />
@@ -55,6 +55,9 @@ const App = () => {
         <Route path="/trader/about" element={<TraderAbout />} />
         <Route path="/trader/contact" element={<TraderContact />} />
 
+        <Route element={<ProfileLayout />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route
           path="/login"
           element={
