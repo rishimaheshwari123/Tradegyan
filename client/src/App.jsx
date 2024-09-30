@@ -30,6 +30,8 @@ import Notification from "./components/core/home/Notification";
 import ClientLogin from "./pages/ClientLogin";
 import ProfileLayout from "./components/profile/ProfileLayout";
 import Profile from "./pages/profile/Profile";
+import CRM from "./components/admin/pages/CRM";
+import UserDetails from "./components/admin/pages/UserDetails";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
