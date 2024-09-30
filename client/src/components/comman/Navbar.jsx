@@ -144,7 +144,7 @@ const Navbar = () => {
               onClick={goToProfile}
             >
               <FaUserCircle size={28} className="text-orange-700" />
-              <span className="font-bold">{user.name}</span>
+              <span className="font-bold">{user?.name}</span>
             </li>
           </ul>
 
@@ -197,7 +197,7 @@ const Navbar = () => {
                     {link.sublinks.map((sublink, subIndex) => (
                       <li key={subIndex} className="py-1 px-4">
                         <Link to={sublink.path} className="text-white">
-                          {sublink.name}
+                          {sublink?.name}
                         </Link>
                       </li>
                     ))}

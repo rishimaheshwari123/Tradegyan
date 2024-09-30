@@ -12,7 +12,6 @@ import { FaUsersGear } from "react-icons/fa6";
 
 import { FcBullish, FcServices, FcViewDetails } from "react-icons/fc";
 
-
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
     localStorage.getItem("sidebarCollapsed") === "true"
@@ -54,7 +53,11 @@ const Sidebar = () => {
     { to: "/admin/dashboard", icon: <FcBullish />, label: "Dashboard" },
     { to: "/admin/add-service", icon: <FcServices />, label: "Add Service" },
     { to: "/admin/get-service", icon: <FcViewDetails />, label: "Get Service" },
-    { to: "/admin/users", icon: <FaUsersGear className="text-red-500" />, label: "Users" },
+    {
+      to: "/admin/users",
+      icon: <FaUsersGear className="text-red-500" />,
+      label: "Users",
+    },
   ];
 
   return (
@@ -127,7 +130,7 @@ const Sidebar = () => {
               <AiOutlineUser size={20} />
             ) : (
               <span className="text-xl">
-                {user?.name.charAt(0).toUpperCase() + user?.name.slice(1)}
+                {user?.name?.charAt(0).toUpperCase() + user?.name?.slice(1)}
               </span>
             )}
           </div>
