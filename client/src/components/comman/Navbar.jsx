@@ -1,11 +1,18 @@
 import React, { useState } from "react";
-import { FaWhatsapp, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaBars,
+  FaTimes,
+  FaChevronDown,
+  FaUserCircle,
+} from "react-icons/fa"; // Added FaUserCircle for profile
 import { Link, useNavigate } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
 import image from "../../assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, setUser } from "../../redux/authSlice";
 import { toast } from "react-toastify";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -39,7 +46,11 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     toast.success("Logout Successfully");
-    // navigate("/login");
+    navigate("/login");
+  };
+
+  const goToProfile = () => {
+    navigate("/profile"); // Navigate to profile page on click
   };
 
   return (
@@ -96,6 +107,9 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
+
+                {/* Profile Icon and Name */}
+
                 <li>
                   <button
                     onClick={handleLogout}
@@ -124,6 +138,13 @@ const Navbar = () => {
               >
                 <FaWhatsapp size={28} />
               </a>
+            </li>
+            <li
+              className="flex items-center space-x-2 cursor-pointer border-2 p-4 rounded-full"
+              onClick={goToProfile}
+            >
+              <FaUserCircle size={28} className="text-orange-700" />
+              <span className="font-bold">{user.name}</span>
             </li>
           </ul>
 
@@ -198,6 +219,16 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
+
+                {/* Profile Icon and Name for Mobile */}
+                <li
+                  className="flex items-center space-x-2 cursor-pointer"
+                  onClick={goToProfile}
+                >
+                  <FaUserCircle size={24} className="text-gray-700" />
+                  <span className="font-bold">{user.name}</span>
+                </li>
+
                 <li>
                   <button
                     onClick={handleLogout}
