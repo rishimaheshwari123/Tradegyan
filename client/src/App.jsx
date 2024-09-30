@@ -56,6 +56,7 @@ const App = () => {
         <Route path="/trader" element={<TraderHome />} />
         <Route path="/trader/about" element={<TraderAbout />} />
         <Route path="/trader/contact" element={<TraderContact />} />
+        <Route path="/trader/service/:id" element={<SingleService />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
