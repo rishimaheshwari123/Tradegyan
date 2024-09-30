@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { FaWhatsapp, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
 import image from "../../assets/logo.png";
+import { useDispatch, useSelector } from "react-redux";
+import { setToken, setUser } from "../../redux/authSlice";
+import { toast } from "react-toastify";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Get token and user from Redux state
+  const { token, user } = useSelector((state) => state.auth);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
@@ -25,13 +33,22 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = () => {
+    dispatch(setUser(null));
+    dispatch(setToken(null));
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    toast.success("Logout Successfully");
+    // navigate("/login");
+  };
+
   return (
     <nav className="bg-white text-black p-4 border-b-2 relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold">
-            <img src={image} alt="logo" className=" h-[70px]" />
+            <img src={image} alt="logo" className="h-[70px]" />
           </Link>
 
           {/* Desktop Links */}
@@ -65,6 +82,40 @@ const Navbar = () => {
                 )}
               </li>
             ))}
+
+            {/* Conditional Buttons */}
+            {token && user ? (
+              <>
+                {user.role === "Admin" && (
+                  <li>
+                    <Link
+                      to="/admin/dashboard"
+                      className="px-4 py-2 font-bold bg-blue-500 text-white rounded"
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="px-4 py-2 font-bold bg-red-500 text-white rounded"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link
+                  to="/client-login"
+                  className="px-4 py-2 font-bold bg-green-500 text-white rounded"
+                >
+                  Client-Login
+                </Link>
+              </li>
+            )}
+
             <li className="bg-green-500 px-8 py-2 rounded-full text-white">
               <a
                 href="https://wa.me/+917771004878"
@@ -86,7 +137,7 @@ const Navbar = () => {
 
         {/* Background overlay when sidebar is open */}
         <div
-          className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity  ${
+          className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity ${
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
           onClick={toggleSidebar}
@@ -100,7 +151,6 @@ const Navbar = () => {
         >
           {/* Sidebar Header with Logo and Close Icon */}
           <div className="flex justify-between items-center mb-4">
-            {/* <div className="text-2xl font-bold">Sidebar Logo</div> */}
             <img src={image} alt="not found" className="h-14" />
             <button onClick={toggleSidebar}>
               <FaTimes size={24} />
@@ -134,6 +184,37 @@ const Navbar = () => {
                 )}
               </li>
             ))}
+
+            {/* Mobile Conditional Buttons */}
+            {token && user ? (
+              <>
+                {user.role === "Admin" && (
+                  <li>
+                    <Link
+                      to="/admin/dashboard"
+                      className="block text-blue-500 font-bold"
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="block text-red-500 font-bold"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <Link to="/login" className="block text-green-500 font-bold">
+                  Login
+                </Link>
+              </li>
+            )}
+
             <li>
               <a
                 href="https://wa.me/123456789"
