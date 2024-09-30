@@ -8,6 +8,7 @@ import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 // import logo from "../../../assest/logo.jpg"
 import { logout } from "../../../services/operations/auth";
+import { FaUsersGear } from "react-icons/fa6";
 
 import { FcBullish, FcServices, FcViewDetails } from "react-icons/fc";
 
@@ -53,6 +54,7 @@ const Sidebar = () => {
     { to: "/admin/dashboard", icon: <FcBullish />, label: "Dashboard" },
     { to: "/admin/add-service", icon: <FcServices />, label: "Add Service" },
     { to: "/admin/get-service", icon: <FcViewDetails />, label: "Get Service" },
+    { to: "/admin/users", icon: <FaUsersGear className="text-red-500" />, label: "Users" },
   ];
 
   return (

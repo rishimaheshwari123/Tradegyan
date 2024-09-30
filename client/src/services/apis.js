@@ -11,3 +11,7 @@ export const endpoints = {
   GET_SINGLE_SERVICE: BASE_URL + "/service/get"
 }
 
+export const adminApis = {
+  ALL_USERS : BASE_URL + "/admin/alluser",
+  USER_DETAILS : BASE_URL + "/admin/user"
+}

@@ -18,34 +18,35 @@ const GetAllService = () => {
   }, []);
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-6 text-center">Our Services</h1>
+    <div className="p-6 bg-gray-50">
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Our Services</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
           <div
             key={service._id}
-            className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-5"
+            className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out p-6"
           >
-            <h2 className="text-xl font-semibold text-blue-600 mb-2">
-              {service.serviceName}
-            </h2>
-            <p className="text-gray-700 mb-4">{service.description}</p>
-            <div className="flex flex-col space-y-2 mb-4">
-              <span className="font-bold">Price: ${service.price}</span>
-              <span>Category: {service.serviceCategory}</span>
-              <span>Duration: {service.duration}</span>
-              <span>Available Plans: {service.availablePlans.join(", ")}</span>
-              <span>Advisor: {service.advisorName}</span>
-              <span>Rating: {service.rating} ⭐</span>
-              <span>Target Audience: {service.targetAudience}</span>
-              <span>Risk Level: {service.riskLevel}</span>
-              <span>Investment Type: {service.investmentType}</span>
-              <span>Min Investment: ${service.minInvestment}</span>
-              <span>Max Investment: ${service.maxInvestment}</span>
-              <span>
-                Status:{" "}
-                {service.serviceAvailability ? "Available" : "Unavailable"}
-              </span>
+            <div className="flex flex-col space-y-4">
+              <h2 className="text-xl font-semibold text-blue-600">{service.serviceName}</h2>
+              <p className="text-gray-700">{service.description}</p>
+              <div className="flex flex-col space-y-2">
+                <span className="font-bold text-lg text-gray-900">
+                  Price: ₹{service.price ? service.price.toLocaleString() : 'N/A'}
+                </span>
+                <span className="text-gray-600">Category: {service.serviceCategory || 'N/A'}</span>
+                <span className="text-gray-600">Duration: {service.duration || 'N/A'}</span>
+                <span className="text-gray-600">Available Plans: {service.availablePlans.join(", ") || 'N/A'}</span>
+                <span className="text-gray-600">Advisor: {service.advisorName || 'N/A'}</span>
+                <span className="text-gray-600">Rating: {service.rating ? `${service.rating} ⭐` : 'N/A'}</span>
+                <span className="text-gray-600">Target Audience: {service.targetAudience || 'N/A'}</span>
+                <span className="text-gray-600">Risk Level: {service.riskLevel || 'N/A'}</span>
+                <span className="text-gray-600">Investment Type: {service.investmentType || 'N/A'}</span>
+                <span className="text-gray-600">Min Investment: ₹{service.minInvestment ? service.minInvestment.toLocaleString() : 'N/A'}</span>
+                <span className="text-gray-600">Max Investment: ₹{service.maxInvestment ? service.maxInvestment.toLocaleString() : 'N/A'}</span>
+                <span className={`font-bold ${service.serviceAvailability ? 'text-green-600' : 'text-red-600'}`}>
+                  Status: {service.serviceAvailability ? "Available" : "Unavailable"}
+                </span>
+              </div>
             </div>
           </div>
         ))}

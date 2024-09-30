@@ -23,16 +23,26 @@ const authSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        whatsappNumber :{
+            type: String,
+            required: true,
+        },
+        contactNumber :{
+            type: String,
+            required: true,
+        },
         role: {
             type: String,
             enum: ["user", "Admin", "SuperAdmin"],
             default: "user",
             required: true,
         },
-        isSubcription: {
-            type: Boolean,
-            default: false
-        },
+        isSubcription:[
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Service',
+            }
+        ],
         token: {
             type: String,
         },

@@ -36,6 +36,7 @@ app.use("/api/v1/auth", require("./routes/authRoute"))
 app.use("/api/v1/image", require("./routes/imageRoute"));
 app.use("/api/v1/contact", require("./routes/contactRoute"));
 app.use("/api/v1/service", require("./routes/serviceRoute"));
+app.use("/api/v1/admin", require("./routes/admin"));
 
 
 

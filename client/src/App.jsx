@@ -28,6 +28,8 @@ import Learn from "./pages/Learn";
 import SubNav from "./components/trader/comman/SubNav";
 import Notification from "./components/core/home/Notification";
 import ClientLogin from "./pages/ClientLogin";
+import CRM from "./components/admin/pages/CRM";
+import UserDetails from "./components/admin/pages/UserDetails";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -108,6 +110,22 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <GetAllService />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/users"
+              element={
+                <PrivateRoute>
+                  <CRM />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/user/:id"
+              element={
+                <PrivateRoute>
+                  <UserDetails />
                 </PrivateRoute>
               }
             />
