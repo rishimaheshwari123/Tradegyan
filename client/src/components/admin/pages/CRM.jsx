@@ -3,6 +3,9 @@ import { getAllUser } from "../../../services/operations/admin"; // Import the u
 import { FaUser, FaEnvelope, FaPhoneAlt } from "react-icons/fa"; // Import icons
 import Pagination from "../Pagination"; // Pagination component
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+const BASE_URL = "http://localhost:8080/api/v1";
 
 function CRM() {
   const [users, setUsers] = useState([]);
