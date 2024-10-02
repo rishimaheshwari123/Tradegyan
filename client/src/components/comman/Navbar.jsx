@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaWhatsapp,
   FaBars,
   FaTimes,
   FaChevronDown,
   FaUserCircle,
-} from "react-icons/fa"; // Added FaUserCircle for profile
+} from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
 import image from "../../assets/logo.png";
@@ -47,11 +47,27 @@ const Navbar = () => {
     localStorage.removeItem("user");
     toast.success("Logout Successfully");
     navigate("/login");
+    setIsOpen(false); // Close sidebar on logout
   };
 
   const goToProfile = () => {
-    navigate("/profile"); // Navigate to profile page on click
+    navigate("/profile");
+    setIsOpen(false); // Close sidebar on profile navigation
   };
+
+  // Close sidebar when the screen resizes (especially for mobile/desktop transitions)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isOpen) {
+        setIsOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isOpen]);
 
   return (
     <nav className="bg-white text-black p-4 border-b-2 relative">
@@ -74,11 +90,11 @@ const Navbar = () => {
                 <Link
                   to={link.path}
                   className="flex items-center font-bold hover:text-[#efcc41]"
+                  onClick={() => setIsOpen(false)} // Close sidebar when navigating
                 >
                   {link.name}
                   {link.sublinks && <FaChevronDown className="ml-1 mt-[3px]" />}
                 </Link>
-                {/* Dropdown */}
                 {link.sublinks && activeDropdown === index && (
                   <ul className="absolute left-0 z-50 top-4 mt-2 w-40 bg-white text-black shadow-lg">
                     {link.sublinks.map((sublink, subIndex) => (
@@ -86,7 +102,12 @@ const Navbar = () => {
                         key={subIndex}
                         className="py-2 px-4 font-bold hover:text-[#efcc41]"
                       >
-                        <Link to={sublink.path}>{sublink.name}</Link>
+                        <Link
+                          to={sublink.path}
+                          onClick={() => setIsOpen(false)} // Close sidebar on sublink click
+                        >
+                          {sublink.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -107,8 +128,6 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
-
-                {/* Profile Icon and Name */}
 
                 <li>
                   <button
@@ -151,18 +170,18 @@ const Navbar = () => {
           {/* Mobile Sidebar Button */}
           <div className="lg:hidden">
             <button onClick={toggleSidebar}>
-              {!isOpen && <FaBars size={24} />}
+              {!isOpen ? <FaBars size={24} /> : <FaTimes size={24} />}
             </button>
           </div>
         </div>
 
         {/* Background overlay when sidebar is open */}
-        <div
-          className={`lg:hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity ${
-            isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-          onClick={toggleSidebar}
-        ></div>
+        {isOpen && (
+          <div
+            className="lg:hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity"
+            onClick={toggleSidebar}
+          ></div>
+        )}
 
         {/* Mobile Sidebar */}
         <div
@@ -170,7 +189,6 @@ const Navbar = () => {
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          {/* Sidebar Header with Logo and Close Icon */}
           <div className="flex justify-between items-center mb-4">
             <img src={image} alt="not found" className="h-14" />
             <button onClick={toggleSidebar}>
@@ -186,17 +204,24 @@ const Navbar = () => {
                   className="flex justify-between items-center cursor-pointer"
                   onClick={() => toggleDropdown(index)}
                 >
-                  <Link to={link.path} className="block text-black font-bold">
+                  <Link
+                    to={link.path}
+                    className="block text-black font-bold"
+                    onClick={toggleSidebar} // Close sidebar on navigation
+                  >
                     {link.name}
                   </Link>
                   {link.sublinks && <FaChevronDown />}
                 </div>
-                {/* Dropdown in sidebar */}
                 {link.sublinks && activeDropdown === index && (
                   <ul className="mt-2 bg-blue-400 space-y-2">
                     {link.sublinks.map((sublink, subIndex) => (
                       <li key={subIndex} className="py-1 px-4">
-                        <Link to={sublink.path} className="text-white">
+                        <Link
+                          to={sublink.path}
+                          className="text-white"
+                          onClick={toggleSidebar} // Close sidebar on sublink click
+                        >
                           {sublink?.name}
                         </Link>
                       </li>
@@ -206,7 +231,6 @@ const Navbar = () => {
               </li>
             ))}
 
-            {/* Mobile Conditional Buttons */}
             {token && user ? (
               <>
                 {user.role === "Admin" && (
@@ -214,13 +238,13 @@ const Navbar = () => {
                     <Link
                       to="/admin/dashboard"
                       className="block text-blue-500 font-bold"
+                      onClick={toggleSidebar}
                     >
                       Dashboard
                     </Link>
                   </li>
                 )}
 
-                {/* Profile Icon and Name for Mobile */}
                 <li
                   className="flex items-center space-x-2 cursor-pointer"
                   onClick={goToProfile}
@@ -232,7 +256,7 @@ const Navbar = () => {
                 <li>
                   <button
                     onClick={handleLogout}
-                    className="block text-red-500 font-bold"
+                    className="w-full py-2 text-center font-bold bg-red-500 text-white rounded"
                   >
                     Logout
                   </button>
@@ -240,21 +264,23 @@ const Navbar = () => {
               </>
             ) : (
               <li>
-                <Link to="/login" className="block text-green-500 font-bold">
-                  Login
+                <Link
+                  to="/client-login"
+                  className="block text-center font-bold bg-green-500 text-white rounded py-2"
+                  onClick={toggleSidebar}
+                >
+                  Client Login
                 </Link>
               </li>
             )}
 
-            <li>
+            <li className="bg-green-500 px-8 py-2 rounded-full text-white text-center">
               <a
-                href="https://wa.me/123456789"
+                href="https://wa.me/+917771004878"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-black"
               >
                 <FaWhatsapp size={24} />
-                <span className="ml-2">WhatsApp</span>
               </a>
             </li>
           </ul>

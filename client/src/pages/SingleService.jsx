@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getSingelService } from "../services/operations/auth";
 import { useParams } from "react-router-dom";
-import Navbar from "../components/comman/Navbar";
 import Footer from "../components/comman/Footer";
+import TraderNavbar from "../components/trader/comman/TraderNavbar";
 
 const SingleService = () => {
   const [service, setService] = useState(null);
@@ -23,7 +23,7 @@ const SingleService = () => {
 
   return (
     <div>
-      <Navbar />
+      <TraderNavbar />
       <div className="p-6">
         {service ? (
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 space-y-6">
