@@ -25,7 +25,7 @@ const InvestorNavbar = () => {
       <div className="max-w-7xl mx-auto p-5 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <div className="text-left">
-            <img src={logo} alt="not found" className="bg-white" />
+            <img src={logo} alt="not found" className="bg-white h-[80px]" />
           </div>
         </div>
 
