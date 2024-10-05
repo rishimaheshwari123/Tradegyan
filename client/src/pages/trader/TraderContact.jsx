@@ -77,7 +77,7 @@ const TraderContact = () => {
               <input
                 type="text"
                 name="name"
-                value={formData.name}
+                value={formData?.name}
                 onChange={handleChange}
                 placeholder="Type your name"
                 className="w-full p-2 border border-gray-300 rounded-lg"

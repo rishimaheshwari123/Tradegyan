@@ -45,11 +45,13 @@ const TraderNavbar = () => {
                 onMouseLeave={handleMouseLeave}
               >
                 <Link
-                  to={link.path}
+                  to={link?.path}
                   className="flex items-center font-bold hover:text-[#efcc41]"
                 >
-                  {link.name}
-                  {link.sublinks && <FaChevronDown className="ml-1 mt-[3px]" />}
+                  {link?.name}
+                  {link?.sublinks && (
+                    <FaChevronDown className="ml-1 mt-[3px]" />
+                  )}
                 </Link>
                 {/* Dropdown */}
                 {link.sublinks && activeDropdown === index && (
@@ -59,7 +61,7 @@ const TraderNavbar = () => {
                         key={subIndex}
                         className="py-2 px-4 font-bold hover:text-[#efcc41]"
                       >
-                        <Link to={sublink.path}>{sublink.name}</Link>
+                        <Link to={sublink?.path}>{sublink?.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -117,9 +119,9 @@ const TraderNavbar = () => {
                   onClick={() => toggleDropdown(index)}
                 >
                   <Link to={link.path} className="block text-black font-bold">
-                    {link.name}
+                    {link?.name}
                   </Link>
-                  {link.sublinks && <FaChevronDown />}
+                  {link?.sublinks && <FaChevronDown />}
                 </div>
                 {/* Dropdown in sidebar */}
                 {link.sublinks && activeDropdown === index && (
@@ -127,7 +129,7 @@ const TraderNavbar = () => {
                     {link.sublinks.map((sublink, subIndex) => (
                       <li key={subIndex} className="py-1 px-4">
                         <Link to={sublink.path} className="text-white">
-                          {sublink.name}
+                          {sublink?.name}
                         </Link>
                       </li>
                     ))}

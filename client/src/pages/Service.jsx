@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FaRupeeSign } from "react-icons/fa"; // Rupee icon
 import { AiOutlineCheckCircle } from "react-icons/ai"; // Check icon
 import { getAllService } from "../services/operations/auth";
-import Footer from "../components/comman/Footer";
-import Navbar from "../components/comman/Navbar";
 import { Link } from "react-router-dom";
 
 const Service = () => {
@@ -24,13 +22,13 @@ const Service = () => {
 
   return (
     <div>
-      <Navbar />
+      ={" "}
       <div className="p-6 max-w-7xl mx-auto ">
         <h1 className="text-3xl font-bold mb-6 text-center">Our Services</h1>
         <div className="grid grid-cols-1 gap-6">
           {services.map((service) => (
             <Link
-              to={`/service/${service._id}`}
+              to={`/trader/service/${service._id}`}
               key={service._id}
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4"
             >
@@ -75,7 +73,6 @@ const Service = () => {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
