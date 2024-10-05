@@ -8,13 +8,15 @@ import ScrollingBanner from "./ScrollingBanner";
 import ComplaintsTable from "../../components/trader/comman/ComplaintsTable";
 import Notification from "../../components/core/home/Notification";
 import Service from "../../pages/Service";
+import Navbar from "../../components/comman/Navbar";
 
 const TraderHome = () => {
   return (
     <div>
       <Notification />
+      <Navbar />
 
-      <TraderNavbar />
+      {/* <TraderNavbar /> */}
       <Slider />
       <ComplaintsTable />
 
