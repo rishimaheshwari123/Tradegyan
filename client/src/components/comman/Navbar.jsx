@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
-import image from "../../assets/logo.png";
+import image from "../../assets/logo.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, setUser } from "../../redux/authSlice";
 import { toast } from "react-toastify";

@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom"; // Import useLocation
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.jpg";
 import img1 from "../../assets/footer/1.png";
 import img2 from "../../assets/footer/2.png";
 import img3 from "../../assets/footer/3.png";
