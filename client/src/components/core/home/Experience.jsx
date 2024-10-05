@@ -11,9 +11,9 @@ import {
 const Experience = () => {
   return (
     <div
-      className="lg:py-32 py-16 bg-cover bg-center relative bg-black"
+      className=" py-16 bg-cover bg-center relative "
     >
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 lg:py-16">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 ">
         <div className="first">
           <p className="lg:text-5xl text-3xl font-bold mb-4 text-white">
             Transform Your Trading Journey

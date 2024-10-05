@@ -35,6 +35,7 @@ import UserDetails from "./components/admin/pages/UserDetails";
 import StockTable from "./pages/Tradesmarket";
 import TraderDatas from "./pages/TraderDatas";
 import TraderSingleData from "./pages/TraderSingleData";
+import InvestorCharter from "./pages/SebiDisclosure";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -63,6 +64,7 @@ const App = () => {
         <Route path="/trader/:name" element={<TraderDatas />} />
         <Route path="/trader/:type/:name" element={<TraderSingleData />} />
         <Route path="/trader/service/:id" element={<SingleService />} />
+        <Route path="/sebidiscloser" element={<InvestorCharter />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />

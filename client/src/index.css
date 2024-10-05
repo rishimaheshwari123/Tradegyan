@@ -15,7 +15,7 @@ html,
 body {
   overflow-x: hidden;
   font-family: "Fredoka", sans-serif;
-  background: black;
+  background: rgb(28, 48, 39);
 
 }
 
@@ -51,6 +51,9 @@ body {
 .animate-scroll {
   display: inline-block;
   animation: scroll 30s linear infinite; /* Adjust timing to fit the speed you want */
+}
+.hello {
+  mix-blend-mode: multiply;
 }
 
 .partnership-blk {

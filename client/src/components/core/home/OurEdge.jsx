@@ -23,7 +23,7 @@ const edge = [
 
 const OurEdge = () => {
   return (
-    <div className="lg:w-[80%] w-11/12 mx-auto text-white bg-black mt-10">
+    <div className="lg:w-[80%] w-11/12 mx-auto text-white mt-10">
       <div className="grid lg:grid-cols-2 flex-wrap">
         {/* For mobile view */}
         <div className="lg:hidden text-center w-full my-10">

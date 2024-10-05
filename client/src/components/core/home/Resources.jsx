@@ -27,7 +27,7 @@ const Resources = () => {
   ];
 
   return (
-    <section className="bg-black py-12 p-4">
+    <section className=" pb-12 p-4">
       <div className="text-center mb-8">
         <h2 className="text-4xl font-bold text-white">
           Essential Resources for Every Trader

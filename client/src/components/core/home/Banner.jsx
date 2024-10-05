@@ -4,7 +4,7 @@ import image from "../../../assets/12.png";
 
 const Banner = () => {
   return (
-    <div className="min-h-[300px] w-full lg:-mb-[10px] p-4 mt-10 bg-black">
+    <div className="min-h-[300px] w-full lg:-mb-[10px] p-4 mt-10 ">
       <div className="grid lg:grid-cols-2 w-[80%] mx-auto items-center justify-between text-white">
         <div className="flex flex-col justify-start gap-6">
           <p className="text-3xl font-bold lg:w-[60%] text-gray-300">

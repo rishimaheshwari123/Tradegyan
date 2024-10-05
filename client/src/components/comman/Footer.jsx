@@ -109,7 +109,7 @@ const Footer = () => {
         {/* Logo section */}
         <div className="lg:w-[23%] w-full flex flex-col gap-3">
           <div className="mb-[30px]">
-            <img src={logo} alt="TradegyanLogo" />
+            <img src={logo} alt="TradegyanLogo" className="" />
           </div>
 
           <div>
