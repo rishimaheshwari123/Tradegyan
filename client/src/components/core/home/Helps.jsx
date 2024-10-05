@@ -18,13 +18,13 @@ const Helps = () => {
         </div>
 
         <div className="flex flex-col gap-5">
-          <h2 className="lg:text-5xl text-3xl font-semibold text-[#323232]">
+          <h2 className="lg:text-5xl text-3xl font-semibold text-gray-300">
             Elevate Your Investment Strategy
           </h2>
-          <p className="text-xl text-[#555555]">
+          <p className="text-xl text-gray-400">
             Gain clarity and confidence with our expert insights and research.
           </p>
-          <Link className="w-fit bg-[#800f22] rounded-full px-5 py-3 font-bold hover:opacity-90 transition duration-300 text-white">
+          <Link className="w-fit bg-[#260062] rounded-full px-5 py-3 font-bold hover:opacity-90 transition duration-300 text-white">
             Explore More
           </Link>
         </div>

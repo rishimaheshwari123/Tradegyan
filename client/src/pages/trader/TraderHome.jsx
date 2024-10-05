@@ -19,7 +19,7 @@ const TraderHome = () => {
 
       <WeOffer />
       <TradingTips />
-      <WhoWeAre />
+      {/* <WhoWeAre /> */}
       <ScrollingBanner />
     </div>
   );

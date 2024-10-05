@@ -32,17 +32,7 @@ const navigation = [
       "Market Information",
     ],
   },
-  {
-    heading: "Platforms",
-    items: [
-      " Trader App",
-      "TradeRoom",
-      "MT5 Platform",
-      "CQG Platform",
-      "TWS Platform",
-      "Quantifier",
-    ],
-  },
+ 
   {
     heading: "About",
     items: [
@@ -123,7 +113,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold text-xl">Regulated by SCA</h3>
+            {/* <h3 className="font-bold text-xl">Regulated by SCA</h3> */}
             <p className="text-sm text-gray-500">
               TadeGyan Financial is a registered trademark of TadeGyan Financial
               Consultancy LLC
@@ -185,9 +175,12 @@ const Footer = () => {
                       <a href="#">{item}</a>
                     </li>
                   ))}
+                
                 </ul>
               </div>
             ))}
+          <ReachUs />
+
           </div>
 
           <div className="  ">
@@ -204,27 +197,26 @@ const Footer = () => {
               </a>
             ))}
 
-            <div className=" grid grid-cols-6 gap-10 mt-[40px]">
+            {/* <div className=" grid grid-cols-6 gap-10 mt-[40px]">
               {footerImages?.map((img, inx) => (
                 <img src={img} key={inx} alt="" className=" " />
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
       <div className="flex w-full mb-1 flex-wrap justify-between ">
-        <div className="lg:w-[30%] w-full flex flex-col gap-3">
-          <ReachUs />
-        </div>
+        {/* <div className="lg:w-[30%] w-full flex flex-col gap-3">
+        </div> */}
 
-        <div className=" w-[70%]">
+        {/* <div className=" w-[70%]">
           <img src={banner} alt="" />
-        </div>
+        </div> */}
       </div>
 
       <div>
-        <Disclaimer />
+        {/* <Disclaimer /> */}
       </div>
     </div>
   );

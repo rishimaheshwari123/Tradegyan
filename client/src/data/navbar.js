@@ -7,11 +7,25 @@ export const navLinks = [
         //     { name: "Sublink 2", path: "/sublink2" },
         // ],
     },
-    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about",
+        sublinks: [
+            { name: "Team", path: "/team" },
+          
+        ],
+     },
+    {
+        name: "Services",
+        path: "/",
+        sublinks: [
+            { name: "Investors", path: "/investor" },
+            { name: "Traders", path: "/trader" },
+        ],
+    },
     { name: "Support", path: "/support" },
-    { name: "Learn", path: "/learn" },
-    { name: "Faq", path: "/faq" },
+    { name: "Podcast", path: "/podcast" },
+    { name: "SEBI Disclosures", path: "/sebidiscloser" },
+    // { name: "Faq", path: "/faq" },
     // { name: "Client Login", path: "/client-login" },
 ];
 export const traderNavLinks = [

@@ -97,7 +97,7 @@ const Navbar = () => {
             {/* Conditional Buttons */}
             {token && user ? (
               <>
-                {user.role === "Admin" && (
+                {user?.role === "Admin" && (
                   <li>
                     <Link
                       to="/admin/dashboard"
@@ -144,7 +144,7 @@ const Navbar = () => {
               onClick={goToProfile}
             >
               <FaUserCircle size={28} className="text-orange-700" />
-              <span className="font-bold">{user.name}</span>
+              <span className="font-bold">{user?.name}</span>
             </li>
           </ul>
 

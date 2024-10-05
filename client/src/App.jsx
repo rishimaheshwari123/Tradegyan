@@ -32,6 +32,9 @@ import ProfileLayout from "./components/profile/ProfileLayout";
 import Profile from "./pages/profile/Profile";
 import CRM from "./components/admin/pages/CRM";
 import UserDetails from "./components/admin/pages/UserDetails";
+import StockTable from "./pages/Tradesmarket";
+import TraderDatas from "./pages/TraderDatas";
+import TraderSingleData from "./pages/TraderSingleData";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -44,6 +47,7 @@ const App = () => {
         <Route path="/partner" element={<Partner />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Partner />} />
+        <Route path="/stocktable" element={<StockTable />} />
         <Route path="/service" element={<Service />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/support" element={<Support />} />
@@ -56,6 +60,8 @@ const App = () => {
         <Route path="/trader" element={<TraderHome />} />
         <Route path="/trader/about" element={<TraderAbout />} />
         <Route path="/trader/contact" element={<TraderContact />} />
+        <Route path="/trader/:name" element={<TraderDatas />} />
+        <Route path="/trader/:type/:name" element={<TraderSingleData />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
