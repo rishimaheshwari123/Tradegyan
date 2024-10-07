@@ -3,10 +3,14 @@ import axios from "axios";
 
 const StockTicker = () => {
   const [stockData, setStockData] = useState([]);
+  const [topSharesData, setTopSharesData] = useState([]);
+  const [commoditiesData, setCommoditiesData] = useState([]);
+  const [goldFuturesData, setGoldFuturesData] = useState([]); // New state for Gold Futures
+  const [selectedTab, setSelectedTab] = useState("popular");
 
-  const API_KEY = "6LOFINK3ZQVHTK3P";
-  // Updated list of popular tickers
-  const tickers = [
+  const API_KEY = "cs1sq61r01qsperufq1gcs1sq61r01qsperufq20";
+
+  const popularTickers = [
     "NVDA",
     "AAPL",
     "AMZN",
@@ -17,47 +21,152 @@ const StockTicker = () => {
     "NFLX",
   ];
 
+  const topSharesTickers = [
+    "AAPL",
+    "MSFT",
+    "GOOGL",
+    "AMZN",
+    "NVDA",
+    "TSLA",
+    "BRK.B",
+    "JNJ",
+  ];
+
+  const commoditiesTickers = [
+    "XAUUSD", // Gold
+    "BRENT", // Brent Crude Oil
+    "WTI", // WTI Crude Oil
+    "NG", // Natural Gas
+    "SI", // Silver
+  ];
+
+  // New list for Gold Futures tickers
+  const goldFuturesTickers = [
+    "GC=F", // Gold Futures
+    "CL=F", // Crude Oil Futures
+    "BRN=F", // Brent Crude Futures
+    "NG=F", // Natural Gas Futures
+    "SI=F", // Silver Futures
+  ];
+
   useEffect(() => {
-    const fetchStockData = async () => {
+    const fetchPopularStockData = async () => {
       try {
-        const promises = tickers.map((ticker) =>
+        const promises = popularTickers.map((ticker) =>
           axios.get(
-            `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${ticker}&interval=5min&apikey=${API_KEY}`
+            `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${API_KEY}`
           )
         );
 
         const results = await Promise.all(promises);
-        console.log(results.data);
-
-        // Parse the response data from the results array
         const parsedData = results.map((result, index) => {
-          const timeSeries = result.data["Time Series (5min)"];
-          if (!timeSeries) return null; // Handle case where API returns no data
-
-          const latestTime = Object.keys(timeSeries)[0]; // Get the most recent time
-          const latestData = timeSeries[latestTime]; // Get data for the latest time
-
+          const latestData = result.data;
           return {
-            ticker: tickers[index],
-            price: latestData ? latestData["1. open"] : "N/A",
-            high: latestData ? latestData["2. high"] : "N/A",
-            low: latestData ? latestData["3. low"] : "N/A",
+            ticker: popularTickers[index],
+            price: latestData ? `$${latestData.c}` : "N/A",
             change: latestData
-              ? ((latestData["4. close"] - latestData["1. open"]) /
-                  latestData["1. open"]) *
-                100
+              ? ((latestData.c - latestData.o) / latestData.o) * 100
               : "N/A",
+            high: latestData ? `$${latestData.h}` : "N/A",
+            low: latestData ? `$${latestData.l}` : "N/A",
           };
         });
 
-        setStockData(parsedData.filter((data) => data !== null));
+        setStockData(parsedData);
       } catch (error) {
-        console.error("Error fetching stock data:", error);
+        console.error("Error fetching popular stock data:", error);
       }
     };
 
-    fetchStockData();
-  }, []);
+    const fetchTopSharesData = async () => {
+      try {
+        const promises = topSharesTickers.map((ticker) =>
+          axios.get(
+            `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${API_KEY}`
+          )
+        );
+
+        const results = await Promise.all(promises);
+        const parsedData = results.map((result, index) => {
+          const latestData = result.data;
+          return {
+            ticker: topSharesTickers[index],
+            price: latestData ? `$${latestData.c}` : "N/A",
+            change: latestData
+              ? ((latestData.c - latestData.o) / latestData.o) * 100
+              : "N/A",
+            high: latestData ? `$${latestData.h}` : "N/A",
+            low: latestData ? `$${latestData.l}` : "N/A",
+          };
+        });
+
+        setTopSharesData(parsedData);
+      } catch (error) {
+        console.error("Error fetching top shares data:", error);
+      }
+    };
+
+    const fetchCommoditiesData = async () => {
+      try {
+        const promises = commoditiesTickers.map((ticker) =>
+          axios.get(
+            `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${API_KEY}`
+          )
+        );
+
+        const results = await Promise.all(promises);
+        const parsedData = results.map((result, index) => {
+          const latestData = result.data;
+          return {
+            ticker: commoditiesTickers[index],
+            price: latestData ? `$${latestData.c}` : "N/A",
+            change: latestData
+              ? ((latestData.c - latestData.o) / latestData.o) * 100
+              : "N/A",
+            high: latestData ? `$${latestData.h}` : "N/A",
+            low: latestData ? `$${latestData.l}` : "N/A",
+          };
+        });
+
+        setCommoditiesData(parsedData);
+      } catch (error) {
+        console.error("Error fetching commodities data:", error);
+      }
+    };
+
+    const fetchGoldFuturesData = async () => {
+      try {
+        const promises = goldFuturesTickers.map((ticker) =>
+          axios.get(
+            `https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${API_KEY}`
+          )
+        );
+
+        const results = await Promise.all(promises);
+        const parsedData = results.map((result, index) => {
+          const latestData = result.data;
+          return {
+            ticker: goldFuturesTickers[index],
+            price: latestData ? `$${latestData.c}` : "N/A",
+            change: latestData
+              ? ((latestData.c - latestData.o) / latestData.o) * 100
+              : "N/A",
+            high: latestData ? `$${latestData.h}` : "N/A",
+            low: latestData ? `$${latestData.l}` : "N/A",
+          };
+        });
+
+        setGoldFuturesData(parsedData);
+      } catch (error) {
+        console.error("Error fetching Gold Futures data:", error);
+      }
+    };
+
+    fetchPopularStockData();
+    fetchTopSharesData();
+    fetchCommoditiesData();
+    fetchGoldFuturesData(); // Fetch Gold Futures data
+  }, [API_KEY]);
 
   const formatChange = (change) => {
     const color = change >= 0 ? "text-green-500" : "text-red-500";
@@ -66,31 +175,152 @@ const StockTicker = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Live Stock Prices</h1>
-      <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-        <thead>
-          <tr className="bg-gray-200 text-gray-700 text-left">
-            <th className="py-3 px-4 border-b">Ticker Name</th>
-            <th className="py-3 px-4 border-b">Price</th>
-            <th className="py-3 px-4 border-b">Change</th>
-            <th className="py-3 px-4 border-b">High/Low</th>
-          </tr>
-        </thead>
-        <tbody>
-          {stockData.map((stock, index) => (
-            <tr key={index} className="hover:bg-gray-100">
-              <td className="py-2 px-4 border-b">{stock.ticker}</td>
-              <td className="py-2 px-4 border-b">${stock.price}</td>
-              <td className="py-2 px-4 border-b">
-                {formatChange(stock.change)}
-              </td>
-              <td className="py-2 px-4 border-b">
-                H: ${stock.high} L: ${stock.low}
-              </td>
+      <h1 className="text-3xl text-white font-bold text-center mb-6">
+        Live Market Prices
+      </h1>
+
+      {/* Tabs */}
+      <div className="flex justify-around mb-4">
+        <button
+          className={`py-2 px-4 rounded ${
+            selectedTab === "popular" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedTab("popular")}
+        >
+          Popular
+        </button>
+        <button
+          className={`py-2 px-4 rounded ${
+            selectedTab === "shares" ? "bg-blue-500 text-white" : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedTab("shares")}
+        >
+          Shares
+        </button>
+        <button
+          className={`py-2 px-4 rounded ${
+            selectedTab === "commodities"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedTab("commodities")}
+        >
+          Commodities
+        </button>
+        <button
+          className={`py-2 px-4 rounded ${
+            selectedTab === "goldFutures"
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200"
+          }`}
+          onClick={() => setSelectedTab("goldFutures")}
+        >
+          Gold Futures
+        </button>
+      </div>
+
+      {/* Tab Content */}
+      {selectedTab === "popular" ? (
+        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-gray-200 text-gray-700 text-left">
+              <th className="py-3 px-4 border-b">Ticker Name</th>
+              <th className="py-3 px-4 border-b">Price</th>
+              <th className="py-3 px-4 border-b">Change</th>
+              <th className="py-3 px-4 border-b">High/Low</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {stockData.map((stock, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="py-2 px-4 border-b">{stock.ticker}</td>
+                <td className="py-2 px-4 border-b">{stock.price}</td>
+                <td className="py-2 px-4 border-b">
+                  {formatChange(stock.change)}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  {stock.high} / {stock.low}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : selectedTab === "shares" ? (
+        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-gray-200 text-gray-700 text-left">
+              <th className="py-3 px-4 border-b">Ticker Name</th>
+              <th className="py-3 px-4 border-b">Price</th>
+              <th className="py-3 px-4 border-b">Change</th>
+              <th className="py-3 px-4 border-b">High/Low</th>
+            </tr>
+          </thead>
+          <tbody>
+            {topSharesData.map((stock, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="py-2 px-4 border-b">{stock.ticker}</td>
+                <td className="py-2 px-4 border-b">{stock.price}</td>
+                <td className="py-2 px-4 border-b">
+                  {formatChange(stock.change)}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  {stock.high} / {stock.low}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : selectedTab === "commodities" ? (
+        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-gray-200 text-gray-700 text-left">
+              <th className="py-3 px-4 border-b">Commodity Name</th>
+              <th className="py-3 px-4 border-b">Price</th>
+              <th className="py-3 px-4 border-b">Change</th>
+              <th className="py-3 px-4 border-b">High/Low</th>
+            </tr>
+          </thead>
+          <tbody>
+            {commoditiesData.map((commodity, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="py-2 px-4 border-b">{commodity.ticker}</td>
+                <td className="py-2 px-4 border-b">{commodity.price}</td>
+                <td className="py-2 px-4 border-b">
+                  {formatChange(commodity.change)}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  {commodity.high} / {commodity.low}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : selectedTab === "goldFutures" ? (
+        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+          <thead>
+            <tr className="bg-gray-200 text-gray-700 text-left">
+              <th className="py-3 px-4 border-b">Gold Futures Name</th>
+              <th className="py-3 px-4 border-b">Price</th>
+              <th className="py-3 px-4 border-b">Change</th>
+              <th className="py-3 px-4 border-b">High/Low</th>
+            </tr>
+          </thead>
+          <tbody>
+            {goldFuturesData.map((future, index) => (
+              <tr key={index} className="hover:bg-gray-100">
+                <td className="py-2 px-4 border-b">{future.ticker}</td>
+                <td className="py-2 px-4 border-b">{future.price}</td>
+                <td className="py-2 px-4 border-b">
+                  {formatChange(future.change)}
+                </td>
+                <td className="py-2 px-4 border-b">
+                  {future.high} / {future.low}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : null}
     </div>
   );
 };
