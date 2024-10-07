@@ -15,6 +15,8 @@ html,
 body {
   overflow-x: hidden;
   font-family: "Fredoka", sans-serif;
+  background: rgb(28, 48, 39);
+
 }
 
 @keyframes marquee {
@@ -49,6 +51,9 @@ body {
 .animate-scroll {
   display: inline-block;
   animation: scroll 30s linear infinite; /* Adjust timing to fit the speed you want */
+}
+.hello {
+  mix-blend-mode: multiply;
 }
 
 .partnership-blk {

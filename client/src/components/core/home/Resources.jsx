@@ -8,31 +8,31 @@ const Resources = () => {
       description:
         "Enhance your trading skills with our comprehensive workshops and interactive webinars tailored for all levels.",
       buttonText: "Join Now",
-      icon: <FaChalkboardTeacher className="text-4xl text-[#800f22]" />,
+      icon: <FaChalkboardTeacher className="text-4xl text-[#F5C300]" />,
     },
     {
       title: "Strategic Insights",
       description:
         "Access a wide array of trading strategies covering over 10,000 derivatives, all with competitive spreads.",
       buttonText: "Discover More",
-      icon: <FaLightbulb className="text-4xl text-[#800f22]" />,
+      icon: <FaLightbulb className="text-4xl text-[#F5C300]" />,
     },
     {
       title: "Resource Hub",
       description:
         "Explore our extensive library filled with articles, videos, and market analyses to stay informed.",
       buttonText: "Explore Now",
-      icon: <FaBookOpen className="text-4xl text-[#800f22]" />,
+      icon: <FaBookOpen className="text-4xl text-[#F5C300]" />,
     },
   ];
 
   return (
-    <section className="bg-gray-100 py-12 p-4">
+    <section className=" pb-12 p-4">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold">
+        <h2 className="text-4xl font-bold text-white">
           Essential Resources for Every Trader
         </h2>
-        <p className="text-gray-600 mt-2">
+        <p className="text-[#0afc3e] mt-2">
           With years of experience and a wealth of knowledge at your fingertips, we’re here to support your trading journey.
         </p>
       </div>
@@ -47,7 +47,7 @@ const Resources = () => {
             </div>
             <h3 className="text-xl font-semibold mb-2">{resource.title}</h3>
             <p className="text-gray-600 mb-6">{resource.description}</p>
-            <button className="bg-[#800f22] hover:bg-yellow-600 text-white flex m-auto font-bold py-2 px-4 rounded-full">
+            <button className="bg-[#260062] hover:bg-yellow-600 text-white flex m-auto font-bold py-2 px-4 rounded-full">
               {resource.buttonText}
             </button>
           </div>

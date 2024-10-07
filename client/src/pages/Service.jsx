@@ -26,7 +26,7 @@ const Service = () => {
       <div className="p-6 max-w-7xl mx-auto ">
         <h1 className="text-3xl font-bold mb-6 text-center">Our Services</h1>
         <div className="grid grid-cols-1 gap-6">
-          {services.map((service) => (
+          {services?.map((service) => (
             <Link
               to={`/trader/service/${service._id}`}
               key={service._id}

@@ -3,9 +3,7 @@ import {
   FaRegNewspaper,
   FaBell,
   FaChartLine,
-  FaUsersCog,
   FaLightbulb,
-  FaMobileAlt,
   FaBullseye,
   FaLaptopCode,
 } from "react-icons/fa";
@@ -13,74 +11,57 @@ import {
 const Experience = () => {
   return (
     <div
-      className="bg-[#fdf7e6ea] lg:py-32 py-16 bg-cover bg-center relative"
-      style={{
-        backgroundImage: `url('https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/homepage-century-max/Background.png')`,
-      }}
+      className=" py-16 bg-cover bg-center relative "
     >
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 lg:py-16">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 ">
         <div className="first">
-          <p className="lg:text-5xl text-3xl font-bold mb-4">
+          <p className="lg:text-5xl text-3xl font-bold mb-4 text-white">
             Transform Your Trading Journey
           </p>
-          <p className="text-gray-700 mb-8 text-xl">
+          <p className="text-[#0afc3e] mb-8 text-xl">
             with Trade Gyan Trader
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
             {/* Market Insights */}
             <div className="text-center">
-              <FaRegNewspaper className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">Market Insights</h4>
-              <p className="text-gray-600 text-sm">Stay Updated</p>
+              <FaRegNewspaper className="text-[#F5C300] text-5xl mx-auto" />
+              <h4 className="text-lg font-bold text-[#0afc3e]">Market Insights</h4>
+              <p className="text-white text-sm">Stay Updated</p>
             </div>
 
             {/* Alerts & Notifications */}
             <div className="text-center">
-              <FaBell className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">Alerts & Notifications</h4>
-              <p className="text-gray-600 text-sm">Be Informed</p>
+              <FaBell className="text-[#F5C300] text-5xl mx-auto" />
+              <h4 className="text-lg font-bold text-[#0afc3e]">Alerts & Notifications</h4>
+              <p className="text-white text-sm">Be Informed</p>
             </div>
 
             {/* Advanced Charting */}
             <div className="text-center">
-              <FaChartLine className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">Advanced Charting</h4>
-              <p className="text-gray-600 text-sm">Strategic Analysis</p>
-            </div>
-
-            {/* User Insights */}
-            <div className="text-center">
-              <FaUsersCog className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">User Insights</h4>
-              <p className="text-gray-600 text-sm">Client Sentiments</p>
+              <FaChartLine className="text-[#F5C300] text-5xl mx-auto" />
+              <h4 className="text-lg font-bold text-[#0afc3e]">Advanced Charting</h4>
+              <p className="text-white text-sm">Strategic Analysis</p>
             </div>
 
             {/* Investment Strategies */}
             <div className="text-center">
-              <FaLightbulb className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">Investment Strategies</h4>
-              <p className="text-gray-600 text-sm">Tailored Approaches</p>
-            </div>
-
-            {/* One-Tap Trading */}
-            <div className="text-center">
-              <FaMobileAlt className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">One-Tap Trading</h4>
-              <p className="text-gray-600 text-sm">Easy Access</p>
+              <FaLightbulb className="text-[#F5C300] text-5xl mx-auto" />
+              <h4 className="text-lg font-bold text-[#0afc3e]">Investment Strategies</h4>
+              <p className="text-white text-sm">Tailored Approaches</p>
             </div>
 
             {/* Market Perspectives */}
             <div className="text-center">
-              <FaBullseye className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">Market Perspectives</h4>
-              <p className="text-gray-600 text-sm">Comprehensive Views</p>
+              <FaBullseye className="text-[#F5C300] text-5xl mx-auto" />
+              <h4 className="text-lg font-bold text-[#0afc3e]">Market Perspectives</h4>
+              <p className="text-white text-sm">Comprehensive Views</p>
             </div>
 
             {/* Technical Analyses */}
             <div className="text-center">
-              <FaLaptopCode className="text-[#800f22] text-5xl mx-auto" />
-              <h4 className="text-lg font-bold text-gray-800">Technical Analyses</h4>
-              <p className="text-gray-600 text-sm">In-Depth Insights</p>
+              <FaLaptopCode className="text-[#F5C300] text-5xl mx-auto" />
+              <h4 className="text-lg font-bold text-[#0afc3e]">Technical Analyses</h4>
+              <p className="text-white text-sm">In-Depth Insights</p>
             </div>
           </div>
         </div>

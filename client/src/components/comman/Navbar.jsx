@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { navLinks } from "../../data/navbar";
-import image from "../../assets/logo.png";
+import image from "../../assets/logo.gif";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken, setUser } from "../../redux/authSlice";
 import { toast } from "react-toastify";
@@ -118,7 +118,7 @@ const Navbar = () => {
             {/* Conditional Buttons */}
             {token && user ? (
               <>
-                {user.role === "Admin" && (
+                {user?.role === "Admin" && (
                   <li>
                     <Link
                       to="/admin/dashboard"

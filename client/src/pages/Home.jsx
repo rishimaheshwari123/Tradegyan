@@ -32,7 +32,7 @@ const Home = () => {
       <Banner />
       <LastBanner />
       <HomeQuote />
-      <Faq />
+      {/* <Faq /> */}
     </div>
   );
 };

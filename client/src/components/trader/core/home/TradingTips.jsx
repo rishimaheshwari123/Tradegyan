@@ -1,38 +1,46 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TradingTips = () => {
   const tipsData = [
     {
-      title: "Equity Trading Tips",
+      title: "Equity Trading ",
       description:
         "The Equity Trading Tips Services Includes Intraday & Positional Stock Trading Advice, BTST For Stocks Listed in NSE And BSE",
       imgSrc: "https://tradegyan.co/wp-content/uploads/2019/07/1-1.jpg", // Replace with actual image path
-    },
+     path:"/equity" 
+ },
     {
-      title: "Derivatives Trading Tips",
+      title: "Commodity",
       description:
         "The Derivative Trading Tips Services Includes Intraday & Positional Future & Option, BTST Trading Advice, For Stocks Listed in NSE",
       imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/3.jpg", // Replace with actual image path
+      path:"/commodity" 
+   
     },
     {
-      title: "MCX Trading Tips",
+      title: "Agri Commodity",
       description:
         "The MCX Trading Tips Services Includes Intraday & Positional Gold, Silver, Crude, Zinc, NG, Copper, Etc Trading Advice Listed in MCX.",
       imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/2.jpg", // Replace with actual image path
+      path:"/agri" 
+   
     },
     {
-      title: "NCDEX Trading Advice",
+      title: "Forex",
       description:
         "The NCDEX Trading Tips Services Includes Intraday & Positional Zeera, Dhaniya, Chana, Turmeric, SoyaBean, Etc Trading Advice",
       imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/4.jpg", // Replace with actual image path
+      path:"/forex" 
+    
     },
   ];
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-7xl p-5 mx-auto py-10">
       {tipsData.map((tip, index) => (
-        <div key={index} className="flex items-center relative">
-          {/* Image Section */}
+        <Link to={`/trader${tip.path}`} key={index} className="flex items-center relative">
+          {/* Image Secti/${on */}
           <div className="relative hidden lg:block ">
             <img
               src={tip.imgSrc}
@@ -53,7 +61,7 @@ const TradingTips = () => {
               </p>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

@@ -6,7 +6,7 @@ import { AiOutlineUser } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-// import logo from "../../../assest/logo.jpg"
+// import logo from "../../../assest/logo.gif"
 import { logout } from "../../../services/operations/auth";
 import { FaUsersGear } from "react-icons/fa6";
 

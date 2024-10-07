@@ -67,20 +67,7 @@ const HomeQuote = () => {
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Enter your email"
-                className="w-full p-2 border border-gray-300 rounded-lg"
-                required
-              />
-            </div>
+        
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -96,8 +83,21 @@ const HomeQuote = () => {
                 required
               />
             </div>
-
             <div>
+              <label className="block text-sm font-medium text-gray-700">
+                Email Address
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter your email (Optional)"
+                className="w-full p-2 border border-gray-300 rounded-lg"
+                
+              />
+            </div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700">
                 Who are you?
               </label>
@@ -113,7 +113,7 @@ const HomeQuote = () => {
                 <option value="Investment Advisor">Investment Advisor</option>
                 <option value="Portfolio Manager">Portfolio Manager</option>
               </select>
-            </div>
+            </div> */}
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -123,9 +123,9 @@ const HomeQuote = () => {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Enter your message"
+                placeholder="Enter your message (Optional)"
                 className="w-full p-2 border border-gray-300 rounded-lg"
-                required
+                
               ></textarea>
             </div>
 

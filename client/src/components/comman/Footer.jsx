@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { useLocation } from "react-router-dom"; // Import useLocation
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.gif";
 import img1 from "../../assets/footer/1.png";
 import img2 from "../../assets/footer/2.png";
 import img3 from "../../assets/footer/3.png";
@@ -32,17 +32,7 @@ const navigation = [
       "Market Information",
     ],
   },
-  {
-    heading: "Platforms",
-    items: [
-      " Trader App",
-      "TradeRoom",
-      "MT5 Platform",
-      "CQG Platform",
-      "TWS Platform",
-      "Quantifier",
-    ],
-  },
+ 
   {
     heading: "About",
     items: [
@@ -117,11 +107,11 @@ const Footer = () => {
         {/* Logo section */}
         <div className="lg:w-[23%] w-full flex flex-col gap-3">
           <div className="mb-[30px]">
-            <img src={logo} alt="TradegyanLogo" />
+            <img src={logo} alt="TradegyanLogo" className="" />
           </div>
 
           <div>
-            <h3 className="font-bold text-xl">Regulated by SCA</h3>
+            {/* <h3 className="font-bold text-xl">Regulated by SCA</h3> */}
             <p className="text-sm text-gray-500">
               TadeGyan Financial is a registered trademark of TadeGyan Financial
               Consultancy LLC
@@ -183,9 +173,12 @@ const Footer = () => {
                       <a href="#">{item}</a>
                     </li>
                   ))}
+                
                 </ul>
               </div>
             ))}
+          <ReachUs />
+
           </div>
 
           <div className="  ">
@@ -212,9 +205,8 @@ const Footer = () => {
       </div>
 
       <div className="flex w-full mb-1 flex-wrap justify-between ">
-        <div className="lg:w-[30%] w-full flex flex-col gap-3">
-          <ReachUs />
-        </div>
+        {/* <div className="lg:w-[30%] w-full flex flex-col gap-3">
+        </div> */}
 
         {/* <div className=" w-[70%]">
           <img src={banner} alt="" />
@@ -222,7 +214,7 @@ const Footer = () => {
       </div>
 
       <div>
-        <Disclaimer />
+        {/* <Disclaimer /> */}
       </div>
     </div>
   );
