@@ -9,6 +9,7 @@ const ConversationList = ({  onUserSelect }) => {
   const { user } = useSelector(state => state.auth);
   const [socket, setSocket] = useState(null);
 const BASE_URL = 'http://localhost:8080'
+const [conversationId, setConversationId] = useState(null);
 
 
   const fetchConversations = async () => {
@@ -23,16 +24,19 @@ const BASE_URL = 'http://localhost:8080'
     }
   };
 
+
+
   useEffect(() => {
     // Connect to Socket.IO server
-    const newSocket = io(BASE_URL, {
+    const newSocket = io("http://localhost:8080", {
       query: { token }, // Pass the auth token if required
     });
+    console.log(token)
     setSocket(newSocket);
 
     // Clean up on component unmount
     return () => newSocket.close();
-  }, [token]);
+  }, []);
 
   useEffect(() => {
     fetchConversations();
@@ -40,6 +44,7 @@ const BASE_URL = 'http://localhost:8080'
 
   useEffect(() => {
     if (socket) {
+
       // Listen for message read events
       socket.on('message_read', () => {
         fetchConversations(); // Update conversations when messages are read
@@ -49,11 +54,37 @@ const BASE_URL = 'http://localhost:8080'
       socket.on('new_message', () => {
         fetchConversations(); // Update conversations when new messages are received
       });
+      socket.on('markMessagesAsRead', () => {
+        fetchConversations(); // Update conversations when new messages are received
+      });
     }
   }, [socket]);
 
+
+  const fetchConversationId = async (participantId) => {
+    try {
+     // Assuming you're storing the token in localStorage
+      const response = await axios.get(`http://localhost:8080/api/v1/chat/conversationId/${participantId}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+     if(response?.data?.conversationId){
+
+       setConversationId(response.data.conversationId);
+     }
+      console.log(conversationId) // Set conversation ID from response
+    } catch (err) {
+      console.error('Error fetching conversation ID:', err);
+    }
+  }
+
   const onClickUser = async (id) => {
     onUserSelect(id);
+ 
+   await fetchConversationId(id)
+ 
+    socket.emit("markMessagesAsRead", { conversationId, userId:user?._id });
+
+    console.log(conversationId)
     fetchConversations(); // Refresh the conversations after a user is selected
   };
 

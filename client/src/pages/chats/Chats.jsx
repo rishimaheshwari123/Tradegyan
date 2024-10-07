@@ -141,7 +141,7 @@ const Chat = ({ receiverId, onClose,idReciever }) => {
                 {msg.message}
                 <div className={`text-xs ${msg.sender._id === user._id ? "text-right" : "text-left"}`}>
                   <div>{new Date(msg.createdAt).toLocaleString()}</div>
-                  <div>{msg.read ? "Seen" : "Not Seen"}</div>
+                  {/* <div>{msg.read ? "Seen" : "Not Seen"}</div> */}
                 </div>
               </div>
             </div>

@@ -62,94 +62,60 @@ app.get("/", (req, res) => {
 })
 
 
-
 io.on('connection', (socket) => {
-    console.log('A user connected');
+  console.log('A user connected');
+
+  socket.on('joinConversation', (conversationId) => {
+    socket.join(conversationId);
+  });
+
+  socket.on('typing', (conversationId, userId) => {
+    console.log("typing")
+    socket.to(conversationId).emit('displayTyping', { userId });
+  });
+
+
   
-    // Handle user joining a conversation
-    socket.on('joinConversation', async (conversationId, userId) => {
-      socket.join(conversationId);
-    
-      console.log(`User ${userId} joined conversation ${conversationId}`);
-  
-      // Mark messages as read when the user joins the conversation room
-      try {
-        await Chat.updateMany(
-          { conversationId, sender: { $ne: userId }, read: false },
-          { $set: { read: true } }
-        );
-  
-        // Notify that messages have been marked as read
-        io.to(conversationId).emit('message_read', { conversationId });
-      } catch (error) {
-        console.error('Error marking messages as read:', error);
-      }
+  socket.on('stopTyping', (conversationId, userId) => {
+    socket.to(conversationId).emit('removeTyping', { userId });
+  });
+
+  socket.on('sendMessage', async(messageData) => {
+    const { conversationId, sender, message } = messageData;
+
+    if(message ===""){
+      return
+    }
+       const newMessage = new Chat({ conversationId, sender, message });
+       await newMessage.save();
+    io.to(conversationId).emit('receiveMessage', {
+      conversationId,
+      sender,
+      message,
     });
-  
-    // Typing indicator events
-    socket.on('typing', (conversationId, userId) => {
-      socket.to(conversationId).emit('displayTyping', { userId });
-    });
-  
-    socket.on('stopTyping', (conversationId, userId) => {
-      socket.to(conversationId).emit('removeTyping', { userId });
-    });
-  
-    // Handle sending a message
-    socket.on('sendMessage', async (messageData) => {
-      const { conversationId, sender, message } = messageData;
-  
-      if (message === "") return;
-  
-      // Save the new message to the database
-      const newMessage = new Chat({ conversationId, sender, message });
-      await newMessage.save();
-  
-      // Emit the new message to the room
-      io.to(conversationId).emit('receiveMessage', {
-        conversationId,
-        sender,
-        message,
-      });
-  
-      // Fetch all clients in the conversation room
-      const clients = await io.in(conversationId).fetchSockets();
-  
-      // Check if any user is in the room who is not the sender (i.e., viewing the chat)
-      const isUserInRoom = clients.some(client => client.userId !== sender);
-  
-      // Mark the message as read if the user is still viewing the chat
-      if (isUserInRoom) {
-        await Chat.updateOne(
-          { _id: newMessage._id },
-          { $set: { read: true } }
-        );
-  
-        io.to(conversationId).emit('message_read', { conversationId });
-      }
-    });
-  
-    // Handle marking messages as read
-    socket.on('markMessagesAsRead', async ({ conversationId, userId }) => {
-      try {
-        // Mark unread messages as read for the current conversation
-        await Chat.updateMany(
-          { conversationId, sender: { $ne: userId }, read: false },
-          { $set: { read: true } }
-        );
-  
-        // Emit the message_read event to the conversation room
-        io.to(conversationId).emit('message_read', { conversationId });
-      } catch (error) {
-        console.error('Error marking messages as read:', error);
-      }
-    });
-  
-    // Handle user disconnecting
-    socket.on('disconnect', () => {
-      console.log('User disconnected');
-    });
-  })
+
+    io.emit('new_message', { conversationId, message });
+  });
+
+  socket.on('markMessagesAsRead', async ({ conversationId, userId }) => {
+    try {
+      // Mark unread messages as read for the current conversation
+      await Chat.updateMany(
+        { conversationId, sender: { $ne: userId }, read: false },
+        { $set: { read: true } }
+      );
+
+      // Emit the message_read event to the conversation room
+      io.to(conversationId).emit('message_read', { conversationId });
+    } catch (error) {
+      console.error('Error marking messages as read:', error);
+    }
+  });
+
+  socket.on('disconnect', () => {
+    console.log('User disconnected');
+  });
+})
 server.listen(PORT, () => {
     console.log(`Server is running at port no ${PORT}`)
 })

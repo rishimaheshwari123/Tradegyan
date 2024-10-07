@@ -44,7 +44,7 @@ router.post('/conversation', auth, async (req, res) => {
 
 const getUserConversations = async (req, res) => {
   const userId = req.user.id; // User ID as a string
-console.log("hanji")
+
   try {
     // Fetch conversations where the user is a participant
     const conversations = await Conversation.find({
@@ -115,6 +115,29 @@ console.log(error)
 });
 
 
+// Get conversation ID between two users (logged-in user and a participant)
+router.get('/conversationId/:participantId', auth, async (req, res) => {
+  const userId = req.user.id; // Current logged-in user ID
+  const { participantId } = req.params; // The participant's ID from the request parameters
+
+  console.log("aagya")
+  try {
+    // Find a conversation that involves both the user and the participant
+    const conversation = await Conversation.findOne({
+      participants: { $all: [userId, participantId] }
+    });
+
+    if (!conversation) {
+      return res.status(404).json({ message: 'No conversation found between the users.' });
+    }
+
+    // Respond with the conversation ID
+    res.status(200).json({ conversationId: conversation._id });
+  } catch (error) {
+    console.error('Error fetching conversation:', error);
+    res.status(500).json({ message: 'Error fetching conversation', error });
+  }
+});
 
 
 router.get('/serach',searchUsers)
