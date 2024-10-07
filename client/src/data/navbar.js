@@ -11,7 +11,7 @@ export const navLinks = [
     { name: "Contact", path: "/contact" },
     { name: "Support", path: "/support" },
     { name: "Learn", path: "/learn" },
-    { name: "Faq", path: "/faq" },
+    // { name: "Faq", path: "/faq" },
     // { name: "Client Login", path: "/client-login" },
 ];
 export const traderNavLinks = [
