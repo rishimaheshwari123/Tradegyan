@@ -93,6 +93,8 @@ const registerCtrl = async (req, res) => {
       email,
       contactNumber,
       whatsappNumber,
+      image:`https://api.dicebear.com/5.x/initials/svg?seed=${name}`,
+
       password: hashedPassword,
     });
 

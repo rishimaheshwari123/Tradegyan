@@ -7,7 +7,10 @@ const authSchema = new mongoose.Schema(
             required: true,
             trim: true,
         },
-
+        image: {
+            type: String,
+            required: true,
+          },
         email: {
             type: String,
             required: true,

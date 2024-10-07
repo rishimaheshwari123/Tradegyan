@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaUserCircle, FaRegCreditCard, FaTimes, FaBars } from "react-icons/fa";
+import { FaUserCircle, FaRegCreditCard, FaTimes, FaBars, FaComments } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -21,16 +22,22 @@ const Sidebar = () => {
       {/* Sidebar Items */}
       <div className="mt-16">
         {/* Profile */}
-        <div className="flex items-center space-x-4 p-4 hover:bg-gray-700 cursor-pointer">
+        <Link to="/" className="flex items-center space-x-4 p-4 hover:bg-gray-700 cursor-pointer">
           <FaUserCircle className="text-2xl" />
-          {isOpen && <span className="text-lg">Profile</span>}
-        </div>
+          {isOpen && <span className="text-lg">Home</span>}
+        </Link>
 
         {/* Subscription */}
-        <div className="flex items-center space-x-4 p-4 hover:bg-gray-700 cursor-pointer">
+        <Link to="/subscription" className="flex items-center space-x-4 p-4 hover:bg-gray-700 cursor-pointer">
           <FaRegCreditCard className="text-2xl" />
           {isOpen && <span className="text-lg">Subscription</span>}
-        </div>
+        </Link>
+
+        {/* Chats */}
+        <Link to="/chats" className="flex items-center space-x-4 p-4 hover:bg-gray-700 cursor-pointer">
+          <FaComments className="text-2xl" />
+          {isOpen && <span className="text-lg">Chats</span>}
+        </Link>
       </div>
     </div>
   );

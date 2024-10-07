@@ -36,10 +36,13 @@ import StockTable from "./pages/Tradesmarket";
 import TraderDatas from "./pages/TraderDatas";
 import TraderSingleData from "./pages/TraderSingleData";
 import InvestorCharter from "./pages/SebiDisclosure";
+import useSocket from "./socket io/useSocket";
+import ChatsApp from "./pages/chats/MainChat";
+import AdminChatsApp from "./components/admin/Adminchats/MainChat";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
-
+  useSocket();
   return (
     <div>
       <Routes>
@@ -68,6 +71,7 @@ const App = () => {
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/chats" element={<ChatsApp />} />
         </Route>
         <Route
           path="/login"
@@ -132,6 +136,14 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <CRM />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/chats"
+              element={
+                <PrivateRoute>
+                  <AdminChatsApp />
                 </PrivateRoute>
               }
             />

@@ -58,6 +58,11 @@ const Sidebar = () => {
       icon: <FaUsersGear className="text-red-500" />,
       label: "Users",
     },
+    {
+      to: "/admin/chats",
+      icon: <FaUsersGear className="text-red-500" />,
+      label: "Users",
+    },
   ];
 
   return (
