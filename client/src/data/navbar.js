@@ -8,12 +8,13 @@ export const navLinks = [
         // ],
     },
     { name: "Contact", path: "/contact" },
-    { name: "About", path: "/about",
+    {
+        name: "About", path: "/about",
         sublinks: [
             { name: "Team", path: "/team" },
-          
+
         ],
-     },
+    },
     {
         name: "Services",
         path: "/",
@@ -25,6 +26,8 @@ export const navLinks = [
     { name: "Support", path: "/support" },
     { name: "Podcast", path: "/podcast" },
     { name: "SEBI Disclosures", path: "/sebidiscloser" },
+    // { name: "Faq", path: "/faq" },
+    { name: "Learn", path: "/learn" },
     // { name: "Faq", path: "/faq" },
     // { name: "Client Login", path: "/client-login" },
 ];

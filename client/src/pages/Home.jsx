@@ -13,6 +13,7 @@ import LastBanner from "../components/core/home/LastBanner";
 import HomeQuote from "../components/core/home/HomeQuote";
 import Faq from "../components/core/home/Faq";
 import Notification from "../components/core/home/Notification";
+import StockTicker from "./GlobleMarket";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <Slider />
       <LivePrice />
       <Investment />
+      <StockTicker />
       <Opportunities />
       <Helps />
       <Experience />

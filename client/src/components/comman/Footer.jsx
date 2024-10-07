@@ -93,14 +93,12 @@ const websiteSections = [
 const footerImages = [img1, img2, img3, img4, img5, img6];
 
 const Footer = () => {
-
   const location = useLocation(); // Get current location
 
   // Check if the current URL includes "admin"
   if (location.pathname.includes("admin")) {
     return null; // Don't render the footer if "admin" is in the URL
   }
-
 
   return (
     <div className="w-[90%] mx-auto text-[#323232] mt-10">
@@ -229,27 +227,51 @@ export const Disclaimer = () => {
     <div className="p-4 bg-gray-50">
       <h2 className="text-lg font-bold mb-2">Disclaimer</h2>
       <p className="text-gray-500 text-[12px]">
-  Trading in financial products carries risk. Trading in leveraged Over-The-Counter (OTC) Derivative products (including Contracts for Difference (CFDs) and spot foreign exchange contracts) involves a significant risk of loss which can exceed deposits and may not be suitable for all investors. OTC Derivative products / CFDs are complex financial instruments that do not confer any claim or right to the underlying financial instrument. Transactions in these instruments are very risky, and you should trade only with the capital you can afford to lose. Before deciding to trade on these products, you should consider your investment objectives, risk tolerance, and your level of experience. Accordingly, you should ensure that you understand the risks involved and seek independent advice from professionals if necessary.
-</p>
-<p className="text-gray-500 text-xs mt-6">
-  Trade Gyan Solutions is duly licensed and regulated by the relevant authorities in the UAE to operate as a trading advisor and provide consultancy services in financial markets. Our firm specializes in providing insights and strategies related to trading in various financial instruments. We are committed to maintaining the highest standards of compliance and client protection.
-</p>
-<p className="text-gray-500 text-xs mt-6">
-  Any content available on our website is presented solely to provide information and educate visitors. Under no circumstances is any of this content meant to be construed as an offer, recommendation, advice, or solicitation to buy or sell securities or other financial products.
-</p>
-<p className="text-gray-500 text-xs mt-6">
-  This website's information is not intended for use by anybody residing outside the UAE or where such use would violate local laws or regulations.
-</p>
-
-
+        Trading in financial products carries risk. Trading in leveraged
+        Over-The-Counter (OTC) Derivative products (including Contracts for
+        Difference (CFDs) and spot foreign exchange contracts) involves a
+        significant risk of loss which can exceed deposits and may not be
+        suitable for all investors. OTC Derivative products / CFDs are complex
+        financial instruments that do not confer any claim or right to the
+        underlying financial instrument. Transactions in these instruments are
+        very risky, and you should trade only with the capital you can afford to
+        lose. Before deciding to trade on these products, you should consider
+        your investment objectives, risk tolerance, and your level of
+        experience. Accordingly, you should ensure that you understand the risks
+        involved and seek independent advice from professionals if necessary.
+      </p>
+      <p className="text-gray-500 text-xs mt-6">
+        Trade Gyan Solutions is duly licensed and regulated by the relevant
+        authorities in the UAE to operate as a trading advisor and provide
+        consultancy services in financial markets. Our firm specializes in
+        providing insights and strategies related to trading in various
+        financial instruments. We are committed to maintaining the highest
+        standards of compliance and client protection.
+      </p>
+      <p className="text-gray-500 text-xs mt-6">
+        Any content available on our website is presented solely to provide
+        information and educate visitors. Under no circumstances is any of this
+        content meant to be construed as an offer, recommendation, advice, or
+        solicitation to buy or sell securities or other financial products.
+      </p>
+      <p className="text-gray-500 text-xs mt-6">
+        This website's information is not intended for use by anybody residing
+        outside the UAE or where such use would violate local laws or
+        regulations.
+      </p>
 
       <div className="w-full text-center py-4 mt-10 border-t border-gray-300">
-  <p className="text-sm text-gray-500">
-    &copy; {new Date().getFullYear()} Trade Gyan Solutions (Investment Advisor # INA000008808). All rights reserved.
-  </p>
-  <a className="text-sm text-gray-500 mt-1" href="https://inextets.online">Made by INEXT ETS</a>
-</div>
-
+        <p className="text-sm text-gray-500">
+          &copy; {new Date().getFullYear()} Trade Gyan Solutions (Investment
+          Advisor # INA000008808). All rights reserved.
+        </p>
+        <a
+          className="text-sm text-gray-500 mt-1"
+          href="https://inextets.online"
+        >
+          Made by INEXT ETS
+        </a>
+      </div>
     </div>
   );
 };
