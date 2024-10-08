@@ -23,12 +23,12 @@ const edge = [
 
 const OurEdge = () => {
   return (
-    <div className="lg:w-[80%] w-11/12 mx-auto text-white mt-10">
+    <div className="lg:w-[80%] w-11/12 mx-auto text-black mt-10"> {/* Change text color to black */}
       <div className="grid lg:grid-cols-2 flex-wrap">
         {/* For mobile view */}
         <div className="lg:hidden text-center w-full my-10">
           <p className="text-4xl font-bold">Our Edge</p>
-          <p className="mt-4 text-xl text-[#0afc3e]">
+          <p className="mt-4 text-xl text-[#0afc3e]"> {/* Keep the second paragraph green */}
             Experience the confidence we bring to the trading world.
           </p>
         </div>
@@ -38,14 +38,14 @@ const OurEdge = () => {
 
           <div className="lg:min-h-[120px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] max-w-[120px] lg:border-b-[40px] lg:border-l-[40px] border-b-[30px] border-l-[30px] border-[#F5C300] lg:-bottom-[10px] lg:-left-[60px] -bottom-[50px] -left-[10px]"></div>
 
-          <img src={image} alt="Our Edge" className="lg:h-[82%]" />
+          <img src={image} alt="Our Edge" className="lg:h-[82%] w-full object-cover" />
         </div>
 
         <div className="lg:w-[95%] mx-auto text-center lg:mt-0 mt-[20px]">
           {/* For larger screens */}
           <div className="hidden lg:block">
             <p className="text-4xl font-bold">Our Edge</p>
-            <p className="mt-4 text-xl text-[#0afc3e]">
+            <p className="mt-4 text-xl text-[#0afc3e]"> {/* Keep the second paragraph green */}
               Experience the confidence we bring to the trading world.
             </p>
           </div>
@@ -55,10 +55,10 @@ const OurEdge = () => {
               {edge.map((ele, ind) => (
                 <li
                   key={ind}
-                  className="w-[100px] text-[14px] text-center flex items-center flex-col mt-[60px]"
+                  className="w-[100px] text-[14px] text-center flex items-center flex-col mt-[60px] hover:scale-105 transition-transform"
                 >
                   <div className="mb-2">{ele.icon}</div>
-                  <p className="text-[#0afc3e]">{ele.text}</p>
+                  <p className="text-black">{ele.text}</p> {/* Change text color to black */}
                 </li>
               ))}
             </ul>

@@ -101,7 +101,10 @@ const Footer = () => {
   }
 
   return (
-    <div className="w-[90%] mx-auto text-[#323232] mt-10">
+ <div className=" w-screen bg-gray-900 p-4">
+
+
+<div className="w-[90%] mx-auto text-[#323232] mt-10">
       {/* First section */}
       <div className="flex w-full mb-16 flex-wrap justify-between ">
         {/* Logo section */}
@@ -112,7 +115,7 @@ const Footer = () => {
 
           <div>
             {/* <h3 className="font-bold text-xl">Regulated by SCA</h3> */}
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-200">
               TadeGyan Financial is a registered trademark of TadeGyan Financial
               Consultancy LLC
             </p>
@@ -163,12 +166,12 @@ const Footer = () => {
           <div className="flex justify-between flex-wrap">
             {navigation.map((nav, index) => (
               <div key={index}>
-                <h3 className="font-bold text-lg mb-4">{nav.heading}</h3>
+                <h3 className="font-bold text-lg mb-4 text-stone-400">{nav.heading}</h3>
                 <ul className="space-y-2">
                   {nav.items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-sm hover:text-gray-600 text-gray-500"
+                      className="text-sm hover:text-gray-600 text-gray-400"
                     >
                       <a href="#">{item}</a>
                     </li>
@@ -187,7 +190,7 @@ const Footer = () => {
               <a
                 key={index}
                 href={link.url}
-                className={`px-2 border-black text-sm hover:text-gray-600 text-gray-500 ${
+                className={`px-2 border-black text-sm hover:text-gray-600 text-gray-400 ${
                   index !== websiteSections.length - 1 ? "border-r" : ""
                 }`}
               >
@@ -217,6 +220,7 @@ const Footer = () => {
         {/* <Disclaimer /> */}
       </div>
     </div>
+ </div>
   );
 };
 

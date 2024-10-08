@@ -23,9 +23,9 @@ function TraderDatas() {
       <Navbar />
 
       <div className="mt-[50px]">
-        <div className="flex text-gray-300 flex-col justify-center items-center w-[90%] md:w-[80%] mx-auto text-center mb-10">
+        <div className="flex  flex-col justify-center items-center w-[90%] md:w-[80%] mx-auto text-center mb-10">
           <h4 className="text-5xl text-blue-500 font-semibold font-serif mb-6">Intraday</h4>
-          <p className="text-lg my-3 leading-relaxed">
+          <p className="text-lg my-3 leading-relaxed text-gray-800">
             Intraday Trading requires frequent buying and selling of stocks
             within the same day. CapitalVia provides Best Intraday Trading
             Strategies for aggressive traders. Our Intraday Trading services are

@@ -22,7 +22,7 @@ function TraderSingleData() {
             <div className='relative mt-3'>
                 {traderData ? (
                     traderData.map((data) => (
-                        <div className="container mx-auto p-4 text-white lg:w-[70%] grid lg:grid-cols-2 gap-4">
+                        <div className="container mx-auto p-4 text-gray-800 lg:w-[70%] grid lg:grid-cols-2 gap-4">
                             <div className='flex flex-col gap-3'>
                                 <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-blue-500">{data?.name}</h1>
                                 <p className="mb-2 text-lg lg:text-2xl">{data.description}</p>

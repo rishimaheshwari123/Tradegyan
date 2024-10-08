@@ -27,9 +27,9 @@ const Resources = () => {
   ];
 
   return (
-    <section className=" pb-12 p-4">
+    <section className="pb-12 p-4">
       <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-white">
+        <h2 className="text-4xl font-bold text-black">
           Essential Resources for Every Trader
         </h2>
         <p className="text-[#0afc3e] mt-2">
@@ -45,7 +45,7 @@ const Resources = () => {
             <div className="mb-4 flex items-center justify-center h-16 w-16 bg-yellow-100 rounded-full mx-auto">
               {resource.icon}
             </div>
-            <h3 className="text-xl font-semibold mb-2">{resource.title}</h3>
+            <h3 className="text-xl font-semibold mb-2 text-black">{resource.title}</h3>
             <p className="text-gray-600 mb-6">{resource.description}</p>
             <button className="bg-[#260062] hover:bg-yellow-600 text-white flex m-auto font-bold py-2 px-4 rounded-full">
               {resource.buttonText}

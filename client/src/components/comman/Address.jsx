@@ -11,7 +11,7 @@ const offices = [
 
 const ReachUs = () => {
   return (
-    <div className="p-4 bg-gray-100">
+    <div className="p-4 ">
       <h2 className="text-lg font-bold mb-3">Reach Us</h2>
       {offices?.map((office, index) => (
         <div key={index} className="mb-4 p-3 bg-white shadow-md rounded-lg">

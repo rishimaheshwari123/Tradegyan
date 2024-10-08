@@ -9,7 +9,7 @@ const InvestorCharter = () => {
       <Notification />
       <Navbar />
 
-      <div className="text-white min-h-screen p-6">
+      <div className="text-gray-800 min-h-screen p-6">
         <section className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">SEBI’s Investor Charter for Investment Advisers (IAs)</h1>
 
