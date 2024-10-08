@@ -1,281 +1,207 @@
 import React from "react";
 import {
-  FaFacebookF,
-  FaTwitter,
-  FaLinkedinIn,
+  FaFacebook,
   FaInstagram,
-  FaYoutube,
+  FaWhatsapp,
+  FaTwitter,
+  FaLinkedin,
+  FaTelegram,
+  FaFacebookMessenger,
+  FaPhone,
 } from "react-icons/fa";
-import { useLocation } from "react-router-dom"; // Import useLocation
-
-import logo from "../../assets/logo.gif";
-import img1 from "../../assets/footer/1.png";
-import img2 from "../../assets/footer/2.png";
-import img3 from "../../assets/footer/3.png";
-import img4 from "../../assets/footer/4.png";
-import img5 from "../../assets/footer/5.png";
-import img6 from "../../assets/footer/6.png";
-import ReachUs from "./Address";
-import banner from "../../assets/footer/workbanner.png";
-const navigation = [
-  {
-    heading: "Markets",
-    items: [
-      "Currencies",
-      "Shares",
-      "Share Baskets",
-      "Commodities",
-      "Indices",
-      "Treasuries",
-      "CFDs",
-      "ETP",
-      "Market Information",
-    ],
-  },
- 
-  {
-    heading: "About",
-    items: [
-      "About Us",
-      "Awards",
-      "Media",
-      "Research",
-      "Our Team",
-      "Careers",
-      "CSR & Sustainability",
-      "Client Fund Protection",
-    ],
-  },
-  {
-    heading: "Learn",
-    items: [
-      "Webinars / Seminars",
-      "Investment Insights",
-      "Trading Smart Series",
-      "Knowledge Center",
-      "Blog",
-      "Financial Glossary",
-    ],
-  },
-];
-
-const websiteSections = [
-  {
-    title: "Regulatory License",
-    url: "/regulatory-license",
-  },
-  {
-    title: "Legal Documentation",
-    url: "/legal-documentation",
-  },
-  {
-    title: "Privacy Policy",
-    url: "/privacy-policy",
-  },
-  {
-    title: "Cookie Policy",
-    url: "/cookie-policy",
-  },
-  {
-    title: "Contact Us",
-    url: "/contact-us",
-  },
-  {
-    title: "Website Terms of Use",
-    url: "/terms-of-use",
-  },
-  {
-    title: "Sitemap",
-    url: "/sitemap",
-  },
-];
-
-const footerImages = [img1, img2, img3, img4, img5, img6];
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Footer = () => {
-  const location = useLocation(); // Get current location
-
-  // Check if the current URL includes "admin"
-  if (location.pathname.includes("admin")) {
-    return null; // Don't render the footer if "admin" is in the URL
-  }
-
   return (
- <div className=" w-screen bg-gray-900 p-4">
-
-
-<div className="w-[90%] mx-auto text-[#323232] mt-10">
-      {/* First section */}
-      <div className="flex w-full mb-16 flex-wrap justify-between ">
-        {/* Logo section */}
-        <div className="lg:w-[23%] w-full flex flex-col gap-3">
-          <div className="mb-[30px]">
-            <img src={logo} alt="TradegyanLogo" className="" />
+    <footer className="bg-gray-900 text-gray-300 py-10">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+        {/* About Us */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
+          <p className="text-sm sm:text-base">
+            Trade Gyan Solutions is an investment advisor in India. The company
+            provides recommendations for stocks, cash, and F&O traded in NSE &
+            BSE.
+          </p>
+          <div className="mt-4 flex items-center">
+            <FaPhone className="mr-2" />
+            <span>+91 777-100 4878</span>
           </div>
-
-          <div>
-            {/* <h3 className="font-bold text-xl">Regulated by SCA</h3> */}
-            <p className="text-sm text-gray-200">
-              TadeGyan Financial is a registered trademark of TadeGyan Financial
-              Consultancy LLC
-            </p>
-          </div>
-
-          {/* Social Icons */}
-          <div className="flex space-x-4 mt-3">
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebookF className="text-xl text-[#3b5998] hover:text-gray-600" />
-            </a>
-            <a
-              href="https://www.facebook.com/tradegyansolutions/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaTwitter className="text-xl text-[#00acee] hover:text-gray-600" />
-            </a>
-            <a
-              href="https://www.linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedinIn className="text-xl text-[#0077b5] hover:text-gray-600" />
-            </a>
-            <a
-              href="https://www.instagram.com/tradegyan/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram className="text-xl text-[#C13584] hover:text-gray-600" />
-            </a>
-            <a
-              href="https://www.youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaYoutube className="text-xl text-[#FF0000] hover:text-gray-600" />
-            </a>
-          </div>
+          <p className="text-sm mt-1 sm:text-base">121@tradegyan.co</p>
         </div>
 
-        {/* Links Section */}
-        <div className="lg:w-[72%]  lg:mt-0 mt-[50px] w-[96%] mx-auto gap-10 flex flex-col ">
-          <div className="flex justify-between flex-wrap">
-            {navigation.map((nav, index) => (
-              <div key={index}>
-                <h3 className="font-bold text-lg mb-4 text-stone-400">{nav.heading}</h3>
-                <ul className="space-y-2">
-                  {nav.items.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className="text-sm hover:text-gray-600 text-gray-400"
-                    >
-                      <a href="#">{item}</a>
-                    </li>
-                  ))}
-                
-                </ul>
-              </div>
-            ))}
-          <ReachUs />
+        {/* Client Zone */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4">Client Zone</h3>
+          <ul className="text-sm sm:text-base space-y-2">
+            <li>
+              <Link to="/faqs" className="hover:text-yellow-400">
+                FAQs
+              </Link>
+            </li>
+            <li>
+              <Link to="/kyc-form" className="hover:text-yellow-400">
+                KYC Form
+              </Link>
+            </li>
+            <li>
+              <Link to="/client-agreement" className="hover:text-yellow-400">
+                Client Agreement
+              </Link>
+            </li>
+            <li>
+              <Link to="/risk-profile" className="hover:text-yellow-400">
+                Risk Profile
+              </Link>
+            </li>
+            <li>
+              <Link to="/support-grievance" className="hover:text-yellow-400">
+                Support & Grievance
+              </Link>
+            </li>
+            <li>
+              <Link to="/refund-policy" className="hover:text-yellow-400">
+                Refund Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact-us" className="hover:text-yellow-400">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/complaint-data" className="hover:text-yellow-400">
+                Complaint Data
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-          </div>
-
-          <div className="  ">
-            {/* Sublinks */}
-            {websiteSections?.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                className={`px-2 border-black text-sm hover:text-gray-600 text-gray-400 ${
-                  index !== websiteSections.length - 1 ? "border-r" : ""
-                }`}
+        {/* Know More About */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4">
+            Know More About
+          </h3>
+          <ul className="text-sm sm:text-base space-y-2">
+            <li>
+              <Link to="/privacy-policy" className="hover:text-yellow-400">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link to="/disclaimer" className="hover:text-yellow-400">
+                Disclaimer
+              </Link>
+            </li>
+            <li>
+              <Link to="/disclosures" className="hover:text-yellow-400">
+                Disclosures
+              </Link>
+            </li>
+            <li>
+              <Link to="/terms-conditions" className="hover:text-yellow-400">
+                Terms & Conditions
+              </Link>
+            </li>
+            <li>
+              <Link to="/career" className="hover:text-yellow-400">
+                Career
+              </Link>
+            </li>
+            <li>
+              <Link to="/blog" className="hover:text-yellow-400">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link to="/about-us" className="hover:text-yellow-400">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link to="/investment-charter" className="hover:text-yellow-400">
+                Investment Charter
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/complaint-escalation"
+                className="hover:text-yellow-400"
               >
-                {link.title}
-              </a>
-            ))}
+                Complaint Escalation
+              </Link>
+            </li>
+          </ul>
+        </div>
 
-            {/* <div className=" grid grid-cols-6 gap-10 mt-[40px]">
-              {footerImages?.map((img, inx) => (
-                <img src={img} key={inx} alt="" className=" " />
-              ))}
-            </div> */}
+        {/* Follow Us */}
+        <div>
+          <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
+          <div className="grid grid-cols-4 justify-center gap-4">
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaFacebook />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaInstagram />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaWhatsapp />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaTwitter />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaLinkedin />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaTelegram />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaFacebookMessenger />
+            </Link>
+            <Link
+              to="#"
+              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
+            >
+              <FaPhone />
+            </Link>
           </div>
         </div>
       </div>
 
-      <div className="flex w-full mb-1 flex-wrap justify-between ">
-        {/* <div className="lg:w-[30%] w-full flex flex-col gap-3">
-        </div> */}
-
-        {/* <div className=" w-[70%]">
-          <img src={banner} alt="" />
-        </div> */}
+      {/* Bottom section */}
+      <div className="mt-10 border-t border-gray-700 pt-4 p-4">
+        <div className="container mx-auto text-center text-sm sm:text-base">
+          <p>
+            Copyright &copy; 2024 Trade Gyan Solutions. All rights reserved.
+          </p>
+          <p>Trade Gyan Solutions Reviewed by 500 Customers Rated: 4.8 / 5</p>
+          <p>Created by: I Next Ets</p>
+        </div>
       </div>
-
-      <div>
-        {/* <Disclaimer /> */}
-      </div>
-    </div>
- </div>
+    </footer>
   );
 };
 
 export default Footer;
-
-export const Disclaimer = () => {
-  return (
-    <div className="p-4 bg-gray-50">
-      <h2 className="text-lg font-bold mb-2">Disclaimer</h2>
-      <p className="text-gray-500 text-[12px]">
-        Trading in financial products carries risk. Trading in leveraged
-        Over-The-Counter (OTC) Derivative products (including Contracts for
-        Difference (CFDs) and spot foreign exchange contracts) involves a
-        significant risk of loss which can exceed deposits and may not be
-        suitable for all investors. OTC Derivative products / CFDs are complex
-        financial instruments that do not confer any claim or right to the
-        underlying financial instrument. Transactions in these instruments are
-        very risky, and you should trade only with the capital you can afford to
-        lose. Before deciding to trade on these products, you should consider
-        your investment objectives, risk tolerance, and your level of
-        experience. Accordingly, you should ensure that you understand the risks
-        involved and seek independent advice from professionals if necessary.
-      </p>
-      <p className="text-gray-500 text-xs mt-6">
-        Trade Gyan Solutions is duly licensed and regulated by the relevant
-        authorities in the UAE to operate as a trading advisor and provide
-        consultancy services in financial markets. Our firm specializes in
-        providing insights and strategies related to trading in various
-        financial instruments. We are committed to maintaining the highest
-        standards of compliance and client protection.
-      </p>
-      <p className="text-gray-500 text-xs mt-6">
-        Any content available on our website is presented solely to provide
-        information and educate visitors. Under no circumstances is any of this
-        content meant to be construed as an offer, recommendation, advice, or
-        solicitation to buy or sell securities or other financial products.
-      </p>
-      <p className="text-gray-500 text-xs mt-6">
-        This website's information is not intended for use by anybody residing
-        outside the UAE or where such use would violate local laws or
-        regulations.
-      </p>
-
-      <div className="w-full text-center py-4 mt-10 border-t border-gray-300">
-        <p className="text-sm text-gray-500">
-          &copy; {new Date().getFullYear()} Trade Gyan Solutions (Investment
-          Advisor # INA000008808). All rights reserved.
-        </p>
-        <a
-          className="text-sm text-gray-500 mt-1"
-          href="https://inextets.online"
-        >
-          Made by INEXT ETS
-        </a>
-      </div>
-    </div>
-  );
-};
