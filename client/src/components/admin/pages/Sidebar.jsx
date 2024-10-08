@@ -63,6 +63,16 @@ const Sidebar = () => {
       icon: <FaUsersGear className="text-red-500" />,
       label: "Users",
     },
+    {
+      to: "/admin/create-Complaints",
+      icon: <FaUsersGear className="text-red-500" />,
+      label: "Create Complaints",
+    },
+    {
+      to: "/admin/get-Complaints",
+      icon: <FaUsersGear className="text-red-500" />,
+      label: "Get Complaints",
+    },
   ];
 
   return (

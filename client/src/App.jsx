@@ -39,6 +39,8 @@ import InvestorCharter from "./pages/SebiDisclosure";
 import useSocket from "./socket io/useSocket";
 import ChatsApp from "./pages/chats/MainChat";
 import AdminChatsApp from "./components/admin/Adminchats/MainChat";
+import AddQuery from "./components/admin/pages/AddQuery";
+import GetQuery from "./components/admin/pages/GetQuery";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -152,6 +154,22 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <UserDetails />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/create-query"
+              element={
+                <PrivateRoute>
+                  <AddQuery />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/get-query"
+              element={
+                <PrivateRoute>
+                  <GetQuery />
                 </PrivateRoute>
               }
             />

@@ -8,7 +8,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db")
 const bodyParser = require("body-parser")
 const socketIO = require('socket.io');
-const { setIO } = require('./socketIO/socket'); 
+const { setIO } = require('./socketIO/socket');
 const http = require('http');
 const Chat = require("./models/chtasSchema")
 
@@ -31,15 +31,15 @@ app.use(express.json())
 app.use(cookieParser());
 app.use(bodyParser.json())
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
+  origin: 'http://localhost:3000',
+  credentials: true,
 }))
 
 app.use(
-    fileUpload({
-        useTempFiles: true,
-        tempFileDir: "/tmp"
-    })
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp"
+  })
 )
 
 cloudinaryConnect();
@@ -50,15 +50,16 @@ app.use("/api/v1/contact", require("./routes/contactRoute"));
 app.use("/api/v1/service", require("./routes/serviceRoute"));
 app.use("/api/v1/admin", require("./routes/admin"));
 app.use("/api/v1/chat", require('./routes/chat.js'));
+app.use("/api/v1/query", require('./routes/qureryRoute.js'));
 
 
 
 
 app.get("/", (req, res) => {
-    return res.json({
-        success: true,
-        message: "Your server is up and running ..."
-    })
+  return res.json({
+    success: true,
+    message: "Your server is up and running ..."
+  })
 })
 
 
@@ -75,19 +76,19 @@ io.on('connection', (socket) => {
   });
 
 
-  
+
   socket.on('stopTyping', (conversationId, userId) => {
     socket.to(conversationId).emit('removeTyping', { userId });
   });
 
-  socket.on('sendMessage', async(messageData) => {
+  socket.on('sendMessage', async (messageData) => {
     const { conversationId, sender, message } = messageData;
 
-    if(message ===""){
+    if (message === "") {
       return
     }
-       const newMessage = new Chat({ conversationId, sender, message });
-       await newMessage.save();
+    const newMessage = new Chat({ conversationId, sender, message });
+    await newMessage.save();
     io.to(conversationId).emit('receiveMessage', {
       conversationId,
       sender,
@@ -117,5 +118,5 @@ io.on('connection', (socket) => {
   });
 })
 server.listen(PORT, () => {
-    console.log(`Server is running at port no ${PORT}`)
+  console.log(`Server is running at port no ${PORT}`)
 })

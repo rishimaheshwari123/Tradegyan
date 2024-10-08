@@ -3,7 +3,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify"
-const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE, GET_SINGLE_SERVICE } = endpoints;
+const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE, GET_SINGLE_SERVICE, CREATE_QUERY, GET_QUERY } = endpoints;
 
 
 
@@ -198,3 +198,55 @@ export const getSingelService = async (id) => {
     console.log(error)
   }
 }
+
+
+export const createQueryApi = async (formData) => {
+  Swal.fire({
+    title: "Loading...",
+    text: "Please wait while we process your request.",
+    allowOutsideClick: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+
+  try {
+    const response = await apiConnector("POST", CREATE_QUERY, formData);
+
+    // Check if the request was successful
+    if (!response?.data?.success) {
+      throw new Error(response?.data?.message || "Failed to process request.");
+    }
+
+    return response?.data?.success;
+  } catch (error) {
+    console.error(error);
+
+    // Error message
+    Swal.fire({
+      title: "Error!",
+      text: error?.message || "There was a problem sending your message. Please try again later.",
+      icon: "error",
+    });
+  }
+};
+
+
+export const getQueryApi = async () => {
+
+  try {
+    const response = await apiConnector("GET", GET_QUERY);
+    if (!response?.data?.success) {
+      throw new Error(response?.data?.message)
+    }
+    return response?.data?.queries
+
+  } catch (error) {
+    console.log(error);
+    Swal.fire({
+      title: "Error!",
+      text: "There was a problem sending your message. Please try again later.",
+      icon: "error",
+    });
+  }
+};
