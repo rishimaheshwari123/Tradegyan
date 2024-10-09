@@ -1,5 +1,5 @@
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = "https://tradegyan.mahitechnocrafts.in/api/v1";
 
 
 export const endpoints = {

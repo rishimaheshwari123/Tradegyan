@@ -21,7 +21,7 @@ connectDB();
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000" ,'https://tradegyan.vercel.app', 'https://tradegyan-eta.vercel.app'],
     methods: ["GET", "POST"],
   },
 });
@@ -31,7 +31,7 @@ app.use(express.json())
 app.use(cookieParser());
 app.use(bodyParser.json())
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000','https://tradegyan.vercel.app', 'https://tradegyan-eta.vercel.app'],
   credentials: true,
 }))
 
