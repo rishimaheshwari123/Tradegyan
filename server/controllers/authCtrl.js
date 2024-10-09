@@ -3,6 +3,8 @@ const authModel = require("../models/authModel");
 const jwt = require("jsonwebtoken");
 const Chat = require("../models/chtasSchema");
 const Conversation = require("../models/conversationSchema");
+const mailSender = require("../utils/mailSenderr");
+const { messageViaEmail } = require("../template/messageViaEmail");
 
 
 // const registerCtrl = async (req, res) => {
@@ -273,7 +275,88 @@ const loginCtrl = async (req, res) => {
 };
 
 
+const sendMessageCtrl = async (req, res) => {
+  try {
+    console.log(req.body)
+    const { userId, messageContent, sendVia } = req.body; // Get userId, messageContent, and sendVia (email, whatsapp, both)
+
+    // Validate that all fields are provided
+    if (!userId || !messageContent || !sendVia) {
+      return res.status(400).json({
+        success: false,
+        message: 'All fields are required: userId, messageContent, and sendVia.',
+      });
+    }
+
+    // Find the user by ID
+    const user = await authModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found.',
+      });
+    }
+
+    // Send the message via email, WhatsApp, or both
+    if (sendVia === 'email' || sendVia === 'both') {
+      await sendEmail(user?.email, messageContent,user?.name);
+    }
+    if (sendVia === 'whatsapp' || sendVia === 'both') {
+      await sendWhatsAppMessage(user.whatsappNumber, messageContent);
+    }
+
+    // Return success response
+    return res.status(200).json({
+      success: true,
+      message: `Message sent successfully via ${sendVia}.`,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: 'Message could not be sent. Please try again.',
+    });
+  }
+};
+
+// Function to send email using Nodemailer
+const sendEmail = async (recipientEmail, messageContent, name) => {
+  try {
+    // Create a transporter object using SMTP transport
+    await mailSender(recipientEmail,"TradeGyan Solution" ,messageViaEmail(messageContent,name) )
+   
+
+  } catch (error) {
+    throw new Error(`Failed to send email: ${error.message}`);
+  }
+};
+
+// Function to send WhatsApp message using WhatsApp Business API
+const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
+  try {
+    const url = `https://graph.facebook.com/v12.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+
+    const data = {
+      messaging_product: 'whatsapp',
+      to: `whatsapp:${whatsappNumber}`, // WhatsApp number with country code
+      type: 'text',
+      text: {
+        body: messageContent,
+      },
+    };
+
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
+    };
+
+    // Send the WhatsApp message via the API
+    await axios.post(url, data, { headers });
+  } catch (error) {
+    throw new Error(`Failed to send WhatsApp message: ${error.message}`);
+  }
+};
 
 
 
-module.exports = { registerCtrl, loginCtrl };
+module.exports = { registerCtrl, loginCtrl,sendMessageCtrl };
