@@ -8,7 +8,7 @@ const ConversationList = ({  onUserSelect }) => {
   const { token } = useSelector(state => state.auth);
   const { user } = useSelector(state => state.auth);
   const [socket, setSocket] = useState(null);
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://tradegyan.mahitechnocrafts.in'
 const [conversationId, setConversationId] = useState(null);
 
 
@@ -28,7 +28,7 @@ const [conversationId, setConversationId] = useState(null);
 
   useEffect(() => {
     // Connect to Socket.IO server
-    const newSocket = io("http://localhost:8080", {
+    const newSocket = io("https://tradegyan.mahitechnocrafts.in", {
       query: { token }, // Pass the auth token if required
     });
     console.log(token)
@@ -64,7 +64,7 @@ const [conversationId, setConversationId] = useState(null);
   const fetchConversationId = async (participantId) => {
     try {
      // Assuming you're storing the token in localStorage
-      const response = await axios.get(`http://localhost:8080/api/v1/chat/conversationId/${participantId}`, {
+      const response = await axios.get(`https://tradegyan.mahitechnocrafts.in/api/v1/chat/conversationId/${participantId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
      if(response?.data?.conversationId){

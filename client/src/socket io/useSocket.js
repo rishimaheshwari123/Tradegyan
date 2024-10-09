@@ -8,7 +8,7 @@ const useSocket = () => {
   const navigate = useNavigate();
 
 // const BASE_URL = 'https://photomanager.mahitechnocrafts.in/'
-const BASE_URL = 'http://localhost:8080/'
+const BASE_URL = 'https://tradegyan.mahitechnocrafts.in/'
   
   useEffect(() => {
     const socket = io(BASE_URL); // Update with your server URL

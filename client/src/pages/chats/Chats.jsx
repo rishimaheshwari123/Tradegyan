@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import axios from "axios";
 import { useSelector } from "react-redux";
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://tradegyan.mahitechnocrafts.in'
 
 const socket = io(BASE_URL);
 
