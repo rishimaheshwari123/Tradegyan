@@ -42,4 +42,65 @@ const getQueryCtrl = async (req, res) => {
     }
 }
 
-module.exports = { createQuery, getQueryCtrl }
+const deleteQueryCtrl = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await queryModel.findByIdAndDelete(id);
+        return res.status(200).json({
+            success: true,
+            message: "Complaints Deleted Successfully!"
+        })
+
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error in deleting query"
+        })
+    }
+}
+
+
+const updateQuery = async (req, res) => {
+    try {
+        const { id } = req.params; // Get the id from request parameters
+
+        // Find the existing query to get the current values
+        const existingQuery = await queryModel.findById(id);
+
+        if (!existingQuery) {
+            return res.status(404).json({
+                success: false,
+                message: "Query not found",
+            });
+        }
+
+        // Update only the fields provided in the request body
+        const updatedFields = {
+            beginningOfTheMonth: req.body.beginningOfTheMonth || existingQuery.beginningOfTheMonth,
+            duringTheMonth: req.body.duringTheMonth || existingQuery.duringTheMonth,
+            redolvedDuringTheMonth: req.body.redolvedDuringTheMonth || existingQuery.redolvedDuringTheMonth,
+            pendingEndOfTheMonth: req.body.pendingEndOfTheMonth || existingQuery.pendingEndOfTheMonth,
+            reasonForPending: req.body.reasonForPending || existingQuery.reasonForPending,
+        };
+
+        // Update the query with the new or unchanged values
+        const updatedQuery = await queryModel.findByIdAndUpdate(
+            id,
+            updatedFields,
+            { new: true, runValidators: true } // Return the updated document and run validation
+        );
+
+        return res.status(200).json({
+            success: true,
+            message: "Query updated successfully!",
+            query: updatedQuery,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error in updating query",
+        });
+    }
+};
+
+module.exports = { createQuery, getQueryCtrl, deleteQueryCtrl, updateQuery }

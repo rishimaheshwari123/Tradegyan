@@ -10,7 +10,9 @@ export const endpoints = {
   GET_SERVICE: BASE_URL + "/service/getAll",
   GET_SINGLE_SERVICE: BASE_URL + "/service/get",
   CREATE_QUERY: BASE_URL + "/query/create",
-  GET_QUERY: BASE_URL + "/query/getAll"
+  GET_QUERY: BASE_URL + "/query/getAll",
+  DELETE_QUERY: BASE_URL + "/query/delete",
+  UPDATE_QUERY: BASE_URL + "/query/update"
 }
 
 export const adminApis = {

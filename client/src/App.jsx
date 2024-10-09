@@ -158,7 +158,7 @@ const App = () => {
               }
             />
             <Route
-              path="/admin/create-query"
+              path="/admin/create-Complaints"
               element={
                 <PrivateRoute>
                   <AddQuery />
@@ -166,7 +166,7 @@ const App = () => {
               }
             />
             <Route
-              path="/admin/get-query"
+              path="/admin/get-Complaints"
               element={
                 <PrivateRoute>
                   <GetQuery />

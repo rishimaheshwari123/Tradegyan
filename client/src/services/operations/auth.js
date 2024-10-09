@@ -3,7 +3,7 @@ import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify"
-const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE, GET_SINGLE_SERVICE, CREATE_QUERY, GET_QUERY } = endpoints;
+const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE, GET_SINGLE_SERVICE, CREATE_QUERY, GET_QUERY, DELETE_QUERY, UPDATE_QUERY } = endpoints;
 
 
 
@@ -246,6 +246,54 @@ export const getQueryApi = async () => {
     Swal.fire({
       title: "Error!",
       text: "There was a problem sending your message. Please try again later.",
+      icon: "error",
+    });
+  }
+};
+
+
+export const deleteQueryApi = async (id) => {
+
+  try {
+    const response = await apiConnector("DELETE", `${DELETE_QUERY}/${id}`);
+    if (!response?.data?.success) {
+      throw new Error(response?.data?.message)
+    }
+
+    Swal.fire({
+      title: "Success!",
+      text: response?.data?.message,
+      icon: "success",
+    });
+  } catch (error) {
+    console.log(error);
+    Swal.fire({
+      title: "Error!",
+      text: "There was a problem sending your message. Please try again later.",
+      icon: "error",
+    });
+  }
+};
+
+export const updateQueryApi = async (id, updatedData) => {
+  try {
+    const response = await apiConnector("PUT", `${UPDATE_QUERY}/${id}`, updatedData);
+
+    if (!response?.data?.success) {
+      throw new Error(response?.data?.message);
+    }
+
+    Swal.fire({
+      title: "Success!",
+      text: response?.data?.message,
+      icon: "success",
+    });
+
+  } catch (error) {
+    console.log(error);
+    Swal.fire({
+      title: "Error!",
+      text: "There was a problem updating the query. Please try again later.",
       icon: "error",
     });
   }
