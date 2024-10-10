@@ -42,6 +42,10 @@ import AdminChatsApp from "./components/admin/Adminchats/MainChat";
 import AddQuery from "./components/admin/pages/AddQuery";
 import GetQuery from "./components/admin/pages/GetQuery";
 import Disclaimer from "./pages/Disclaimer";
+import AddBlog from "./components/admin/pages/AddBlog";
+import GetBlog from "./components/admin/pages/GetBlogs";
+import Podcast from "./pages/Podcast";
+import SinglePodcast from "./pages/SinglePodcast";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -72,6 +76,8 @@ const App = () => {
         <Route path="/trader/:type/:name" element={<TraderSingleData />} />
         <Route path="/trader/service/:id" element={<SingleService />} />
         <Route path="/sebidiscloser" element={<InvestorCharter />} />
+        <Route path="/podcast" element={<Podcast />} />
+        <Route path="/podcast/:id" element={<SinglePodcast />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
@@ -168,10 +174,18 @@ const App = () => {
               }
             />
             <Route
-              path="/admin/get-Complaints"
+              path="/admin/addBlog"
               element={
                 <PrivateRoute>
-                  <GetQuery />
+                  <AddBlog />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/getBlog"
+              element={
+                <PrivateRoute>
+                  <GetBlog />
                 </PrivateRoute>
               }
             />
