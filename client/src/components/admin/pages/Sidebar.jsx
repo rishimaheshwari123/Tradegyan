@@ -9,7 +9,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../services/operations/auth";
 import { FaUsersGear } from "react-icons/fa6";
 import { IoIosChatboxes } from "react-icons/io";
-import { FcBullish, FcServices, FcViewDetails } from "react-icons/fc";
+import {
+  FcBullish,
+  FcMms,
+  FcMultipleCameras,
+  FcServices,
+  FcViewDetails,
+} from "react-icons/fc";
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -73,16 +79,32 @@ const Sidebar = () => {
       icon: <FcViewDetails className="text-red-500" />,
       label: "Get Complaints",
     },
+    {
+      to: "/admin/addBlog",
+      icon: <FcMultipleCameras />,
+      label: "Add Blog",
+    },
+    {
+      to: "/admin/getBlog",
+      icon: <FcMms />,
+      label: "Get Blog",
+    },
   ];
 
   return (
     <div
       ref={sidebarRef}
-      className={`fixed h-screen top-0 ${isCollapsed ? "w-20" : "w-64"} bg-gray-900 transition-all duration-300 z-50`}
+      className={`fixed h-screen top-0 ${
+        isCollapsed ? "w-20" : "w-64"
+      } bg-gray-900 transition-all duration-300 z-50`}
     >
       <div className="flex items-center justify-between p-4">
         {/* Logo section */}
-        <div className={` ${isCollapsed ? "hidden" : "block"} text-white font-bold text-xl`}>
+        <div
+          className={` ${
+            isCollapsed ? "hidden" : "block"
+          } text-white font-bold text-xl`}
+        >
           <h2>Trade Gyan</h2>
         </div>
         {/* Toggle button */}
@@ -107,7 +129,9 @@ const Sidebar = () => {
             }
           >
             <div className="text-2xl">{item.icon}</div>
-            <span className={`ml-4 text-xl ${isCollapsed ? "hidden" : "block"}`}>
+            <span
+              className={`ml-4 text-xl ${isCollapsed ? "hidden" : "block"}`}
+            >
               {item.label}
             </span>
           </NavLink>
@@ -116,8 +140,18 @@ const Sidebar = () => {
 
       {/* User and logout section */}
       <div className="absolute bottom-2 left-2 right-2 overflow-hidden mt-10">
-        <div className={`flex items-center justify-center w-full ${isCollapsed ? "w-11 h-11 rounded-full bg-slate-400" : "bg-slate-400 py-2 px-4 rounded-lg"}`}>
-          <div className={`cursor-pointer flex items-center justify-center text-black ${isCollapsed ? "w-10 h-10 rounded-full" : ""}`}>
+        <div
+          className={`flex items-center justify-center w-full ${
+            isCollapsed
+              ? "w-11 h-11 rounded-full bg-slate-400"
+              : "bg-slate-400 py-2 px-4 rounded-lg"
+          }`}
+        >
+          <div
+            className={`cursor-pointer flex items-center justify-center text-black ${
+              isCollapsed ? "w-10 h-10 rounded-full" : ""
+            }`}
+          >
             {isCollapsed ? (
               <AiOutlineUser size={20} />
             ) : (
@@ -129,7 +163,11 @@ const Sidebar = () => {
         </div>
         <button
           onClick={handleLogout}
-          className={`bg-red-600 text-white text-xl flex items-center justify-center mt-2 ${isCollapsed ? "w-12 h-12 rounded-full" : "py-2 px-4 w-full rounded-lg"}`}
+          className={`bg-red-600 text-white text-xl flex items-center justify-center mt-2 ${
+            isCollapsed
+              ? "w-12 h-12 rounded-full"
+              : "py-2 px-4 w-full rounded-lg"
+          }`}
         >
           {isCollapsed ? (
             <MdLogout />
