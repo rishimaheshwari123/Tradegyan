@@ -8,7 +8,7 @@ const ConversationList = ({ onConversationSelect, onUserSelect }) => {
   const { token } = useSelector(state => state.auth);
   const { user } = useSelector(state => state.auth);
   const [socket, setSocket] = useState(null);
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'https://tradegyan.mahitechnocrafts.in'
 
 
   const fetchConversations = async () => {

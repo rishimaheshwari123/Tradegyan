@@ -5,7 +5,7 @@ const UserSearch = ({ onUserSelect }) => {
   const [query, setQuery] = useState('');
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
-  const BASE_URL = "http://localhost:8080/api/v1"
+  const BASE_URL = "https://tradegyan.mahitechnocrafts.in/api/v1"
 
   // Debounce function to delay API calls
   const debounce = (func, delay) => {

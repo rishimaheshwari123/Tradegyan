@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const BASE_URL = process.env.REACT_API_URL
 
 
-const SOCKET_SERVER_URL = 'http://localhost:8080'; // Ensure this matches your server URL
+const SOCKET_SERVER_URL = 'https://tradegyan.mahitechnocrafts.in'; // Ensure this matches your server URL
 // const SOCKET_SERVER_URL = 'https://photomanager.mahitechnocrafts.in/'; // Ensure this matches your server URL
 const socket = io(SOCKET_SERVER_URL, {
   withCredentials: true,

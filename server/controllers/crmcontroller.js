@@ -13,6 +13,8 @@ const getAllUsers = async (req, res) => {
           query.$or = [
               { name: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for name
               { email: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for email
+              { contactNumber: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for email
+              { whatsappNumber: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for email
           ];
       }
 

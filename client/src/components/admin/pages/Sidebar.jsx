@@ -6,10 +6,9 @@ import { AiOutlineUser } from "react-icons/ai";
 import { MdLogout } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-// import logo from "../../../assest/logo.gif"
 import { logout } from "../../../services/operations/auth";
 import { FaUsersGear } from "react-icons/fa6";
-
+import { IoIosChatboxes } from "react-icons/io";
 import { FcBullish, FcServices, FcViewDetails } from "react-icons/fc";
 
 const Sidebar = () => {
@@ -20,6 +19,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const sidebarRef = useRef(null);
   const navigate = useNavigate();
+
   // Function to handle logout
   const handleLogout = async () => {
     dispatch(logout(navigate));
@@ -60,8 +60,8 @@ const Sidebar = () => {
     },
     {
       to: "/admin/chats",
-      icon: <FaUsersGear className="text-red-500" />,
-      label: "Users",
+      icon: <IoIosChatboxes className="text-red-500" />,
+      label: "Chats",
     },
     {
       to: "/admin/create-Complaints",
@@ -70,7 +70,7 @@ const Sidebar = () => {
     },
     {
       to: "/admin/get-Complaints",
-      icon: <FaUsersGear className="text-red-500" />,
+      icon: <FcViewDetails className="text-red-500" />,
       label: "Get Complaints",
     },
   ];
@@ -78,22 +78,11 @@ const Sidebar = () => {
   return (
     <div
       ref={sidebarRef}
-      className={`fixed h-screen top-0 ${
-        isCollapsed ? "w-20" : "w-64"
-      } bg-gray-900 transition-all duration-300 z-50`}
+      className={`fixed h-screen top-0 ${isCollapsed ? "w-20" : "w-64"} bg-gray-900 transition-all duration-300 z-50`}
     >
       <div className="flex items-center justify-between p-4">
         {/* Logo section */}
-        <div
-          className={`${
-            isCollapsed ? "hidden" : "block"
-          } text-white font-bold text-xl`}
-        >
-          {/* <img
-            src={logo}
-            alt=""
-            className="w-[50px] h-[50px] lg:w-12 lg:h-12 object-cover rounded-full"
-          /> */}
+        <div className={` ${isCollapsed ? "hidden" : "block"} text-white font-bold text-xl`}>
           <h2>Trade Gyan</h2>
         </div>
         {/* Toggle button */}
@@ -118,9 +107,7 @@ const Sidebar = () => {
             }
           >
             <div className="text-2xl">{item.icon}</div>
-            <span
-              className={`ml-4 text-xl ${isCollapsed ? "hidden" : "block"}`}
-            >
+            <span className={`ml-4 text-xl ${isCollapsed ? "hidden" : "block"}`}>
               {item.label}
             </span>
           </NavLink>
@@ -129,18 +116,8 @@ const Sidebar = () => {
 
       {/* User and logout section */}
       <div className="absolute bottom-2 left-2 right-2 overflow-hidden mt-10">
-        <div
-          className={`flex items-center justify-center w-full ${
-            isCollapsed
-              ? "w-11 h-11 rounded-full bg-slate-400"
-              : "bg-slate-400 py-2 px-4 rounded-lg"
-          }`}
-        >
-          <div
-            className={`cursor-pointer flex items-center justify-center text-black ${
-              isCollapsed ? "w-10 h-10 rounded-full" : ""
-            }`}
-          >
+        <div className={`flex items-center justify-center w-full ${isCollapsed ? "w-11 h-11 rounded-full bg-slate-400" : "bg-slate-400 py-2 px-4 rounded-lg"}`}>
+          <div className={`cursor-pointer flex items-center justify-center text-black ${isCollapsed ? "w-10 h-10 rounded-full" : ""}`}>
             {isCollapsed ? (
               <AiOutlineUser size={20} />
             ) : (
@@ -152,11 +129,7 @@ const Sidebar = () => {
         </div>
         <button
           onClick={handleLogout}
-          className={`bg-red-600 text-white text-xl flex items-center justify-center mt-2 ${
-            isCollapsed
-              ? "w-12 h-12 rounded-full"
-              : "py-2 px-4 w-full rounded-lg"
-          }`}
+          className={`bg-red-600 text-white text-xl flex items-center justify-center mt-2 ${isCollapsed ? "w-12 h-12 rounded-full" : "py-2 px-4 w-full rounded-lg"}`}
         >
           {isCollapsed ? (
             <MdLogout />
