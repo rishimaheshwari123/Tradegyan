@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/comman/Navbar";
+import RiskProfile from "../components/RiskProfile";
 
 // Updated Data array for policies with heading and points
 const policiesData = [
@@ -151,10 +152,7 @@ const policiesData = [
     content: [
       {
         heading: "Risk Considerations",
-        points: [
-          "Risk Profile content goes here.",
-          "Additional information about risk factors.",
-        ],
+        points:[<RiskProfile />]
       },
     ],
   },

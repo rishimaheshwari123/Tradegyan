@@ -112,7 +112,7 @@ console.log(   message,
 
   return (
     <div className="p-6 bg-gray-100">
-      <div className="flex justify-between my-5">
+      <div className="flex lg:justify-between my-5 flex-col lg:flex-row">
         <h1 className="text-2xl font-bold mb-4">CRM - User Management</h1>
         <button onClick={handleDownloadExcel} className="bg-blue-500 text-white p-2 rounded">
           Download Users Excel
@@ -213,7 +213,8 @@ console.log(   message,
       </div>
 
       {/* User Table */}
-      <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg">
+     <div className="overflow-x-auto">
+     <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg overflow-scroll">
         <thead>
           <tr className="bg-gray-200">
             <th className="py-2 px-4 border-b border-gray-300 text-left">Name</th>
@@ -253,6 +254,7 @@ console.log(   message,
           ))}
         </tbody>
       </table>
+     </div>
 
       {/* Pagination Component */}
       <Pagination
