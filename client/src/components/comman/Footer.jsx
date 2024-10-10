@@ -90,14 +90,10 @@ const Footer = () => {
             </li>
             <li>
               <Link to="/disclaimer" className="hover:text-yellow-400">
-                Disclaimer
+                Disclaimer And Disclosure
               </Link>
             </li>
-            <li>
-              <Link to="/disclosures" className="hover:text-yellow-400">
-                Disclosures
-              </Link>
-            </li>
+
             <li>
               <Link to="/terms-conditions" className="hover:text-yellow-400">
                 Terms & Conditions

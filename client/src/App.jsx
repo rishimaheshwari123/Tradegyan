@@ -41,6 +41,7 @@ import ChatsApp from "./pages/chats/MainChat";
 import AdminChatsApp from "./components/admin/Adminchats/MainChat";
 import AddQuery from "./components/admin/pages/AddQuery";
 import GetQuery from "./components/admin/pages/GetQuery";
+import Disclaimer from "./pages/Disclaimer";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/contact" element={<Partner />} />
         <Route path="/stocktable" element={<StockTable />} />
         <Route path="/service" element={<Service />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/support" element={<Support />} />
         <Route path="/learn" element={<Learn />} />
