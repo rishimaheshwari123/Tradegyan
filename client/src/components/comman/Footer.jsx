@@ -188,12 +188,35 @@ const Footer = () => {
 
       {/* Bottom section */}
       <div className="mt-10 border-t border-gray-700 pt-4 p-4">
-        <div className="container mx-auto text-center text-sm sm:text-base">
+        <div className="container mx-auto  text-sm sm:text-base flex flex-col gap-2">
           <p>
-            Copyright &copy; 2024 Trade Gyan Solutions. All rights reserved.
+            Copyright © 2019 Trade Gyan Solutions (Investment Advisor #
+            INA000008808)2024. All rights reserved.
           </p>
-          <p>Trade Gyan Solutions Reviewed by 500 Customers Rated: 4.8 / 5</p>
-          <p>Created by: I Next Ets</p>
+          <p>
+            Contact Details :+ (91) 777-100 4878 E-Mail id :- 121@tradegyan.co
+          </p>
+          <p>Principal Officer Contact Details :+ (91) 777-100 4878</p>
+          <p>E-Mail id :- 121@tradegyan.co</p>
+          <p>SEBI Registration Number: INA000008808</p>
+          <p>Type of Registration : Individual.</p>
+          <p>Validity of Registration- 31.03.2015 to Perpetual.</p>
+          <p>
+            SEBI Local Address :- 305, 3rd Floor, Satguru Parinay, AB Rd,
+            Opposite C-21 Mall, Indore, Madhya Pradesh 452010
+          </p>
+          <p>
+            Registration granted by SEBI, membership of BASL and certification
+            from NISM in no way guarantee performance of the intermediary or
+            provide any assurance of returns to investors.
+          </p>
+          <p>
+            Standard Warning:- “Investment in securities market are subject to
+            market risks. Read all the related documents carefully before
+            investing.”
+          </p>
+          <hr />
+          <p className="text-center">Made By I Next Ets❤️</p>
         </div>
       </div>
     </footer>

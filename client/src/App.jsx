@@ -46,6 +46,7 @@ import AddBlog from "./components/admin/pages/AddBlog";
 import GetBlog from "./components/admin/pages/GetBlogs";
 import Podcast from "./pages/Podcast";
 import SinglePodcast from "./pages/SinglePodcast";
+import InvestorSingleService from "./pages/investor/InvestorSingleService";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -68,6 +69,10 @@ const App = () => {
         <Route path="/investor" element={<InvestorHome />} />
         <Route path="/investor/about-us" element={<InvestorAbout />} />
         <Route path="/investor/services" element={<InvestorServices />} />
+        <Route
+          path="/investor/services/:id"
+          element={<InvestorSingleService />}
+        />
         <Route path="/investor/contact-us" element={<InvestorContact />} />
         <Route path="/trader" element={<TraderHome />} />
         <Route path="/trader/about" element={<TraderAbout />} />

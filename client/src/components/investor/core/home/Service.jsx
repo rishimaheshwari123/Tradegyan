@@ -1,86 +1,36 @@
 import React from "react";
-import {
-  FaCoins,
-  FaChartLine,
-  FaHandshake,
-  FaChess,
-  FaUserShield,
-  FaMoneyBillWave,
-} from "react-icons/fa";
-
-const services = [
-  {
-    title: "Loan Against Securities",
-    description: "We help you manage your portfolio",
-    icon: <FaCoins />,
-    image:
-      "https://5.imimg.com/data5/SELLER/Default/2022/11/PU/NE/AL/3196176/loan-against-securities-services-500x500.jpeg",
-  },
-  {
-    title: "Philanthropy and Social Investing",
-    description:
-      "Social change, donations, social impact investing, ESG investing.",
-    icon: <FaHandshake />,
-    image:
-      "https://media.licdn.com/dms/image/C4D12AQGl8_zgBZqPQw/article-cover_image-shrink_720_1280/0/1626712989933?e=2147483647&v=beta&t=Rf6oSaMPdiv-g9jeE0PW0gY2qmSCaFvnFPa1Yvmvebc",
-  },
-  {
-    title: "Wealth Management",
-    description: "We build your investment portfolio",
-    icon: <FaChartLine />,
-    image:
-      "https://img.etimg.com/thumb/width-1200,height-1200,imgsize-48114,resizemode-75,msid-106261484/markets/stocks/news/from-consumer-to-custodian-the-changing-face-of-wealth-management-for-indias-elite.jpg",
-  },
-  {
-    title: "Financial Planning",
-    description: "We plan your finances for your future",
-    icon: <FaMoneyBillWave />,
-    image:
-      "https://cdn.corporatefinanceinstitute.com/assets/financial-plan.jpeg",
-  },
-  {
-    title: "NRI Services",
-    description: "We shrink borders to diversify your investments",
-    icon: <FaUserShield />,
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5YDAepwbZngHqPAJ3S5EjAPRyYwwdw0qPsg&s",
-  },
-  {
-    title: "Risk Management",
-    description: "We build your investment portfolio",
-    icon: <FaChess />,
-    image:
-      "https://online.hbs.edu/Style%20Library/api/resize.aspx?imgpath=/PublishingImages/blog/posts/risk-management.jpg&w=1200&h=630",
-  },
-];
+import { service } from "../../../../data/investordata";
+import { Link } from "react-router-dom";
 
 const Service = () => {
   return (
     <div className="container mx-auto my-10 px-4">
       <h2 className="text-3xl font-bold text-center mb-10">Our Services</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {services.map((service, index) => (
+        {service.map((service, index) => (
           <div
             key={index}
             className="relative group text-white overflow-hidden"
           >
             <img
-              src={service.image}
-              alt={service.title}
+              src={service?.img}
+              alt={service?.name}
               className="w-full h-96 object-cover group-hover:opacity-80 transition-opacity duration-500"
             />
             {/* Hover content */}
             <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
-              <div className="text-4xl mb-4">{service.icon}</div>
               <h3 className="text-2xl font-bold mb-2 text-center drop-shadow-lg">
-                {service.title}
+                {service?.name}
               </h3>
               <p className="text-sm mb-4 text-center drop-shadow-lg">
-                {service.description}
+                {service?.tagline}
               </p>
-              <button className="mt-4 text-sm text-white border border-white py-2 px-4 rounded hover:bg-white hover:text-black transition-all drop-shadow-lg">
+              <Link
+                to={`/investor/services/${service.id}`}
+                className="mt-4 text-sm text-white border border-white py-2 px-4 rounded hover:bg-white hover:text-black transition-all drop-shadow-lg"
+              >
                 KNOW MORE
-              </button>
+              </Link>
             </div>
           </div>
         ))}
