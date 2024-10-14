@@ -87,7 +87,7 @@ Become an Associate Form Query</title>
     <body>
         <div className="container">
             <a href="http://localhost:3000"><img className="logo"
-                    src="" alt="Not Found Logo"></a>
+                    src="https://i.ibb.co/RprgNg7/logo.gif" alt="Not Found Logo"></a>
             <div className="message">New Business Related Query</div>
             <div className="body">
                 <p>Dear <span className="highlight">Admin</span>,</p>
