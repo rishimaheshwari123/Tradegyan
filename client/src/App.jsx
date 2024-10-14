@@ -191,6 +191,14 @@ const App = () => {
               }
             />
             <Route
+              path="/admin/get-Complaints"
+              element={
+                <PrivateRoute>
+                  <GetQuery />
+                </PrivateRoute>
+              }
+            />
+            <Route
               path="/admin/addBlog"
               element={
                 <PrivateRoute>
