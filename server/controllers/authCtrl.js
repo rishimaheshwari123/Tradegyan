@@ -179,7 +179,7 @@ const registerCtrl = async (req, res) => {
     res.cookie("token", token, options);
 
     // Company ID (TradeGyan)
-    const companyId = "66fa5fd1cf3671d1e9cec9ec";
+    const companyId = "670ccaa07d8cb8964e394fd4";
 
     // Check if a conversation exists between the user and the company
     let conversation = await Conversation.findOne({
