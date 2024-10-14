@@ -110,6 +110,38 @@ const getSingleService = async (req, res) => {
     }
 };
 
+const singleServiceAdmin = async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (!id) {
+            return res.status(400).json({
+                success: false,
+                message: "Service ID is required"
+            });
+        }
+
+        const service = await Service.findById(id).populate("usersEnroled.user");
+        if (!service) {
+            return res.status(404).json({
+                success: false,
+                message: "Service not found"
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            service
+        });
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            message: "Error in getting service",
+            success: false
+        });
+    }
+};
+
 
 
 
@@ -155,5 +187,5 @@ const getServices = async (req, res) => {
 
 
 module.exports = {
-    createService, getAllService, getSingleService,getServices
+    createService, getAllService, getSingleService,getServices,singleServiceAdmin
 };

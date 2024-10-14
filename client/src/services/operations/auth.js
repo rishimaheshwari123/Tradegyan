@@ -15,7 +15,8 @@ const {
   DELETE_QUERY,
   UPDATE_QUERY,
   FETCH_PROFILE,
-  GET_ALL_SERVICE
+  GET_ALL_SERVICE,
+  GET_SINGLE_ADMIN_SERVICE
 } = endpoints;
 
 export async function signUp(formData, navigate, dispatch) {
@@ -254,6 +255,15 @@ return []
 export const getSingelService = async (id) => {
   try {
     const response = await apiConnector("GET", `${GET_SINGLE_SERVICE}/${id}`);
+    const result = response?.data?.service;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getSingelServiceAdmin = async (id) => {
+  try {
+    const response = await apiConnector("GET", `${GET_SINGLE_ADMIN_SERVICE}/${id}`);
     const result = response?.data?.service;
     return result;
   } catch (error) {

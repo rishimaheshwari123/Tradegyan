@@ -108,7 +108,7 @@ const [conversationId, setConversationId] = useState(null);
                 <img
                   src={participant.image} // Replace with a default avatar if image is not available
                   alt={participant.name}
-                  className="w-10 h-10 rounded-full object-cover"
+                  className="w-14 h-14 rounded-full object-cover border-black border-2"
                 />
                 <div className="flex-1">
                   <div className="text-lg font-medium">{participant.name}</div>

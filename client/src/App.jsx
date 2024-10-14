@@ -49,18 +49,16 @@ import SinglePodcast from "./pages/SinglePodcast";
 import InvestorSingleService from "./pages/investor/InvestorSingleService";
 import { fetchMyProfile } from "./services/operations/auth";
 import Subscription from "./pages/Subscription";
+import SingleServiceAdmin from "./components/admin/pages/SingleService";
 
 const App = () => {
-  const { user,token } = useSelector((state) => state.auth);
+  const { user, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-
-
     if (token) {
-   
-      dispatch(fetchMyProfile(token,navigate));
+      dispatch(fetchMyProfile(token, navigate));
     }
   }, [token]);
   useSocket();
@@ -152,6 +150,15 @@ const App = () => {
                 </PrivateRoute>
               }
             />
+            <Route
+              path="/admin/service/:id"
+              element={
+                <PrivateRoute>
+                  <SingleServiceAdmin />
+                </PrivateRoute>
+              }
+            />
+
             <Route
               path="/admin/get-service"
               element={

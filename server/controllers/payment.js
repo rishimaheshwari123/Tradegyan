@@ -133,8 +133,8 @@ const enrollInService = async (
       $push: {
         usersEnroled: {
           user: userId,
-          formattedEnrollmentDate, // Use formatted date here
-          formattedExpirationDate ,   // Use formatted date here
+          enrollmentDate, // Use formatted date here
+          expirationDate ,   // Use formatted date here
           razorpay_order_id, // Add this field
           razorpay_payment_id, // Add this field
           payable, // Add this field

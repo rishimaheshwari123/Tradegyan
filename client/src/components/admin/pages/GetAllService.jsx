@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getAllService } from "../../../services/operations/auth";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-
+import { Link } from "react-router-dom";
 const GetAllService = () => {
   const [services, setServices] = useState([]);
   const [showGlobalModal, setShowGlobalModal] = useState(false);
@@ -42,7 +42,10 @@ const GetAllService = () => {
             className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6"
           >
             <div className="flex flex-col space-y-4">
+             <Link to={`/admin/service/${service?._id}`}>
+
               <h2 className="text-xl font-semibold text-blue-600">{service.serviceName}</h2>
+             </Link>
               <p className="text-gray-700">{service.description}</p>
               <div className="flex flex-col space-y-2">
                 <span className="font-bold text-lg text-gray-900">
