@@ -9,6 +9,7 @@ import ComplaintsTable from "../../components/trader/comman/ComplaintsTable";
 import Notification from "../../components/core/home/Notification";
 import Service from "../../pages/Service";
 import Navbar from "../../components/comman/Navbar";
+import SliderTrader from "../../components/trader/SliderTrader";
 
 const TraderHome = () => {
   return (
@@ -17,7 +18,7 @@ const TraderHome = () => {
       <Navbar />
 
       {/* <TraderNavbar /> */}
-      <Slider />
+      <SliderTrader />
       <ComplaintsTable />
 
       <WeOffer />

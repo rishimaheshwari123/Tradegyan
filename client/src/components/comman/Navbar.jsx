@@ -158,13 +158,15 @@ const Navbar = () => {
                 <FaWhatsapp size={28} />
               </a>
             </li>
-            <li
+        {
+          token && user?.role ==="user" &&     <li
               className="flex items-center space-x-2 cursor-pointer border-2 p-4 rounded-full"
               onClick={goToProfile}
             >
               <FaUserCircle size={28} className="text-orange-700" />
               <span className="font-bold">{user?.name}</span>
             </li>
+        }
           </ul>
 
           {/* Mobile Sidebar Button */}
@@ -245,13 +247,15 @@ const Navbar = () => {
                   </li>
                 )}
 
-                <li
+            {
+              token && user?.role ==="user" &&     <li
                   className="flex items-center space-x-2 cursor-pointer"
                   onClick={goToProfile}
                 >
                   <FaUserCircle size={24} className="text-gray-700" />
                   <span className="font-bold">{user.name}</span>
                 </li>
+            }
 
                 <li>
                   <button
