@@ -1,7 +1,7 @@
 export const service = [
     {
         id: "1",
-        img: "https://media.licdn.com/dms/image/v2/D5610AQGET3tlFd2YCA/image-shrink_1280/image-shrink_1280/0/1722505501937?e=2147483647&v=beta&t=4IYaXp3jo8z1giF-HZ5RCHXgb5xSuvV8Ufyd5PhzQz8",
+        img: "https://media.licdn.com/dms/image/D4D12AQEJ256Bcyrhig/article-cover_image-shrink_720_1280/0/1678757430232?e=2147483647&v=beta&t=6rVa01GW0ce2osKy0vP16iBbjb0A5_h8u9SitngKx0Y",
 
         name: "Trade Gyan WealthMax",
         tagline: "Empowering Your Financial Future",
@@ -106,7 +106,7 @@ export const service = [
 
     {
         id: "3",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuy5uSrUWQIDYlJ3YUiiIqTAETHg9MTl_NQA&s", // 
+        img: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202406/quant-mutual-funds-245508936-16x9_0.jpg?VersionId=T08gcNNaO8EkbXQrNcijtOZbldevgh2_&size=690:388", // 
         name: "Trade Gyan Mutual Fund Navigator",
         tagline: "Simplify Your Investments. Amplify Your Returns.",
         overview: "Trade Gyan Mutual Fund Navigator is a curated mutual fund investment solution designed to help investors achieve their financial goals. Our expert advisors will guide you through a comprehensive mutual fund selection process, providing tailored recommendations to optimize your portfolio.",
@@ -165,7 +165,7 @@ export const service = [
 
     {
         id: "4",
-        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBeeiReKrPm4ZANzrMsLFuyDTeV-lFYaFMlfSxODnvkgOM_J18xhzRedXqaJ5Yeutw2HE&usqp=CAU",
+        img: "https://lxme.in/wp-content/uploads/2023/02/Community-Blog-image-ETFs-1.jpg",
         name: "Trade Gyan ETF Advantage",
         tagline: "Precision Investing. Simplified.",
         overview: "Trade Gyan ETF Advantage is a curated Exchange-Traded Fund (ETF) investment solution designed to provide investors with diversified, low-cost, and efficient exposure to various asset classes and sectors. Our expert advisors will guide you through a comprehensive ETF selection process, providing tailored recommendations to optimize your portfolio.",
@@ -242,7 +242,7 @@ export const service = [
     },
     {
         id: "5",
-        img: "https://assets.thehansindia.com/hansindia-bucket/h-upload/feeds/2019/07/28/200303-rupee.jpg",
+        img: "https://www.dividendscreen.com/wp-content/uploads/2024/07/2-600x400.jpg",
         name: "Trade Gyan Bond Plus",
         tagline: "Stable Returns. Secure Future.",
         overview: "Trade Gyan Bond Plus is a curated bond investment solution designed to provide investors with a stable source of income and capital preservation. Our expert advisors will guide you through a comprehensive bond selection process, providing tailored recommendations to optimize your portfolio.",

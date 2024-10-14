@@ -12,46 +12,39 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
-import h1 from "../../../../assets/banner-1.png";
-import h2 from "../../../../assets/banner-2.png";
-import h3 from "../../../../assets/banner-3.png";
-import h4 from "../../../../assets/banner-4.png";
-import h5 from "../../../../assets/banner-5.png";
+import { Link } from "react-router-dom";
 
 const data = [
   {
     id: 1,
-    image: h1,
+    image:
+      "https://cdn-res.keymedia.com/cms/images/ca/155/0287_637338487618644943.jpg",
     title: "“Financial freedom is to be able to do what one wants in life” ",
     subTitle: "Dilshad Billimoria, Founder and Chief Financial Planner",
     btn: "Talk To Us",
   },
   {
     id: 2,
-    image: h2,
+    image:
+      "https://forefrontwealthpartners.com/wp-content/uploads/Tech-Professionals-New.webp",
     title: "Advice today, becomes security tomorrow ",
     subTitle: "Plan your financial future now",
     btn: "Talk To Us",
   },
   {
     id: 3,
-    image: h3,
+    image:
+      "https://cdn.britannica.com/86/236186-050-A65A6493/Consultant-financial-advisor-specialist-dealing-with-mature-couple-clients.jpg",
     title: "Age is just a number, but retirement income isn’t",
     subTitle: "Now is the time to start",
     btn: "Talk To Us",
   },
   {
     id: 4,
-    image: h4,
+    image:
+      "https://media.licdn.com/dms/image/D5612AQFwnEsc4eaobQ/article-cover_image-shrink_600_2000/0/1680151682757?e=2147483647&v=beta&t=YrbHpcm4KN50YVfahOMzeRBo3fCdzVujfp4nzNeMyqk",
     title: "Your wealth management is our topmost priority",
     subTitle: "We provide you with secure solutions",
-    btn: "Talk To Us",
-  },
-  {
-    id: 5,
-    image: h5,
-    title: "Our awards are a mark of our competency",
-    subTitle: "We promise to help you plan better",
     btn: "Talk To Us",
   },
 ];
@@ -94,9 +87,12 @@ const Slider = () => {
                 {item.title}
               </h2>
               <p className="text-xl lg:text-3xl  mb-4">{item.subTitle}</p>
-              <button className="px-6 py-2 text-base bg-[#62000f] hover:bg-blue-700 rounded">
+              <Link
+                to={"/investor/contact-us"}
+                className="px-6 py-2 text-base bg-yellow-600 hover:bg-blue-700 rounded"
+              >
                 {item.btn}
-              </button>
+              </Link>
             </div>
           </SwiperSlide>
         ))}

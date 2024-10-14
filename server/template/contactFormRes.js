@@ -1,6 +1,6 @@
 
 const contactUsEmail = (
-    name, email, contact, message, you
+    name, email, contact, message
 
 
 ) => {
@@ -97,7 +97,6 @@ Become an Associate Form Query</title>
                     <p><span className="highlight">Email:</span> ${email}</p>
                     <p><span className="highlight">Contact Number:</span> ${contact}</p>
                     <p><span className="highlight">Message:</span> ${message}</p>
-                    <p><span className="highlight">Who We Are:</span> ${you}</p>
                     
                 </div>
             </div>

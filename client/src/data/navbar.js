@@ -43,3 +43,17 @@ export const traderNavLinks = [
     { name: "About", path: "/trader/about" },
     { name: "Contact", path: "/trader/contact" },
 ];
+
+export const investorNavLinks = [
+    {
+        name: "Main Home",
+        path: "/",
+    },
+    {
+        name: "Home",
+        path: "/investor",
+    },
+    { name: "About", path: "/investor/about-us" },
+    { name: "Contact", path: "/investor/contact-us" },
+    { name: "Services", path: "/investor/services" },
+];

@@ -13,6 +13,8 @@ import {
   FaLayerGroup,
 } from "react-icons/fa"; // Icons for design
 import Navbar from "../../components/comman/Navbar";
+import InvestorNavbar from "../../components/investor/comman/InvestorNavbar";
+import Notification from "../../components/core/home/Notification";
 
 const InvestorServices = () => {
   const { id } = useParams(); // Get the id from URL params
@@ -24,7 +26,8 @@ const InvestorServices = () => {
 
   return (
     <div>
-      <Navbar />
+      <Notification />
+      <InvestorNavbar />
       <div className="p-6 space-y-12 max-w-4xl mx-auto">
         {/* Service Image and Heading */}
         <div className="shadow-lg p-6 rounded-lg bg-white">

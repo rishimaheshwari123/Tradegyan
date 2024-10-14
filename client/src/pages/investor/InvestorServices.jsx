@@ -3,10 +3,12 @@ import Service from "../../components/investor/core/service/Service";
 import service from "../../assets/service.png";
 import { FaChevronDown } from "react-icons/fa";
 import InvestorNavbar from "../../components/investor/comman/InvestorNavbar";
+import Notification from "../../components/core/home/Notification";
 
 const InvestorServices = () => {
   return (
     <div>
+      <Notification />
       <InvestorNavbar />
       <div className="relative flex justify-center items-center">
         <img

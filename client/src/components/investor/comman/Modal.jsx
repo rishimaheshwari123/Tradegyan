@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ isOpen, toggleModal, onSubmit }) => {
+const Modal = ({ isOpen, toggleModal, onSubmit, handleChange, formData }) => {
   if (!isOpen) return null;
 
   return (
@@ -14,6 +14,9 @@ const Modal = ({ isOpen, toggleModal, onSubmit }) => {
               type="text"
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Name"
+              onChange={handleChange}
+              name="name"
+              value={formData.name}
             />
           </div>
           <div className="mb-4">
@@ -22,6 +25,9 @@ const Modal = ({ isOpen, toggleModal, onSubmit }) => {
               type="email"
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Email"
+              onChange={handleChange}
+              name="email"
+              value={formData.email}
             />
           </div>
           <div className="mb-4">
@@ -30,6 +36,9 @@ const Modal = ({ isOpen, toggleModal, onSubmit }) => {
               type="tel"
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Phone"
+              onChange={handleChange}
+              name="contact"
+              value={formData.contact}
             />
           </div>
           <div className="mb-4">
@@ -37,6 +46,9 @@ const Modal = ({ isOpen, toggleModal, onSubmit }) => {
             <textarea
               className="w-full p-2 border border-gray-300 rounded"
               placeholder="Your Message"
+              onChange={handleChange}
+              name="message"
+              value={formData.message}
             ></textarea>
           </div>
           <div className="flex justify-end">
