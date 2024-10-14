@@ -4,9 +4,11 @@ import about from "../../assets/about.png";
 import AboutGrid from "../../components/investor/core/about/AboutGrid";
 import Slider from "../../components/investor/core/about/Slider";
 import InvestorNavbar from "../../components/investor/comman/InvestorNavbar";
+import Notification from "../../components/core/home/Notification";
 const InvestorAbout = () => {
   return (
     <div>
+      <Notification />
       <InvestorNavbar />
       <div className="relative flex justify-center items-center">
         <img

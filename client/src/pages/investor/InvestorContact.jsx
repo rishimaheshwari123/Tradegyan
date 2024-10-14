@@ -1,24 +1,45 @@
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import contact from "../../assets/contact.jpg";
-import Modal from "../../components/investor/comman/Modal"; // Import the Modal component
+import Modal from "../../components/investor/comman/Modal";
 import InvestorNavbar from "../../components/investor/comman/InvestorNavbar";
+import Notification from "../../components/core/home/Notification";
+import { sendContactForm } from "../../services/operations/auth";
 
 const InvestorContact = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const initialFormData = {
+    name: "",
+    email: "",
+    contact: "",
+    message: "",
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    toggleModal(); // Close the modal after submission
+    const response = await sendContactForm(formData);
+    if (response?.data?.success) {
+      setFormData(initialFormData);
+    }
+    toggleModal();
   };
 
   return (
     <div>
+      <Notification />
       <InvestorNavbar />
       <div className="relative flex justify-center items-center">
         <img
@@ -34,19 +55,21 @@ const InvestorContact = () => {
       </div>
 
       <div className="max-w-7xl mx-auto p-5 grid lg:grid-cols-2">
-        {/* Left Column: Contact Details */}
         <div className="flex flex-col w-full md:w-1/2 p-4">
           <div className="mb-4">
             <h3 className="text-xl font-semibold">Address:</h3>
-            <p>123, Main Street, Your City, Your State, 123456</p>
+            <p>
+              plot,9, Sector C Rd, Govindpura Industrial Area, Bhopal, Madhya
+              Pradesh 462023
+            </p>
           </div>
           <div className="mb-4">
             <h3 className="text-xl font-semibold">Phone Number:</h3>
-            <p>(123) 456-7890</p>
+            <p>+ (91) 777-100 4878</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold">Email:</h3>
-            <p>info@yourcompany.com</p>
+            <p>121@tradegyan.co</p>
           </div>
 
           <button
@@ -57,14 +80,15 @@ const InvestorContact = () => {
           </button>
         </div>
 
-        {/* Right Column: Map */}
         <div>
           <iframe
-            className="w-full h-96"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3154.8510343500087!2d144.955432715673!3d-37.8173259797515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577cb1aa9f2ad71!2s123%20Main%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sus!4v1615530123456!5m2!1sen!2sus"
+            title="Trade Gyan Location"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14662.38355328528!2d77.4562741!3d23.2577881!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c69e288cb22d9%3A0x560387e9851c6181!2sTrade%20Gyan%20Solution!5e0!3m2!1sen!2sin!4v1728912306890!5m2!1sen!2sin"
+            width="600"
+            height="450"
             allowFullScreen=""
             loading="lazy"
-            title="Google Map"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
       </div>
@@ -74,6 +98,8 @@ const InvestorContact = () => {
         isOpen={isModalOpen}
         toggleModal={toggleModal}
         onSubmit={handleSubmit}
+        handleChange={handleChange}
+        formData={formData}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import OpenRoute from "./components/admin/auth/OpenRoute";
 import Login from "./pages/Login";
@@ -49,10 +49,12 @@ import SinglePodcast from "./pages/SinglePodcast";
 import InvestorSingleService from "./pages/investor/InvestorSingleService";
 import { fetchMyProfile } from "./services/operations/auth";
 import Subscription from "./pages/Subscription";
-import SingleServiceAdmin from "./components/admin/pages/SingleService";
+import SendMessage from "./pages/SendMessage";
+import Complain from "./components/trader/comman/Complain";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
+  const [showModal, setShowModal] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -62,8 +64,17 @@ const App = () => {
     }
   }, [token]);
   useSocket();
+
+  useEffect(() => {
+    setShowModal(true);
+  }, []);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <div>
+      {showModal && <Complain onClose={handleCloseModal} />}
       <Routes>
         <Route path="/" element={<Home />} />
 
@@ -94,6 +105,7 @@ const App = () => {
         <Route path="/sebidiscloser" element={<InvestorCharter />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/podcast/:id" element={<SinglePodcast />} />
+        <Route path="/message" element={<SendMessage />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
@@ -196,6 +208,14 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <AddQuery />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/get-Complaints"
+              element={
+                <PrivateRoute>
+                  <GetQuery />
                 </PrivateRoute>
               }
             />

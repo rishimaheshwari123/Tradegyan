@@ -12,9 +12,9 @@ const InvestorHome = () => {
       <Notification />
       <InvestorNavbar />
       <Slider />
-      <Service />
       <WhyWorkWithUs />
-      <LastSlider />
+      <Service />
+      {/* <LastSlider /> */}
     </div>
   );
 };

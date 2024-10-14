@@ -7,7 +7,6 @@ const HomeQuote = () => {
     email: "",
     contact: "",
     message: "",
-    you: "Broker",
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -36,13 +35,11 @@ const HomeQuote = () => {
             Find Us in Bhopal
           </h2>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228205.87233534693!2d77.34107367465049!3d23.25993334209781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c42613a849f85%3A0xb22822fd2e4d35f3!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1695826828413!5m2!1sen!2sin"
-            width="100%"
-            height="400"
-            allowFullScreen=""
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14662.38355328528!2d77.4562741!3d23.2577881!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c69e288cb22d9%3A0x560387e9851c6181!2sTrade%20Gyan%20Solution!5e0!3m2!1sen!2sin!4v1728912306890!5m2!1sen!2sin"
+            allowfullscreen=""
             loading="lazy"
-            className="border-0 rounded-lg"
-            title="Google Map of Bhopal"
+            className="w-[100%] lg:h-[62vh]  h-[38vh]"
+            referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
 
@@ -66,8 +63,6 @@ const HomeQuote = () => {
                 required
               />
             </div>
-
-        
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -94,26 +89,8 @@ const HomeQuote = () => {
                 onChange={handleChange}
                 placeholder="Enter your email (Optional)"
                 className="w-full p-2 border border-gray-300 rounded-lg"
-                
               />
             </div>
-            {/* <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Who are you?
-              </label>
-              <select
-                name="you"
-                value={formData.you}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded-lg"
-                required
-              >
-                <option value="Broker">Broker</option>
-                <option value="Distributor">Distributor</option>
-                <option value="Investment Advisor">Investment Advisor</option>
-                <option value="Portfolio Manager">Portfolio Manager</option>
-              </select>
-            </div> */}
 
             <div>
               <label className="block text-sm font-medium text-gray-700">
@@ -125,7 +102,6 @@ const HomeQuote = () => {
                 onChange={handleChange}
                 placeholder="Enter your message (Optional)"
                 className="w-full p-2 border border-gray-300 rounded-lg"
-                
               ></textarea>
             </div>
 

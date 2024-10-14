@@ -8,7 +8,6 @@ const Partner = () => {
     email: "",
     contact: "",
     message: "",
-    you: "Broker",
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -148,24 +147,6 @@ const Partner = () => {
                 className="w-full p-2 border border-gray-300 rounded-lg"
                 required
               />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Who are you?
-              </label>
-              <select
-                name="you"
-                value={formData.you}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded-lg"
-                required
-              >
-                <option value="Broker">Broker</option>
-                <option value="Distributor">Distributor</option>
-                <option value="Investment Advisor">Investment Advisor</option>
-                <option value="Portfolio Manager">Portfolio Manager</option>
-              </select>
             </div>
 
             <div>
