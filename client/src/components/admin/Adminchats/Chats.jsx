@@ -55,7 +55,7 @@ const Chat = ({ receiverId, onClose,idReciever }) => {
 
     fetchConversation();
     fetchMessages();
-  
+  console.log(BASE_URL)
   }, [conversationId, token, user._id]);
 
   useEffect(() => {

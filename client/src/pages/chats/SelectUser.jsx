@@ -8,7 +8,7 @@ const ConversationList = ({  onUserSelect }) => {
   const { token } = useSelector(state => state.auth);
   const { user } = useSelector(state => state.auth);
   const [socket, setSocket] = useState(null);
-  const BASE_URL = process.env.REACT_APP_BASE_URL
+  const BASE_URL = process.env.REACT_APP_SOCKET_BASE_URL
 
 const [conversationId, setConversationId] = useState(null);
 
