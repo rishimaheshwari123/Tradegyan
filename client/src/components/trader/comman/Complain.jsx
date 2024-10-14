@@ -32,15 +32,15 @@ const Complain = () => {
       {/* Modal Popup */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg  relative">
+          <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-[97%] max-w-7xl relative">
             <button
               onClick={closeModal}
               className="absolute top-2 right-2 text-red-600 hover:text-red-800"
             >
               <FaTimes size={24} />
             </button>
-            <div className="w-[90%] mx-auto my-5 p-4 bg-yellow-50 rounded-lg shadow-lg">
-              <h2 className="text-xl font-semibold text-center mb-4 text-red-600">
+            <div className="w-full mx-auto my-5 p-4 bg-yellow-50 rounded-lg shadow-lg">
+              <h2 className="text-lg sm:text-xl font-semibold text-center mb-4 text-red-600">
                 Number of Complaints
               </h2>
               <div className="overflow-x-auto">
@@ -49,47 +49,47 @@ const Complain = () => {
                     <tr className="bg-red-200">
                       <th
                         scope="col"
-                        className="border border-red-300 px-4 py-2 text-red-800 text-left"
+                        className="border border-red-300 px-2 sm:px-4 py-2 text-red-800 text-left"
                       >
                         <div className="flex items-center">
-                          <FaExclamationCircle className="mr-2" /> Beginning of
-                          the Month
+                          <FaExclamationCircle className="mr-1 sm:mr-2" />{" "}
+                          Beginning of the Month
                         </div>
                       </th>
                       <th
                         scope="col"
-                        className="border border-red-300 px-4 py-2 text-red-800 text-left"
+                        className="border border-red-300 px-2 sm:px-4 py-2 text-red-800 text-left"
                       >
                         <div className="flex items-center">
-                          <FaRegEnvelope className="mr-2" /> Received During the
-                          Month
+                          <FaRegEnvelope className="mr-1 sm:mr-2" /> Received
+                          During the Month
                         </div>
                       </th>
                       <th
                         scope="col"
-                        className="border border-red-300 px-4 py-2 text-red-800 text-left"
+                        className="border border-red-300 px-2 sm:px-4 py-2 text-red-800 text-left"
                       >
                         <div className="flex items-center">
-                          <FaCheckCircle className="mr-2" /> Resolved During the
-                          Month
+                          <FaCheckCircle className="mr-1 sm:mr-2" /> Resolved
+                          During the Month
                         </div>
                       </th>
                       <th
                         scope="col"
-                        className="border border-red-300 px-4 py-2 text-red-800 text-left"
+                        className="border border-red-300 px-2 sm:px-4 py-2 text-red-800 text-left"
                       >
                         <div className="flex items-center">
-                          <FaClock className="mr-2" /> Pending at the End of the
-                          Month
+                          <FaClock className="mr-1 sm:mr-2" /> Pending at the
+                          End of the Month
                         </div>
                       </th>
                       <th
                         scope="col"
-                        className="border border-red-300 px-4 py-2 text-red-800 text-left"
+                        className="border border-red-300 px-2 sm:px-4 py-2 text-red-800 text-left"
                       >
                         <div className="flex items-center">
-                          <FaExclamationCircle className="mr-2" /> Reasons for
-                          Pendency
+                          <FaExclamationCircle className="mr-1 sm:mr-2" />{" "}
+                          Reasons for Pendency
                         </div>
                       </th>
                     </tr>
@@ -98,19 +98,19 @@ const Complain = () => {
                     {queries.length > 0 ? (
                       queries.map((query, index) => (
                         <tr key={index} className="bg-white hover:bg-red-50">
-                          <td className="border border-red-300 px-4 py-2 text-center text-red-600">
+                          <td className="border border-red-300 px-2 sm:px-4 py-2 text-center text-red-600">
                             {query.beginningOfTheMonth}
                           </td>
-                          <td className="border border-red-300 px-4 py-2 text-center text-red-600">
+                          <td className="border border-red-300 px-2 sm:px-4 py-2 text-center text-red-600">
                             {query.duringTheMonth}
                           </td>
-                          <td className="border border-red-300 px-4 py-2 text-center text-red-600">
-                            {query.resolvedDuringTheMonth}
+                          <td className="border border-red-300 px-2 sm:px-4 py-2 text-center text-red-600">
+                            {query.redolvedDuringTheMonth}
                           </td>
-                          <td className="border border-red-300 px-4 py-2 text-center text-red-600">
+                          <td className="border border-red-300 px-2 sm:px-4 py-2 text-center text-red-600">
                             {query.pendingEndOfTheMonth}
                           </td>
-                          <td className="border border-red-300 px-4 py-2 text-center text-red-600">
+                          <td className="border border-red-300 px-2 sm:px-4 py-2 text-center text-red-600">
                             {query.reasonForPending}
                           </td>
                         </tr>
@@ -119,7 +119,7 @@ const Complain = () => {
                       <tr>
                         <td
                           colSpan="5"
-                          className="border border-red-300 px-4 py-2 text-center text-red-600"
+                          className="border border-red-300 px-2 sm:px-4 py-2 text-center text-red-600"
                         >
                           No queries found.
                         </td>
@@ -132,8 +132,6 @@ const Complain = () => {
           </div>
         </div>
       )}
-
-      {/* Complaints Table */}
     </div>
   );
 };
