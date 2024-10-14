@@ -179,7 +179,7 @@ const registerCtrl = async (req, res) => {
     res.cookie("token", token, options);
 
     // Company ID (TradeGyan)
-    const companyId = "66fa5fd1cf3671d1e9cec9ec";
+    const companyId = "670ccaa07d8cb8964e394fd4";
 
     // Check if a conversation exists between the user and the company
     let conversation = await Conversation.findOne({
@@ -357,6 +357,37 @@ const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
   }
 };
 
+const fetchMyProfile = async (req, res) => {
+  try {
+    // Get email and password from request body
+    const id = req.user.id;
 
+    const userDetails = await authModel.findById(id);
 
-module.exports = { registerCtrl, loginCtrl,sendMessageCtrl };
+    // Find user with provided email
+    const user = await authModel.findById(id);
+
+    // If user not found with provided email
+    if (!user) {
+      // Return 401 Unauthorized status code with error message
+      return res.status(401).json({
+        success: false,
+        message: `User is not Registered with Us Please SignUp to Continue`,
+      });
+    }
+
+    return res.status(200).json({
+      user,
+      success: true,
+      message: `Fetch Data Successfully`,
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({
+      success: false,
+      message: `Error During fetch data`,
+    });
+  }
+};
+
+module.exports = { registerCtrl, loginCtrl,sendMessageCtrl ,fetchMyProfile};

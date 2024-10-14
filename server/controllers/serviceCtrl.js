@@ -1,4 +1,5 @@
 const Service = require('../models/serviceModel');
+const Auth = require("../models/authModel"); // Adjust the path as necessary
 
 const createService = async (req, res) => {
     try {
@@ -108,6 +109,51 @@ const getSingleService = async (req, res) => {
         });
     }
 };
+
+
+
+
+const getServices = async (req, res) => {
+    try {
+        console.log("first")
+        const userId = req.user.id; // Assuming the user ID is available in req.user
+
+        // Find the user by ID and populate their subscriptions with the corresponding service details
+        const user = await Auth.findById(userId).populate("subscriptions.service");
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        // Filter and extract the services from the user's subscriptions
+        const services = user.subscriptions
+            .filter(subscription => subscription.isActive) // Only active subscriptions
+            .map(subscription => ({
+                serviceId: subscription.service._id, // Service ID
+                serviceName: subscription.service.serviceName, // Assuming service has a name field
+                description: subscription.service.description, // Assuming service has a description field
+                enrollmentDate: subscription.enrollmentDate,
+                expirationDate: subscription.expirationDate,
+                // Add any other service fields you want to include
+            }));
+
+        // Send success response along with the services
+        return res.status(200).json({ 
+            success: true, // Success flag
+            message: "Active services retrieved successfully", 
+            services 
+        });
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        return res.status(500).json({ success: false, message: "Server error", error: error.message });
+    }
+};
+
+
+
+
+
+
 module.exports = {
-    createService, getAllService, getSingleService
+    createService, getAllService, getSingleService,getServices
 };

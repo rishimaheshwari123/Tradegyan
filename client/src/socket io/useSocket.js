@@ -8,7 +8,8 @@ const useSocket = () => {
   const navigate = useNavigate();
 
 // const BASE_URL = 'https://photomanager.mahitechnocrafts.in/'
-const BASE_URL = 'https://tradegyan.mahitechnocrafts.in/'
+const BASE_URL = process.env.REACT_APP_SOCKET_BASE_URL
+
   
   useEffect(() => {
     const socket = io(BASE_URL); // Update with your server URL

@@ -1,56 +1,77 @@
 const mongoose = require("mongoose");
 
 const authSchema = new mongoose.Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-            trim: true,
-        },
-        image: {
-            type: String,
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    location: {
+      type: String,
+      // required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    whatsappNumber: {
+      type: String,
+      required: true,
+    },
+    contactNumber: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: ["user", "Admin", "SuperAdmin"],
+      default: "user",
+      required: true,
+    },
+    subscriptions: [
+        {
+          service: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Service",
             required: true,
           },
-        email: {
+          enrollmentDate: {
+            type: Date,
+            default: Date.now,
+          },
+          expirationDate: {
+            type: Date,
+          },
+          isActive: {
+            type: Boolean,
+            default: true,
+          },
+          razorpay_order_id: { // Add this field
             type: String,
-            required: true,
-            trim: true,
-        },
-        location: {
+          },
+          razorpay_payment_id: { // Add this field
             type: String,
-            // required: true,
-
+          },
+          payable: { // Add this field
+            type: Number,
+          },
         },
-
-        password: {
-            type: String,
-            required: true,
-        },
-        whatsappNumber :{
-            type: String,
-            required: true,
-        },
-        contactNumber :{
-            type: String,
-            required: true,
-        },
-        role: {
-            type: String,
-            enum: ["user", "Admin", "SuperAdmin"],
-            default: "user",
-            required: true,
-        },
-        isSubcription:[
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Service',
-            }
-        ],
-        token: {
-            type: String,
-        },
+      ],
+    token: {
+      type: String,
     },
-    { timestamps: true }
+  },
+  { timestamps: true }
 );
 
 module.exports = mongoose.model("auth", authSchema);

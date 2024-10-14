@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import io from "socket.io-client";
 import axios from "axios";
 import { useSelector } from "react-redux";
-const BASE_URL = 'https://tradegyan.mahitechnocrafts.in'
+const BASE_URL = process.env.REACT_APP_SOCKET_BASE_URL
 
 const socket = io(BASE_URL);
 
@@ -55,7 +55,7 @@ const Chat = ({ receiverId, onClose,idReciever }) => {
 
     fetchConversation();
     fetchMessages();
-  
+  console.log(BASE_URL)
   }, [conversationId, token, user._id]);
 
   useEffect(() => {

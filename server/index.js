@@ -52,6 +52,7 @@ app.use("/api/v1/admin", require("./routes/admin"));
 app.use("/api/v1/chat", require('./routes/chat.js'));
 app.use("/api/v1/query", require('./routes/qureryRoute.js'));
 app.use("/api/v1/blog", require("./routes/blogRoute.js"))
+app.use("/api/v1/order", require("./routes/orderRoutes.js"));
 
 
 

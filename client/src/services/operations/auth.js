@@ -2,13 +2,23 @@ import { setUser, setToken } from "../../redux/authSlice";
 import { apiConnector } from "../apiConnector";
 import { endpoints } from "../apis";
 import Swal from "sweetalert2";
-import { toast } from "react-toastify"
-const { LOGIN_API, SIGNUP_API, CONTACT, CREATE_SERVICE, GET_SERVICE, GET_SINGLE_SERVICE, CREATE_QUERY, GET_QUERY, DELETE_QUERY, UPDATE_QUERY } = endpoints;
-
-
+import { toast } from "react-toastify";
+const {
+  LOGIN_API,
+  SIGNUP_API,
+  CONTACT,
+  CREATE_SERVICE,
+  GET_SERVICE,
+  GET_SINGLE_SERVICE,
+  CREATE_QUERY,
+  GET_QUERY,
+  DELETE_QUERY,
+  UPDATE_QUERY,
+  FETCH_PROFILE,
+  GET_ALL_SERVICE
+} = endpoints;
 
 export async function signUp(formData, navigate, dispatch) {
-
   Swal.fire({
     title: "Loading",
     allowOutsideClick: false,
@@ -33,20 +43,18 @@ export async function signUp(formData, navigate, dispatch) {
       text: `Have a nice day!`,
       icon: "success",
     });
-    dispatch(setToken(response?.data?.token))
-    dispatch(setUser(response?.data?.user))
-    localStorage.setItem("user", JSON.stringify(response.data.user))
+    dispatch(setToken(response?.data?.token));
+    dispatch(setUser(response?.data?.user));
+    localStorage.setItem("user", JSON.stringify(response.data.user));
 
-    localStorage.setItem("token", JSON.stringify(response.data.token))
+    localStorage.setItem("token", JSON.stringify(response.data.token));
 
     navigate("/");
   } catch (error) {
     console.log("SIGNUP API ERROR............", error);
   }
   Swal.close();
-
 }
-
 
 export async function login(email, password, navigate, dispatch) {
   Swal.fire({
@@ -67,12 +75,11 @@ export async function login(email, password, navigate, dispatch) {
     });
     Swal.close();
     if (!response?.data?.success) {
-      await
-        Swal.fire({
-          title: "Login Failed",
-          text: response.data.message,
-          icon: "error",
-        });
+      await Swal.fire({
+        title: "Login Failed",
+        text: response.data.message,
+        icon: "error",
+      });
       throw new Error(response.data.message);
     }
 
@@ -96,23 +103,59 @@ export async function login(email, password, navigate, dispatch) {
   }
 }
 
+export function fetchMyProfile(token, navigate) {
+  return async (dispatch) => {
+    try {
+      const response = await apiConnector("GET", FETCH_PROFILE, null, {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      });
 
+      // console.log("APP JS RESPONSE............", response)
 
+      if (!response?.data?.success) {
+        throw new Error(response?.data?.message);
+      }
+      // console.log(response.data)
 
+      dispatch(setUser(response?.data?.user));
+
+      localStorage.setItem("user", JSON.stringify(response?.data?.user));
+    } catch (error) {
+      console.log(
+        "LOGIN API ERROR............",
+        error?.response?.data?.message
+      );
+
+      if (
+        error?.response?.data?.message === "Token expired" ||
+        error?.response?.data?.message === "token is invalid"
+      ) {
+        Swal({
+          title: "Session Expired",
+          text: "Please log in again for security purposes.",
+          icon: "warning",
+          button: "Login",
+        }).then(() => {
+          dispatch(logout(navigate));
+          navigate("/login"); // Redirect to login page
+        });
+      }
+    }
+  };
+}
 
 export function logout(navigate) {
   return (dispatch) => {
-    dispatch(setToken(null))
-    dispatch(setUser(null))
+    dispatch(setToken(null));
+    dispatch(setUser(null));
 
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    toast.success("Logged Out")
-    navigate("/")
-
-  }
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    toast.success("Logged Out");
+    navigate("/");
+  };
 }
-
 
 export const sendContactForm = async (formData) => {
   Swal.fire({
@@ -133,7 +176,6 @@ export const sendContactForm = async (formData) => {
       });
     }
     return response;
-
   } catch (error) {
     console.log(error);
     Swal.fire({
@@ -158,9 +200,9 @@ export const createService = async (serviceData, token) => {
   try {
     const response = await apiConnector("POST", CREATE_SERVICE, serviceData, {
       headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      }
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     });
 
     if (!response.data.success) {
@@ -172,7 +214,7 @@ export const createService = async (serviceData, token) => {
     });
     return response?.data?.success;
   } catch (error) {
-    console.error('Error creating service:', error);
+    console.error("Error creating service:", error);
     Swal.fire({
       title: error?.response?.data?.message,
       icon: "error",
@@ -183,22 +225,41 @@ export const createService = async (serviceData, token) => {
 export const getAllService = async () => {
   try {
     const response = await apiConnector("GET", GET_SERVICE);
-    const result = response?.data?.services
-    return result
+    const result = response?.data?.services;
+    return result;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
+
+export const getAllServices = async (token) => {
+  try {
+   
+    const response = await apiConnector("GET", GET_ALL_SERVICE,null, {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    });
+    if(!response?.data?.success){
+return []
+    }
+    const result = response?.data?.services;
+    return result;
+  } catch (error) {
+    console.log(error);
+    return []
+  }
+};
+
+
 export const getSingelService = async (id) => {
   try {
     const response = await apiConnector("GET", `${GET_SINGLE_SERVICE}/${id}`);
-    const result = response?.data?.service
-    return result
+    const result = response?.data?.service;
+    return result;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
-
+};
 
 export const createQueryApi = async (formData) => {
   Swal.fire({
@@ -225,22 +286,21 @@ export const createQueryApi = async (formData) => {
     // Error message
     Swal.fire({
       title: "Error!",
-      text: error?.message || "There was a problem sending your message. Please try again later.",
+      text:
+        error?.message ||
+        "There was a problem sending your message. Please try again later.",
       icon: "error",
     });
   }
 };
 
-
 export const getQueryApi = async () => {
-
   try {
     const response = await apiConnector("GET", GET_QUERY);
     if (!response?.data?.success) {
-      throw new Error(response?.data?.message)
+      throw new Error(response?.data?.message);
     }
-    return response?.data?.queries
-
+    return response?.data?.queries;
   } catch (error) {
     console.log(error);
     Swal.fire({
@@ -251,13 +311,11 @@ export const getQueryApi = async () => {
   }
 };
 
-
 export const deleteQueryApi = async (id) => {
-
   try {
     const response = await apiConnector("DELETE", `${DELETE_QUERY}/${id}`);
     if (!response?.data?.success) {
-      throw new Error(response?.data?.message)
+      throw new Error(response?.data?.message);
     }
 
     Swal.fire({
@@ -277,7 +335,11 @@ export const deleteQueryApi = async (id) => {
 
 export const updateQueryApi = async (id, updatedData) => {
   try {
-    const response = await apiConnector("PUT", `${UPDATE_QUERY}/${id}`, updatedData);
+    const response = await apiConnector(
+      "PUT",
+      `${UPDATE_QUERY}/${id}`,
+      updatedData
+    );
 
     if (!response?.data?.success) {
       throw new Error(response?.data?.message);
@@ -288,7 +350,6 @@ export const updateQueryApi = async (id, updatedData) => {
       text: response?.data?.message,
       icon: "success",
     });
-
   } catch (error) {
     console.log(error);
     Swal.fire({
