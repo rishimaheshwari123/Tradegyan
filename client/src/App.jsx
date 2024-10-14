@@ -47,6 +47,7 @@ import GetBlog from "./components/admin/pages/GetBlogs";
 import Podcast from "./pages/Podcast";
 import SinglePodcast from "./pages/SinglePodcast";
 import InvestorSingleService from "./pages/investor/InvestorSingleService";
+import SendMessage from "./pages/SendMessage";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -83,6 +84,7 @@ const App = () => {
         <Route path="/sebidiscloser" element={<InvestorCharter />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/podcast/:id" element={<SinglePodcast />} />
+        <Route path="/message" element={<SendMessage />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
