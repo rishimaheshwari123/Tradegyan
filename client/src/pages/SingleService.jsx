@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getSingelService } from "../services/operations/auth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/comman/Footer";
-import TraderNavbar from "../components/trader/comman/TraderNavbar";
+import TraderNavbar from "../components/comman/Navbar";
+import { BuyProduct } from "../services/operations/order";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const SingleService = () => {
   const [service, setService] = useState(null);
   const { id } = useParams();
-
+const {token,user} = useSelector(state=>state.auth)
+const navigate = useNavigate()
+const dispatch = useDispatch()
   const singleService = async () => {
     try {
       const response = await getSingelService(id);
@@ -21,6 +26,14 @@ const SingleService = () => {
     singleService();
   }, []);
 
+
+  const enrollService = async()=>{
+    try {
+      await BuyProduct(token,id,service.price,user,navigate,dispatch)
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div>
       <TraderNavbar />
@@ -96,7 +109,7 @@ const SingleService = () => {
 
             {/* Subscription Button */}
             <div className="text-center mt-6">
-              <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition duration-300">
+              <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition duration-300" onClick={enrollService}>
                 Subscribe Now
               </button>
             </div>

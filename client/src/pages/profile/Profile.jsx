@@ -22,14 +22,14 @@ const Profile = () => {
           <p>
             <span className="font-semibold">Email:</span> {user?.email}
           </p>
-          <p>
+          {/* <p>
             <span className="font-semibold">Subscription Status:</span>{" "}
             {user?.isSubscription ? (
               <span className="text-green-300 font-semibold">Active</span>
             ) : (
               <span className="text-red-300 font-semibold">Inactive</span>
             )}
-          </p>
+          </p> */}
         </div>
       </div>
     </div>

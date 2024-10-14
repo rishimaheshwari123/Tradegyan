@@ -9,9 +9,16 @@ import {
   FaFacebookMessenger,
   FaPhone,
 } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
 
 const Footer = () => {
+  const location = useLocation(); // Get the current URL path
+
+  // Check if the current path includes "/admin"
+  if (location.pathname.includes("/admin")) {
+    return null; // Do not render the footer if the URL contains "/admin"
+  }
+
   return (
     <footer className="bg-gray-900 text-gray-300 py-10">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
@@ -20,8 +27,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
           <p className="text-sm sm:text-base">
             Trade Gyan Solutions is an investment advisor in India. The company
-            provides recommendations for stocks, cash, and F&O traded in NSE &
-            BSE.
+            provides recommendations for stocks, cash, and F&O traded in NSE & BSE.
           </p>
           <div className="mt-4 flex items-center">
             <FaPhone className="mr-2" />
@@ -188,7 +194,7 @@ const Footer = () => {
 
       {/* Bottom section */}
       <div className="mt-10 border-t border-gray-700 pt-4 p-4">
-        <div className="container mx-auto  text-sm sm:text-base flex flex-col gap-2">
+        <div className="container mx-auto text-sm sm:text-base flex flex-col gap-2">
           <p>
             Copyright © 2019 Trade Gyan Solutions (Investment Advisor #
             INA000008808)2024. All rights reserved.

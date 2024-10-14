@@ -40,6 +40,7 @@ exports.auth = async (req, res, next) => {
 		next();
 	} catch (error) {
 		// If there is an error during the authentication process, return 401 Unauthorized response
+		console.log(error)
 		return res.status(401).json({
 			success: false,
 			message: `Something Went Wrong While Validating the Token`,

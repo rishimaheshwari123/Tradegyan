@@ -1,12 +1,12 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import OpenRoute from "./components/admin/auth/OpenRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PrivateRoute from "./components/admin/auth/PrivateRoute";
 import Layout from "./components/admin/pages/Layout";
 import Dashboard from "./components/admin/pages/Dashboard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Home from "./pages/Home";
 import Partner from "./pages/Partner";
 import AddService from "./components/admin/pages/AddService";
@@ -47,9 +47,22 @@ import GetBlog from "./components/admin/pages/GetBlogs";
 import Podcast from "./pages/Podcast";
 import SinglePodcast from "./pages/SinglePodcast";
 import InvestorSingleService from "./pages/investor/InvestorSingleService";
+import { fetchMyProfile } from "./services/operations/auth";
+import Subscription from "./pages/Subscription";
 
 const App = () => {
-  const { user } = useSelector((state) => state.auth);
+  const { user,token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
+  useEffect(() => {
+
+
+    if (token) {
+   
+      dispatch(fetchMyProfile(token,navigate));
+    }
+  }, [token]);
   useSocket();
   return (
     <div>
@@ -86,6 +99,7 @@ const App = () => {
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/subscription" element={<Subscription />} />
           <Route path="/chats" element={<ChatsApp />} />
         </Route>
         <Route
