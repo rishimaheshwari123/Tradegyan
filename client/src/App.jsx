@@ -52,6 +52,7 @@ import Subscription from "./pages/Subscription";
 import SendMessage from "./pages/SendMessage";
 import Complain from "./components/trader/comman/Complain";
 import SingleServiceAdmin from "./components/admin/pages/SingleService";
+import Team from "./pages/Team";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -87,6 +88,8 @@ const App = () => {
         <Route path="/disclaimer" element={<Disclaimer />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/support" element={<Support />} />
+        <Route path="/team" element={<Team />} />
+
         <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />
         <Route path="/investor" element={<InvestorHome />} />

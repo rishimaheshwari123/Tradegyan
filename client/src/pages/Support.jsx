@@ -24,7 +24,7 @@ const Support = () => {
               <FaPhoneAlt className="text-4xl text-blue-600 mb-4" />
               <h2 className="text-xl font-semibold mb-2">Phone Support</h2>
               <p className="text-gray-600">Call us at:</p>
-              <p className="font-bold text-blue-700">+1 (123) 456-7890</p>
+              <p className="font-bold text-blue-700">+91777-100 4878</p>
             </div>
 
             {/* Email Support */}
@@ -32,9 +32,7 @@ const Support = () => {
               <FaEnvelope className="text-4xl text-blue-600 mb-4" />
               <h2 className="text-xl font-semibold mb-2">Email Support</h2>
               <p className="text-gray-600">Send us an email:</p>
-              <p className="font-bold text-blue-700">
-                support@investadvisor.com
-              </p>
+              <p className="font-bold text-blue-700">121@tradegyan.co</p>
             </div>
 
             {/* Office Location */}
@@ -43,7 +41,7 @@ const Support = () => {
               <h2 className="text-xl font-semibold mb-2">Office Location</h2>
               <p className="text-gray-600">Visit us at:</p>
               <p className="font-bold text-blue-700">
-                123 Finance St, Suite 100
+                Plot No.9, Sector C, JK Road Bhoapl, MP 462023 India
               </p>
               <p className="font-bold text-blue-700">New York, NY 10001</p>
             </div>

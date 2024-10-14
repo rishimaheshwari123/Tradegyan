@@ -110,7 +110,7 @@ const Learn = () => {
               enhance your financial knowledge.
             </p>
             <a
-              href="/sign-up"
+              href="/login"
               className="bg-blue-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700"
             >
               Sign Up Now
