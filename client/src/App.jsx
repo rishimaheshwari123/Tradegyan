@@ -51,6 +51,7 @@ import { fetchMyProfile } from "./services/operations/auth";
 import Subscription from "./pages/Subscription";
 import SendMessage from "./pages/SendMessage";
 import Complain from "./components/trader/comman/Complain";
+import SingleServiceAdmin from "./components/admin/pages/SingleService";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
