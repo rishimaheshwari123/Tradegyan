@@ -57,6 +57,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import SebiDisclosure from "./pages/SebiDisclosure";
 import ComplaintEscalation from "./pages/ComplaintEscalation";
+import Career from "./pages/Career";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -97,6 +98,7 @@ const App = () => {
         <Route path="/terms-conditions" element={<TermsAndConditions />} />
         <Route path="/investment-charter" element={<InvestorCharter />} />
         <Route path="/complaint-escalation" element={<ComplaintEscalation />} />
+        <Route path="/career" element={<Career />} />
 
         <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />
