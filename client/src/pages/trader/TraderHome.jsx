@@ -19,7 +19,7 @@ const TraderHome = () => {
 
       {/* <TraderNavbar /> */}
       <SliderTrader />
-      <ComplaintsTable />
+      {/* <ComplaintsTable /> */}
 
       <WeOffer />
       <TradingTips />

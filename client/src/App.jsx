@@ -91,6 +91,7 @@ const App = () => {
         <Route path="/stocktable" element={<StockTable />} />
         <Route path="/service" element={<Service />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
+        <Route path="/disclaimer/:name" element={<Disclaimer />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/support" element={<Support />} />
         <Route path="/team" element={<Team />} />

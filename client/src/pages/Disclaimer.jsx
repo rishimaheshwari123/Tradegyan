@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "../components/comman/Navbar";
 import RiskProfile from "../components/RiskProfile";
+import { useParams } from "react-router-dom";
+import ComplaintsTable from "../components/trader/comman/ComplaintsTable";
 
 // Updated Data array for policies with heading and points
 const policiesData = [
@@ -147,6 +149,16 @@ const policiesData = [
   },
 
   {
+    title: "Complaint Data",
+    id: "complain",
+    content: [
+      {
+        heading: "Complaint Data",
+        points:[<ComplaintsTable />]
+      },
+    ],
+  },
+  {
     title: "Risk Profile",
     id: "risk",
     content: [
@@ -159,8 +171,9 @@ const policiesData = [
 ];
 
 const Disclaimer = () => {
+  const {name} = useParams()
   // State to manage active tab
-  const [activeTab, setActiveTab] = useState("corporate");
+  const [activeTab, setActiveTab] = useState(name || "corporate");
 
   return (
     <div className="bg-gray-50 min-h-screen">

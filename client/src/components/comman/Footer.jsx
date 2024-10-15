@@ -46,7 +46,7 @@ const Footer = () => {
                 FAQs
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/kyc-form" className="hover:text-yellow-400">
                 KYC Form
               </Link>
@@ -55,9 +55,9 @@ const Footer = () => {
               <Link to="/client-agreement" className="hover:text-yellow-400">
                 Client Agreement
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link to="/risk-profile" className="hover:text-yellow-400">
+              <Link to="/disclaimer/risk" className="hover:text-yellow-400">
                 Risk Profile
               </Link>
             </li>
@@ -77,7 +77,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/trader/#complain" className="hover:text-yellow-400">
+              <Link to="/disclaimer/complain" className="hover:text-yellow-400">
                 Complaint Data
               </Link>
             </li>
@@ -91,7 +91,7 @@ const Footer = () => {
           </h3>
           <ul className="text-sm sm:text-base space-y-2">
             <li>
-              <Link to="/privacy-policy" className="hover:text-yellow-400">
+              <Link to="disclaimer/privacy" className="hover:text-yellow-400">
                 Privacy Policy
               </Link>
             </li>

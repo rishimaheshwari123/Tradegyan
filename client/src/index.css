@@ -138,3 +138,8 @@ body {
 
 
 
+@media (max-width: 300px) {
+  .text-small {
+    font-size: 10px; /* Adjust the size as needed */
+  }
+}
