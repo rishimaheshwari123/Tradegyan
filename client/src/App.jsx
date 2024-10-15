@@ -35,7 +35,7 @@ import UserDetails from "./components/admin/pages/UserDetails";
 import StockTable from "./pages/Tradesmarket";
 import TraderDatas from "./pages/TraderDatas";
 import TraderSingleData from "./pages/TraderSingleData";
-import InvestorCharter from "./pages/SebiDisclosure";
+import InvestorCharter from "./pages/InvestorCharter";
 import useSocket from "./socket io/useSocket";
 import ChatsApp from "./pages/chats/MainChat";
 import AdminChatsApp from "./components/admin/Adminchats/MainChat";
@@ -53,6 +53,10 @@ import SendMessage from "./pages/SendMessage";
 import Complain from "./components/trader/comman/Complain";
 import SingleServiceAdmin from "./components/admin/pages/SingleService";
 import Team from "./pages/Team";
+import RefundPolicy from "./pages/RefundPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import SebiDisclosure from "./pages/SebiDisclosure";
+import ComplaintEscalation from "./pages/ComplaintEscalation";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -89,6 +93,10 @@ const App = () => {
         <Route path="/faq" element={<Faq />} />
         <Route path="/support" element={<Support />} />
         <Route path="/team" element={<Team />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/terms-conditions" element={<TermsAndConditions />} />
+        <Route path="/investment-charter" element={<InvestorCharter />} />
+        <Route path="/complaint-escalation" element={<ComplaintEscalation />} />
 
         <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />
@@ -106,7 +114,7 @@ const App = () => {
         <Route path="/trader/:name" element={<TraderDatas />} />
         <Route path="/trader/:type/:name" element={<TraderSingleData />} />
         <Route path="/trader/service/:id" element={<SingleService />} />
-        <Route path="/sebidiscloser" element={<InvestorCharter />} />
+        <Route path="/sebidiscloser" element={<SebiDisclosure />} />
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/podcast/:id" element={<SinglePodcast />} />
         <Route path="/message" element={<SendMessage />} />

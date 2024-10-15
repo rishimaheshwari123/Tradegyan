@@ -27,7 +27,8 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
           <p className="text-sm sm:text-base">
             Trade Gyan Solutions is an investment advisor in India. The company
-            provides recommendations for stocks, cash, and F&O traded in NSE & BSE.
+            provides recommendations for stocks, cash, and F&O traded in NSE &
+            BSE.
           </p>
           <div className="mt-4 flex items-center">
             <FaPhone className="mr-2" />
@@ -41,7 +42,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Client Zone</h3>
           <ul className="text-sm sm:text-base space-y-2">
             <li>
-              <Link to="/faqs" className="hover:text-yellow-400">
+              <Link to="/faq" className="hover:text-yellow-400">
                 FAQs
               </Link>
             </li>
@@ -60,23 +61,23 @@ const Footer = () => {
                 Risk Profile
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/support-grievance" className="hover:text-yellow-400">
                 Support & Grievance
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/refund-policy" className="hover:text-yellow-400">
                 Refund Policy
               </Link>
             </li>
             <li>
-              <Link to="/contact-us" className="hover:text-yellow-400">
+              <Link to="/contact" className="hover:text-yellow-400">
                 Contact Us
               </Link>
             </li>
             <li>
-              <Link to="/complaint-data" className="hover:text-yellow-400">
+              <Link to="/trader/#complain" className="hover:text-yellow-400">
                 Complaint Data
               </Link>
             </li>
@@ -111,12 +112,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/blog" className="hover:text-yellow-400">
+              <Link to="/podcast" className="hover:text-yellow-400">
                 Blog
               </Link>
             </li>
             <li>
-              <Link to="/about-us" className="hover:text-yellow-400">
+              <Link to="/about" className="hover:text-yellow-400">
                 About Us
               </Link>
             </li>

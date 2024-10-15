@@ -22,7 +22,10 @@ const ComplaintsTable = () => {
   }, []);
 
   return (
-    <div className="w-[90%] mx-auto my-5 p-4 bg-yellow-50 rounded-lg shadow-lg">
+    <div
+      className="w-[90%] mx-auto my-5 p-4 bg-yellow-50 rounded-lg shadow-lg"
+      id="complain"
+    >
       <h2 className="text-xl font-semibold text-center mb-4 text-red-600">
         Number of Complaints
       </h2>
