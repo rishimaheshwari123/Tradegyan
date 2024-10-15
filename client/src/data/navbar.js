@@ -12,6 +12,7 @@ export const navLinks = [
         name: "About", path: "/about",
         sublinks: [
             { name: "Team", path: "/team" },
+            { name: "About", path: "/about" },
 
         ],
     },

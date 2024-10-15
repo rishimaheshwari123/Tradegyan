@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../comman/Navbar";
+import { FaChartLine, FaUsers, FaGlobe } from "react-icons/fa";
 
 const About = () => {
   const impactAreas = [
@@ -32,102 +33,137 @@ const About = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-gray-50 text-gray-800">
-        {/* Header Section */}
-        <div className="bg-blue-900 text-white py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-            <p className="text-lg md:text-xl">
-              Making a Difference, One Step at a Time
-            </p>
-          </div>
-        </div>
+      <div className="bg-gray-100 py-10">
+        <div className="container mx-auto px-4">
+          {/* Heading Section */}
+          <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">
+            About Us
+          </h1>
 
-        {/* Mission, Vision Section */}
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-              <p className="text-lg">
-                We are committed to empowering underprivileged children and
-                communities by providing education, healthcare, and life skills.
-                We believe in building a sustainable future by giving everyone
-                access to the resources they need to thrive.
-              </p>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-              <p className="text-lg">
-                A world where every child has access to education and the
-                opportunity to reach their full potential. We aim to bridge the
-                gap between poverty and prosperity, ensuring that no one is left
-                behind in this journey toward a better world.
-              </p>
-            </div>
-          </div>
-        </div>
+          {/* Introduction Section */}
+          <p className="text-center text-lg text-gray-700 mb-10">
+            You are going to read a story where we have 15+ years of extensive
+            research in stock movements.
+          </p>
 
-        {/* History Section */}
-        <div className="bg-white py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-            <p className="text-lg max-w-2xl mx-auto">
-              Founded in 2005, we have dedicated ourselves to changing lives in
-              rural and urban communities. Our organization began with the
-              vision of a few volunteers and has now grown into a globally
-              recognized non-profit organization. With years of experience,
-              we’ve made a significant impact in various regions across the
-              world.
-            </p>
-          </div>
-        </div>
-
-        {/* Impact Areas */}
-        <div className="max-w-7xl mx-auto px-4 py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold">What We Do</h2>
-            <p className="text-lg text-gray-600">
-              Our programs focus on key areas that have a lasting impact.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {impactAreas.map((area, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300"
-              >
-                <img
-                  src={area.imgSrc}
-                  alt={area.alt}
-                  className="w-full h-48 object-cover mb-4 rounded-lg"
-                />
-                <h3 className="text-xl font-bold mb-2">{area.title}</h3>
-                <p className="text-gray-600">{area.description}</p>
+          {/* Icon Section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center mb-10">
+            {[
+              {
+                icon: FaChartLine,
+                text: "15+ Years of Experience",
+                description:
+                  "Extensive research and analysis in stock movements and financial markets.",
+              },
+              {
+                icon: FaUsers,
+                text: "Diverse Team",
+                description:
+                  "Our team consists of highly experienced professionals dedicated to your success.",
+              },
+              {
+                icon: FaGlobe,
+                text: "Global Presence",
+                description:
+                  "We have a global presence, helping clients succeed across regions and markets.",
+              },
+            ].map(({ icon: Icon, text, description }, index) => (
+              <div key={index} className="bg-white p-6 shadow-md rounded-lg">
+                <Icon className="text-5xl text-blue-600 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{text}</h3>
+                <p className="text-gray-600">{description}</p>
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Call to Action Section */}
-        <div className="bg-blue-900 text-white py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-4">
-              Join Us in Making a Difference
+          {/* Main Story Section */}
+          <div className="bg-white p-8 shadow-lg rounded-lg mb-16">
+            <h2 className="text-2xl font-semibold text-blue-600 mb-4">
+              Who We Are
             </h2>
-            <p className="text-lg max-w-2xl mx-auto mb-6">
-              Whether it’s volunteering, donating, or advocating for a cause,
-              your involvement can make a lasting impact. Together, we can build
-              a better future for those in need.
+            <p className="text-gray-700 mb-4">
+              <strong>Trade Gyan Solution</strong> is a pure play financial
+              market research and consulting company. We are differentiated by
+              the stature of our diverse team. Our 15 years of legacy and values
+              shape our future, helping to strengthen our business and bring
+              value to our clients.
             </p>
-            <a
-              className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-6 rounded-full font-bold"
-              href="https://wa.me/+919009594537"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Involved
-            </a>
+            <p className="text-gray-700 mb-4">
+              The company was founded in 2006 with the objective of offering
+              unbiased technical analysis & solutions for the trading community,
+              by experienced professionals to create a conducive environment.
+            </p>
+            <p className="text-gray-700">
+              Our organization's commitment to sustainability informs our
+              unmatched credibility, technology, intensive research, and
+              customer satisfaction. The global presence that{" "}
+              <strong>Trade Gyan Solution</strong> maintains acts as an edge on
+              clients' success, giving us keen insight across regions and
+              markets, and allowing us to make a difference around the world.
+            </p>
+          </div>
+
+          {/* Mission, Vision Section */}
+          <div className="max-w-7xl mx-auto px-4 py-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div>
+                <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
+                <p className="text-lg">
+                  At <strong>Trade Gyan Solution</strong>, we are committed to
+                  empowering underprivileged children and communities by
+                  providing education, healthcare, and life skills.
+                </p>
+              </div>
+              <div>
+                <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
+                <p className="text-lg">
+                  A world where every child has access to education and the
+                  opportunity to reach their full potential.{" "}
+                  <strong>Trade Gyan Solution</strong> aims to bridge the gap
+                  between poverty and prosperity.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Values Section */}
+          <div className="bg-white py-16">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-3xl font-bold mb-6">Values</h2>
+              <p className="text-lg max-w-2xl mx-auto">
+                At <strong>Trade Gyan Solution</strong>, we believe in:
+                Respecting every individual, Bringing passion to work, Being
+                disciplined, committed, and transparent, Demanding excellence,
+                and Having fun while working.
+              </p>
+            </div>
+          </div>
+
+          {/* Impact Areas Section */}
+          <div className="max-w-7xl mx-auto px-4 py-16">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold">What We Do</h2>
+              <p className="text-lg text-gray-600">
+                Our programs focus on key areas that have a lasting impact.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+              {impactAreas.map((area, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition duration-300"
+                >
+                  <img
+                    src={area.imgSrc}
+                    alt={area.alt}
+                    className="w-full h-48 object-cover mb-4 rounded-lg"
+                  />
+                  <h3 className="text-xl font-bold mb-2">{area.title}</h3>
+                  <p className="text-gray-600">{area.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
