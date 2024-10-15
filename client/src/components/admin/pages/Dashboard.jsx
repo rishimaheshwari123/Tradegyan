@@ -46,27 +46,7 @@ const Dashboard = () => {
       bgColor: "bg-red-500",
       hoverColor: "hover:bg-red-600",
     },
-    {
-      title: "Total News",
-      value: stats.totalNews,
-      icon: <FaNewspaper className="text-3xl" />,
-      bgColor: "bg-green-500",
-      hoverColor: "hover:bg-green-600",
-    },
-    {
-      title: "Total Categories",
-      value: stats.totalCategories,
-      icon: <FaListAlt className="text-3xl" />,
-      bgColor: "bg-purple-500",
-      hoverColor: "hover:bg-purple-600",
-    },
-    {
-      title: "Total Subcategories",
-      value: stats.totalSubCategories,
-      icon: <FaTags className="text-3xl" />,
-      bgColor: "bg-yellow-500",
-      hoverColor: "hover:bg-yellow-600",
-    },
+   
   ];
 
   return (

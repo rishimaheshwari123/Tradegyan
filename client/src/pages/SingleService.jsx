@@ -5,7 +5,7 @@ import Footer from "../components/comman/Footer";
 import TraderNavbar from "../components/comman/Navbar";
 import { BuyProduct } from "../services/operations/order";
 import { useDispatch, useSelector } from "react-redux";
-
+import Swal from 'sweetalert2';
 
 const SingleService = () => {
   const [service, setService] = useState(null);
@@ -28,6 +28,26 @@ const dispatch = useDispatch()
 
 
   const enrollService = async()=>{
+    if (!token) {
+      // Show SweetAlert if user is not logged in
+      Swal.fire({
+        title: 'You need to login!',
+        text: "Please log in to proceed with the enrollment.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Login',
+        cancelButtonText: 'Cancel'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // If user clicks 'Login', navigate to the login page
+          navigate('/client-login'); // Adjust this path based on your routing
+        }
+        // If cancel, do nothing and stay on the same page
+      });
+      return; // Exit the function if not logged in
+    }
     try {
       await BuyProduct(token,id,service.price,user,navigate,dispatch)
     } catch (error) {
