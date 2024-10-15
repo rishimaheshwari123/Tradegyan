@@ -10,6 +10,8 @@ export const maindata = {
     ]
 };
 
+
+
 export const datas = {
     equity: {
         "cash": [
@@ -125,5 +127,75 @@ export const datas = {
             }
         ]
     }
+,
 
+    'agri': {
+        "ncdex": [
+            {
+                name: 'NCDEX',
+                image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png", // Replace with an appropriate image if available
+                description: "This package is suitable for small and medium traders, who trade only in Agro calls in NCDEX market.",
+                what: "1-2 daily recommendations in NCDEX segment focusing on Agro Commodities like Soybean.",
+                whom: "Traders with 1-2 lots trading capacity who are focused on Agro Commodity trades.",
+                idealFor: "Ideal for clients trading in the NCDEX market with small to medium lot sizes.",
+                productDescription: "We provide 1-2 NCDEX recommendations daily, 20-22 recommendations monthly with timely entry and exit alerts.",
+                features: {
+                    recommendationFrequency: "20-22 monthly",
+                    modeOfRecommendation: "Web Login / App",
+                    followUp: "Yes"
+                },
+                sample: [
+                    "(NCDEX CALL) BUY SOYABEAN ABOVE 3290 TGT 3320, 3370 SL 3260",
+                    "(NCDEX CALL) OUR 1ST TGT ACHIEVED IN SOYABEAN AT 3320. OUR BUY CALL GIVEN AT 3290.",
+                    "(NCDEX CALL) ALL TGT ACHIEVED IN SOYABEAN AT 3370. OUR BUY CALL GIVEN AT 3290."
+                ],
+                pricing: [
+                    { period: "7 Days", amount: 2500, gst: 450, total: 2950 },
+                    { period: "15 Days", amount: 4000, gst: 720, total: 4720 },
+                    { period: "1 Month", amount: 7000, gst: 1260, total: 8260 },
+                    { period: "3 Months", amount: 18000, gst: 3240, total: 21240 },
+                    { period: "6 Months", amount: 32000, gst: 5760, total: 37760 }
+                ],
+                disclaimer: "Investment in securities market is subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors.",
+                contact: "For more Information Call Us: 0281-6199999"
+            }
+        ]
+    },
+
+forex: {
+    forex: [
+        {
+            id: 'forex',
+            name: 'Forex ',
+            image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
+            description: "This package is suitable for small and medium traders who trade in international currencies like EURUSD, GBPUSD, USDJPY, and many others.",
+            what: "Daily recommendations for trading in Forex covering major currency pairs.",
+            whom: "Small and medium intraday/BTST traders who trade in Forex.",
+            idealFor: "Ideal for clients looking to trade in international currency markets.",
+            productDescription: "Provides 20-22 Foreign Currency recommendations in a month with timely entry and exit.",
+            features: {
+                recommendationFrequency: "1-2 recommendations daily, 20-22 monthly",
+                minimumInvestment: "INR 3,500 for 7 days, INR 6,000 for 15 days, INR 10,000 for 1 month, INR 25,000 for 3 months, INR 45,000 for 6 months",
+                followUp: "Yes, follow-up calls for achieved targets",
+                modeOfRecommendation: "Web Login / App"
+            },
+            sample: [
+                "BUY GBPUSD ABOVE 1.3172 TGT 1.3205, 1.3250 SL 1.3130",
+                "OUR 1ST TGT ACHIEVED IN GBPUSD AT 1.3205. OUR BUY CALL GIVEN AT 1.3172.",
+                "OUR ALL TGT ACHIEVED IN GBPUSD AT 1.3250. OUR BUY CALL GIVEN AT 1.3172."
+            ],
+            pricing: [
+                { period: "7 Days", amount: 3500, gst: 630, total: 4130 },
+                { period: "15 Days", amount: 6000, gst: 1080, total: 7080 },
+                { period: "1 Month", amount: 10000, gst: 1800, total: 11800 },
+                { period: "3 Months", amount: 25000, gst: 4500, total: 29500 },
+                { period: "6 Months", amount: 45000, gst: 8100, total: 53100 }
+            ],
+            disclaimer: "Investment in securities market is subject to market risks. Read all related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors."
+        }
+    ]
+}
+
+
+     
 };

@@ -23,7 +23,7 @@ const TradingTips = () => {
       description:
         "The MCX Trading Tips Services Includes Intraday & Positional Gold, Silver, Crude, Zinc, NG, Copper, Etc Trading Advice Listed in MCX.",
       imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/2.jpg", // Replace with actual image path
-      path:"/agri" 
+      path:"/agri/ncdex" 
    
     },
     {
@@ -31,7 +31,7 @@ const TradingTips = () => {
       description:
         "The NCDEX Trading Tips Services Includes Intraday & Positional Zeera, Dhaniya, Chana, Turmeric, SoyaBean, Etc Trading Advice",
       imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/4.jpg", // Replace with actual image path
-      path:"/forex" 
+      path:"/forex/forex" 
     
     },
   ];

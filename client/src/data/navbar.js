@@ -7,7 +7,6 @@ export const navLinks = [
         //     { name: "Sublink 2", path: "/sublink2" },
         // ],
     },
-    { name: "Contact", path: "/contact" },
     {
         name: "About", path: "/about",
         sublinks: [
@@ -16,6 +15,9 @@ export const navLinks = [
 
         ],
     },
+
+
+
     {
         name: "Services",
         path: "/",
@@ -24,11 +26,17 @@ export const navLinks = [
             { name: "Traders", path: "/trader" },
         ],
     },
-    { name: "Support", path: "/support" },
+
     { name: "Podcast", path: "/podcast" },
     { name: "SEBI Disclosures", path: "/sebidiscloser" },
-    // { name: "Faq", path: "/faq" },
+    { name: "Support", path: "/support" },
+    { name: "Contact", path: "/contact" },
     { name: "Learn", path: "/learn" },
+
+
+
+    // { name: "Faq", path: "/faq" },
+
     // { name: "Faq", path: "/faq" },
     // { name: "Client Login", path: "/client-login" },
 ];
@@ -56,5 +64,13 @@ export const investorNavLinks = [
     },
     { name: "About", path: "/investor/about-us" },
     { name: "Contact", path: "/investor/contact-us" },
-    { name: "Services", path: "/investor/services" },
+    {
+        name: "Services",
+        path: "/investor/services",
+        sublinks: [
+            { name: "Investors", path: "/investor" },
+            { name: "Traders", path: "/trader" },
+        ],
+    },
+    // { name: "Services", path: "" },
 ];

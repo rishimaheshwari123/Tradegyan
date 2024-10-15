@@ -22,7 +22,7 @@ function TraderSingleData() {
             <div className='relative mt-3'>
                 {traderData ? (
                     traderData.map((data) => (
-                        <div className="container mx-auto p-4 text-gray-800 lg:w-[70%] grid lg:grid-cols-2 gap-4">
+                        <div key={data.name} className="container mx-auto p-4 text-gray-800 lg:w-[70%] grid lg:grid-cols-2 gap-4">
                             <div className='flex flex-col gap-3'>
                                 <h1 className="text-3xl lg:text-4xl font-bold mb-4 text-center text-blue-500">{data?.name}</h1>
                                 <p className="mb-2 text-lg lg:text-2xl">{data.description}</p>
@@ -31,7 +31,7 @@ function TraderSingleData() {
                                 <p className="mb-2 text-sm"><strong>Ideal for:</strong> {data.idealFor}</p>
                                 <p className="mb-2 text-sm"><strong>Product Description:</strong> {data.productDescription}</p>
 
-                                <h2 className="text-xl lg:text-2xl font-semibold mb-2">Features:</h2>
+                                <h2 className="text-xl lg:text-2xl font-semibold mb-2 mt-4">Features:</h2>
                                 <ul className="list-disc list-inside mb-4">
                                     {data.features && Object.entries(data.features).map(([key, value]) => (
                                         <li key={key} className='text-sm lg:text-base'>
@@ -40,12 +40,39 @@ function TraderSingleData() {
                                     ))}
                                 </ul>
 
-                                <h2 className="text-xl lg:text-2xl font-semibold mb-2">Sample Recommendations:</h2>
+                                <h2 className="text-xl lg:text-2xl font-semibold mb-2 mt-4">Sample Recommendations:</h2>
                                 <ul className="list-disc list-inside mb-4">
                                     {data.sample && data.sample.map((recommendation, index) => (
                                         <li key={index} className='text-sm lg:text-base'>{recommendation}</li>
                                     ))}
                                 </ul>
+
+                                {/* Pricing Table */}
+                                {data.pricing && (
+                                    <>
+                                        <h2 className="text-xl lg:text-2xl font-semibold mb-2 mt-4">Pricing:</h2>
+                                        <table className="min-w-full table-auto border border-gray-300 mb-4">
+                                            <thead>
+                                                <tr className="bg-gray-200">
+                                                    <th className="border border-gray-300 px-4 py-2">Period</th>
+                                                    <th className="border border-gray-300 px-4 py-2">Amount</th>
+                                                    <th className="border border-gray-300 px-4 py-2">GST (18%)</th>
+                                                    <th className="border border-gray-300 px-4 py-2">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {data.pricing.map((item, index) => (
+                                                    <tr key={index} className="hover:bg-gray-100">
+                                                        <td className="border border-gray-300 px-4 py-2">{item.period}</td>
+                                                        <td className="border border-gray-300 px-4 py-2">{item.amount}</td>
+                                                        <td className="border border-gray-300 px-4 py-2">{item.gst}</td>
+                                                        <td className="border border-gray-300 px-4 py-2">{item.total}</td>
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </>
+                                )}
 
                                 <p className="italic mb-4 text-[13px] lg:text-sm"><strong>Disclaimer:</strong> {data.disclaimer}</p>
                             </div>
