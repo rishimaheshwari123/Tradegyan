@@ -29,9 +29,9 @@ const policiesData = [
         points: [
           "An individual should also keep this mind that the Trade Nivesh Investment Adviser can change the terms and conditions and we assume that the client accept these modified terms and conditions. Hence, it is recommended to keep visiting the link of ‘Terms & Condition’ of the site on regular basis to stay updated about the newly introduced or any modified terms or conditions of the Trade Nivesh.",
 
-          "Tradenivesh is neither liable to any kind of liability or loss resulting, indirectly or directly, from interruptions or delays due to the mechanical or electronic machine failures, telephone connection defect, strikes, weather, walkouts, strikes, acts of God, fire, armed conflicts, riots, acts of war or any other causes. The site shall have no liability to provide you the access to the tradenivesh.com due to the interruption of the site in any of such causes continues.",
+          " TradeGyan Solution is neither liable to any kind of liability or loss resulting, indirectly or directly, from interruptions or delays due to the mechanical or electronic machine failures, telephone connection defect, strikes, weather, walkouts, strikes, acts of God, fire, armed conflicts, riots, acts of war or any other causes. The site shall have no liability to provide you the access to the  TradeGyan Solution.com due to the interruption of the site in any of such causes continues.",
 
-          "You willingly agree that you use this site as on your own risk. The information, content, product, features, service, software published on this site may also include errors or inaccuracy. Modifications are regularly added to content. The Investment Adviser or the respective suppliers may do some changes or improvement in this site at any time period. This website may also be remaining temporary unavailable due to some problems, maintenance or any sort of other problems. tradenivesh.com shall not be responsible to member or user to discontinue to modify all or any of contents, software, information, products, services and features that get published in the site.",
+          "You willingly agree that you use this site as on your own risk. The information, content, product, features, service, software published on this site may also include errors or inaccuracy. Modifications are regularly added to content. The Investment Adviser or the respective suppliers may do some changes or improvement in this site at any time period. This website may also be remaining temporary unavailable due to some problems, maintenance or any sort of other problems.  TradeGyan Solution.com shall not be responsible to member or user to discontinue to modify all or any of contents, software, information, products, services and features that get published in the site.",
 
           "The Investment Adviser or the respective associated entities create no representation of the suitability of contents, information, products, software, features, software and services available on the site for any purpose. All such information, contents, products, software, services and features are provided without any sort of warranty. The site or the associated entities also disclaim all conditions and warranties with the regard to the contents, software, information, products, services and features.",
 
@@ -44,15 +44,15 @@ const policiesData = [
 
           "By using information available on the site, you assume the whole responsibility for any losses and gains, emotional, financial, or otherwise, suffered, incurred, or experienced by you.",
 
-          "Tradenivesh does not offer guaranteed accuracy, timeliness, or completeness of, or otherwise approve in either way, the opinions, recommendations, or views expressed in information. Tradenivesh does not offer investment advice and at the same time does not advocate the sale or purchase of any investment or security by the client or any third party. The user information is not intended to provide legal, investment, or tax advice that you should get from a professional advisor prior to making any investment of the type discussed in the information.",
+          " TradeGyan Solution does not offer guaranteed accuracy, timeliness, or completeness of, or otherwise approve in either way, the opinions, recommendations, or views expressed in information.  TradeGyan Solution does not offer investment advice and at the same time does not advocate the sale or purchase of any investment or security by the client or any third party. The user information is not intended to provide legal, investment, or tax advice that you should get from a professional advisor prior to making any investment of the type discussed in the information.",
 
           "All materials, products, and services from this Site are provided 'As is' with no representations or warranties of any kind, either express or implied.",
 
           "You have to subscribe to the service in order to get full access to the site and to receive alert emails when tips are released. You agree to provide accurate and current information about yourself as requested on the registration form and subscription payment process. We reserve the right to terminate this Agreement and your use of the Site if the information provided by you is false in any way or for any other reason we deem necessary to maintain the operation and integrity of the Site.",
 
-          "While using the Site, you agree not to inhibit others from using the Site, deface the Site, or in any way do anything that would be dishonest or harmful to others. tradenivesh.com as well as the design and information contained in this site is valuable and exclusive property of tradenivesh.com, and nothing in this Agreement shall be construed as transferring or assigning any such ownership rights to you or any other person or entity.",
+          "While using the Site, you agree not to inhibit others from using the Site, deface the Site, or in any way do anything that would be dishonest or harmful to others.  TradeGyan Solution.com as well as the design and information contained in this site is valuable and exclusive property of  TradeGyan Solution.com, and nothing in this Agreement shall be construed as transferring or assigning any such ownership rights to you or any other person or entity.",
 
-          "You cannot resell or transfer the information or use the information on tradenivesh.com. You may not distribute, transfer, copy, publicly display, and publish tradenivesh.com, any part thereof, or any of the information received or accessed therefrom to or through any other person or entity.",
+          "You cannot resell or transfer the information or use the information on  TradeGyan Solution.com. You may not distribute, transfer, copy, publicly display, and publish  TradeGyan Solution.com, any part thereof, or any of the information received or accessed therefrom to or through any other person or entity.",
 
           "Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.",
 
@@ -69,7 +69,7 @@ const policiesData = [
       {
         heading: "Privacy Overview",
         points: [
-          "Tradenivesh respects and values the right to Privacy of each and every individual.",
+          " TradeGyan Solution respects and values the right to Privacy of each and every individual.",
 
           "We are esteemed by the relationship and by becoming our clients you have a promise from our side that we shall remain loyal to all our clients and non-clients whose information resides with us. This Privacy Policy of Trade Nivesh applies to the current clients as well as former clients.",
 
@@ -77,7 +77,7 @@ const policiesData = [
 
           "We would like to share our privacy policies with our clients in order to maintain transparency as follows:",
 
-          "In general, Tradenivesh collects consumer opinions, their email addresses, phone numbers, and other relevant information in order to provide services of value to our members. We generally use this information in three ways:",
+          "In general,  TradeGyan Solution collects consumer opinions, their email addresses, phone numbers, and other relevant information in order to provide services of value to our members. We generally use this information in three ways:",
 
           "- To provide members with relevant information and recommendations.",
           "- To introduce new products and market existing ones.",
@@ -85,11 +85,11 @@ const policiesData = [
 
           "Please read the rest of our privacy policy mentioned below for more information.",
 
-          "After filling in the details, if a customer wants to change the information, he/she can drop an email at: support@tradenivesh.com.",
+          "After filling in the details, if a customer wants to change the information, he/she can drop an email at: support@ TradeGyan Solution.com.",
 
           "Calls will be given through SMS.",
 
-          "We are authorized to change this privacy policy from time to time. We will be posting all the updates and modifications on our website www.tradenivesh.com, so please be sure to check the same periodically.",
+          "We are authorized to change this privacy policy from time to time. We will be posting all the updates and modifications on our website www. TradeGyan Solution.com, so please be sure to check the same periodically.",
 
           "By subscribing to our services, you consent to our Privacy Policy and Terms of Use.",
         ],
