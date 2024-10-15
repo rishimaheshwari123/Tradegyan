@@ -14,8 +14,8 @@ const policiesData = [
         heading:
           "REDUCING OUR ENVIRONMENTAL FOOTPRINT AND MAXIMIZING OUR SOCIAL IMPACT.",
         points: [
-          "As a supreme global employer with remarkable business partnerships, Trade Nivesh Investment Adviser is accomplishing towards maintaining and promoting world-class standards of business nobility.",
-          "Trade Nivesh values, which incorporate principles of corporate social responsibility (CSR) and sustainability, guide our relationships with clients, employees, and the communities we work in.",
+          "As a supreme global employer with remarkable business partnerships,  TradeGyan Solution Investment Adviser is accomplishing towards maintaining and promoting world-class standards of business nobility.",
+          " TradeGyan Solution values, which incorporate principles of corporate social responsibility (CSR) and sustainability, guide our relationships with clients, employees, and the communities we work in.",
           "Our approach to sustainability strengthens our brand and profile and secures that we remain a choice employer while gathering client requests for socially responsible partners.",
         ],
       },
@@ -27,7 +27,7 @@ const policiesData = [
     content: [
       {
         points: [
-          "An individual should also keep this mind that the Trade Nivesh Investment Adviser can change the terms and conditions and we assume that the client accept these modified terms and conditions. Hence, it is recommended to keep visiting the link of ‘Terms & Condition’ of the site on regular basis to stay updated about the newly introduced or any modified terms or conditions of the Trade Nivesh.",
+          "An individual should also keep this mind that the  TradeGyan Solution Investment Adviser can change the terms and conditions and we assume that the client accept these modified terms and conditions. Hence, it is recommended to keep visiting the link of ‘Terms & Condition’ of the site on regular basis to stay updated about the newly introduced or any modified terms or conditions of the  TradeGyan Solution.",
 
           " TradeGyan Solution is neither liable to any kind of liability or loss resulting, indirectly or directly, from interruptions or delays due to the mechanical or electronic machine failures, telephone connection defect, strikes, weather, walkouts, strikes, acts of God, fire, armed conflicts, riots, acts of war or any other causes. The site shall have no liability to provide you the access to the  TradeGyan Solution.com due to the interruption of the site in any of such causes continues.",
 
@@ -71,9 +71,9 @@ const policiesData = [
         points: [
           " TradeGyan Solution respects and values the right to Privacy of each and every individual.",
 
-          "We are esteemed by the relationship and by becoming our clients you have a promise from our side that we shall remain loyal to all our clients and non-clients whose information resides with us. This Privacy Policy of Trade Nivesh applies to the current clients as well as former clients.",
+          "We are esteemed by the relationship and by becoming our clients you have a promise from our side that we shall remain loyal to all our clients and non-clients whose information resides with us. This Privacy Policy of  TradeGyan Solution applies to the current clients as well as former clients.",
 
-          "In addition to the service provided to you, your information (Mobile Number, E-Mail ID, etc.) can be brought in use for sending you newsletters, survey, contest information, or information about any new services of Trade Nivesh which will be for your own good. While subscribing for our services, you agree that Trade Nivesh has the right to do so.",
+          "In addition to the service provided to you, your information (Mobile Number, E-Mail ID, etc.) can be brought in use for sending you newsletters, survey, contest information, or information about any new services of  TradeGyan Solution which will be for your own good. While subscribing for our services, you agree that  TradeGyan Solution has the right to do so.",
 
           "We would like to share our privacy policies with our clients in order to maintain transparency as follows:",
 
@@ -108,25 +108,25 @@ const policiesData = [
 
           "We always make updates to our clients regarding their holding or position (if any) in the financial products or securities which are subject to advice.",
 
-          "While making investment advice, Trade Nivesh makes an adequate disclosure to our client of all material facts relating to the key features of the products or securities, particularly performance track records.",
+          "While making investment advice,  TradeGyan Solution makes an adequate disclosure to our client of all material facts relating to the key features of the products or securities, particularly performance track records.",
 
-          "Trade Nivesh always draws the client’s attention in the form of warnings and disclaimers in documents and advertising materials related to the investment products which we are recommending to our client.",
+          " TradeGyan Solution always draws the client’s attention in the form of warnings and disclaimers in documents and advertising materials related to the investment products which we are recommending to our client.",
 
           "We disclose to a prospective client all material information about our business, disciplinary history, terms and conditions on which we offer our advisory services, affiliations with other intermediaries, and such other information as it is necessary to take an informed decision on whether or not to avail our services.",
 
           "We do not recommend a stock broker or Portfolio Management Services or sell Demat accounts. Neither do we take payment for the purpose of redirecting the same into Demat accounts.",
 
-          "To ensure compliance with the Investment Advisor Regulations 2013, Trade Nivesh and all its representatives will not make any trades in the market.",
+          "To ensure compliance with the Investment Advisor Regulations 2013,  TradeGyan Solution and all its representatives will not make any trades in the market.",
 
           "Investment in stock or commodity markets is subject to market risk; though best attempts are made for predicting markets, no surety of return or accuracy of any kind is guaranteed. While the performance sheet of various products is available, it should not be considered a guarantee for future performance of the products/services.",
 
           "If the client wishes to advance his/her services pertaining to upgradation in tenure or any advancement in services, it will lead to an additional/adjusted balance amount as per the rate prescribed.",
 
-          "We advise every client to check and seek his/her suitability, profiling, and investor category to ensure that recommended services are compatible with their profile. Trade Nivesh does not offer low-risk services. Any investor with a medium-risk appetite is recommended to subscribe to medium-risk services, and an investor with a high-risk appetite is recommended to subscribe to either medium or high-risk services.",
+          "We advise every client to check and seek his/her suitability, profiling, and investor category to ensure that recommended services are compatible with their profile.  TradeGyan Solution does not offer low-risk services. Any investor with a medium-risk appetite is recommended to subscribe to medium-risk services, and an investor with a high-risk appetite is recommended to subscribe to either medium or high-risk services.",
 
           "Clients are also advised to trade only if recommendations suit their current risk appetite and risk-bearing capacity. All such recommendations shall be considered views or opinions, and clients shall, at their discretion, decide actual trades.",
 
-          "No litigation has been filed against Trade Nivesh Investment Adviser since its incorporation.",
+          "No litigation has been filed against  TradeGyan Solution Investment Adviser since its incorporation.",
 
           "We disclose our Annual Compliance Audit status of the two preceding years on our website under the Compliance portal.",
 
@@ -134,7 +134,7 @@ const policiesData = [
 
           "All the information provided by us is totally based on our knowledge, and we do not ask/force you to take market positions in any particular stock.",
 
-          "Trade Nivesh Investment Adviser is not involved in trading of its own.",
+          " TradeGyan Solution Investment Adviser is not involved in trading of its own.",
 
           "An Investor/Trader has an appropriate investment in a trading account to trade on all the recommendations shared via SMS.",
 
