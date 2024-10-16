@@ -93,27 +93,27 @@ const Slider = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-[90vh] object-cover" 
+              className="w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover" 
             />
             <div
               className={`absolute inset-0 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
                 textVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="bg-[#62000f] bg-opacity-60 text-white p-8 max-w-lg ml-auto"> {/* Semi-transparent background */}
-                <p className="text-[#efcc41] text-sm font-bold mb-2">
+              <div className="bg-[#62000f] bg-opacity-60 text-white p-4 sm:p-6 md:p-8 lg:p-12 max-w-full md:max-w-lg ml-auto"> {/* Responsive padding */}
+                <p className="text-[#efcc41] text-xs sm:text-sm md:text-base font-bold mb-2">
                   {item.title}
                 </p>
-                <h2 className="text-white text-2xl md:text-5xl font-bold mb-4">
+                <h2 className="text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold mb-4">
                   {item.headline}
                 </h2>
-                <p className="text-white text-lg mb-6">
+                <p className="text-white text-sm sm:text-base md:text-lg mb-6">
                   {item.description}
                 </p>
                 {item.buttonText && (
                   <Link
                     to={item.buttonLink ? item.buttonLink : "#"}
-                    className="bg-[#efcc41] text-[#62000f] px-6 py-3 rounded-full font-semibold hover:bg-[#ffc107] transition duration-300"
+                    className="bg-[#efcc41] text-[#62000f] px-4 py-2 sm:px-6 sm:py-3 rounded-full font-semibold hover:bg-[#ffc107] transition duration-300"
                   >
                     {item.buttonText}
                   </Link>

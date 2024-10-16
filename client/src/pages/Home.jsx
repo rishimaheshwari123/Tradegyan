@@ -23,7 +23,7 @@ const Home = () => {
       <Slider />
       {/* <LivePrice /> */}
       <Investment />
-      <StockTicker />
+      {/* <StockTicker /> */}
       <Opportunities />
       <Helps />
       <Experience />

@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Navigation,
-  Pagination,
-  Autoplay,
-  EffectFade,
-} from "swiper/modules";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -24,7 +19,7 @@ const Slider = () => {
   const work = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4", // Image showing stock market data on a screen with people analyzing it.
+      image: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4",
       title: "Your Wealth, Our Mission",
       headline: "Grow Your Portfolio with Expert Guidance",
       description:
@@ -34,7 +29,7 @@ const Slider = () => {
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514", // A professional investor or financial advisor discussing stock charts on a tablet or computer.
+      image: "https://images.unsplash.com/photo-1519337265831-281ec6cc8514",
       title: "Expert Stock Market Insights",
       headline: "Unlock Opportunities, Mitigate Risks",
       description:
@@ -44,7 +39,7 @@ const Slider = () => {
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d", // A successful investor smiling in front of financial graphs representing growth.
+      image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
       title: "Personalized Investment Plans",
       headline: "Achieve Your Financial Goals with Us",
       description:
@@ -53,7 +48,6 @@ const Slider = () => {
       buttonLink: "/learn",
     },
   ];
-  
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -78,30 +72,30 @@ const Slider = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-[90vh] object-cover"
+              className="w-full h-[75vh] md:h-[90vh] object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30 z-10 flex items-center">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30 z-10 flex items-center justify-center px-4 md:px-8">
               {/* Text Animation */}
               <div
                 initial="hidden"
                 animate={textVisible ? "visible" : "hidden"}
                 variants={fadeInUp}
-                className="p-8 max-w-lg ml-auto bg-white/20 backdrop-blur-sm rounded-lg"
+                className="bg-white/20 backdrop-blur-sm p-4 md:p-8 max-w-sm md:max-w-lg rounded-lg text-center"
               >
-                <p className="text-[#efcc41] text-sm font-bold mb-2">
+                <p className="text-[#efcc41] text-xs md:text-sm font-bold mb-2">
                   {item.title}
                 </p>
-                <h2 className="text-white text-3xl md:text-5xl font-bold mb-4">
+                <h2 className="text-white text-xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-4">
                   {item.headline}
                 </h2>
-                <p className="text-white text-lg mb-6">
+                <p className="text-white text-sm md:text-lg mb-4 md:mb-6">
                   {item.description}
                 </p>
                 {item.buttonText && (
                   <Link
                     to={item.buttonLink}
-                    className="bg-[#efcc41] text-[#62000f] px-6 py-3 rounded-full font-semibold hover:bg-[#ffc107] transition transform hover:scale-105 duration-300"
+                    className="bg-[#efcc41] text-[#62000f] px-4 py-2 md:px-6 md:py-3 rounded-full font-semibold hover:bg-[#ffc107] transition transform hover:scale-105 duration-300"
                   >
                     {item.buttonText}
                   </Link>

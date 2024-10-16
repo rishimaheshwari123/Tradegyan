@@ -28,7 +28,7 @@ const HomeQuote = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-around p-10 bg-gray-50">
+      <div className="flex flex-col md:flex-row justify-around lg:p-5 p bg-gray-50">
         {/* Google Map Section */}
         <div className="md:w-1/2 p-8 bg-white shadow-lg rounded-lg">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">

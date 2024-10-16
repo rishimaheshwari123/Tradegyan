@@ -10,9 +10,10 @@ import Swal from 'sweetalert2';
 const SingleService = () => {
   const [service, setService] = useState(null);
   const { id } = useParams();
-const {token,user} = useSelector(state=>state.auth)
-const navigate = useNavigate()
-const dispatch = useDispatch()
+  const { token, user } = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const singleService = async () => {
     try {
       const response = await getSingelService(id);
@@ -26,10 +27,8 @@ const dispatch = useDispatch()
     singleService();
   }, []);
 
-
-  const enrollService = async()=>{
+  const enrollService = async () => {
     if (!token) {
-      // Show SweetAlert if user is not logged in
       Swal.fire({
         title: 'You need to login!',
         text: "Please log in to proceed with the enrollment.",
@@ -41,23 +40,23 @@ const dispatch = useDispatch()
         cancelButtonText: 'Cancel'
       }).then((result) => {
         if (result.isConfirmed) {
-          // If user clicks 'Login', navigate to the login page
-          navigate('/client-login'); // Adjust this path based on your routing
+          navigate('/client-login');
         }
-        // If cancel, do nothing and stay on the same page
       });
-      return; // Exit the function if not logged in
+      return; // Exit if not logged in
     }
+
     try {
-      await BuyProduct(token,id,service.price,user,navigate,dispatch)
+      await BuyProduct(token, id, service.price, user, navigate, dispatch);
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
+
   return (
     <div>
       <TraderNavbar />
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {service ? (
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 space-y-6">
             {/* Part 1 - Title and Description */}
@@ -135,7 +134,7 @@ const dispatch = useDispatch()
             </div>
           </div>
         ) : (
-          <p>Loading service details...</p>
+          <p className="text-center">Loading service details...</p>
         )}
       </div>
       <Footer />

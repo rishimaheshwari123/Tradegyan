@@ -22,29 +22,30 @@ const Service = () => {
 
   return (
     <div id="services">
-      ={" "}
-      <div className="p-6 max-w-7xl mx-auto ">
+      <div className="p-6 max-w-7xl mx-auto">
         <h1 className="text-3xl font-bold mb-6 text-center">Our Services</h1>
-        <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {services?.map((service) => (
             <Link
               to={`/trader/service/${service._id}`}
               key={service._id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 sm:space-x-4"
+              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6 flex flex-col justify-between items-start"
             >
               {/* Left Side - Icon and Service Details */}
-              <div className="flex items-start">
-                <div className="mr-6">
+              <div className="flex items-start w-full">
+                <div className="mr-4">
                   {/* Placeholder for Service Icon/Image */}
                   <div className="w-16 h-16 bg-gray-200 rounded-lg flex justify-center items-center">
                     <FaRupeeSign className="text-green-500 text-3xl" />
                   </div>
                 </div>
-                <div>
-                  <h2 className="text-2xl font-semibold text-blue-600 mb-2">
+                <div className="flex-1">
+                  <h2 className="text-xl sm:text-2xl font-semibold text-blue-600 mb-2">
                     {service.serviceName}
                   </h2>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
+                    {service.description}
+                  </p>
                   <div className="flex flex-wrap items-center space-x-4">
                     <div className="flex items-center text-gray-600">
                       <FaRupeeSign className="text-green-500 mr-1" />
@@ -64,10 +65,10 @@ const Service = () => {
               </div>
 
               {/* Right Side - Badge */}
-              <div className="text-center bg-green-500 text-white px-4 py-2 rounded-full">
-                <span className="text-sm font-semibold ">1 Year CAGR</span>
-                <span className="mx-5">|</span>
-                <span className="text-lg font-bold ">{service.rating}⭐</span>
+              <div className="text-center bg-green-500 text-white px-4 py-2 rounded-full mt-4 w-full">
+                <span className="text-sm font-semibold">1 Year CAGR</span>
+                <span className="mx-2">|</span>
+                <span className="text-lg font-bold">{service.rating}⭐</span>
               </div>
             </Link>
           ))}
