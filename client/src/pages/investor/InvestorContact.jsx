@@ -39,7 +39,7 @@ const InvestorContact = () => {
 
   return (
     <div>
-      <Notification />
+        {/* <Notification /> */}
       <InvestorNavbar />
       <div className="relative flex justify-center items-center">
         <img

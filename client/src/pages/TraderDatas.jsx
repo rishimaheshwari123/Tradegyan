@@ -19,7 +19,7 @@ function TraderDatas() {
 
   return (
     <>
-      <Notification />
+        {/* <Notification /> */}
       <Navbar />
 
       <div className="mt-[50px]">

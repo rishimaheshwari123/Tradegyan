@@ -280,29 +280,44 @@ const sendMessageCtrl = async (req, res) => {
     console.log(req.body)
     const { userId, messageContent, sendVia } = req.body; // Get userId, messageContent, and sendVia (email, whatsapp, both)
 
-    // Validate that all fields are provided
-    if (!userId || !messageContent || !sendVia) {
+    // Validate that messageContent and sendVia are provided
+    if (!messageContent || !sendVia) {
       return res.status(400).json({
         success: false,
-        message: 'All fields are required: userId, messageContent, and sendVia.',
+        message: 'Both messageContent and sendVia are required.',
       });
     }
 
-    // Find the user by ID
-    const user = await authModel.findById(userId);
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found.',
-      });
+    // If userId is not provided, send the message to all users
+    let users;
+    if (!userId) {
+      users = await authModel.find(); // Fetch all users if no userId is provided
+      if (!users || users.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: 'No users found.',
+        });
+      }
+    } else {
+      // Otherwise, find the user by ID
+      const user = await authModel.findById(userId);
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: 'User not found.',
+        });
+      }
+      users = [user]; // Add the single user to the users array
     }
 
-    // Send the message via email, WhatsApp, or both
-    if (sendVia === 'email' || sendVia === 'both') {
-      await sendEmail(user?.email, messageContent,user?.name);
-    }
-    if (sendVia === 'whatsapp' || sendVia === 'both') {
-      await sendWhatsAppMessage(user.whatsappNumber, messageContent);
+    // Send the message to all users (either a single user or all users)
+    for (const user of users) {
+      if (sendVia === 'email' || sendVia === 'both') {
+        await sendEmail(user.email, messageContent, user.name);
+      }
+      if (sendVia === 'whatsapp' || sendVia === 'both') {
+        await sendWhatsAppMessage(user.whatsappNumber, messageContent);
+      }
     }
 
     // Return success response
@@ -318,6 +333,7 @@ const sendMessageCtrl = async (req, res) => {
     });
   }
 };
+
 
 // Function to send email using Nodemailer
 const sendEmail = async (recipientEmail, messageContent, name) => {

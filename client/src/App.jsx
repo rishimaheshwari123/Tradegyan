@@ -81,6 +81,7 @@ const App = () => {
   };
   return (
     <div>
+    <Notification />
       {showModal && <Complain onClose={handleCloseModal} />}
       <Routes>
         <Route path="/" element={<Home />} />

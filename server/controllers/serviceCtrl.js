@@ -1,5 +1,7 @@
 const Service = require('../models/serviceModel');
 const Auth = require("../models/authModel"); // Adjust the path as necessary
+const mailSender = require('../utils/mailSenderr');
+const { messageViaEmail } = require('../template/messageViaEmail');
 
 const createService = async (req, res) => {
     try {
@@ -182,10 +184,102 @@ const getServices = async (req, res) => {
 };
 
 
+// POST route to send a message to users of a specific service
+const sendServiceEnrolledMessage = async (req, res) => {
+    const { serviceId } = req.params;
+    const { message, sendVia } = req.body;
+  
+    try {
+      // Find the service by ID and populate users enrolled
+      const service = await Service.findById(serviceId).populate("usersEnroled.user");
+  
+      if (!service) {
+        return res.status(404).json({ error: "Service not found" });
+      }
+  
+      // Filter users whose subscription has not expired
+      const activeUsers = service.usersEnroled.filter(
+        (userEnrolment) => new Date(userEnrolment.expirationDate) > new Date()
+      );
+  
+      // Check if there are any active users
+      if (activeUsers.length === 0) {
+        return res.status(404).json({ message: "No active users found for this service" });
+      }
+  
+      // Iterate over the active users to send messages
+      for (const userEnrolment of activeUsers) {
+        const user = userEnrolment.user; // Enrolled user object
+  
+        // Send WhatsApp message
+        if (sendVia === "whatsapp" || sendVia === "both") {
+          try {
+            await sendWhatsAppMessage(user.whatsappNumber, message);
+            console.log(`WhatsApp message sent to ${user.whatsappNumber}`);
+          } catch (error) {
+            console.error(`Failed to send WhatsApp message to ${user.whatsappNumber}:`, error.message);
+          }
+        }
+  
+        // Send Email
+        if (sendVia === "email" || sendVia === "both") {
+          try {
+            await sendEmail(user?.email, message, user?.name);
+            console.log(`Email sent to ${user.email}`);
+          } catch (error) {
+            console.error(`Failed to send email to ${user.email}:`, error.message);
+          }
+        }
+      }
+  
+      return res.status(200).json({ message: "Messages sent successfully to active users." });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      return res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
 
+
+const sendEmail = async (recipientEmail, messageContent, name) => {
+    try {
+      // Create a transporter object using SMTP transport
+      await mailSender(recipientEmail,"TradeGyan Solution" ,messageViaEmail(messageContent,name) )
+     
+  
+    } catch (error) {
+      throw new Error(`Failed to send email: ${error.message}`);
+    }
+  };
+  
+  // Function to send WhatsApp message using WhatsApp Business API
+  const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
+    try {
+      const url = `https://graph.facebook.com/v12.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+  
+      const data = {
+        messaging_product: 'whatsapp',
+        to: `whatsapp:${whatsappNumber}`, // WhatsApp number with country code
+        type: 'text',
+        text: {
+          body: messageContent,
+        },
+      };
+  
+      const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
+      };
+  
+      // Send the WhatsApp message via the API
+      await axios.post(url, data, { headers });
+    } catch (error) {
+      throw new Error(`Failed to send WhatsApp message: ${error.message}`);
+    }
+  };
 
 
 
 module.exports = {
-    createService, getAllService, getSingleService,getServices,singleServiceAdmin
+    createService, getAllService, getSingleService,getServices,singleServiceAdmin,sendServiceEnrolledMessage
 };

@@ -26,7 +26,7 @@ const UserSearch = ({ onUserSelect }) => {
     try {
       const { data } = await axios.get(`${BASE_URL}/chat/serach`, { params: { query } });
       setUsers(data);
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.error('Error searching users:', error);
     } finally {

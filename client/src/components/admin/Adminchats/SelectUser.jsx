@@ -17,7 +17,7 @@ const ConversationList = ({ onConversationSelect, onUserSelect }) => {
       const { data } = await axios.get(`${BASE_URL}/api/v1/chat/conversations`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      console.log(data)
+      // console.log(data)
       setConversations(data);
     } catch (error) {
       console.error('Error fetching conversations:', error);

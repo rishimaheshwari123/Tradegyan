@@ -136,7 +136,7 @@ function ClientLogin() {
 
   return (
     <>
-        <Notification />
+        {/* <Notification /> */} 
         <Navbar />
     <div className="client-login max-w-lg mx-auto p-6 bg-white shadow-lg rounded-md">
       <h2 className="text-2xl font-semibold mb-6 text-center">

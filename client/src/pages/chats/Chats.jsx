@@ -48,7 +48,7 @@ const Chat = ({ receiverId, onClose,idReciever }) => {
           { headers: { Authorization: `Bearer ${token}` } }
         );
         setConversationId(data._id);
-        console.log(data._id)
+        // console.log(data._id)
         socket.emit("joinConversation", data._id);
       } catch (error) {
         console.error("Error fetching conversation:", error);

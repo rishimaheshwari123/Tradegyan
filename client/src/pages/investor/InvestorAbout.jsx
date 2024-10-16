@@ -8,7 +8,7 @@ import Notification from "../../components/core/home/Notification";
 const InvestorAbout = () => {
   return (
     <div>
-      <Notification />
+        {/* <Notification /> */}
       <InvestorNavbar />
       <div className="relative flex justify-center items-center">
         <img

@@ -5,7 +5,7 @@ import Navbar from "../components/comman/Navbar";
 const SebiDisclosure = () => {
   return (
     <>
-      <Notification />
+        {/* <Notification /> */}
       <Navbar />
 
       <div className="text-gray-800 min-h-screen p-6">

@@ -14,7 +14,7 @@ import SliderTrader from "../../components/trader/SliderTrader";
 const TraderHome = () => {
   return (
     <div>
-      <Notification />
+        {/* <Notification /> */}
       <Navbar />
 
       {/* <TraderNavbar /> */}

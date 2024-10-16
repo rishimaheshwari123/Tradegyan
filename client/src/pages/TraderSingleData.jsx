@@ -17,7 +17,7 @@ function TraderSingleData() {
 
     return (
         <>
-            <Notification />
+              {/* <Notification /> */}
             <Navbar />
             <div className='relative mt-3'>
                 {traderData ? (

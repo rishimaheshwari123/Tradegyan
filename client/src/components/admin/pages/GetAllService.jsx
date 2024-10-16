@@ -3,6 +3,11 @@ import { getAllService } from "../../../services/operations/auth";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'; // Make sure you have SweetAlert2 imported
+import axios from "axios";
+
+const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
+
 const GetAllService = () => {
   const [services, setServices] = useState([]);
   const [showGlobalModal, setShowGlobalModal] = useState(false);
@@ -23,14 +28,57 @@ const GetAllService = () => {
     getService();
   }, []);
 
-  const handleSendMessage = () => {
-    // Logic to send the message to the selected service ID
-    console.log(`Sending message: ${globalMessage} via ${sendVia} for service ID: ${selectedServiceId}`);
+
+
+const handleSendMessage = async () => {
+  // console.log(`Sending message: ${globalMessage} via ${sendVia} for service ID: ${selectedServiceId}`);
+
+  // Show the loading Swal
+  Swal.fire({
+    title: 'Sending message...',
+    text: 'Please wait while the message is being sent',
+    allowOutsideClick: false,
+    showConfirmButton: false,
+    didOpen: () => {
+      Swal.showLoading();
+    }
+  });
+
+  try {
+    const response = await axios.post(`${BASE_URL}/auth/send-message/${selectedServiceId}`, {
+      message: globalMessage,
+      sendVia: sendVia // Include the sending method
+    });
+
+    // Show success Swal when the message is sent successfully
+    Swal.fire({
+      icon: 'success',
+      title: 'Message Sent',
+      text: 'The message was sent successfully!',
+    });
+
+
+
+    // Reset state
     // Close the modal after sending
     setShowGlobalModal(false);
     setGlobalMessage(""); // Clear the message after sending
     setSendVia("whatsapp"); // Reset the sending method
-  };
+
+
+  } catch (error) {
+    // Show error Swal if there's a failure
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Failed to send the message. Please try again.',
+    });
+
+    console.error("Error sending message:", error);
+  }
+};
+
+
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">

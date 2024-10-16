@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ImCross } from "react-icons/im";
+import { useLocation } from "react-router-dom";
 
 const Notification = () => {
   const [toggle, setToggle] = useState(true);
@@ -11,6 +12,14 @@ const Notification = () => {
   useEffect(() => {
     setToggle(true);
   }, []);
+
+
+  const location = useLocation(); // Get the current URL path
+
+  // Check if the current path includes "/admin"
+  if (location.pathname.includes("/admin")) {
+    return null; // Do not render the footer if the URL contains "/admin"
+  }
 
   return (
     toggle && (

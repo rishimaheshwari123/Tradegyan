@@ -15,7 +15,7 @@ function Podcast() {
       if (response?.data?.success) {
         setBlog(response.data.blogs);
       }
-      console.log(response.data.blogs);
+      // console.log(response.data.blogs);
     } catch (error) {
       console.log("Something went wrong");
     }

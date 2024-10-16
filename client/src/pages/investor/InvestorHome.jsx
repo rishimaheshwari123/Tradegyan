@@ -9,7 +9,7 @@ import Notification from "../../components/core/home/Notification";
 const InvestorHome = () => {
   return (
     <div>
-      <Notification />
+        {/* <Notification /> */}
       <InvestorNavbar />
       <Slider />
       <WhyWorkWithUs />

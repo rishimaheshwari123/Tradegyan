@@ -26,7 +26,7 @@ const InvestorServices = () => {
 
   return (
     <div>
-      <Notification />
+        {/* <Notification /> */}
       <InvestorNavbar />
       <div className="p-6 space-y-12 max-w-4xl mx-auto">
         {/* Service Image and Heading */}

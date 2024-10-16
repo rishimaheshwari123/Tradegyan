@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { FaWhatsapp } from 'react-icons/fa'; // WhatsApp icon
 import { MdEmail } from 'react-icons/md'; // Email icon
 import axios from 'axios';
+import Swal from 'sweetalert2'; // Make sure you have SweetAlert2 imported
 
 const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
 
@@ -72,22 +73,38 @@ function CRM() {
   };
 
   // Handle sending messages to backend
+
   const handleSendMessage = async () => {
-    const message = isGlobalMessage ? globalMessage : messageContent; 
+    const message = isGlobalMessage ? globalMessage : messageContent;
     const targetUser = isGlobalMessage ? null : selectedUser; // Null for global messages
-console.log(   message,
-   targetUser,
- )
+  
+    // Show the loading Swal
+    Swal.fire({
+      title: 'Sending message...',
+      text: 'Please wait while the message is being sent',
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+  
     try {
       const response = await axios.post(`${BASE_URL}/auth/send-message`, {
         messageContent: message,
         userId: targetUser,
         sendVia: sendVia // Include the sending method
       });
-
-
-    
-      console.log("Message sent:", response.data);
+  
+      // Show success Swal when the message is sent successfully
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent',
+        text: 'The message was sent successfully!',
+      });
+  
+      // console.log("Message sent:", response.data);
+  
       // Reset state
       setGlobalMessage("");
       setMessageContent("");
@@ -96,9 +113,17 @@ console.log(   message,
       setSelectedUser(null);
       setIsGlobalMessage(false);
     } catch (error) {
+      // Show error Swal if there's a failure
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Failed to send the message. Please try again.',
+      });
+  
       console.error("Error sending message:", error);
     }
   };
+  
 
   const handleSendGlobalMessage = () => {
     setIsGlobalMessage(true); 
@@ -181,7 +206,7 @@ console.log(   message,
           Send to All Users
         </button>
         <button
-          onClick={() => setShowGlobalModal(false)}
+          onClick={() => {setShowGlobalModal(false) ; setIsGlobalMessage(false);}}
           className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-200 ml-2"
         >
           Cancel
@@ -325,6 +350,8 @@ console.log(   message,
           </div>
         </div>
       )}
+
+
     </div>
   );
 }
