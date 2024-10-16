@@ -46,7 +46,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     toast.success("Logout Successfully");
-    navigate("/login");
+    navigate("/client-login");
     setIsOpen(false); // Close sidebar on logout
   };
 

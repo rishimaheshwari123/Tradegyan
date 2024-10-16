@@ -8,7 +8,7 @@ const getAllUsers = async (req, res) => {
   try {
 
       // Construct the query for searching users
-      const query = {};
+      const query = {role: { $ne: 'Admin' } };
       if (searchQuery) {
           query.$or = [
               { name: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for name
@@ -91,7 +91,7 @@ const getUserById = async (req, res) => {
 
 const downloadUsersExcel = async (req, res) => {
     try {
-        const users = await User.find(); // Fetch all users
+        const users = await User.find({ role: { $ne: 'Admin' } }); // Fetch all users
   
         // Map the user data to an array of objects
         const usersData = users.map(user => ({

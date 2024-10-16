@@ -139,7 +139,7 @@ export function fetchMyProfile(token, navigate) {
           button: "Login",
         }).then(() => {
           dispatch(logout(navigate));
-          navigate("/login"); // Redirect to login page
+          navigate("/client-login"); // Redirect to login page
         });
       }
     }
