@@ -24,7 +24,7 @@ const ScrollingBanner = () => {
         {/* Contact Button */}
         <div>
           <Link
-            to={"/trader/contact"}
+            to={"/contact"}
             className="flex items-center bg-yellow-500 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-600"
           >
             CONTACT US <FiArrowRight className="ml-2" />
