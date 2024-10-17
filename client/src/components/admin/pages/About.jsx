@@ -55,9 +55,9 @@ const About = () => {
             our clients.
           </p>
           <p className="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">
-            The company was founded in 2006 with the objective of offering
-            unbiased technical analysis & solutions for the trading community,
-            by experienced professionals to create a conducive environment.
+            The objective of offering unbiased technical analysis & solutions
+            for the trading community, by experienced professionals to create a
+            conducive environment.
           </p>
           <p className="text-gray-700 text-sm sm:text-base md:text-lg">
             Our organization's commitment to sustainability informs our
