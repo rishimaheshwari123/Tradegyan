@@ -18,7 +18,7 @@ import StockTicker from "./GlobleMarket";
 const Home = () => {
   return (
     <div>
-        {/* <Notification /> */}
+      {/* <Notification /> */}
       <Navbar />
       <Slider />
       {/* <LivePrice /> */}
