@@ -131,7 +131,9 @@ const Faq = () => {
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />

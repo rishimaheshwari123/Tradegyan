@@ -34,7 +34,7 @@ const Slider = () => {
       description:
         "Our vans are fitted with high pressure jetting units which will clear blocked drain safely, easily and professionally.",
       buttonText: "CONTACT US",
-      buttonLink: "#",
+      buttonLink: "/contact",
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ const Slider = () => {
       description:
         "We offer a wide range of construction services to make your dream home a reality.",
       buttonText: "LEARN MORE",
-      buttonLink: "#",
+      buttonLink: "/investor",
     },
     {
       id: 3,
@@ -56,6 +56,7 @@ const Slider = () => {
       description:
         "Our investment advisors provide tailored solutions to help grow and manage your financial portfolio with the highest level of professionalism.",
       buttonText: "EXPLORE",
+      buttonLink: "/trader",
     },
   ];
 
@@ -65,9 +66,18 @@ const Slider = () => {
   };
 
   return (
-    <div className="relative bg-[#62000f]"> {/* Set background to deep maroon */}
+    <div className="relative bg-[#62000f]">
+      {" "}
+      {/* Set background to deep maroon */}
       <Swiper
-        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
+        modules={[
+          Navigation,
+          Pagination,
+          Scrollbar,
+          A11y,
+          Autoplay,
+          EffectFade,
+        ]}
         autoplay={{ delay: 5000, disableOnInteraction: false }}
         effect="fade"
         fadeEffect={{ crossFade: true }}
@@ -93,14 +103,16 @@ const Slider = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover" 
+              className="w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover"
             />
             <div
               className={`absolute inset-0 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
                 textVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="bg-[#62000f] bg-opacity-60 text-white p-4 sm:p-6 md:p-8 lg:p-12 max-w-full md:max-w-lg ml-auto"> {/* Responsive padding */}
+              <div className="bg-[#62000f] bg-opacity-60 text-white p-4 sm:p-6 md:p-8 lg:p-12 max-w-full md:max-w-lg ml-auto">
+                {" "}
+                {/* Responsive padding */}
                 <p className="text-[#efcc41] text-xs sm:text-sm md:text-base font-bold mb-2">
                   {item.title}
                 </p>

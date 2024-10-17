@@ -11,14 +11,14 @@ const WeOffer = () => {
             </h2>
             <div className="border-l-4 ml-2 border-teal-500 h-16 hidden lg:flex" />
           </div>
-          <p className=" lg:text-sm  text-red-600 text-center lg:text-left lg:ml-6 max-w-2xl text-[13px]">
+          <p className=" lg:text-sm   lg:text-left lg:ml-6 max-w-2xl text-[13px]">
             Trade Gyan Solutions is an investment advisory in India. The company
-            provides recommendations for stocks cash &amp; F&amp;O traded in
-            NSE &amp; BSE, including bullions, metals, and agro commodities
-            traded in MCX &amp; NCDEX. For more information, visit{" "}
+            provides recommendations for stocks cash &amp; F&amp;O traded in NSE
+            &amp; BSE, including bullions, metals, and agro commodities traded
+            in MCX &amp; NCDEX. For more information, visit{" "}
             <a
               href="https://example.com"
-              className="text-teal-500 underline hover:text-teal-700"
+              className=""
               target="_blank"
               rel="noopener noreferrer"
             >

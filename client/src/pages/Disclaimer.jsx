@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/comman/Navbar";
 import RiskProfile from "../components/RiskProfile";
 import { useParams } from "react-router-dom";
@@ -154,7 +154,7 @@ const policiesData = [
     content: [
       {
         heading: "Complaint Data",
-        points:[<ComplaintsTable />]
+        points: [<ComplaintsTable />],
       },
     ],
   },
@@ -164,17 +164,19 @@ const policiesData = [
     content: [
       {
         heading: "Risk Considerations",
-        points:[<RiskProfile />]
+        points: [<RiskProfile />],
       },
     ],
   },
 ];
 
 const Disclaimer = () => {
-  const {name} = useParams()
+  const { name } = useParams();
   // State to manage active tab
   const [activeTab, setActiveTab] = useState(name || "corporate");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Navbar */}

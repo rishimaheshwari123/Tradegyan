@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaEnvelope, FaPhone, FaArrowRight } from "react-icons/fa";
 import Navbar from "../components/comman/Navbar";
 
 const ComplaintEscalation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Navbar />

@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -14,14 +12,13 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: "Fredoka", sans-serif;
+  font-family: "Playfair Display", serif;
   background-color: white;
   /* background: url("./assets/bgmain.gif") no-repeat center center fixed; Ensures the image covers the entire area */
   background-size: cover; /* Makes the background image cover the whole viewport */
   height: 100vh; /* Ensures the body takes the full height of the viewport */
   margin: 0; /* Removes default margin */
 }
-
 
 @keyframes marquee {
   0% {
@@ -135,9 +132,6 @@ body {
 ::before {
   box-sizing: border-box;
 }
-
-
-
 
 @media (max-width: 300px) {
   .text-small {

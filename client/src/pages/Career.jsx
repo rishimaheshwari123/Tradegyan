@@ -32,6 +32,9 @@ const JobPosting = ({ job, isOpen, onClick }) => {
   useEffect(() => {
     setContentHeight(isOpen ? `${contentRef.current.scrollHeight}px` : "0px");
   }, [isOpen]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="border rounded-md mb-4 transition-all duration-500 ease-in-out">

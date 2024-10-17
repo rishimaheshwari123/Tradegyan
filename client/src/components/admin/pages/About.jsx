@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../comman/Navbar";
 import { FaArrowUp, FaHandshake, FaRocket } from "react-icons/fa"; // Example Icons
 
@@ -24,6 +24,9 @@ const About = () => {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Navbar />
@@ -34,13 +37,13 @@ const About = () => {
           className="w-full h-64 sm:h-80 md:h-full object-cover"
         />
         <div className="bg-white p-4 sm:p-6 md:p-8 max-w-4xl shadow-lg rounded-lg lg:absolute mx-auto lg:-bottom-36">
-          <h2 className="text-xl text-center sm:text-2xl md:text-3xl font-semibold text-blue-600 mb-4">
+          <h2 className="text-xl text-center sm:text-2xl md:text-3xl font-semibold  mb-4">
             About Us
           </h2>
           <h2 className="text-sm sm:text-sm md:text-sm font-semibold text-center mb-4">
             You are going to read a story where we have
           </h2>
-          <h2 className="text-xl text-center sm:text-2xl md:text-2xl font-semibold text-blue-600 mb-4">
+          <h2 className="text-xl text-center sm:text-2xl md:text-2xl font-semibol mb-4">
             You are going to read a story where we have 15+ years of extensive
             research in stock movements.
           </h2>
@@ -69,7 +72,7 @@ const About = () => {
 
       <div className="bg-white py-10 px-4 md:px-10 lg:px-20 mt-32">
         {/* Vision Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-blue-600 mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-center  mb-6">
           Vision
         </h2>
         <p className="text-center text-gray-600 mb-10">
