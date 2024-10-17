@@ -16,7 +16,8 @@ const {
   UPDATE_QUERY,
   FETCH_PROFILE,
   GET_ALL_SERVICE,
-  GET_SINGLE_ADMIN_SERVICE
+  GET_SINGLE_ADMIN_SERVICE,
+  SINGLE_USER_API
 } = endpoints;
 
 export async function signUp(formData, navigate, dispatch) {
@@ -235,13 +236,13 @@ export const getAllService = async () => {
 
 export const getAllServices = async (token) => {
   try {
-   
-    const response = await apiConnector("GET", GET_ALL_SERVICE,null, {
+
+    const response = await apiConnector("GET", GET_ALL_SERVICE, null, {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     });
-    if(!response?.data?.success){
-return []
+    if (!response?.data?.success) {
+      return []
     }
     const result = response?.data?.services;
     return result;
@@ -369,3 +370,17 @@ export const updateQueryApi = async (id, updatedData) => {
     });
   }
 };
+
+
+export const getSingleUserApi = async (id) => {
+  try {
+    const response = await apiConnector("GET", `${SINGLE_USER_API}/${id}`);
+    if (!response?.data?.success) {
+      throw new Error(response?.data?.message)
+    }
+    return response?.data?.user
+
+  } catch (error) {
+    console.log(error)
+  }
+}

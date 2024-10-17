@@ -5,7 +5,8 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
 export const endpoints = {
   LOGIN_API: BASE_URL + "/auth/login",
   SIGNUP_API: BASE_URL + "/auth/register",
-  FETCH_PROFILE : BASE_URL + "/auth/fetchMyProfile",
+  SINGLE_USER_API: BASE_URL + "/auth/get",
+  FETCH_PROFILE: BASE_URL + "/auth/fetchMyProfile",
   GET_ALL_SERVICE: BASE_URL + "/service/getAllServices",
 
 
@@ -27,13 +28,13 @@ export const adminApis = {
 }
 
 
-export const paymentEndpoints ={
+export const paymentEndpoints = {
   PRODUCT_PAYMENT_API: BASE_URL + "/order/capturePayment",
   PRODUCT_VERIFY_API: BASE_URL + "/order/verifyPayment",
 
-  
+
   // Get all orders
 
 
-  
+
 }

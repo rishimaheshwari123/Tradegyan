@@ -339,8 +339,8 @@ const sendMessageCtrl = async (req, res) => {
 const sendEmail = async (recipientEmail, messageContent, name) => {
   try {
     // Create a transporter object using SMTP transport
-    await mailSender(recipientEmail,"TradeGyan Solution" ,messageViaEmail(messageContent,name) )
-   
+    await mailSender(recipientEmail, "TradeGyan Solution", messageViaEmail(messageContent, name))
+
 
   } catch (error) {
     throw new Error(`Failed to send email: ${error.message}`);
@@ -406,4 +406,22 @@ const fetchMyProfile = async (req, res) => {
   }
 };
 
-module.exports = { registerCtrl, loginCtrl,sendMessageCtrl ,fetchMyProfile};
+const getSingleUserCtrl = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await authModel.findById(id)
+    return res.status(200).json({
+      success: true,
+      user
+    })
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      success: false,
+      message: "Error in getting single user api"
+    })
+  }
+}
+
+
+module.exports = { registerCtrl, loginCtrl, sendMessageCtrl, fetchMyProfile, getSingleUserCtrl };

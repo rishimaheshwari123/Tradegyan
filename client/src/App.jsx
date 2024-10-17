@@ -49,7 +49,7 @@ import SinglePodcast from "./pages/SinglePodcast";
 import InvestorSingleService from "./pages/investor/InvestorSingleService";
 import { fetchMyProfile } from "./services/operations/auth";
 import Subscription from "./pages/Subscription";
-import SendMessage from "./pages/SendMessage";
+import SendMessage from "./pages/Test";
 import Complain from "./components/trader/comman/Complain";
 import SingleServiceAdmin from "./components/admin/pages/SingleService";
 import Team from "./pages/Team";
@@ -105,6 +105,7 @@ const App = () => {
         <Route path="/career" element={<Career />} />
         <Route path="/strategic-insights" element={<Strategic />} />
         <Route path="/resource-hub" element={<ResourceHub />} />
+        <Route path="/test" element={<SendMessage />} />
 
         <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />
