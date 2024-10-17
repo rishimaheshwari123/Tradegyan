@@ -24,7 +24,11 @@ const Home = () => {
       {/* <LivePrice /> */}
       <Investment />
       {/* <StockTicker /> */}
+      <br />
+      <br />
       <Opportunities />
+      <br />
+      <br />
       <Helps />
       <Experience />
       <Resources />

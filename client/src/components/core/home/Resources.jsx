@@ -1,6 +1,6 @@
 import React from "react";
 import { FaChalkboardTeacher, FaLightbulb, FaBookOpen } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 const Resources = () => {
   const resourcesData = [
     {
@@ -16,6 +16,7 @@ const Resources = () => {
         "Access a wide array of trading strategies covering over 10,000 derivatives, all with competitive spreads.",
       buttonText: "Discover More",
       icon: <FaLightbulb className="text-4xl text-[#F5C300]" />,
+      link: "/strategic-insights",
     },
     {
       title: "Resource Hub",
@@ -23,6 +24,7 @@ const Resources = () => {
         "Explore our extensive library filled with articles, videos, and market analyses to stay informed.",
       buttonText: "Explore Now",
       icon: <FaBookOpen className="text-4xl text-[#F5C300]" />,
+      link: "/resource-hub",
     },
   ];
 
@@ -33,7 +35,8 @@ const Resources = () => {
           Essential Resources for Every Trader
         </h2>
         <p className="text-[#0afc3e] mt-2">
-          With years of experience and a wealth of knowledge at your fingertips, we’re here to support your trading journey.
+          With years of experience and a wealth of knowledge at your fingertips,
+          we’re here to support your trading journey.
         </p>
       </div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
@@ -45,11 +48,16 @@ const Resources = () => {
             <div className="mb-4 flex items-center justify-center h-16 w-16 bg-yellow-100 rounded-full mx-auto">
               {resource.icon}
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-black">{resource.title}</h3>
+            <h3 className="text-xl font-semibold mb-2 text-black">
+              {resource.title}
+            </h3>
             <p className="text-gray-600 mb-6">{resource.description}</p>
-            <button className="bg-[#260062] hover:bg-yellow-600 text-white flex m-auto font-bold py-2 px-4 rounded-full">
+            <Link
+              to={resource?.link}
+              className="bg-[#260062] hover:bg-yellow-600 text-white  w-fit flex justify-center mx-auto font-bold py-2 px-4 rounded-full"
+            >
               {resource.buttonText}
-            </button>
+            </Link>
           </div>
         ))}
       </div>

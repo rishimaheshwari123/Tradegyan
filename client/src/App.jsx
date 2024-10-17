@@ -58,6 +58,8 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import SebiDisclosure from "./pages/SebiDisclosure";
 import ComplaintEscalation from "./pages/ComplaintEscalation";
 import Career from "./pages/Career";
+import Strategic from "./pages/Strategic";
+import ResourceHub from "./pages/ResourceHub";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -81,7 +83,7 @@ const App = () => {
   };
   return (
     <div>
-    <Notification />
+      <Notification />
       {showModal && <Complain onClose={handleCloseModal} />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -101,6 +103,8 @@ const App = () => {
         <Route path="/investment-charter" element={<InvestorCharter />} />
         <Route path="/complaint-escalation" element={<ComplaintEscalation />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/strategic-insights" element={<Strategic />} />
+        <Route path="/resource-hub" element={<ResourceHub />} />
 
         <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />

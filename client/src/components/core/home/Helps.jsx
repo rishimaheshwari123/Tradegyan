@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Helps = () => {
   return (
     <div className="">
-      <div className="lg:max-w-7xl mx-auto p-5 grid lg:grid-cols-2 ">
+      <div className="lg:max-w-7xl mx-auto p-5 grid lg:grid-cols-2 gap-8 ">
         <div className="relative">
           <img
             src="https://img.freepik.com/free-photo/chart-analysis_1098-15090.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1726790400&semt=ais_hybrid"
@@ -20,7 +20,10 @@ const Helps = () => {
           <p className="text-xl text-black">
             Gain clarity and confidence with our expert insights and research.
           </p>
-          <Link to={"/investor"} className="w-fit bg-[#260062] rounded-full px-5 py-3 font-bold hover:opacity-90 transition duration-300 text-white">
+          <Link
+            to={"/investor"}
+            className="w-fit bg-[#260062] rounded-full px-5 py-3 font-bold hover:opacity-90 transition duration-300 text-white"
+          >
             Explore More
           </Link>
         </div>
