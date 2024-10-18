@@ -8,6 +8,7 @@ import { MdEmail } from "react-icons/md"; // Email icon
 import axios from "axios";
 import Swal from "sweetalert2"; // Make sure you have SweetAlert2 imported
 import { getSingleUserApi } from "../../../services/operations/auth";
+import { FcSms } from "react-icons/fc";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
 
@@ -26,66 +27,11 @@ function CRM() {
   const [sendVia, setSendVia] = useState("whatsapp"); // Default to WhatsApp
   const [isGlobalMessage, setIsGlobalMessage] = useState(false); // Flag to indicate if sending globally
   const [seletcUser, setUser] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [message, setMessage] = useState("");
-  const [selectedUserId, setSelectedUserId] = useState(null);
-
-  const openModal = (userId) => {
-    setSelectedUserId(userId); // Set the selected user ID
-    setIsModalOpen(true);
-  };
-
-  // Close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  // Handle input change
-  const handleMessageChange = (e) => {
-    setMessage(e.target.value);
-  };
 
   useEffect(() => {
     console.log("user");
     console.log(selectedUser);
   }, []);
-  // Handle message submit
-  const handleSubmit = async (message) => {
-    const response = await getSingleUserApi(selectedUserId);
-    console.log(response);
-    const url = `http://mysms.msg24.in/api/mt/SendSMS`;
-    const params = {
-      apikey: "fhKQG4QS6kmRZoIzorwjJg", // Your API key
-      senderid: "TDGYAN",
-      channel: "trans",
-      DCS: 0,
-      flashsms: 0,
-      number: `91${response?.contactNumber}`, // Include country code (91 for India)
-      text: `TradeGyan option: {#var#} ${message} CALL{#var#}{#var#} Call - {#var#} www.tradegyan.co`,
-      route: 8,
-    };
-
-    try {
-      const response = await axios.get(url, { params });
-      console.log("SMS sent successfully:", response.data);
-      closeModal();
-      setMessage("");
-      Swal.fire({
-        icon: "success",
-        title: "Message Sent",
-        text: "The message was sent successfully!",
-      });
-    } catch (error) {
-      closeModal();
-      Swal.fire({
-        icon: "success",
-        title: "Message Sent",
-        text: "The message was sent successfully!",
-      });
-      setMessage("");
-      console.error("Error sending SMS:", error);
-    }
-  };
 
   const fetchUser = async (currentPage, searchQuery, sortOrder) => {
     const response = await getAllUser(
@@ -247,7 +193,7 @@ function CRM() {
                     onChange={() => setSendVia("whatsapp")}
                     className="mr-2"
                   />
-                  <FaWhatsapp className="mr-1" /> WhatsApp
+                  <FcSms className="mr-1" /> SMS
                 </label>
                 <label className="flex items-center mr-2">
                   <input
@@ -361,12 +307,6 @@ function CRM() {
                     }}
                     className="bg-blue-500 text-white p-1 rounded"
                   >
-                    Send Email
-                  </button>
-                  <button
-                    onClick={() => openModal(user._id)}
-                    className="bg-blue-500 text-white ml-4 p-1 rounded"
-                  >
                     Send Message
                   </button>
                 </td>
@@ -382,34 +322,6 @@ function CRM() {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-
-      {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-4 rounded shadow-lg">
-            <h2 className="text-xl mb-4">Write your message</h2>
-            <textarea
-              value={message}
-              onChange={handleMessageChange}
-              rows="4"
-              className="border p-2 w-full mb-4"
-            />
-            <div className="flex justify-end">
-              <button
-                onClick={closeModal}
-                className="bg-gray-500 text-white p-2 rounded mr-2"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => handleSubmit(message, users)}
-                className="bg-blue-500 text-white p-2 rounded"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Individual Message Modal */}
       {showMessageModal && (
@@ -435,7 +347,7 @@ function CRM() {
                   onChange={() => setSendVia("whatsapp")}
                   className="mr-2"
                 />
-                <FaWhatsapp className="mr-1" /> WhatsApp
+                <FcSms className="mr-1" /> SMS
               </label>
               <label className="flex items-center mr-2">
                 <input

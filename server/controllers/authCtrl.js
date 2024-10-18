@@ -340,7 +340,7 @@ const sendMessageCtrl = async (req, res) => {
       // if (sendVia === 'both') {
       //   await sendWhatsAppMessage(user.whatsappNumber, messageContent);
       // }
-      if (sendVia === 'both') {
+      if (sendVia === "whatsapp" || sendVia === 'both') {
         await sendSMS(user?.contactNumber, messageContent); // Sending SMS using contactNumber without '91'
       }
     }
