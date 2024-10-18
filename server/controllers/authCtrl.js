@@ -5,7 +5,7 @@ const Chat = require("../models/chtasSchema");
 const Conversation = require("../models/conversationSchema");
 const mailSender = require("../utils/mailSenderr");
 const { messageViaEmail } = require("../template/messageViaEmail");
-
+const axios = require("axios")
 
 // const registerCtrl = async (req, res) => {
 //   try {
@@ -277,7 +277,7 @@ const loginCtrl = async (req, res) => {
 
 const sendMessageCtrl = async (req, res) => {
   try {
-    console.log(req.body)
+    console.log(req.body);
     const { userId, messageContent, sendVia } = req.body; // Get userId, messageContent, and sendVia (email, whatsapp, both)
 
     // Validate that messageContent and sendVia are provided
@@ -310,13 +310,38 @@ const sendMessageCtrl = async (req, res) => {
       users = [user]; // Add the single user to the users array
     }
 
+    // Function to send SMS using the provided API
+    const sendSMS = async (contactNumber, messageContent) => {
+      const url = `http://mysms.msg24.in/api/mt/SendSMS`;
+      const params = {
+        apikey: "fhKQG4QS6kmRZoIzorwjJg", // Your API key
+        senderid: "TDGYAN",
+        channel: "trans",
+        DCS: 0,
+        flashsms: 0,
+        number: `91${contactNumber}`,
+        text: `TradeGyan option: {#var#} ${messageContent} CALL{#var#}{#var#} Call - {#var#} www.tradegyan.co`,
+        route: 8,
+      };
+
+      try {
+        const response = await axios.get(url, { params });
+        console.log("SMS sent successfully:", response.data);
+      } catch (error) {
+        console.error("Error sending SMS:", error);
+      }
+    };
+
     // Send the message to all users (either a single user or all users)
     for (const user of users) {
       if (sendVia === 'email' || sendVia === 'both') {
         await sendEmail(user.email, messageContent, user.name);
       }
-      if (sendVia === 'whatsapp' || sendVia === 'both') {
-        await sendWhatsAppMessage(user.whatsappNumber, messageContent);
+      // if (sendVia === 'both') {
+      //   await sendWhatsAppMessage(user.whatsappNumber, messageContent);
+      // }
+      if (sendVia === 'both') {
+        await sendSMS(user?.contactNumber, messageContent); // Sending SMS using contactNumber without '91'
       }
     }
 
@@ -333,7 +358,6 @@ const sendMessageCtrl = async (req, res) => {
     });
   }
 };
-
 
 // Function to send email using Nodemailer
 const sendEmail = async (recipientEmail, messageContent, name) => {
