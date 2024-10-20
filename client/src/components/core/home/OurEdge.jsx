@@ -5,7 +5,7 @@ import image from "../../../assets/our-edge-img.png";
 const edge = [
   {
     icon: <FaStar className="lg:text-5xl text-3xl text-[#F5C300]" />, // Made icon responsive
-    text: "15+ Years of Expertise",
+    text: "10+ Years of Expertise",
   },
   {
     icon: <FaShieldAlt className="lg:text-5xl text-3xl text-[#F5C300]" />, // Made icon responsive

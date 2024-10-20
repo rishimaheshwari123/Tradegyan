@@ -46,7 +46,7 @@ const Support = () => {
               <p className="font-bold ">
                 Plot No.9, Sector C, JK Road Bhoapl, MP 462023 India
               </p>
-              <p className="font-bold ">New York, NY 10001</p>
+           
             </div>
           </div>
 

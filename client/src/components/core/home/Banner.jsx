@@ -11,7 +11,7 @@ const Banner = () => {
             Unlock Your Financial Potential with Our Expertise!
           </p>
           <p className="text-xl text-gray-600"> {/* Changed text color to gray */}
-            Join thousands who trust us as their premier financial partner.
+            Join TradeGyan and trust us as your premier financial partner.
           </p>
           <div className="flex justify-center lg:justify-start">
             <button className="lg:p-4 p-2 bg-[#F5C300] rounded-full font-bold text-black text-[14px] lg:text-xl">

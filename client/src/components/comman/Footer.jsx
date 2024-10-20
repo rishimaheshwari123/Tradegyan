@@ -196,10 +196,12 @@ const Footer = () => {
       {/* Bottom section */}
       <div className="mt-10 border-t border-gray-700 pt-4 p-4">
         <div className="container mx-auto text-sm sm:text-base flex flex-col gap-2">
-          <p>
-            Copyright © 2019 Trade Gyan Solutions (Investment Advisor #
-            INA000008808)2024. All rights reserved.
-          </p>
+        <p>
+  Copyright © 2017 Trade Gyan Solutions (Investment Advisor #
+  INA000008808)2024. All rights reserved. Himanshu Murlia, Proprietor of
+  Trade Gyan Solutions.
+</p>
+
           <p>
             Contact Details :+ (91) 777-100 4878 E-Mail id :- 121@tradegyan.co
           </p>

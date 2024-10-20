@@ -44,13 +44,13 @@ const About = () => {
             You are going to read a story where we have
           </h2>
           <h2 className="text-xl text-center sm:text-2xl md:text-2xl font-semibol mb-4">
-            You are going to read a story where we have 15+ years of extensive
+            You are going to read a story where we have 10+ years of extensive
             research in stock movements.
           </h2>
           <p className="text-gray-700 mb-4 text-sm sm:text-base md:text-lg">
             <strong>Trade Gyan Solution</strong> is a pure play financial market
             research and consulting company. We are differentiated by the
-            stature of our diverse team. Our 15 years of legacy and values shape
+            stature of our diverse team. Our 10 years of legacy and values shape
             our future, helping to strengthen our business and bring value to
             our clients.
           </p>

@@ -21,7 +21,7 @@ const Home = () => {
       {/* <Notification /> */}
       <Navbar />
       <Slider />
-      {/* <LivePrice /> */}
+      <LivePrice />
       <Investment />
       {/* <StockTicker /> */}
       <br />

@@ -47,7 +47,7 @@ const cards = [
   {
     title: "Credibility",
     description:
-      "There is no shortcut to success. Our credibility comes with our Director, Dilshad Bilimoria, who is a panel member of Outlook Money. She has also won the Best Woman Financial Advisory Award in 2018 and 2019 - All India.",
+      "There is no shortcut to success. Our credibility comes with our Director, TradeGyan Solution, who is a panel member of Outlook Money. She has also won the Best Woman Financial Advisory Award in 2018 and 2019 - All India.",
     icon: <FaCheckCircle className="text-4xl mb-4" />,
     bgColor: "bg-[#3b4451] text-white",
   },

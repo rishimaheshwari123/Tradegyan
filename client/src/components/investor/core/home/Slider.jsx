@@ -20,7 +20,7 @@ const data = [
     image:
       "https://cdn-res.keymedia.com/cms/images/ca/155/0287_637338487618644943.jpg",
     title: "“Financial freedom is to be able to do what one wants in life” ",
-    subTitle: "Dilshad Billimoria, Founder and Chief Financial Planner",
+    subTitle: "TradeGyan Solution, Founder and Chief Financial Planner",
     btn: "Talk To Us",
   },
   {

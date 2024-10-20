@@ -16,9 +16,9 @@ const MarketsSection = () => {
         <h2 className="text-3xl font-bold text-gray-800">
           Invest in Wide & Diversified Range of Financial Markets
         </h2>
-        <p className="text-gray-600 mt-4">
+        {/* <p className="text-gray-600 mt-4">
           Trade in over 125 global markets, worldwide
-        </p>
+        </p> */}
       </div>
 
       {/* Graph and statistics */}

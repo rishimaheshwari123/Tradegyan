@@ -12,7 +12,7 @@
 html,
 body {
   overflow-x: hidden;
-  font-family: "Playfair Display", serif;
+  /* font-family: "Playfair Display", serif; */
   background-color: white;
   background: url("./assets/bgmain.gif") no-repeat center center fixed;
   background-size: cover; /* Makes the background image cover the whole viewport */
@@ -137,4 +137,21 @@ body {
   .text-small {
     font-size: 10px; /* Adjust the size as needed */
   }
+}
+
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 50s linear infinite;
+  animation-delay: 0s; /* Ensures immediate start */
 }

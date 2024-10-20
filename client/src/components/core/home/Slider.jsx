@@ -28,7 +28,7 @@ const Slider = () => {
     {
       id: 1,
       image:
-        "https://www.shareindia.com/wp-content/uploads/2023/12/Who-is-a-Share-Market-Advisor-_-How-Do-They-Work.webp",
+        "https://images.inc.com/uploaded_files/image/1920x1080/getty_660952912_374375.jpg",
       title: "Your Vision. Our Mission.",
       headline: "We Help To Build Your Dream",
       description:
@@ -36,17 +36,7 @@ const Slider = () => {
       buttonText: "CONTACT US",
       buttonLink: "/contact",
     },
-    {
-      id: 2,
-      image:
-        "https://images.inc.com/uploaded_files/image/1920x1080/getty_660952912_374375.jpg",
-      title: "Innovative Solutions",
-      headline: "Building a Brighter Future",
-      description:
-        "We offer a wide range of construction services to make your dream home a reality.",
-      buttonText: "LEARN MORE",
-      buttonLink: "/investor",
-    },
+   
     {
       id: 3,
       image:
