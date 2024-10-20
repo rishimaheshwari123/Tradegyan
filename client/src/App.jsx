@@ -60,6 +60,7 @@ import ComplaintEscalation from "./pages/ComplaintEscalation";
 import Career from "./pages/Career";
 import Strategic from "./pages/Strategic";
 import ResourceHub from "./pages/ResourceHub";
+import VerifyUser from "./components/admin/pages/VerifyUser";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -133,14 +134,14 @@ const App = () => {
           <Route path="/subscription" element={<Subscription />} />
           <Route path="/chats" element={<ChatsApp />} />
         </Route>
-        <Route
+        {/* <Route
           path="/login"
           element={
             <OpenRoute>
               <Login />
             </OpenRoute>
           }
-        />
+        /> */}
         <Route
           path="/client-login"
           element={
@@ -253,6 +254,14 @@ const App = () => {
               element={
                 <PrivateRoute>
                   <GetBlog />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/verify-user"
+              element={
+                <PrivateRoute>
+                  <VerifyUser />
                 </PrivateRoute>
               }
             />

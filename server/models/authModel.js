@@ -39,37 +39,41 @@ const authSchema = new mongoose.Schema(
       required: true,
     },
     subscriptions: [
-        {
-          service: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Service",
-            required: true,
-          },
-          enrollmentDate: {
-            type: Date,
-            default: Date.now,
-          },
-          expirationDate: {
-            type: Date,
-          },
-          isActive: {
-            type: Boolean,
-            default: true,
-          },
-          razorpay_order_id: { // Add this field
-            type: String,
-          },
-          razorpay_payment_id: { // Add this field
-            type: String,
-          },
-          payable: { // Add this field
-            type: Number,
-          },
+      {
+        service: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Service",
+          required: true,
         },
-      ],
+        enrollmentDate: {
+          type: Date,
+          default: Date.now,
+        },
+        expirationDate: {
+          type: Date,
+        },
+        isActive: {
+          type: Boolean,
+          default: true,
+        },
+        razorpay_order_id: { // Add this field
+          type: String,
+        },
+        razorpay_payment_id: { // Add this field
+          type: String,
+        },
+        payable: { // Add this field
+          type: Number,
+        },
+      },
+    ],
     token: {
       type: String,
     },
+    isVerify: {
+      type: Boolean,
+      default: false,
+    }
   },
   { timestamps: true }
 );

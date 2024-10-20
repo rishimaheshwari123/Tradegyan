@@ -17,7 +17,8 @@ const {
   FETCH_PROFILE,
   GET_ALL_SERVICE,
   GET_SINGLE_ADMIN_SERVICE,
-  SINGLE_USER_API
+  SINGLE_USER_API,
+  VERIFY_USER_API
 } = endpoints;
 
 export async function signUp(formData, navigate, dispatch) {
@@ -57,8 +58,36 @@ export async function signUp(formData, navigate, dispatch) {
   }
   Swal.close();
 }
+export async function verifyUserApi(name, password, id) {
+  Swal.fire({
+    title: "Loading",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    showConfirmButton: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+  try {
+    const response = await apiConnector("PUT", `${VERIFY_USER_API}/${id}`, { name, password });
 
-export async function login(email, password, navigate, dispatch) {
+    console.log("Verify API RESPONSE............", response);
+
+    if (!response.data.success) {
+      // toast.error(response.data.message)
+      throw new Error(response.data.message);
+    }
+    return response?.data;
+
+
+  } catch (error) {
+    console.log("Verify API ERROR............", error);
+  }
+  Swal.close();
+}
+
+export async function login(name, password, navigate, dispatch) {
   Swal.fire({
     title: "Loading",
     allowOutsideClick: false,
@@ -72,7 +101,7 @@ export async function login(email, password, navigate, dispatch) {
 
   try {
     const response = await apiConnector("POST", LOGIN_API, {
-      email,
+      name,
       password,
     });
     Swal.close();

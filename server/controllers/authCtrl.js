@@ -5,7 +5,8 @@ const Chat = require("../models/chtasSchema");
 const Conversation = require("../models/conversationSchema");
 const mailSender = require("../utils/mailSenderr");
 const { messageViaEmail } = require("../template/messageViaEmail");
-const axios = require("axios")
+const axios = require("axios");
+const { accountVerifiedEmail } = require("../template/accountVerified");
 
 // const registerCtrl = async (req, res) => {
 //   try {
@@ -135,6 +136,7 @@ const registerCtrl = async (req, res) => {
   try {
     const { name, email, contactNumber, whatsappNumber, password } = req.body;
 
+    console.log(req.body)
     // Ensure all fields are provided
     if (!name || !email || !contactNumber || !whatsappNumber || !password) {
       return res.status(403).send({
@@ -208,8 +210,7 @@ const registerCtrl = async (req, res) => {
     // Respond with success
     return res.status(200).json({
       success: true,
-      token,
-      user,
+
       conversation, // Include conversation details
       message: "User registered successfully and conversation created",
     });
@@ -224,16 +225,16 @@ const registerCtrl = async (req, res) => {
 
 const loginCtrl = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { name, password } = req.body;
 
-    if (!email || !password) {
+    if (!name || !password) {
       return res.status(400).json({
         success: false,
         message: `Please Fill up All the Required Fields`,
       });
     }
 
-    const user = await authModel.findOne({ email });
+    const user = await authModel.findOne({ name });
 
     if (!user) {
       return res.status(401).json({
@@ -262,7 +263,7 @@ const loginCtrl = async (req, res) => {
     } else {
       return res.status(401).json({
         success: false,
-        message: `Password is incorrect`,
+        message: `Your Account is not verify till now.`,
       });
     }
   } catch (error) {
@@ -448,4 +449,34 @@ const getSingleUserCtrl = async (req, res) => {
 }
 
 
-module.exports = { registerCtrl, loginCtrl, sendMessageCtrl, fetchMyProfile, getSingleUserCtrl };
+const verifyUserCtrl = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, password } = req.body;
+
+    const user = await authModel.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found"
+      })
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const updatedUser = await authModel.findByIdAndUpdate(id, { name, password: hashedPassword, isVerify: true }, { new: true });
+
+    await mailSender(user?.email, "TradeGyan Solution", accountVerifiedEmail(name, password));
+    return res.status(201).json({
+      success: true,
+      message: "User Verify successfully",
+      updatedUser
+    })
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Error in verify user  api"
+    })
+  }
+}
+
+module.exports = { registerCtrl, loginCtrl, sendMessageCtrl, fetchMyProfile, getSingleUserCtrl, verifyUserCtrl };

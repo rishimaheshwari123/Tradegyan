@@ -5,9 +5,11 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
 export const endpoints = {
   LOGIN_API: BASE_URL + "/auth/login",
   SIGNUP_API: BASE_URL + "/auth/register",
+  VERIFY_USER_API: BASE_URL + "/auth/verify",
   SINGLE_USER_API: BASE_URL + "/auth/get",
   FETCH_PROFILE: BASE_URL + "/auth/fetchMyProfile",
   GET_ALL_SERVICE: BASE_URL + "/service/getAllServices",
+
 
 
 

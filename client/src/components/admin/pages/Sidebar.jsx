@@ -89,6 +89,11 @@ const Sidebar = () => {
       icon: <FcMms />,
       label: "Get Blog",
     },
+    {
+      to: "/admin/verify-user",
+      icon: <FcMms />,
+      label: "Verify User",
+    },
   ];
 
   return (
