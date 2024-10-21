@@ -90,7 +90,7 @@ const Slider = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover"
+              className="w-full h-[80vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover"
             />
             <div
               className={`absolute inset-0 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
@@ -122,8 +122,8 @@ const Slider = () => {
       </Swiper>
 
       {/* Centered Advice Message */}
-      <div className="absolute top-0 left-0 right-0 flex items-center justify-center bg-black bg-opacity-70 p-4 z-10">
-        <p className="text-white text-base sm:text-lg font-semibold  text-center max-w-xs sm:max-w-md mx-4 border border-white rounded-lg p-2 shadow-lg animate-blink">
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-center bg-black bg-opacity-70 p-4 z-50">
+        <p className="text-white text-base sm:text-lg font-semibold text-center max-w-xs sm:max-w-md mx-4 border border-white rounded-lg p-2 shadow-lg animate-blink">
           “Free” Advice is more Expensive than “Fee” Advice
         </p>
       </div>

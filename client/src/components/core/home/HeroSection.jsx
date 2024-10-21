@@ -8,7 +8,7 @@ const HeroSection = () => {
         {" "}
         <div className="space-y-5 text-center lg:text-left mb-8 lg:mb-0">
           <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-800">
-            Get started with <span className="text-indigo-600">Excella.</span>
+            Get started with <span className="text-indigo-600">Trade Gyan Solution.</span>
           </h1>
           <p className="text-base md:text-lg text-gray-600">
             With lots of Advisors, you can easily build a future that you always
