@@ -70,6 +70,9 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
+    <div>
+      
+
     <nav className="bg-white text-black p-4 border-b-2 relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
@@ -291,6 +294,10 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+
+    </div>
+
+
   );
 };
 

@@ -1,34 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import equity from '../../../../assets/services/quity.png'
 const TradingTips = () => {
   const tipsData = [
     {
       title: "Equity Trading",
       description:
         "The Equity Trading Tips Services Includes Intraday & Positional Stock Trading Advice, BTST For Stocks Listed in NSE And BSE",
-      imgSrc: "https://tradegyan.co/wp-content/uploads/2019/07/1-1.jpg",
+      imgSrc: 'https://mkfinserve.in/wp-content/uploads/2023/12/Trading-Securities-1.jpg',
       path: "/equity",
     },
     {
       title: "Commodity",
       description:
         "The Derivative Trading Tips Services Includes Intraday & Positional Future & Option, BTST Trading Advice, For Stocks Listed in NSE",
-      imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/3.jpg",
+      imgSrc: "https://storage.googleapis.com/5paisa-prod-storage/files/market-guide/How%20Can%20You%20Trade%20Commodity%20Online.png",
       path: "/commodity",
     },
     {
       title: "Agri Commodity",
       description:
         "The MCX Trading Tips Services Includes Intraday & Positional Gold, Silver, Crude, Zinc, NG, Copper, Etc Trading Advice Listed in MCX.",
-      imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/2.jpg",
+      imgSrc: "https://inc42.com/cdn-cgi/image/quality=75/https://asset.inc42.com/2020/12/feature-2020-12-11T170851.496.jpg",
       path: "/agri/ncdex",
     },
     {
       title: "Forex",
       description:
         "The NCDEX Trading Tips Services Includes Intraday & Positional Zeera, Dhaniya, Chana, Turmeric, SoyaBean, Etc Trading Advice",
-      imgSrc: "https://www.tradegyan.co/wp-content/uploads/2019/07/4.jpg",
+      imgSrc: "https://businesspost.ng/wp-content/uploads/2023/10/Successful-Forex-Traders.jpeg",
       path: "/forex/forex",
     },
   ];

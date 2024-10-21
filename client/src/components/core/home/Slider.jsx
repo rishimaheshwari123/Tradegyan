@@ -36,7 +36,6 @@ const Slider = () => {
       buttonText: "CONTACT US",
       buttonLink: "/contact",
     },
-   
     {
       id: 3,
       image:
@@ -57,8 +56,6 @@ const Slider = () => {
 
   return (
     <div className="relative bg-[#62000f]">
-      {" "}
-      {/* Set background to deep maroon */}
       <Swiper
         modules={[
           Navigation,
@@ -101,8 +98,6 @@ const Slider = () => {
               }`}
             >
               <div className="bg-[#62000f] bg-opacity-60 text-white p-4 sm:p-6 md:p-8 lg:p-12 max-w-full md:max-w-lg ml-auto">
-                {" "}
-                {/* Responsive padding */}
                 <p className="text-[#efcc41] text-xs sm:text-sm md:text-base font-bold mb-2">
                   {item.title}
                 </p>
@@ -125,6 +120,15 @@ const Slider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Centered Advice Message */}
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-center bg-black bg-opacity-70 p-4 z-50">
+  <p className="text-white text-base sm:text-lg font-semibold text-center max-w-xs sm:max-w-md mx-4 border border-white rounded-lg p-2 shadow-lg animate-blink">
+    “Free” Advice is more Expensive than “Fee” Advice
+  </p>
+</div>
+
+
     </div>
   );
 };

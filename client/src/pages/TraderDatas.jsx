@@ -47,7 +47,7 @@ function TraderDatas() {
               <h1 className="text-4xl text-center font-bold mb-6 text-blue-400">
                 {name.toUpperCase()} Services
               </h1>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${traderData.length} gap-6`}>
                 {traderData.map((item, index) => (
                   <a key={index} href={item.path} className="block">
                     <button className="bg-gradient-to-r from-blue-500 to-red-500 text-white py-4 px-6 rounded-lg font-semibold transition-transform transform hover:scale-105 hover:from-blue-600 hover:to-red-600 w-full">

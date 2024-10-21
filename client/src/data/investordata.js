@@ -23,9 +23,9 @@ export const service = [
             "Flexibility: Adaptability to changing market conditions.",
             "Cost-Effectiveness: Competitive pricing without hidden fees."
         ], servicePlans: [
-            { name: "Wealth Builder", priceRange: "₹50,000 - ₹1,00,000" },
-            { name: "Wealth Pro", priceRange: "₹1,50,000 - ₹3,00,000" },
-            { name: "Wealth Elite", priceRange: "₹5,00,000 - ₹10,00,000" }
+            { name: "One-time asset allocation", priceRange: "₹10,000 - ₹20,000" },
+            { name: "Quarterly rebalancing and review: ", priceRange: "₹30,000 - ₹60,000" },
+            { name: "Monthly rebalancing, review, and priority support", priceRange: "₹60,000 - 1,20,000 per annum" }
         ],
         deliveryChannels: ["In-Person Meetings: One-on-one consultations at Trade Gyan offices.", " Video Conferencing: Virtual meetings for convenience", "Phone/Email Support: Ongoing assistance and query resolution."],
         marketingStrategy: ["Digital Presence: Website, social media, and online advertising.", "Referral Program: Incentives for client referrals.", " Seminar/Workshops: Educational events on personal finance and investing.", ". Partnerships: Collaborations with banks, insurance companies, and other financial institutions."
@@ -37,7 +37,7 @@ export const service = [
             "Client-Centric Approach: Personalized solutions.",
             "Transparency: Clear communication and fee structure."
         ],
-        desc: "By offering Trade Gyan WealthMax, your company can provide comprehensive financial planning solutions to individuals, helping them achieve financial stability and security."
+        desc: ""
     },
     {
         id: "2",
@@ -137,9 +137,9 @@ export const service = [
             "Regular Updates: Periodic statements and portfolio reviews."
         ],
         servicePlans: [
-            { name: "Basic", priceRange: "₹5,000 - ₹20,000" },
-            { name: "Premium", priceRange: "₹15,000 - ₹60,000 per annum" },
-            { name: "Elite", priceRange: "₹30,000 - ₹1,20,000 per annum" }
+            { name: "One-time asset allocation", priceRange: "₹10,000 - ₹20,000" },
+            { name: "Quarterly rebalancing and review: ", priceRange: "₹30,000 - ₹60,000" },
+            { name: "Monthly rebalancing, review, and priority support", priceRange: "₹60,000 - 1,20,000 per annum" }
         ],
         deliveryChannels: [
             "In-Person Meetings: One-on-one consultations at Trade Gyan offices.",
@@ -215,9 +215,9 @@ export const service = [
             "Expert Guidance: SEBI-registered advisors with proven expertise."
         ],
         servicePlans: [
-            { name: "Basic", priceRange: "₹5,000 - ₹20,000" },
-            { name: "Premium", priceRange: "₹15,000 - ₹60,000 per annum" },
-            { name: "Elite", priceRange: "₹30,000 - ₹1,20,000 per annum" }
+            { name: "One-time asset allocation", priceRange: "₹10,000 - ₹20,000" },
+            { name: "Quarterly rebalancing and review: ", priceRange: "₹30,000 - ₹60,000" },
+            { name: "Monthly rebalancing, review, and priority support", priceRange: "₹60,000 - 1,20,000 per annum" }
         ],
         deliveryChannels: [
             "In-Person Meetings: One-on-one consultations at Trade Gyan offices.",
@@ -273,9 +273,9 @@ export const service = [
             "Transparency: Clear communication and fee structure."
         ],
         servicePlans: [
-            { name: "Basic", priceRange: "₹50,000 - ₹2 lakhs" },
-            { name: "Premium", priceRange: "₹1 lakh - ₹5 lakhs per annum" },
-            { name: "Elite", priceRange: "₹2 lakhs - ₹10 lakhs per annum" }
+            { name: "One-time asset allocation", priceRange: "₹10,000 - ₹20,000" },
+            { name: "Quarterly rebalancing and review: ", priceRange: "₹30,000 - ₹60,000" },
+            { name: "Monthly rebalancing, review, and priority support", priceRange: "₹60,000 - 1,20,000 per annum" }
         ],
         deliveryChannels: [
             "In-Person Meetings: One-on-one consultations at Trade Gyan offices.",
@@ -296,6 +296,6 @@ export const service = [
             "Transparency: Clear communication and fee structure.",
             "Proven Track Record: Consistent results in varying market conditions."
         ],
-        desc: "By offering Trade Gyan Bond Plus, your company can provide clients with a stable and diversified bond portfolio, ensuring reliable income and capital preservation."
+        desc: ""
     }
 ]

@@ -1,12 +1,12 @@
 export const maindata = {
     equity: [
-        { name: "Cash", path: "/trader/equity/cash" },
-        { name: "Alpha Premium Equity", path: "/trader/equity/alpha-premium" },
-        { name: "Equity Options", path: "/trader/equity/equity-options" }
+        { name: "TG Cash", path: "/trader/equity/cash" },
+        { name: "TG Futures ", path: "/trader/equity/alpha-premium" },
+        { name: "TG Options", path: "/trader/equity/equity-options" }
     ],
     commodity: [
-        { name: "MCX", path: "/trader/commodity/mcx" },
-        { name: "MCX OPTIONS", path: "/trader/commodity/mcx-options" }
+        { name: "TG MCX", path: "/trader/commodity/mcx" },
+        { name: "TG MCX OPTIONS", path: "/trader/commodity/mcx-options" }
     ]
 };
 

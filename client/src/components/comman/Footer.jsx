@@ -140,56 +140,50 @@ const Footer = () => {
         {/* Follow Us */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
-          <div className="grid grid-cols-4 justify-center gap-4">
-            <Link
-              to="https://www.facebook.com/tradegyansolutions?mibextid=ZbWKwL"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaFacebook />
-            </Link>
-            <Link
-              to="https://www.instagram.com/tradegyan/?igsh=Y2gyYmkwYXN0ZDh4"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaInstagram />
-            </Link>
-            <Link
-              to="#"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaWhatsapp />
-            </Link>
-            <Link
-              to="#"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaTwitter />
-            </Link>
-            <Link
-              to="#"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaLinkedin />
-            </Link>
-            <Link
-              to="#"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaTelegram />
-            </Link>
-            <Link
-              to="#"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaFacebookMessenger />
-            </Link>
-            <Link
-              to="#"
-              className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
-            >
-              <FaPhone />
-            </Link>
-          </div>
+          <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
+     
+          <div className="grid grid-cols-3 justify-center gap-4">
+        <Link
+          to="https://www.facebook.com/tradegyansolutions?mibextid=ZbWKwL"
+          className="text-2xl text-blue-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+        >
+          <FaFacebook />
+        </Link>
+        <Link
+          to="https://www.instagram.com/tradegyan?igsh=Y2gyYmkwYXN0ZDh4"
+          className="text-2xl text-pink-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+        >
+          <FaInstagram />
+        </Link>
+        <Link
+          to="https://wa.me/7771004878" // WhatsApp link
+          className="text-2xl text-green-500 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+        >
+          <FaWhatsapp />
+        </Link>
+        <Link
+          to="#"
+          className="text-2xl text-blue-400 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+        >
+          <FaTwitter />
+        </Link>
+        <Link
+          to="#"
+          className="text-2xl text-blue-700 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+        >
+          <FaLinkedin />
+        </Link>
+      
+     
+        <Link
+          to="tel:+7771004878" // Call link
+          className="text-2xl text-green-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+        >
+          <FaPhone />
+        </Link>
+      </div>
+
+    </div>
         </div>
       </div>
 

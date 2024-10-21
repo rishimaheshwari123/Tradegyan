@@ -321,7 +321,7 @@ const InvestorServices = () => {
 
         {/* Description */}
         <p className="mt-6 text-lg text-gray-600">
-          {serviceItem?.desc || "Description about why to choose this service."}
+          {serviceItem?.desc || ""}
         </p>
       </div>
     </div>
