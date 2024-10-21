@@ -1,59 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import kno from "../assets/kno.png";
 import k1 from "../assets/k1.png";
 import k2 from "../assets/k2.png";
 import k3 from "../assets/k3.png";
 
-const bull = [
-  {
-    id: 1,
-    img: "https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/Header-01(55).jpg",
-    date: "10/12/2023",
-    title:
-      "Which Semiconductor Design Stocks Could Benefit from the AI Revolution?",
-    desc: "by Trade Gyan Solutions Financial Consultancy in Brainy Bull",
-  },
-  {
-    id: 2,
-    img: "https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/Header-02(53).jpg",
-    date: "10/12/2023",
-    title: "How Has the IRA Affected Clean Energy Stocks?",
-    desc: "by Trade Gyan Solutions Financial Consultancy in Brainy Bull",
-  },
-  {
-    id: 3,
-    img: "https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/Header-02(51).jpg",
-    date: "10/12/2023",
-    title: "Why is the cybersecurity sector set for a 9.63% CAGR?",
-    desc: "by Trade Gyan Solutions Financial Consultancy in Brainy Bull",
-  },
-];
-const mental = [
-  {
-    id: 1,
-    img: k1,
-    // date: "10/12/2023",
-    // title:
-    //   "Which Semiconductor Design Stocks Could Benefit from the AI Revolution?",
-    // desc: "by Trade Gyan Solutions Financial Consultancy in Brainy Bull",
-  },
-  {
-    id: 2,
-    img: k2,
-    // date: "10/12/2023",
-    // title: "How Has the IRA Affected Clean Energy Stocks?",
-    // desc: "by Trade Gyan Solutions Financial Consultancy in Brainy Bull",
-  },
-  {
-    id: 3,
-    img: k3,
-    // date: "10/12/2023",
-    // title: "Why is the cybersecurity sector set for a 9.63% CAGR?",
-    // desc: "by Trade Gyan Solutions Financial Consultancy in Brainy Bull",
-  },
-];
-
 const Knowledge = () => {
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  const [blog, setBlog] = useState([]);
+
+  const getAllBlogs = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/blog/getAll`);
+
+      if (response?.data?.success) {
+        setBlog(response.data.blogs);
+      }
+    } catch (error) {
+      console.log("Something went wrong");
+    }
+  };
+  useEffect(() => {
+    getAllBlogs();
+  }, []);
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-US", options);
+  };
   return (
     <div>
       <div className="bg-[#d5edee] p-10">
@@ -91,19 +65,22 @@ const Knowledge = () => {
           <br />
           <br />
           <div className="grid lg:grid-cols-3  gap-10">
-            {bull.map((currElem) => (
-              <div className="card flex flex-col gap-4" key={currElem.id}>
-                <img src={currElem?.img} alt="not found" />
-                <p>{currElem?.date}</p>
-                <p className="text-xl font-bold">{currElem?.title}</p>
-                <p className="text-[13px]">{currElem?.desc}</p>
-              </div>
-            ))}
+            {blog?.map(
+              (currElem) =>
+                currElem?.type === "news" && (
+                  <div className="card flex flex-col gap-4" key={currElem.id}>
+                    <img src={currElem?.image} alt="not found" />
+                    <p>{formatDate(currElem?.createdAt)}</p>
+                    <p className="text-xl font-bold">{currElem?.title}</p>
+                    <p className="text-[13px]">{currElem?.desc}</p>
+                  </div>
+                )
+            )}
           </div>
         </div>
       </div>
 
-      <div className=" p-10">
+      {/* <div className=" p-10">
         <div className="main max-w-7xl mx-auto p-5 ">
           <div className="flex flex-col lg:flex-row gap-10">
             <img
@@ -132,7 +109,7 @@ const Knowledge = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

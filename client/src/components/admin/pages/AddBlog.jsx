@@ -9,6 +9,7 @@ const AddBlog = () => {
   const [formData, setFormData] = useState({
     title: "",
     desc: "",
+    type: "",
     image: "",
   });
 
@@ -43,6 +44,7 @@ const AddBlog = () => {
       const formDataToSend = new FormData();
       formDataToSend.append("title", formData.title);
       formDataToSend.append("desc", formData.desc);
+      formDataToSend.append("type", formData.type);
       formDataToSend.append("image", formData.image);
 
       const response = await axios.post(
@@ -66,6 +68,7 @@ const AddBlog = () => {
         setFormData({
           title: "",
           desc: "",
+          type: "",
           image: "",
         });
       }
@@ -117,6 +120,28 @@ const AddBlog = () => {
             onChange={handleChange}
             required
           />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-xl font-bold mb-2"
+            htmlFor="type"
+          >
+            Type : <span className="text-red-500">*</span>
+          </label>
+          <select
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            name="type"
+            id="type"
+            value={formData.type}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>
+              Select type
+            </option>
+            <option value="news">News</option>
+            <option value="blog">Blog</option>
+          </select>
         </div>
 
         <div className="mb-4">

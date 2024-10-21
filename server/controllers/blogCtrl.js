@@ -3,10 +3,10 @@ const blogModel = require("../models/blogModel")
 
 const createBlogsCtrl = async (req, res) => {
     try {
-        const { title, desc } = req.body;
+        const { title, desc, type } = req.body;
         const image = req.files.image;
 
-        if (!title || !desc || !image) {
+        if (!title || !desc || !image || !type) {
             return res.status(400).json({
                 success: false,
                 message: "Please provide all fields"
@@ -17,6 +17,7 @@ const createBlogsCtrl = async (req, res) => {
         const blog = await blogModel.create({
             title,
             desc,
+            type,
             image: thumnailImage.secure_url
         })
 
