@@ -32,32 +32,49 @@ export async function signUp(formData, navigate, dispatch) {
       Swal.showLoading();
     },
   });
+
   try {
     const response = await apiConnector("POST", SIGNUP_API, formData);
 
     console.log("SIGNUP API RESPONSE............", response);
 
     if (!response.data.success) {
-      // toast.error(response.data.message)
+      // If the response is unsuccessful, throw an error
       throw new Error(response.data.message);
     }
+
+    // Success case
     Swal.fire({
-      title: `Register Successfully!`,
+      title: `Register Request Successfully Please Contact To Admin!`,
       text: `Have a nice day!`,
       icon: "success",
     });
-    dispatch(setToken(response?.data?.token));
-    dispatch(setUser(response?.data?.user));
-    localStorage.setItem("user", JSON.stringify(response.data.user));
 
-    localStorage.setItem("token", JSON.stringify(response.data.token));
+    // dispatch(setToken(response?.data?.token));
+    // dispatch(setUser(response?.data?.user));
+
+    // localStorage.setItem("user", JSON.stringify(response.data.user));
+    // localStorage.setItem("token", JSON.stringify(response.data.token));
 
     navigate("/");
   } catch (error) {
     console.log("SIGNUP API ERROR............", error);
+
+    // Show an error message using Swal when an error occurs
+    Swal.fire({
+      title: "Error",
+      text: error.response?.message || "Something went wrong. Please try again later.",
+      icon: "error",
+      confirmButtonText: "OK",
+    });
   }
-  Swal.close();
+
+  // Close the loading alert after completion
+  // Swal.close();
 }
+
+
+
 export async function verifyUserApi(name, password, id) {
   Swal.fire({
     title: "Loading",
@@ -69,23 +86,46 @@ export async function verifyUserApi(name, password, id) {
       Swal.showLoading();
     },
   });
+
   try {
     const response = await apiConnector("PUT", `${VERIFY_USER_API}/${id}`, { name, password });
 
     console.log("Verify API RESPONSE............", response);
 
-    if (!response.data.success) {
-      // toast.error(response.data.message)
+    if (!response?.data?.success) {
+      // Close the loading alert
+      Swal.close();
+      // Show error message
+      Swal.fire({
+        title: "Error",
+        text: response?.data?.message,
+        icon: "error",
+      });
       throw new Error(response.data.message);
     }
-    return response?.data;
 
+    // Close the loading alert and show success message
+    Swal.close();
+    Swal.fire({
+      title: "Success",
+      text: "User verified successfully!",
+      icon: "success",
+    });
 
+    return response?.data?.success;
   } catch (error) {
     console.log("Verify API ERROR............", error);
+    // Close the loading alert
+    Swal.close();
+    // Show error message for the catch block
+    Swal.fire({
+      title: "Error",
+      text: error.response.data?.message,
+      icon: "error",
+    });
   }
-  Swal.close();
 }
+
 
 export async function login(name, password, navigate, dispatch) {
   Swal.fire({

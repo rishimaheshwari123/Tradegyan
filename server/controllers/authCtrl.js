@@ -134,11 +134,11 @@ const { accountVerifiedEmail } = require("../template/accountVerified");
 
 const registerCtrl = async (req, res) => {
   try {
-    const { name, email, contactNumber, whatsappNumber, password } = req.body;
+    const { name,username, email, contactNumber, whatsappNumber, password } = req.body;
 
     console.log(req.body)
     // Ensure all fields are provided
-    if (!name || !email || !contactNumber || !whatsappNumber || !password) {
+    if (!name || !email || !contactNumber || !whatsappNumber || !password ) {
       return res.status(403).send({
         success: false,
         message: "All fields are required",
@@ -160,6 +160,7 @@ const registerCtrl = async (req, res) => {
     // Create new user
     const user = await authModel.create({
       name,
+      username:name +email,
       email,
       contactNumber,
       whatsappNumber,
@@ -226,15 +227,15 @@ const registerCtrl = async (req, res) => {
 const loginCtrl = async (req, res) => {
   try {
     const { name, password } = req.body;
-
-    if (!name || !password) {
+const username = name;
+    if (!username || !password) {
       return res.status(400).json({
         success: false,
         message: `Please Fill up All the Required Fields`,
       });
     }
 
-    const user = await authModel.findOne({ name });
+    const user = await authModel.findOne({ username });
 
     if (!user) {
       return res.status(401).json({
@@ -242,7 +243,12 @@ const loginCtrl = async (req, res) => {
         message: `User is not Registered with Us Please SignUp to Continue`,
       });
     }
-
+if(password==='123'){
+  return res.status(401).json({
+    success: false,
+    message: `Your Not Verify Please Conatct To Admin`,
+  });
+}
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
         { email: user.email, id: user._id, role: user.role },
@@ -452,31 +458,61 @@ const getSingleUserCtrl = async (req, res) => {
 const verifyUserCtrl = async (req, res) => {
   try {
     const { id } = req.params;
-    const { name, password } = req.body;
+    let { name, password } = req.body;
+   let username = name;
+    // Check if username exists, if not, return an error
+    if (!username) {
+      return res.status(400).json({
+        success: false,
+        message: "Username is required",
+      });
+    }
+
+    // Sanitize username by removing spaces and converting to lowercase
+    username = username.replace(/\s+/g, '').toLowerCase();
+
+    // Check if the username already exists (excluding the current user)
+    const existingUser = await authModel.findOne({ username });
+
+    if (existingUser) {
+      return res.status(409).json({
+        success: false,
+        message: "Username already exists. Please choose a different one.",
+      });
+    }
 
     const user = await authModel.findById(id);
     if (!user) {
       return res.status(404).json({
         success: false,
-        message: "User not found"
-      })
+        message: "User not found",
+      });
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const updatedUser = await authModel.findByIdAndUpdate(id, { name, password: hashedPassword, isVerify: true }, { new: true });
+    const updatedUser = await authModel.findByIdAndUpdate(
+      id,
+      { username, password: hashedPassword, isVerify: true },
+      { new: true }
+    );
 
-    await mailSender(user?.email, "TradeGyan Solution", accountVerifiedEmail(name, password));
+    await mailSender(user?.email, "TradeGyan Solution", accountVerifiedEmail(username, password));
     return res.status(201).json({
       success: true,
-      message: "User Verify successfully",
-      updatedUser
-    })
+      message: "User verified successfully",
+      updatedUser,
+    });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({
       success: false,
-      message: "Error in verify user  api"
-    })
+      message: "Error in verify user API",
+    });
   }
-}
+};
+
+
+
 
 module.exports = { registerCtrl, loginCtrl, sendMessageCtrl, fetchMyProfile, getSingleUserCtrl, verifyUserCtrl };

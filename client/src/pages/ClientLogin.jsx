@@ -33,6 +33,7 @@ function ClientLogin() {
     if (isRegistered) {
       // Logic for login
       if (name && password) {
+      
         await login(name, password, navigate, dispatch);
       } else {
         alert("Please fill all required fields.");
@@ -40,24 +41,24 @@ function ClientLogin() {
     } else {
       // Logic for registration
 
-      const uppercasePassword = uppercaseRegExp.test(password);
-      const lowercasePassword = lowercaseRegExp.test(password);
-      const digitsPassword = digitsRegExp.test(password);
-      const specialCharPassword = specialCharRegExp.test(password);
-      const minLengthPassword = minLengthRegExp.test(password);
+      // const uppercasePassword = uppercaseRegExp.test(password);
+      // const lowercasePassword = lowercaseRegExp.test(password);
+      // const digitsPassword = digitsRegExp.test(password);
+      // const specialCharPassword = specialCharRegExp.test(password);
+      // const minLengthPassword = minLengthRegExp.test(password);
 
-      if (!minLengthPassword) {
-        return toast.error("Password Too Short");
-      } else if (!uppercasePassword) {
-        return toast.error("Atleast have one Uppercase");
-      } else if (!lowercasePassword) {
-        return toast.error("Atleast have one Lowercase");
-      } else if (!digitsPassword) {
-        return toast.error("Atleast have one digit");
-      } else if (!specialCharPassword) {
-        return toast.error("Atleast have one special charater");
-      }
-      if (email && contactNumber && whatsappNumber && password) {
+      // if (!minLengthPassword) {
+      //   return toast.error("Password Too Short");
+      // } else if (!uppercasePassword) {
+      //   return toast.error("Atleast have one Uppercase");
+      // } else if (!lowercasePassword) {
+      //   return toast.error("Atleast have one Lowercase");
+      // } else if (!digitsPassword) {
+      //   return toast.error("Atleast have one digit");
+      // } else if (!specialCharPassword) {
+      //   return toast.error("Atleast have one special charater");
+      // }
+      if (email && name && contactNumber && whatsappNumber ) {
         await signUp(
           { name, email, contactNumber, whatsappNumber, password: "123" },
           navigate,
@@ -140,7 +141,7 @@ function ClientLogin() {
       <Navbar />
       <div className="client-login max-w-lg mx-auto p-6 bg-white shadow-lg rounded-md">
         <h2 className="text-2xl font-semibold mb-6 text-center">
-          {isRegistered ? "Client Login" : "Client Registration"}
+          {isRegistered ? "Client Login" : " Registration Request"}
         </h2>
 
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -168,7 +169,7 @@ function ClientLogin() {
 
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">
-              UserName:
+             User Name:
             </label>
             <input
               type="text"
@@ -237,7 +238,9 @@ function ClientLogin() {
             </div>
           )}
 
-          <div className="relative">
+      {
+        isRegistered &&
+        <div className="relative">
             <label
               htmlFor="password"
               className="block text-sm font-medium mb-1"
@@ -261,8 +264,9 @@ function ClientLogin() {
               {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
             </button>
           </div>
+      }   
 
-          <PasswordStrengthMeter password={password} />
+          {/* <PasswordStrengthMeter password={password} /> */}
 
           <div
             className={`mt-5 ${validation ? "flex" : "hidden"} flex-wrap gap-4`}
@@ -290,7 +294,7 @@ function ClientLogin() {
               type="submit"
               className="w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
             >
-              {isRegistered ? "Login" : "Register"}
+              {isRegistered ? "Login" : "Register Request"}
             </button>
           </div>
         </form>
@@ -301,7 +305,7 @@ function ClientLogin() {
             className="text-blue-600 hover:underline"
           >
             {isRegistered
-              ? "Need an account? Register here."
+              ? "Need an account? Register Request."
               : "Already have an account? Login here."}
           </button>
         </div>

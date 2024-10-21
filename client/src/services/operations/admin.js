@@ -8,11 +8,11 @@ const
     USER_DETAILS
   } = adminApis
 
-export const getAllUser = async (currentPage, limit, searchQuery, sortOrder) => {
-
+export const getAllUser = async (currentPage, limit, searchQuery, sortOrder,isVerified) => {
+console.log(isVerified)
   try {
     const response = await apiConnector("GET", ALL_USERS, null, null, {
-      currentPage, limit, searchQuery, sortOrder
+      currentPage, limit, searchQuery, sortOrder,isVerified
     });
 
     console.log(response?.data)

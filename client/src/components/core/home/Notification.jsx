@@ -23,9 +23,9 @@ const Notification = () => {
   return (
     toggle && (
       <div className="bg-black text-white border-b-2 border-white overflow-hidden">
-        <div className="relative max-w-7xl mx-auto p-5 md:p-5">
+        <div className="relative max-w-7xl mx-auto p-3 md:p-3">
           {/* Marquee Effect */}
-          <div className="whitespace-nowrap animate-marquee">
+          <marquee direction="left" scrollamount="3">
             <p className="lg:text-sm md:text-sm text-[12px] inline-block">
               Investment & Trading In Securities Market Is Always Subjected To
               Market Risks. Trade Gyan Solutions (Investment Advisor) Do Not
@@ -35,7 +35,7 @@ const Notification = () => {
               Loss. We do not ask for Demat details from anyone. Please call us
               if anyone talks about these services. Contact: 777-100-4878.
             </p>
-          </div>
+          </marquee>
 
           {/* Close Button */}
           <span

@@ -83,10 +83,11 @@ const App = () => {
     setShowModal(false);
   };
   return (
-    <div>
+    <div className="min-w-screen min-h-screen">
       <Notification />
       {showModal && <Complain onClose={handleCloseModal} />}
       <Routes>
+    
         <Route path="/" element={<Home />} />
 
         <Route path="/partner" element={<Partner />} />

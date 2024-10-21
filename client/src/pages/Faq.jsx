@@ -100,6 +100,11 @@ const JobPosting = ({ job, isOpen, onClick }) => {
   const [contentHeight, setContentHeight] = useState("0px");
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+}, []);
+
+
+  useEffect(() => {
     setContentHeight(isOpen ? `${contentRef.current.scrollHeight}px` : "0px");
   }, [isOpen]);
 
@@ -131,9 +136,7 @@ const Faq = () => {
   const handleToggle = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
       <Navbar />

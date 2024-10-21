@@ -3,48 +3,56 @@ const xlsx = require('xlsx');
 // Get all users
 // In your user controller or route handler
 const getAllUsers = async (req, res) => {
-  const { page = 1, limit = 10, searchQuery = '', sortOrder = 'newest' } = req.query;
+    const { page = 1, limit = 10, searchQuery = '', sortOrder = 'newest', isVerified } = req.query;
+  
 
-  try {
-
+    try {
       // Construct the query for searching users
-      const query = {role: { $ne: 'Admin' } };
-      if (searchQuery) {
-          query.$or = [
-              { name: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for name
-              { email: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for email
-              { contactNumber: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for email
-              { whatsappNumber: { $regex: searchQuery, $options: 'i' } }, // Case-insensitive search for email
-          ];
+      const query = { role: { $ne: 'Admin' } };
+  
+      // Filter based on the verification status if provided
+      if (isVerified) {
+        query.isVerify = isVerified === 'true'; // Convert string to boolean
+   
       }
-
+  
+      if (searchQuery) {
+        query.$or = [
+          { name: { $regex: searchQuery, $options: 'i' } },
+          { email: { $regex: searchQuery, $options: 'i' } },
+          { contactNumber: { $regex: searchQuery, $options: 'i' } },
+          { whatsappNumber: { $regex: searchQuery, $options: 'i' } },
+        ];
+      }
+  
       // Count total matching users based on the query
       const totalUsers = await User.countDocuments(query);
-
+  
       // Fetch users with sorting applied before pagination
       const users = await User.find(query)
-          .sort({ createdAt: sortOrder === 'newest' ? -1 : 1 }) // Sort based on createdAt field
-          .skip((page - 1) * limit)
-          .limit(Number(limit)); // Pagination
-
+        .sort({ createdAt: sortOrder === 'newest' ? -1 : 1 }) // Sort based on createdAt field
+        .skip((page - 1) * limit)
+        .limit(Number(limit)); // Pagination
+  
       // Success response
       return res.status(200).json({
-          success: true,
-          message: "Users retrieved successfully",
-          data: users,
-          totalPages: Math.ceil(totalUsers / limit), // Calculate total pages
+        success: true,
+        message: "Users retrieved successfully",
+        data: users,
+        totalPages: Math.ceil(totalUsers / limit), // Calculate total pages
       });
-  } catch (error) {
+    } catch (error) {
       console.error(error); // Log error for debugging
-
+  
       // Error response
       return res.status(500).json({
-          success: false,
-          message: "An error occurred while retrieving users",
-          error: error.message, // Include the error message
+        success: false,
+        message: "An error occurred while retrieving users",
+        error: error.message, // Include the error message
       });
-  }
-};
+    }
+  };
+  
 
 
 
