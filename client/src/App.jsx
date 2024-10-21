@@ -61,6 +61,7 @@ import Career from "./pages/Career";
 import Strategic from "./pages/Strategic";
 import ResourceHub from "./pages/ResourceHub";
 import VerifyUser from "./components/admin/pages/VerifyUser";
+import Articles from "./pages/Articles";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -87,7 +88,6 @@ const App = () => {
       <Notification />
       {showModal && <Complain onClose={handleCloseModal} />}
       <Routes>
-    
         <Route path="/" element={<Home />} />
 
         <Route path="/partner" element={<Partner />} />
@@ -108,6 +108,7 @@ const App = () => {
         <Route path="/strategic-insights" element={<Strategic />} />
         <Route path="/resource-hub" element={<ResourceHub />} />
         <Route path="/test" element={<SendMessage />} />
+        <Route path="/articles" element={<Articles />} />
 
         <Route path="/learn" element={<Learn />} />
         <Route path="/service/:id" element={<SingleService />} />

@@ -49,9 +49,9 @@ const Learn = () => {
                 Watch tutorials to guide you through essential topics like
                 portfolio management and market analysis.
               </p>
-              {/* <a href="/tutorials" className=" font-bold hover:underline">
-                Browse Tutorials
-              </a> */}
+              <Link to="/podcast" className=" font-bold hover:underline">
+                Podcast
+              </Link>
             </div>
 
             {/* Videos Section */}
@@ -62,9 +62,9 @@ const Learn = () => {
                 Watch educational videos that explain investing concepts in an
                 easy-to-understand format.
               </p>
-              {/* <a href="/videos" className=" font-bold hover:underline">
+              <Link to="/" className=" font-bold hover:underline">
                 Watch Videos
-              </a> */}
+              </Link>
             </div>
 
             {/* FAQ Section */}
@@ -90,12 +90,12 @@ const Learn = () => {
               Join our community of investors and access valuable resources to
               enhance your financial knowledge.
             </p>
-            <a
+            <Link
               href="/client-login"
               className="bg-green-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700"
             >
               Sign Up Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>
