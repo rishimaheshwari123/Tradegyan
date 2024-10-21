@@ -142,13 +142,13 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
           <div className="grid grid-cols-4 justify-center gap-4">
             <Link
-              to="#"
+              to="https://www.facebook.com/tradegyansolutions?mibextid=ZbWKwL"
               className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
             >
               <FaFacebook />
             </Link>
             <Link
-              to="#"
+              to="https://www.instagram.com/tradegyan/?igsh=Y2gyYmkwYXN0ZDh4"
               className="text-2xl text-white bg-yellow-400 rounded-full w-14 h-14 flex items-center justify-center"
             >
               <FaInstagram />
@@ -196,11 +196,11 @@ const Footer = () => {
       {/* Bottom section */}
       <div className="mt-10 border-t border-gray-700 pt-4 p-4">
         <div className="container mx-auto text-sm sm:text-base flex flex-col gap-2">
-        <p>
-  Copyright © 2017 Trade Gyan Solutions (Investment Advisor #
-  INA000008808)2024. All rights reserved. Himanshu Murlia, Proprietor of
-  Trade Gyan Solutions.
-</p>
+          <p>
+            Copyright © 2017 Trade Gyan Solutions (Investment Advisor #
+            INA000008808)2024. All rights reserved. Himanshu Murlia, Proprietor
+            of Trade Gyan Solutions.
+          </p>
 
           <p>
             Contact Details :+ (91) 777-100 4878 E-Mail id :- 121@tradegyan.co
