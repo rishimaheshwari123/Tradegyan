@@ -15,48 +15,72 @@ function Podcast() {
       if (response?.data?.success) {
         setBlog(response.data.blogs);
       }
-      // console.log(response.data.blogs);
     } catch (error) {
       console.log("Something went wrong");
     }
   };
+
   useEffect(() => {
     getAllBlogs();
   }, []);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    return new Date(dateString).toLocaleDateString("en-US", options);
   };
+
   return (
     <div>
       <Navbar />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-4">List of Articles</h1>
-        <div className="grid gap-5 md:grid-cols-2  lg:grid-cols-3 ">
-          {blog.map((article, index) => (
-            <Link
-              key={index}
-              to={article._id}
-              className="max-w-lg rounded overflow-hidden shadow-lg bg-white mb-4"
-            >
-              <img
-                className="w-full"
-                src={article.image}
-                alt="Article thumbnail"
-              />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{article.title}</div>
-                {/* <p className="text-gray-700 text-base">{article.desc}</p> */}
-              </div>
-              <div className="px-6 py-4">
-                <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                  {formatDate(article.createdAt)}
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <h1 className="text-3xl  text-center font-bold mb-4">
+          List of Articles
+        </h1>
+
+        {blog.length === 0 ? (
+          <p className="text-gray-500">No articles available at the moment.</p>
+        ) : (
+          <div className="w-full grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {blog.map(
+              (article, index) =>
+                article.type === "blog" && (
+                  <Link
+                    key={index}
+                    to={`/podcast/${article._id}`}
+                    className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out"
+                  >
+                    {/* Card for image, title, description, and date */}
+                    <div className="card bg-gray-100 p-4 rounded-lg">
+                      {/* Image */}
+                      <img
+                        className="w-full object-cover rounded-lg"
+                        src={article.image}
+                        alt={article.title || "Article thumbnail"}
+                      />
+
+                      {/* Title and Description */}
+                      <div className="px-4 py-4">
+                        <h2 className="font-bold text-xl text-gray-800 mb-2">
+                          {article.title}
+                        </h2>
+                        <p className="text-gray-700 text-sm">
+                          {article.desc?.substring(0, 100)}...{" "}
+                          {/* Short description */}
+                        </p>
+                      </div>
+
+                      {/* Date */}
+                      <div className="px-4 pb-4">
+                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                          {formatDate(article.createdAt)}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                )
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
