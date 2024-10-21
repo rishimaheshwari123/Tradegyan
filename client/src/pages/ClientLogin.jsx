@@ -148,18 +148,18 @@ function ClientLogin() {
             <>
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="email"
                   className="block text-sm font-medium mb-1"
                 >
-                  Name:
+                  Email:
                 </label>
                 <input
-                  type="text"
-                  id="name"
+                  type="email"
+                  id="email"
                   className="w-full p-2 border rounded-md"
                   placeholder="Enter your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
