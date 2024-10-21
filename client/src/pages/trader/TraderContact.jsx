@@ -34,7 +34,7 @@ const TraderContact = () => {
       <div className="flex flex-col md:flex-row justify-around p-10 bg-gray-50">
         <div className="md:w-1/2 p-8 bg-white shadow-lg rounded-lg">
           <h2 className="text-2xl font-bold mb-6 text-gray-800">
-            Why Become a Partner with Excella
+            Why Become a Partner with Trade Gyan Solution
           </h2>
           <ul className="list-disc pl-5 text-lg text-gray-700 space-y-2">
             <li>
