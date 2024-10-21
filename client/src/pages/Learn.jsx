@@ -6,6 +6,7 @@ import {
   FaQuestionCircle,
 } from "react-icons/fa";
 import Navbar from "../components/comman/Navbar";
+import { Link } from "react-router-dom";
 
 const Learn = () => {
   return (
@@ -35,9 +36,9 @@ const Learn = () => {
                 Read in-depth articles written by experts on investment
                 strategies, market analysis, and financial planning.
               </p>
-              <a href="/articles" className=" font-bold hover:underline">
+              <Link to="/articles" className=" font-bold hover:underline">
                 Explore Articles
-              </a>
+              </Link>
             </div>
 
             {/* Tutorials Section */}
@@ -48,9 +49,9 @@ const Learn = () => {
                 Watch tutorials to guide you through essential topics like
                 portfolio management and market analysis.
               </p>
-              <a href="/tutorials" className=" font-bold hover:underline">
-                Browse Tutorials
-              </a>
+              <Link to="/podcast" className=" font-bold hover:underline">
+                Podcast
+              </Link>
             </div>
 
             {/* Videos Section */}
@@ -61,9 +62,9 @@ const Learn = () => {
                 Watch educational videos that explain investing concepts in an
                 easy-to-understand format.
               </p>
-              <a href="/videos" className=" font-bold hover:underline">
+              <Link to="/" className=" font-bold hover:underline">
                 Watch Videos
-              </a>
+              </Link>
             </div>
 
             {/* FAQ Section */}
@@ -74,9 +75,9 @@ const Learn = () => {
                 Get answers to the most frequently asked questions about
                 investing and financial planning.
               </p>
-              <a href="/faq" className=" font-bold hover:underline">
+              <Link to="/faq" className=" font-bold hover:underline">
                 Read FAQs
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -89,12 +90,12 @@ const Learn = () => {
               Join our community of investors and access valuable resources to
               enhance your financial knowledge.
             </p>
-            <a
+            <Link
               href="/client-login"
               className="bg-green-600 text-white py-3 px-6 rounded-lg font-bold hover:bg-blue-700"
             >
               Sign Up Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>

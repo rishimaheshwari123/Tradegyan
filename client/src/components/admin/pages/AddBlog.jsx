@@ -141,6 +141,7 @@ const AddBlog = () => {
             </option>
             <option value="news">News</option>
             <option value="blog">Blog</option>
+            <option value="articles">Articles</option>
           </select>
         </div>
 

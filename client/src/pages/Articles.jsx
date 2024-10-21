@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../components/comman/Navbar";
 
-function Podcast() {
+function Articles() {
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   const [blog, setBlog] = useState([]);
@@ -34,7 +34,7 @@ function Podcast() {
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl  text-center font-bold mb-4">
-          List of Podcast
+          List of Articles
         </h1>
 
         {blog.length === 0 ? (
@@ -43,7 +43,7 @@ function Podcast() {
           <div className="w-full grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {blog.map(
               (article, index) =>
-                article.type === "blog" && (
+                article.type === "articles" && (
                   <Link
                     key={index}
                     to={`/podcast/${article._id}`}
@@ -86,4 +86,4 @@ function Podcast() {
   );
 }
 
-export default Podcast;
+export default Articles;
