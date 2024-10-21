@@ -90,7 +90,7 @@ const Slider = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover"
+              className="w-full h-[80vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover"
             />
             <div
               className={`absolute inset-0 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
