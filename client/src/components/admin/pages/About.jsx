@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../../comman/Navbar";
-import { FaArrowUp, FaHandshake, FaRocket } from "react-icons/fa"; // Example Icons
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const About = () => {
   const about = [
@@ -94,6 +94,90 @@ const About = () => {
             <p>{currElem?.desc}</p>
           </div>
         ))}
+      </div>
+      <div className="bg-gray-100  md:p-10 rounded-lg shadow-md w-full max-w-4xl mx-auto p-5">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
+          SEBI Registered Details
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Registered Name */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-600">
+              SEBI Registered Name
+            </h3>
+            <p className="text-gray-800">
+              Himanshu Muralia Proprietor of Trade Gyan Solutions
+            </p>
+          </div>
+
+          {/* Trade Name */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-600">Trade Name</h3>
+            <p className="text-gray-800">TRADE GYAN SOLUTIONS</p>
+          </div>
+
+          {/* SEBI Registration No */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-600">
+              SEBI Registration No.
+            </h3>
+            <p className="text-gray-800">INA000008808</p>
+          </div>
+
+          {/* Principal / Compliance Officer */}
+          <div>
+            <h3 className="text-lg font-semibold text-gray-600">
+              Principal / Compliance Officer
+            </h3>
+            <p className="text-gray-800">Himanshu Muralia</p>
+          </div>
+
+          {/* Address */}
+          <div className="flex items-start space-x-2">
+            <FaMapMarkerAlt className="text-gray-500 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-600">Address</h3>
+              <p className="text-gray-800">
+                Plot No.9, Sector C, Govindpura Industrial Area, J.K. Road,
+                Bhopal, Madhya Pradesh, 462023
+              </p>
+            </div>
+          </div>
+
+          {/* SEBI Office Address */}
+          <div className="flex items-start space-x-2">
+            <FaMapMarkerAlt className="text-gray-500 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-600">
+                SEBI Office Address
+              </h3>
+              <p className="text-gray-800">
+                305, 3rd Floor, Satguru Parinay, AB Rd, Opposite C-21 Mall,
+                Indore, Madhya Pradesh 452010
+              </p>
+            </div>
+          </div>
+
+          {/* Contact Number */}
+          <div className="flex items-start space-x-2">
+            <FaPhoneAlt className="text-gray-500 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-600">
+                Contact No.
+              </h3>
+              <p className="text-gray-800">+91 7771004878</p>
+            </div>
+          </div>
+
+          {/* Email Id */}
+          <div className="flex items-start space-x-2">
+            <FaEnvelope className="text-gray-500 mt-1" />
+            <div>
+              <h3 className="text-lg font-semibold text-gray-600">Email Id</h3>
+              <p className="text-gray-800">himanshu.muralia11@gmail.com</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

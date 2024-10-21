@@ -143,6 +143,9 @@ const policiesData = [
           "No GST or other hidden charges are applicable; all subscription charges are inclusive of GST.",
 
           "Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantee the performance of the intermediary or provide any assurance of returns to investors.",
+          `Standard Warning : Investment in securities market are subject to market risks. Read all the related documents carefully before investing.`,
+          "Disclaimer : Registration granted by SEBI, enlistment of IA with Exchange and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.",
+          "Delete “We do not offer any refund policy.”",
         ],
       },
     ],

@@ -122,13 +122,11 @@ const Slider = () => {
       </Swiper>
 
       {/* Centered Advice Message */}
-      <div className="absolute top-0 left-0 right-0 flex items-center justify-center bg-black bg-opacity-70 p-4 z-50">
-  <p className="text-white text-base sm:text-lg font-semibold text-center max-w-xs sm:max-w-md mx-4 border border-white rounded-lg p-2 shadow-lg animate-blink">
-    “Free” Advice is more Expensive than “Fee” Advice
-  </p>
-</div>
-
-
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-center bg-black bg-opacity-70 p-4 z-10">
+        <p className="text-white text-base sm:text-lg font-semibold  text-center max-w-xs sm:max-w-md mx-4 border border-white rounded-lg p-2 shadow-lg animate-blink">
+          “Free” Advice is more Expensive than “Fee” Advice
+        </p>
+      </div>
     </div>
   );
 };

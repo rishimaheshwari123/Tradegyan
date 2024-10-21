@@ -141,49 +141,46 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">Follow Us</h3>
           <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
-     
-          <div className="grid grid-cols-3 justify-center gap-4">
-        <Link
-          to="https://www.facebook.com/tradegyansolutions?mibextid=ZbWKwL"
-          className="text-2xl text-blue-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
-        >
-          <FaFacebook />
-        </Link>
-        <Link
-          to="https://www.instagram.com/tradegyan?igsh=Y2gyYmkwYXN0ZDh4"
-          className="text-2xl text-pink-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
-        >
-          <FaInstagram />
-        </Link>
-        <Link
-          to="https://wa.me/7771004878" // WhatsApp link
-          className="text-2xl text-green-500 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
-        >
-          <FaWhatsapp />
-        </Link>
-        <Link
-          to="#"
-          className="text-2xl text-blue-400 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
-        >
-          <FaTwitter />
-        </Link>
-        <Link
-          to="#"
-          className="text-2xl text-blue-700 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
-        >
-          <FaLinkedin />
-        </Link>
-      
-     
-        <Link
-          to="tel:+7771004878" // Call link
-          className="text-2xl text-green-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
-        >
-          <FaPhone />
-        </Link>
-      </div>
+            <div className="grid grid-cols-3 justify-center gap-4">
+              <Link
+                to="https://www.facebook.com/tradegyansolutions?mibextid=ZbWKwL"
+                className="text-2xl text-blue-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              >
+                <FaFacebook />
+              </Link>
+              <Link
+                to="https://www.instagram.com/tradegyan?igsh=Y2gyYmkwYXN0ZDh4"
+                className="text-2xl text-pink-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              >
+                <FaInstagram />
+              </Link>
+              <Link
+                to="https://wa.me/7771004878" // WhatsApp link
+                className="text-2xl text-green-500 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              >
+                <FaWhatsapp />
+              </Link>
+              <Link
+                to="#"
+                className="text-2xl text-blue-400 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              >
+                <FaTwitter />
+              </Link>
+              <Link
+                to="#"
+                className="text-2xl text-blue-700 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              >
+                <FaLinkedin />
+              </Link>
 
-    </div>
+              <Link
+                to="tel:+7771004878" // Call link
+                className="text-2xl text-green-600 bg-white rounded-full w-14 h-14 flex items-center justify-center hover:bg-yellow-300 transition-colors"
+              >
+                <FaPhone />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -197,16 +194,23 @@ const Footer = () => {
           </p>
 
           <p>
-            Contact Details :+ (91) 777-100 4878 E-Mail id :- 121@tradegyan.co
+            Contact Details :+91 7771004878 E-Mail id :-
+            himanshu.muralia11@gmail.com
           </p>
-          <p>Principal Officer Contact Details :+ (91) 777-100 4878</p>
-          <p>E-Mail id :- 121@tradegyan.co</p>
+          <p>Principal Officer Contact Details :+91 7771004878</p>
+          <p>E-Mail id :- himanshu.muralia11@gmail.com</p>
+          <p>
+            SEBI Registration Name: Himanshu Muralia Proprietor of Trade Gyan
+            Solutions
+          </p>
           <p>SEBI Registration Number: INA000008808</p>
+          <p>Trade Name : TRADE GYAN SOLUTIONS</p>
           <p>Type of Registration : Individual.</p>
           <p>Validity of Registration- 31.03.2015 to Perpetual.</p>
+          <p>Principal / Compliance Officer - Himanshu Muralia</p>
           <p>
-            SEBI Local Address :- 305, 3rd Floor, Satguru Parinay, AB Rd,
-            Opposite C-21 Mall, Indore, Madhya Pradesh 452010
+            SEBI Local Address :- Plot No.9, Sector C, Govindpura Industrial
+            Area, J.K. Road, Bhopal, Madhya Pradesh, 462023
           </p>
           <p>
             Registration granted by SEBI, membership of BASL and certification
@@ -217,6 +221,11 @@ const Footer = () => {
             Standard Warning:- “Investment in securities market are subject to
             market risks. Read all the related documents carefully before
             investing.”
+          </p>
+          <p>
+            {" "}
+            SEBI Office Address - 305, 3rd Floor, Satguru Parinay, AB Rd,
+            Opposite C-21 Mall, Indore, Madhya Pradesh 452010
           </p>
           <hr />
           <p className="text-center">Made By I Next Ets❤️</p>
