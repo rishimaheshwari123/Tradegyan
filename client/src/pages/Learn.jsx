@@ -49,9 +49,7 @@ const Learn = () => {
                 Watch tutorials to guide you through essential topics like
                 portfolio management and market analysis.
               </p>
-              <Link to="/podcast" className=" font-bold hover:underline">
-                Podcast
-              </Link>
+           
             </div>
 
             {/* Videos Section */}
@@ -62,9 +60,7 @@ const Learn = () => {
                 Watch educational videos that explain investing concepts in an
                 easy-to-understand format.
               </p>
-              <Link to="/" className=" font-bold hover:underline">
-                Watch Videos
-              </Link>
+         
             </div>
 
             {/* FAQ Section */}
