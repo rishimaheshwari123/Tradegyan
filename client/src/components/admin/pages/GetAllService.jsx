@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { getAllService } from "../../../services/operations/auth";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import { AiOutlineMessage } from "react-icons/ai"; // Import SMS icon
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'; // Make sure you have SweetAlert2 imported
+import Swal from 'sweetalert2'; 
 import axios from "axios";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
@@ -13,7 +14,11 @@ const GetAllService = () => {
   const [showGlobalModal, setShowGlobalModal] = useState(false);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [globalMessage, setGlobalMessage] = useState("");
-  const [sendVia, setSendVia] = useState("whatsapp");
+  const [sendVia, setSendVia] = useState({
+    whatsapp: false,
+    email: false,
+    sms: false,
+  });
 
   const getService = async () => {
     try {
@@ -28,57 +33,43 @@ const GetAllService = () => {
     getService();
   }, []);
 
+  const handleSendMessage = async () => {
+    Swal.fire({
+      title: 'Sending message...',
+      text: 'Please wait while the message is being sent',
+      allowOutsideClick: false,
+      showConfirmButton: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
 
+    try {
+      const response = await axios.post(`${BASE_URL}/auth/send-message/${selectedServiceId}`, {
+        message: globalMessage,
+        sendVia: Object.keys(sendVia).filter(method => sendVia[method]) // Send only selected methods
+      });
 
-const handleSendMessage = async () => {
-  // console.log(`Sending message: ${globalMessage} via ${sendVia} for service ID: ${selectedServiceId}`);
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent',
+        text: 'The message was sent successfully!',
+      });
 
-  // Show the loading Swal
-  Swal.fire({
-    title: 'Sending message...',
-    text: 'Please wait while the message is being sent',
-    allowOutsideClick: false,
-    showConfirmButton: false,
-    didOpen: () => {
-      Swal.showLoading();
+      // Reset state
+      setShowGlobalModal(false);
+      setGlobalMessage(""); 
+      setSendVia({ whatsapp: false, email: false, sms: false }); // Reset the sending methods
+
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Failed to send the message. Please try again.',
+      });
+      console.error("Error sending message:", error);
     }
-  });
-
-  try {
-    const response = await axios.post(`${BASE_URL}/auth/send-message/${selectedServiceId}`, {
-      message: globalMessage,
-      sendVia: sendVia // Include the sending method
-    });
-
-    // Show success Swal when the message is sent successfully
-    Swal.fire({
-      icon: 'success',
-      title: 'Message Sent',
-      text: 'The message was sent successfully!',
-    });
-
-
-
-    // Reset state
-    // Close the modal after sending
-    setShowGlobalModal(false);
-    setGlobalMessage(""); // Clear the message after sending
-    setSendVia("whatsapp"); // Reset the sending method
-
-
-  } catch (error) {
-    // Show error Swal if there's a failure
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Failed to send the message. Please try again.',
-    });
-
-    console.error("Error sending message:", error);
-  }
-};
-
-
+  };
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
@@ -90,10 +81,9 @@ const handleSendMessage = async () => {
             className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6"
           >
             <div className="flex flex-col space-y-4">
-             <Link to={`/admin/service/${service?._id}`}>
-
-              <h2 className="text-xl font-semibold text-blue-600">{service.serviceName}</h2>
-             </Link>
+              <Link to={`/admin/service/${service?._id}`}>
+                <h2 className="text-xl font-semibold text-blue-600">{service.serviceName}</h2>
+              </Link>
               <p className="text-gray-700">{service.description}</p>
               <div className="flex flex-col space-y-2">
                 <span className="font-bold text-lg text-gray-900">
@@ -117,20 +107,6 @@ const handleSendMessage = async () => {
 
             {/* Contact Buttons */}
             <div className="mt-4 flex justify-between">
-              {/* <a
-                href={`https://wa.me/?text=Hello! I am interested in your service: ${service.serviceName}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-200"
-              >
-                WhatsApp
-              </a>
-              <a
-                href={`mailto:?subject=Inquiry about ${service.serviceName}&body=Hello! I am interested in your service: ${service.serviceName}`}
-                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
-              >
-                Email
-              </a> */}
               <button
                 onClick={() => {
                   setShowGlobalModal(true);
@@ -163,33 +139,30 @@ const handleSendMessage = async () => {
               <label className="mr-4">Send Via:</label>
               <label className="flex items-center mr-2">
                 <input
-                  type="radio"
-                  value="whatsapp"
-                  checked={sendVia === "whatsapp"}
-                  onChange={() => setSendVia("whatsapp")}
+                  type="checkbox"
+                  checked={sendVia.whatsapp}
+                  onChange={() => setSendVia(prev => ({ ...prev, whatsapp: !prev.whatsapp }))}
                   className="mr-2"
                 />
                 <FaWhatsapp className="mr-1" /> WhatsApp
               </label>
               <label className="flex items-center mr-2">
                 <input
-                  type="radio"
-                  value="email"
-                  checked={sendVia === "email"}
-                  onChange={() => setSendVia("email")}
+                  type="checkbox"
+                  checked={sendVia.email}
+                  onChange={() => setSendVia(prev => ({ ...prev, email: !prev.email }))}
                   className="mr-2"
                 />
                 <MdEmail className="mr-1" /> Email
               </label>
               <label className="flex items-center mr-2">
                 <input
-                  type="radio"
-                  value="both"
-                  checked={sendVia === "both"}
-                  onChange={() => setSendVia("both")}
+                  type="checkbox"
+                  checked={sendVia.sms}
+                  onChange={() => setSendVia(prev => ({ ...prev, sms: !prev.sms }))}
                   className="mr-2"
                 />
-                <span>Both</span>
+                <AiOutlineMessage className="mr-1" /> SMS
               </label>
             </div>
 

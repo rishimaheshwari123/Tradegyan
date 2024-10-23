@@ -14,7 +14,7 @@ import HomeQuote from "../components/core/home/HomeQuote";
 import Faq from "../components/core/home/Faq";
 import Notification from "../components/core/home/Notification";
 import StockTicker from "./GlobleMarket";
-
+import ComplaintTrends from "../components/ComplainTracker";
 const Home = () => {
   return (
     <div>
@@ -36,6 +36,7 @@ const Home = () => {
       <Banner />
       <LastBanner />
       <HomeQuote />
+      <ComplaintTrends />
       {/* <Faq /> */}
     </div>
   );

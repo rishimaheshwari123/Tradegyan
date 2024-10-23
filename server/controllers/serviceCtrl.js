@@ -186,65 +186,79 @@ const getServices = async (req, res) => {
 
 // POST route to send a message to users of a specific service
 const sendServiceEnrolledMessage = async (req, res) => {
-    const { serviceId } = req.params;
-    const { message, sendVia } = req.body;
-  
-    try {
-      // Find the service by ID and populate users enrolled
-      const service = await Service.findById(serviceId).populate("usersEnroled.user");
-  
-      if (!service) {
-        return res.status(404).json({ error: "Service not found" });
-      }
-  
-      // Filter users whose subscription has not expired
-      const activeUsers = service.usersEnroled.filter(
-        (userEnrolment) => new Date(userEnrolment.expirationDate) > new Date()
-      );
-  
-      // Check if there are any active users
-      if (activeUsers.length === 0) {
-        return res.status(404).json({ message: "No active users found for this service" });
-      }
-  
-      // Iterate over the active users to send messages
-      for (const userEnrolment of activeUsers) {
-        const user = userEnrolment.user; // Enrolled user object
-  
-        // Send WhatsApp message
-        if (sendVia === "whatsapp" || sendVia === "both") {
-          try {
-            await sendWhatsAppMessage(user.whatsappNumber, message);
-            console.log(`WhatsApp message sent to ${user.whatsappNumber}`);
-          } catch (error) {
-            console.error(`Failed to send WhatsApp message to ${user.whatsappNumber}:`, error.message);
-          }
-        }
-  
-        // Send Email
-        if (sendVia === "email" || sendVia === "both") {
-          try {
-            await sendEmail(user?.email, message, user?.name);
-            console.log(`Email sent to ${user.email}`);
-          } catch (error) {
-            console.error(`Failed to send email to ${user.email}:`, error.message);
-          }
-        }
-      }
-  
-      return res.status(200).json({ message: "Messages sent successfully to active users." });
-    } catch (error) {
-      console.error("Error sending message:", error);
-      return res.status(500).json({ error: "Internal server error" });
+  const { serviceId } = req.params;
+  const { message, sendVia } = req.body;
+  console.log(req.body);
+
+  try {
+    // Find the service by ID and populate users enrolled
+    const service = await Service.findById(serviceId).populate("usersEnroled.user");
+
+    if (!service) {
+      return res.status(404).json({ error: "Service not found" });
     }
-  };
+
+    // Filter users whose subscription has not expired
+    const activeUsers = service.usersEnroled.filter(
+      (userEnrolment) => new Date(userEnrolment.expirationDate) > new Date()
+    );
+
+    // Check if there are any active users
+    if (activeUsers.length === 0) {
+      return res.status(404).json({ message: "No active users found for this service" });
+    }
+
+    // Iterate over the active users to send messages
+    for (const userEnrolment of activeUsers) {
+      const user = userEnrolment.user; // Enrolled user object
+
+      // Send WhatsApp message
+      if (sendVia.includes("whatsapp") || sendVia.includes("both")) {
+        try {
+          await sendWhatsAppMessage(user.whatsappNumber, message);
+          console.log(`WhatsApp message sent to ${user.whatsappNumber}`);
+        } catch (error) {
+          console.error(`Failed to send WhatsApp message to ${user.whatsappNumber}:`, error.message);
+        }
+      }
+
+      // Send Email
+      if (sendVia.includes("email") || sendVia.includes("both")) {
+        try {
+          await sendEmail(user?.email, message, user?.name);
+          console.log(`Email sent to ${user.email}`);
+        } catch (error) {
+          console.error(`Failed to send email to ${user.email}:`, error.message);
+        }
+      }
+
+      // Send SMS
+      if (sendVia.includes("sms") || sendVia.includes("both")) {
+        try {
+          await sendSMS(user.phoneNumber, message); // Assuming sendSMS is defined
+          console.log(`SMS sent to ${user.phoneNumber}`);
+        } catch (error) {
+          console.error(`Failed to send SMS to ${user.phoneNumber}:`, error.message);
+        }
+      }
+    }
+
+    return res.status(200).json({ message: "Messages sent successfully to active users." });
+  } catch (error) {
+    console.error("Error sending message:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+
   
 
 
 const sendEmail = async (recipientEmail, messageContent, name) => {
     try {
       // Create a transporter object using SMTP transport
-      await mailSender(recipientEmail,"TradeGyan Solution" ,messageViaEmail(messageContent,name) )
+      const res = await mailSender(recipientEmail,"TradeGyan Solution" ,messageViaEmail(messageContent,name) )
+      console.log(res)
      
   
     } catch (error) {

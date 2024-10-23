@@ -62,6 +62,8 @@ import Strategic from "./pages/Strategic";
 import ResourceHub from "./pages/ResourceHub";
 import VerifyUser from "./components/admin/pages/VerifyUser";
 import Articles from "./pages/Articles";
+import CurrentMonthComplaints from "./components/ComplainTracker";
+import CompaintTracker from "./components/admin/pages/CompaintTracker";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -89,7 +91,8 @@ const App = () => {
       {showModal && <Complain onClose={handleCloseModal} />}
       <Routes>
         <Route path="/" element={<Home />} />
-
+        <Route path="/complain" element={<CurrentMonthComplaints />} />
+     
         <Route path="/partner" element={<Partner />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Partner />} />
