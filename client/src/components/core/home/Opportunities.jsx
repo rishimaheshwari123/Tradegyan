@@ -13,7 +13,7 @@ import bgImage from '../../../assets/dotted-map.png';
 const Opportunities = () => {
   return (
     <div
-      className="bg-cover bg-center relative"
+      className="bg-cover bg-center relative "
       style={{
         backgroundImage: bgImage,
       }}
