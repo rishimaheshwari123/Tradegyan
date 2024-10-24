@@ -34,32 +34,26 @@ const MarketsSection = () => {
         <div className="absolute -bottom-10 left-1/2  transform lg:-translate-x-1/3 -translate-x-1/2 w-full max-w-6xl p-8 grid  grid-cols-3 lg:grid-cols-8 gap-6">
           <div className="text-center">
             <FaChartLine className="text-yellow-500 text-4xl mx-auto" />
-            <h3 className="text-lg font-bold text-gray-800 mt-2">40,000</h3>
             <p className="text-gray-600">Shares</p>
           </div>
           <div className="text-center">
             <FaBalanceScale className="text-yellow-500 text-4xl mx-auto" />
-            <h3 className="text-lg font-bold text-gray-800 mt-2">100+</h3>
             <p className="text-gray-600">Indices</p>
           </div>
           <div className="text-center">
             <FaCoins className="text-yellow-500 text-4xl mx-auto" />
-            <h3 className="text-lg font-bold text-gray-800 mt-2">130</h3>
             <p className="text-gray-600">Commodities</p>
           </div>
           <div className="text-center">
             <FaLandmark className="text-yellow-500 text-4xl mx-auto" />
-            <h3 className="text-lg font-bold text-gray-800 mt-2">90</h3>
             <p className="text-gray-600">Treasuries</p>
           </div>
           <div className="text-center">
             <FaPiggyBank className="text-yellow-500 text-4xl mx-auto" />
-            <h3 className="text-lg font-bold text-gray-800 mt-2">2,000+</h3>
             <p className="text-gray-600">ETFs</p>
           </div>
           <div className="text-center">
             <FaDollarSign className="text-yellow-500 text-4xl mx-auto" />
-            <h3 className="text-lg font-bold text-gray-800 mt-2">330</h3>
             <p className="text-gray-600">Currencies</p>
           </div>
         </div>

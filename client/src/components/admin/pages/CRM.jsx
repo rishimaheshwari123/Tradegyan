@@ -115,8 +115,6 @@ function CRM() {
         text: "The message was sent successfully!",
       });
 
-      // console.log("Message sent:", response.data);
-
       // Reset state
       setGlobalMessage("");
       setMessageContent("");
@@ -260,52 +258,25 @@ function CRM() {
 
       {/* User Table */}
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300 shadow-md rounded-lg overflow-scroll">
+        <table className="min-w-full bg-white border border-gray-300">
           <thead>
             <tr className="bg-gray-200">
-              <th className="py-2 px-4 border-b border-gray-300 text-left">
-                Name
-              </th>
-              <th className="py-2 px-4 border-b border-gray-300 text-left">
-                Email
-              </th>
-              <th className="py-2 px-4 border-b border-gray-300 text-left">
-                Contact Number
-              </th>
-              <th className="py-2 px-4 border-b border-gray-300 text-left">
-                Actions
-              </th>
+              <th className="py-2 px-4 border">Name</th>
+              <th className="py-2 px-4 border">Email</th>
+              <th className="py-2 px-4 border">Contact Number</th>
+              <th className="py-2 px-4 border">Actions</th>
             </tr>
           </thead>
           <tbody>
-            {users?.map((user) => (
-              <tr key={user._id} className="hover:bg-gray-100">
-                <td className="py-2 px-4 border-b border-gray-300">
-                  <Link
-                    to={`/admin/user/${user?._id}`}
-                    className="flex items-center underline text-blue-700"
-                  >
-                    <FaUser className="mr-2 text-gray-600" /> {user?.name}
-                  </Link>
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  <div className="flex items-center">
-                    <FaEnvelope className="mr-2 text-gray-600" /> {user?.email}
-                  </div>
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">
-                  <div className="flex items-center ">
-                    <FaPhoneAlt className="mr-2 text-gray-600" />
-                    {user?.contactNumber || "Contact not provided"}
-                  </div>
-                </td>
-                <td className="py-2 px-4 border-b border-gray-300">
+            {users.map((user) => (
+              <tr key={user._id}>
+                <td className="py-2 px-4 border">{user.name}</td>
+                <td className="py-2 px-4 border">{user.email}</td>
+                <td className="py-2 px-4 border">{user.contactNumber}</td>
+                <td className="py-2 px-4 border">
                   <button
-                    onClick={() => {
-                      handleSendMessageToUser(user._id);
-                      setUser(user?.name);
-                    }}
-                    className="bg-blue-500 text-white p-1 rounded"
+                    onClick={() => handleSendMessageToUser(user._id)}
+                    className="bg-blue-500 text-white p-2 rounded"
                   >
                     Send Message
                   </button>
@@ -316,19 +287,19 @@ function CRM() {
         </table>
       </div>
 
-      {/* Pagination Component */}
+      {/* Pagination */}
       <Pagination
-        currentPage={page}
         totalPages={totalPages}
+        currentPage={page}
         onPageChange={handlePageChange}
       />
 
       {/* Individual Message Modal */}
       {showMessageModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black z-50 bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <h2 className="text-xl font-bold mb-4 text-center">
-              Send Message To {seletcUser}
+              Send Message to User
             </h2>
             <textarea
               rows="4"
@@ -337,6 +308,8 @@ function CRM() {
               onChange={(e) => setMessageContent(e.target.value)}
               className="p-3 border border-gray-300 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
+
+            {/* Sending Method Selection */}
             <div className="flex items-center mb-4">
               <label className="mr-4">Send Via:</label>
               <label className="flex items-center mr-2">
@@ -370,15 +343,20 @@ function CRM() {
                 <span>Both</span>
               </label>
             </div>
+
             <div className="flex justify-end mt-4">
               <button
                 onClick={handleSendMessage}
                 className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
               >
-                Send
+                Send Message
               </button>
               <button
-                onClick={() => setShowMessageModal(false)}
+                onClick={() => {
+                  setShowMessageModal(false);
+                  setSelectedUser(null);
+                  setMessageContent("");
+                }}
                 className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-200 ml-2"
               >
                 Cancel

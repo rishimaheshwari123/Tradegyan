@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 const Financial = () => {
   return (
     <div>
+      <p className="text-center text-3xl lg:text-5xl font-bold p-5">Forex</p>
       <div className="grid lg:grid-cols-2 max-w-7xl mx-auto p-5">
         <img
           src="https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/currencies.png"
@@ -11,22 +12,22 @@ const Financial = () => {
         />
         <p>
           <span>
-            Forex CFD trading is the simultaneous buying and selling of the
-            world’s currencies on a decentralized global market place. As one of
-            the largest and most liquid financial markets in the world, its
-            total average turnover per day is reported to exceed $6.6 trillion.
-            The forex market is not based in a central location or exchange, so
-            it is open to trade 24 hours a day, five days a week.
+            Currency derivatives are used for currency arbitrage or to hedge
+            against foreign exchange risks. Importers and exporters use them to
+            protect against domestic currency fluctuations. Currency derivatives
+            can be traded in currency pairs, such as USD/INR and EUR/INR, or
+            cross-currency pairs, such as EURUSD and GBPUSD. 
           </span>
           <br />
           <span>
-            Forex is always traded in currency pairs, for example, EUR/USD. The
-            first currency (EUR) is called the ‘base currency.’ The second
-            currency (USD) is known as the ‘counter currency’. The way
-            currencies are displayed shows us how many units of the counter
-            currency you can buy with one unit of the base currency. This is the
-            exchange rate, or in this example, other words, how many US dollars
-            you can buy for one Euro.
+            Currency derivatives are traded on stock exchanges, or
+            over-the-counter (OTC). The foreign exchange options market is the
+            largest and most liquid options market. 
+          </span>
+          <span>
+            Foreign exchange derivatives can improve economic efficiency by
+            providing businesses with tools to reduce financial risk and
+            founding costs. 
           </span>
         </p>
       </div>
@@ -43,21 +44,21 @@ const Financial = () => {
                 twice a year.
               </span>
               <br />
-              <span>
+              {/* <span>
                 Take a position on more than 40,000 global share CFDs and
                 exchange traded shares from 31 countries, including 2,000 ETFs.
                 We offer share CFDs on many popular stocks, including Apple, BP,
                 Barclays, Tesla, Amazon, Meta Platforms (formerly Facebook),
                 Tesco, Rio Tinto, and many more.
-              </span>
+              </span> */}
             </p>
             <ul className="mt-5 space-y-3">
-              <li className="flex items-center">
+              {/* <li className="flex items-center">
                 <FaArrowRight className="mr-2 text-yellow-500" />
                 Access to 40,000 share CFDs and exchange traded stocks across
                 US, UK, European & Asian Stock Markets and 2,000+ ETFs (Stock &
                 Bond)
-              </li>
+              </li> */}
               <li className="flex items-center">
                 <FaArrowRight className="mr-2 text-yellow-500" />
                 Actively buy and hold stocks
@@ -154,10 +155,10 @@ const Financial = () => {
           </p>
 
           <ul className="mt-5 space-y-3">
-            <li className="flex items-center">
+            {/* <li className="flex items-center">
               <FaArrowRight className="mr-2 text-yellow-500" />
               130+ commodities across a wide variety of asset categories
-            </li>
+            </li> */}
             <li className="flex items-center">
               <FaArrowRight className="mr-2 text-yellow-500" />
               Go long or short easily
@@ -190,12 +191,12 @@ const Financial = () => {
         <div className="grid lg:grid-cols-2 max-w-7xl mx-auto p-5 mt-10">
           <div>
             <p>
-              <span>
+              {/* <span>
                 Our range of indices covers all major exchanges all over the
                 world. Choose from over 100+ cash and forward indices products,
                 including the most popularly traded stock indices from US, UK,
                 Europe, and Asia.
-              </span>
+              </span> */}
               <br />
               <span>
                 Indices provide the best way to gauge the performance of an

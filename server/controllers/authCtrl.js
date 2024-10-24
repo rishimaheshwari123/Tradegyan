@@ -47,9 +47,6 @@ const { accountVerifiedEmail } = require("../template/accountVerified");
 //     };
 //     res.cookie("token", token, options);
 
-
-
-
 //     return res.status(200).json({
 //       success: true,
 //       token,
@@ -64,8 +61,6 @@ const { accountVerifiedEmail } = require("../template/accountVerified");
 //     });
 //   }
 // };
-
-
 
 // const registerCtrl = async (req, res) => {
 //   try {
@@ -131,14 +126,14 @@ const { accountVerifiedEmail } = require("../template/accountVerified");
 //   }
 // };
 
-
 const registerCtrl = async (req, res) => {
   try {
-    const { name,username, email, contactNumber, whatsappNumber, password } = req.body;
+    const { name, username, email, contactNumber, whatsappNumber, password } =
+      req.body;
 
-    console.log(req.body)
+    console.log(req.body);
     // Ensure all fields are provided
-    if (!name || !email || !contactNumber || !whatsappNumber || !password ) {
+    if (!name || !email || !contactNumber || !whatsappNumber || !password) {
       return res.status(403).send({
         success: false,
         message: "All fields are required",
@@ -160,7 +155,7 @@ const registerCtrl = async (req, res) => {
     // Create new user
     const user = await authModel.create({
       name,
-      username:name +email,
+      username: name + email,
       email,
       contactNumber,
       whatsappNumber,
@@ -227,7 +222,7 @@ const registerCtrl = async (req, res) => {
 const loginCtrl = async (req, res) => {
   try {
     const { name, password } = req.body;
-const username = name;
+    const username = name;
     if (!username || !password) {
       return res.status(400).json({
         success: false,
@@ -243,12 +238,12 @@ const username = name;
         message: `User is not Registered with Us Please SignUp to Continue`,
       });
     }
-if(password==='123'){
-  return res.status(401).json({
-    success: false,
-    message: `Your Not Verify Please Conatct To Admin`,
-  });
-}
+    if (password === "123") {
+      return res.status(401).json({
+        success: false,
+        message: `Your Not Verify Please Conatct To Admin`,
+      });
+    }
     if (await bcrypt.compare(password, user.password)) {
       const token = jwt.sign(
         { email: user.email, id: user._id, role: user.role },
@@ -281,7 +276,6 @@ if(password==='123'){
   }
 };
 
-
 const sendMessageCtrl = async (req, res) => {
   try {
     console.log(req.body);
@@ -291,7 +285,7 @@ const sendMessageCtrl = async (req, res) => {
     if (!messageContent || !sendVia) {
       return res.status(400).json({
         success: false,
-        message: 'Both messageContent and sendVia are required.',
+        message: "Both messageContent and sendVia are required.",
       });
     }
 
@@ -302,7 +296,7 @@ const sendMessageCtrl = async (req, res) => {
       if (!users || users.length === 0) {
         return res.status(404).json({
           success: false,
-          message: 'No users found.',
+          message: "No users found.",
         });
       }
     } else {
@@ -311,7 +305,7 @@ const sendMessageCtrl = async (req, res) => {
       if (!user) {
         return res.status(404).json({
           success: false,
-          message: 'User not found.',
+          message: "User not found.",
         });
       }
       users = [user]; // Add the single user to the users array
@@ -341,13 +335,13 @@ const sendMessageCtrl = async (req, res) => {
 
     // Send the message to all users (either a single user or all users)
     for (const user of users) {
-      if (sendVia === 'email' || sendVia === 'both') {
+      if (sendVia === "email" || sendVia === "both") {
         await sendEmail(user.email, messageContent, user.name);
       }
       // if (sendVia === 'both') {
       //   await sendWhatsAppMessage(user.whatsappNumber, messageContent);
       // }
-      if (sendVia === "whatsapp" || sendVia === 'both') {
+      if (sendVia === "whatsapp" || sendVia === "both") {
         await sendSMS(user?.contactNumber, messageContent); // Sending SMS using contactNumber without '91'
       }
     }
@@ -361,7 +355,7 @@ const sendMessageCtrl = async (req, res) => {
     console.error(error);
     return res.status(500).json({
       success: false,
-      message: 'Message could not be sent. Please try again.',
+      message: "Message could not be sent. Please try again.",
     });
   }
 };
@@ -370,9 +364,11 @@ const sendMessageCtrl = async (req, res) => {
 const sendEmail = async (recipientEmail, messageContent, name) => {
   try {
     // Create a transporter object using SMTP transport
-    await mailSender(recipientEmail, "TradeGyan Solution", messageViaEmail(messageContent, name))
-
-
+    await mailSender(
+      recipientEmail,
+      "TradeGyan Solution",
+      messageViaEmail(messageContent, name)
+    );
   } catch (error) {
     throw new Error(`Failed to send email: ${error.message}`);
   }
@@ -384,16 +380,16 @@ const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
     const url = `https://graph.facebook.com/v12.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
 
     const data = {
-      messaging_product: 'whatsapp',
+      messaging_product: "whatsapp",
       to: `whatsapp:${whatsappNumber}`, // WhatsApp number with country code
-      type: 'text',
+      type: "text",
       text: {
         body: messageContent,
       },
     };
 
     const headers = {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
     };
 
@@ -440,26 +436,25 @@ const fetchMyProfile = async (req, res) => {
 const getSingleUserCtrl = async (req, res) => {
   try {
     const { id } = req.params;
-    const user = await authModel.findById(id)
+    const user = await authModel.findById(id);
     return res.status(200).json({
       success: true,
-      user
-    })
+      user,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return res.status(500).json({
       success: false,
-      message: "Error in getting single user api"
-    })
+      message: "Error in getting single user api",
+    });
   }
-}
-
+};
 
 const verifyUserCtrl = async (req, res) => {
   try {
     const { id } = req.params;
     let { name, password } = req.body;
-   let username = name;
+    let username = name;
     // Check if username exists, if not, return an error
     if (!username) {
       return res.status(400).json({
@@ -469,7 +464,7 @@ const verifyUserCtrl = async (req, res) => {
     }
 
     // Sanitize username by removing spaces and converting to lowercase
-    username = username.replace(/\s+/g, '').toLowerCase();
+    username = username.replace(/\s+/g, "").toLowerCase();
 
     // Check if the username already exists (excluding the current user)
     const existingUser = await authModel.findOne({ username });
@@ -497,7 +492,11 @@ const verifyUserCtrl = async (req, res) => {
       { new: true }
     );
 
-    await mailSender(user?.email, "TradeGyan Solution", accountVerifiedEmail(username, password));
+    await mailSender(
+      user?.email,
+      "TradeGyan Solution",
+      accountVerifiedEmail(username, password)
+    );
     return res.status(201).json({
       success: true,
       message: "User verified successfully",
@@ -512,7 +511,11 @@ const verifyUserCtrl = async (req, res) => {
   }
 };
 
-
-
-
-module.exports = { registerCtrl, loginCtrl, sendMessageCtrl, fetchMyProfile, getSingleUserCtrl, verifyUserCtrl };
+module.exports = {
+  registerCtrl,
+  loginCtrl,
+  sendMessageCtrl,
+  fetchMyProfile,
+  getSingleUserCtrl,
+  verifyUserCtrl,
+};

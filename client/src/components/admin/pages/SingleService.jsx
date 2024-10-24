@@ -58,19 +58,19 @@ function SingleServiceAdmin() {
                             <div className="flex items-center justify-between">
                                 <div>
                                     <h3 className="text-lg font-bold text-gray-700">
-                                        {enrollment.user.name}
+                                        {enrollment?.user?.name}
                                     </h3>
-                                    <p className="text-gray-500">{enrollment.user.email}</p>
+                                    <p className="text-gray-500">{enrollment?.user?.email}</p>
                                 </div>
                                 <div className="text-right">
                                     <p className="text-gray-600 flex items-center">
                                         <FaCalendarAlt className="mr-2" />
-                                        <span>Enrolled On: {new Date(enrollment.enrollmentDate).toLocaleDateString()}</span>
+                                        <span>Enrolled On: {new Date(enrollment?.enrollmentDate).toLocaleDateString()}</span>
                                     </p>
                                     <p className="text-gray-600 flex items-center">
                                         <FaClock className="mr-2" />
                                         <span>
-                                            Expires In: {getPendingDays(enrollment.expirationDate)} days
+                                            Expires In: {getPendingDays(enrollment?.expirationDate)} days
                                         </span>
                                     </p>
                                 </div>

@@ -195,19 +195,15 @@ const Footer = () => {
 
           <p>
             Contact Details :+91 7771004878 E-Mail id :-
-            himanshu.muralia11@gmail.com
+            121@tradegyan.co
           </p>
           <p>Principal Officer Contact Details :+91 7771004878</p>
-          <p>E-Mail id :- himanshu.muralia11@gmail.com</p>
-          <p>
-            SEBI Registration Name: Himanshu Muralia Proprietor of Trade Gyan
-            Solutions
-          </p>
+          <p>E-Mail id :- 121@tradegyan.co</p>
+     
           <p>SEBI Registration Number: INA000008808</p>
           <p>Trade Name : TRADE GYAN SOLUTIONS</p>
           <p>Type of Registration : Individual.</p>
           <p>Validity of Registration- 31.03.2015 to Perpetual.</p>
-          <p>Principal / Compliance Officer - Himanshu Muralia</p>
           <p>
             SEBI Local Address :- Plot No.9, Sector C, Govindpura Industrial
             Area, J.K. Road, Bhopal, Madhya Pradesh, 462023
