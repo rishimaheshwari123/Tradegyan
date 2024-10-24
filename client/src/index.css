@@ -16,6 +16,7 @@ body {
   background-color: white;
   background: url("./assets/bgmain.gif") no-repeat center center fixed;
   background-size: cover; /* Makes the background image cover the whole viewport */
+  height: 100vh;
 }
 
 @keyframes marquee {
