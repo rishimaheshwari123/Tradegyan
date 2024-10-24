@@ -9,7 +9,7 @@ import {
   FaFacebookMessenger,
   FaPhone,
 } from "react-icons/fa";
-import { Link, useLocation } from "react-router-dom"; // Import Link and useLocation
+import { Link, NavLink, useLocation } from "react-router-dom"; // Import Link and useLocation
 
 const Footer = () => {
   const location = useLocation(); // Get the current URL path

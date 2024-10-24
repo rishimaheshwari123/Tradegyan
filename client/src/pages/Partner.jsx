@@ -37,7 +37,7 @@ const Partner = () => {
             backgroundImage: `url(https://static.vecteezy.com/system/resources/thumbnails/016/798/942/small_2x/contact-us-concept-business-man-consulting-customers-who-contact-us-call-center-service-customer-consulting-service-email-hotline-business-contact-digital-online-business-digital-service-photo.jpg)`,
           }}
         />
-        <div className="absolute bottom-2 z-50 text-[#fff5f5] font-semibold text-5xl bg-[#e2571a] p-1 rounded-2xl">
+        <div className="absolute bottom-2 z-10 text-[#fff5f5] font-semibold text-5xl bg-[#e2571a] p-1 rounded-2xl">
           Contact Us
         </div>
       </div>

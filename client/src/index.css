@@ -16,8 +16,6 @@ body {
   background-color: white;
   background: url("./assets/bgmain.gif") no-repeat center center fixed;
   background-size: cover; /* Makes the background image cover the whole viewport */
-  height: 100vh; /* Ensures the body takes the full height of the viewport */
-  margin: 0; /* Removes default margin */
 }
 
 @keyframes marquee {
@@ -158,12 +156,6 @@ body {
     transform: translateX(-100%); /* Move to the left */
   }
 }
-
-
-
-
-
-
 
 @keyframes blink {
   0% {
