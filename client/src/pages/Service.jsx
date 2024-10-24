@@ -74,6 +74,19 @@ const Service = () => {
           ))}
         </div>
       </div>
+
+      <div className="max-w-7xl mx-auto p-6">
+  <div className="bg-white shadow-md rounded-lg p-6">
+    <h2 className="text-lg font-semibold mb-4">“Free” Advice is more Expensive than “Fee” Advice</h2>
+    <p className="text-gray-700">
+      Clients should be rest assured that advice which is given to them is
+      unbiased, Fiduciary standard, transparent, SEBI Compliant, free from any
+      hidden charges or commissions, and backed by decades of investing and
+      financial planning experience of the team at Trade Gyan Solutions.
+    </p>
+  </div>
+</div>
+
     </div>
   );
 };
