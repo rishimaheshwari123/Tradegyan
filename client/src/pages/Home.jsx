@@ -25,17 +25,22 @@ const Home = () => {
       <Investment />
       {/* <StockTicker /> */}
       <br />
-      <br />
       <Opportunities />
       <br />
-      <br />
       <Helps />
+      <br />
       <Experience />
+      <br />
       <Resources />
+      <br />
       <OurEdge />
+      <br />
       <Banner />
+      <br />
       <LastBanner />
+      <br />
       <HomeQuote />
+      <br />
       <ComplaintTrends />
       {/* <Faq /> */}
     </div>

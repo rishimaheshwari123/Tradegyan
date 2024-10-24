@@ -34,7 +34,7 @@ const Resources = () => {
         <h2 className="text-4xl font-bold text-black">
           Essential Resources for Every Trader
         </h2>
-        <p className="text-[#0afc3e] mt-2">
+        <p className="text-black mt-2">
           With years of experience and a wealth of knowledge at your fingertips,
           we’re here to support your trading journey.
         </p>

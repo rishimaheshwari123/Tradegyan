@@ -28,7 +28,7 @@ const OurEdge = () => {
         {/* For mobile view */}
         <div className="lg:hidden text-center w-full my-10">
           <p className="text-3xl lg:text-4xl font-bold">Our Edge</p>
-          <p className="mt-4 text-lg lg:text-xl text-[#0afc3e]">
+          <p className="mt-4 text-lg lg:text-xl text-black]">
             Experience the confidence we bring to the trading world.
           </p>
         </div>
@@ -38,7 +38,11 @@ const OurEdge = () => {
 
           <div className="lg:min-h-[100px] min-h-[90px] absolute lg:min-w-[120px] min-w-[90px] max-w-[120px] lg:border-b-[40px] lg:border-l-[40px] border-b-[30px] border-l-[30px] border-[#F5C300] lg:-bottom-[10px] lg:-left-[60px] bottom-[35px] -left-[10px]"></div>
 
-          <img src={image} alt="Our Edge" className="lg:h-[82%] h-[80%] w-full object-cover" />
+          <img
+            src={image}
+            alt="Our Edge"
+            className="lg:h-[82%] h-[80%] w-full object-cover"
+          />
         </div>
 
         <div className="lg:w-[95%] mx-auto text-center lg:mt-0 mt-[0px]">
