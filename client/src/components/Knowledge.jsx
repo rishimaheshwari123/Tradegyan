@@ -86,7 +86,7 @@ const Knowledge = () => {
                   className="w-full h-48 object-cover"
                 />
                 {/* Title and description with hover effect */}
-                <p className="text-xl font-bold hover:text-blue-500">
+                <p className="text-xl font-bold hover:text-blue-500 text-center">
                   {currElem?.title}
                 </p>
                 <p className="text-[13px] hover:text-blue-500">
