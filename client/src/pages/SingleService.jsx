@@ -5,12 +5,12 @@ import Footer from "../components/comman/Footer";
 import TraderNavbar from "../components/comman/Navbar";
 import { BuyProduct } from "../services/operations/order";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const SingleService = () => {
   const [service, setService] = useState(null);
   const { id } = useParams();
-  const { token, user } = useSelector(state => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,17 +30,17 @@ const SingleService = () => {
   const enrollService = async () => {
     if (!token) {
       Swal.fire({
-        title: 'You need to login!',
+        title: "You need to login!",
         text: "Please log in to proceed with the enrollment.",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Login',
-        cancelButtonText: 'Cancel'
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Login",
+        cancelButtonText: "Cancel",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate('/client-login');
+          navigate("/client-login");
         }
       });
       return; // Exit if not logged in
@@ -61,7 +61,7 @@ const SingleService = () => {
           <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 space-y-6">
             {/* Part 1 - Title and Description */}
             <div className="border-b pb-4">
-              <h1 className="text-3xl font-bold text-blue-600 mb-4">
+              <h1 className="text-3xl font-bold text-black mb-4">
                 {service.serviceName}
               </h1>
               <p className="text-gray-600 text-lg">{service.description}</p>
@@ -127,11 +127,11 @@ const SingleService = () => {
             </div>
 
             {/* Subscription Button */}
-            <div className="text-center mt-6">
+            {/* <div className="text-center mt-6">
               <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition duration-300" onClick={enrollService}>
                 Subscribe Now
               </button>
-            </div>
+            </div> */}
           </div>
         ) : (
           <p className="text-center">Loading service details...</p>
