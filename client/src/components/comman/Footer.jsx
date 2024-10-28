@@ -203,9 +203,9 @@ const Footer = () => {
           <p>SEBI Registration Number: INA000008808</p>
           <p>Trade Name : TRADE GYAN SOLUTIONS</p>
           <p>Type of Registration : Individual.</p>
-          <p>Validity of Registration- 31.03.2015 to Perpetual.</p>
+          <p>Validity of Registration- Nov. 2017 to Perpetual.</p>
           <p>
-            SEBI Local Address :- Plot No.9, Sector C, Govindpura Industrial
+            Address :- Plot No.9, Sector C, Govindpura Industrial
             Area, J.K. Road, Bhopal, Madhya Pradesh, 462023
           </p>
           <p>

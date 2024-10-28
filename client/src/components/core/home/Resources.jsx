@@ -13,7 +13,7 @@ const Resources = () => {
     {
       title: "Strategic Insights",
       description:
-        "Access a wide array of trading strategies covering over 10,000 derivatives, all with competitive spreads.",
+        "Access a wide array of trading strategies covering over, all with competitive spreads.",
       buttonText: "Discover More",
       icon: <FaLightbulb className="text-4xl text-[#F5C300]" />,
       link: "/strategic-insights",

@@ -64,6 +64,7 @@ import VerifyUser from "./components/admin/pages/VerifyUser";
 import Articles from "./pages/Articles";
 import CurrentMonthComplaints from "./components/ComplainTracker";
 import CompaintTracker from "./components/admin/pages/CompaintTracker";
+import Whatsapp from "./components/comman/Whatsapp";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -275,6 +276,11 @@ const App = () => {
       </Routes>
 
       <Footer />
+
+      
+      <div className="fixed bottom-0 md:left-10 left-0 z-50">
+        <Whatsapp />
+      </div>
     </div>
   );
 };

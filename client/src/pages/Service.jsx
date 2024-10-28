@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { FaRupeeSign } from "react-icons/fa"; // Rupee icon
-import { AiOutlineCheckCircle } from "react-icons/ai"; // Check icon
+import { FaRupeeSign } from "react-icons/fa";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import { getAllService } from "../services/operations/auth";
 import { Link } from "react-router-dom";
 
@@ -21,80 +21,74 @@ const Service = () => {
   }, []);
 
   return (
-    <div id="services">
+    <div id="services" className="bg-gradient-to-br from-blue-50 to-green-50 py-10">
       <div className="p-8 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold mb-10 text-center text-gray-800">
-          Our Pricing
+        <h1 className="text-2xl md:text-3xl font-extrabold mb-10 text-center text-black">
+          Our Pricing Plans
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {services?.map((service) => (
             <Link
               to={`/trader/service/${service._id}`}
               key={service._id}
-              className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out flex flex-col overflow-hidden"
+              className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out flex flex-col overflow-hidden transform hover:-translate-y-2"
             >
-              {/* Rating Badge at the Top */}
-              <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+              {/* Rating Badge */}
+              <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md">
                 {service.rating}⭐
               </div>
 
-              {/* Main Content */}
+              {/* Card Content */}
               <div className="flex flex-col justify-between p-6">
-                {/* Icon and Service Name */}
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="w-14 h-14 bg-gray-200 rounded-full flex justify-center items-center">
-                    <FaRupeeSign className="text-green-500 text-2xl" />
+                  <div className="w-14 h-14 bg-blue-100 rounded-full flex justify-center items-center shadow-sm">
+                    <FaRupeeSign className="text-blue-600 text-3xl" />
                   </div>
-                  <h2 className="text-xl font-semibold text-blue-600">
+                  <h2 className="text-2xl font-semibold text-blue-700">
                     {service.serviceName}
                   </h2>
                 </div>
 
-                {/* Description */}
                 <p className="text-gray-600 mb-4 text-sm">
                   {service.description}
                 </p>
 
-                {/* Details Section */}
-                <div className="flex items-center justify-between border-t pt-4 mt-4 text-gray-700">
-                  <div className="text-left space-y-2">
-                    <div className="flex items-center space-x-2">
-                      <FaRupeeSign className="text-green-500" />
-                      <span className="font-bold">
-                        ₹{service.minInvestment}
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <AiOutlineCheckCircle className="text-green-500" />
-                      <span>Low Volatility</span>
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      <span>by {service.advisorName}</span>
-                    </div>
+                {/* Pricing and Details */}
+                <div className="flex flex-col items-start border-t pt-4 mt-4 space-y-2 text-gray-700">
+                  <div className="flex items-center space-x-2">
+                    <FaRupeeSign className="text-green-600" />
+                    <span className="font-bold text-lg">₹{service.minInvestment}</span>
+                    <span className="text-sm text-gray-500">/ {service?.duration}</span>
                   </div>
-
-                  {/* Bottom Button */}
-                  <div className="bg-yellow-600 text-white px-4 py-2 rounded-lg text-center">
-                    <span className="text-sm font-semibold">1 Year</span>
+                  <div className="flex items-center space-x-2">
+                    <AiOutlineCheckCircle className="text-green-600" />
+                    <span>Low Volatility</span>
+                  </div>
+                  <div className="text-sm text-[#686767] font-semibold">
+                    By :- <span className="4"> {service.advisorName}</span>
                   </div>
                 </div>
+              </div>
+
+              {/* Hover "Know More" Button */}
+              <div className="absolute inset-0 bg-blue-800 bg-opacity-75 opacity-0 hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                <span className="text-white text-lg font-semibold">Know More</span>
               </div>
             </Link>
           ))}
         </div>
       </div>
 
+      {/* Additional Information Section */}
       <div className="max-w-7xl mx-auto p-6">
-        <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-lg font-semibold mb-4">
+        <div className="bg-white shadow-md rounded-lg p-6 text-center">
+          <h2 className="text-lg font-semibold mb-4 text-blue-800">
             “Free” Advice is more Expensive than “Fee” Advice
           </h2>
           <p className="text-gray-700">
-            Clients should be rest assured that advice which is given to them is
-            unbiased, Fiduciary standard, transparent, SEBI Compliant, free from
-            any hidden charges or commissions, and backed by decades of
-            investing and financial planning experience of the team at Trade
-            Gyan Solutions.
+            Clients should be rest assured that advice given to them is unbiased,
+            transparent, SEBI Compliant, free from any hidden charges or commissions,
+            and backed by the extensive experience of the team at Trade Gyan Solutions.
           </p>
         </div>
       </div>

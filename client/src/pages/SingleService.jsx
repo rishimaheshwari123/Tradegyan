@@ -58,83 +58,84 @@ const SingleService = () => {
       <TraderNavbar />
       <div className="p-4 sm:p-6">
         {service ? (
-          <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 space-y-6">
-            {/* Part 1 - Title and Description */}
+          <div className="max-w-4xl mx-auto bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-lg p-8 space-y-6">
+            {/* Title and Description */}
             <div className="border-b pb-4">
-              <h1 className="text-3xl font-bold text-black mb-4">
+              <h1 className="text-4xl font-bold text-blue-700 mb-4">
                 {service.serviceName}
               </h1>
-              <p className="text-gray-600 text-lg">{service.description}</p>
+              <p className="text-gray-700 text-lg">{service.description}</p>
             </div>
 
-            {/* Part 2 - Service Details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Service Details Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-700">
               <div>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Category: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Category: </span>
                   {service.serviceCategory}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Price: </span>₹{service.price}
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Price: </span>₹{service.price}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Duration: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Duration: </span>
                   {service.duration}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Available Plans: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Available Plans: </span>
                   {service.availablePlans}
                 </p>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Advisor Name: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Advisor Name: </span>
                   {service.advisorName}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Rating: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Rating: </span>
                   {service.rating}⭐
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Target Audience: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Target Audience: </span>
                   {service.targetAudience}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Risk Level: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Risk Level: </span>
                   {service.riskLevel}
                 </p>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Investment Type: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Investment Type: </span>
                   {service.investmentType}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Minimum Investment: </span>₹
-                  {service.minInvestment}
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Minimum Investment: </span>₹{service.minInvestment}
                 </p>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Maximum Investment: </span>₹
-                  {service.maxInvestment}
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Maximum Investment: </span>₹{service.maxInvestment}
                 </p>
               </div>
               <div>
-                <p className="font-semibold text-gray-700">
-                  <span className="font-bold">Availability: </span>
+                <p className="font-semibold">
+                  <span className="font-bold text-gray-800">Availability: </span>
                   {service.serviceAvailability ? "Available" : "Unavailable"}
                 </p>
               </div>
             </div>
 
             {/* Subscription Button */}
-            {/* <div className="text-center mt-6">
-              <button className="bg-green-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-500 transition duration-300" onClick={enrollService}>
+            {/* <div className="text-center mt-8">
+              <button
+                className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 transform hover:scale-105 shadow-md"
+                onClick={enrollService}
+              >
                 Subscribe Now
               </button>
             </div> */}
           </div>
         ) : (
-          <p className="text-center">Loading service details...</p>
+          <p className="text-center text-gray-500">Loading service details...</p>
         )}
       </div>
       <Footer />
