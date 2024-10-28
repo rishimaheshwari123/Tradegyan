@@ -23,7 +23,7 @@ const Opportunities = () => {
           <p className="lg:text-5xl text-3xl font-bold mb-4 text-black text-center lg:text-start">
             Diverse Investment Opportunities, Tailored for You
           </p>
-          <p className="text-black mb-8 lg:text-xl text-lg text-center lg:text-start">
+          <p className="text-black mb-8 lg:text-2xl text-sm text-center lg:text-start">
             Discover a variety of financial products that empower you to make informed investment decisions.
           </p>
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-6">

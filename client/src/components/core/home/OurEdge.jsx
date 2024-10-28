@@ -4,31 +4,31 @@ import image from "../../../assets/our-edge-img.png";
 
 const edge = [
   {
-    icon: <FaStar className="lg:text-5xl text-3xl text-[#F5C300]" />, // Made icon responsive
+    icon: <FaStar className="lg:text-5xl text-3xl text-[#F5C300]" />,
     text: "10+ Years of Expertise",
   },
   {
-    icon: <FaShieldAlt className="lg:text-5xl text-3xl text-[#F5C300]" />, // Made icon responsive
+    icon: <FaShieldAlt className="lg:text-5xl text-3xl text-[#F5C300]" />,
     text: "Fully Licensed & Regulated",
   },
   {
-    icon: <FaHeadset className="lg:text-5xl text-3xl text-[#F5C300]" />, // Made icon responsive
+    icon: <FaHeadset className="lg:text-5xl text-3xl text-[#F5C300]" />,
     text: "Dedicated Support 24/7",
   },
   {
-    icon: <FaChartLine className="lg:text-5xl text-3xl text-[#F5C300]" />, // Made icon responsive
+    icon: <FaChartLine className="lg:text-5xl text-3xl text-[#F5C300]" />,
     text: "Comprehensive Research & Analysis",
   },
 ];
 
 const OurEdge = () => {
   return (
-    <div className="lg:w-[80%] w-11/12 mx-auto text-black mt-10">
+    <div className="lg:w-[80%] w-11/12 mx-auto text-black lg:mt-10 ">
       <div className="grid lg:grid-cols-2 flex-wrap">
         {/* For mobile view */}
         <div className="lg:hidden text-center w-full my-10">
           <p className="lg:text-5xl text-3xl font-bold">Our Edge</p>
-          <p className="mt-4 text-lg lg:text-xl text-black">
+          <p className="mt-4 lg:text-2xl text-sm text-black">
             Experience the confidence we bring to the trading world.
           </p>
         </div>
@@ -49,20 +49,20 @@ const OurEdge = () => {
           {/* For larger screens */}
           <div className="hidden lg:block">
             <p className="lg:text-5xl text-3xl font-bold">Our Edge</p>
-            <p className="mt-4 text-xl ">
+            <p className="mt-4 text-xl">
               Experience the confidence we bring to the trading world.
             </p>
           </div>
 
-          <div>
-            <ul className="grid grid-cols-2 gap-6 md:gap-10">
+          <div className="">
+            <ul className="grid grid-cols-2 gap-8 md:gap-12">
               {edge.map((ele, ind) => (
                 <li
                   key={ind}
-                  className="w-[80px] md:w-[100px] text-[12px] md:text-[14px] lg:text-[16px] text-center flex items-center flex-col mt-[40px] md:mt-[60px] hover:scale-105 transition-transform"
+                  className="w-[100px] md:w-[120px] text-[12px] md:text-[14px] lg:text-[16px] text-center flex items-center flex-col mt-[40px] md:mt-[60px] hover:scale-105 transition-transform space-y-2"
                 >
-                  <div className="mb-2">{ele.icon}</div>
-                  <p className="text-black">{ele.text}</p>
+                  <div className="mb-4">{ele.icon}</div>
+                  <p className="text-black leading-relaxed">{ele.text}</p>
                 </li>
               ))}
             </ul>

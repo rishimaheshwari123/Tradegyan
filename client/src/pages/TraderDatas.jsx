@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Notification from "../components/core/home/Notification";
 import Navbar from "../components/comman/Navbar";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { maindata } from "../data/traderData"; // Import your data
 
 function TraderDatas() {
@@ -49,11 +49,11 @@ function TraderDatas() {
               </h1>
               <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${traderData.length} gap-6`}>
                 {traderData.map((item, index) => (
-                  <a key={index} href={item.path} className="block">
+                  <Link key={index} to={item.path} className="block">
                     <button className="bg-gradient-to-r from-blue-500 to-red-500 text-white py-4 px-6 rounded-lg font-semibold transition-transform transform hover:scale-105 hover:from-blue-600 hover:to-red-600 w-full">
                       {item.name}
                     </button>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

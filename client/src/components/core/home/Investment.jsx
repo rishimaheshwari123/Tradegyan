@@ -26,7 +26,7 @@ const Investment = () => {
             {/* Larger font size on desktop */}
             For Investors
           </h3>
-          <p className="text-gray-600 text-base md:text-lg mb-6">
+          <p className="text-gray-600 text-sm md:text-lg mb-6">
             {/* Slightly larger text for the description */}
             Explore tools to grow your investment portfolio.
           </p>
@@ -50,7 +50,7 @@ const Investment = () => {
             {/* Larger font size on desktop */}
             For Traders
           </h3>
-          <p className="text-gray-600 text-base md:text-lg mb-6">
+          <p className="text-gray-600 text-sm md:text-lg mb-6">
             Discover advanced trading tools for the market.
           </p>
           <button

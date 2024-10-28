@@ -43,41 +43,59 @@ router.post('/conversation', auth, async (req, res) => {
 });
 
 const getUserConversations = async (req, res) => {
-  const userId = req.user.id; // User ID as a string
+  const userId = req.user.id;
 
   try {
     // Fetch conversations where the user is a participant
     const conversations = await Conversation.find({
       participants: userId
     }).populate({
-        path: 'participants',
-  select: 'name image'
-    }); // Assuming participants have 'name' field
+      path: 'participants',
+      select: 'name image'
+    });
 
     // Extract conversation IDs
     const conversationIds = conversations.map(conv => conv._id);
 
-    // Fetch chats related to these conversations
-    const chats = await Chat.find({
-      conversationId: { $in: conversationIds }
-    });
+    // Fetch the latest message and unread count for each conversation
+    const conversationDetails = await Promise.all(conversationIds.map(async (conversationId) => {
+      // Fetch the latest message for each conversation
+      const latestMessage = await Chat.findOne({ conversationId })
+        .sort({ createdAt: -1 })
+        .limit(1)
+        .lean();
 
-    // Compute unread counts manually
-    const conversationsWithUnreadCounts = conversations.map(conv => {
-      const conversationChats = chats.filter(chat => chat.conversationId.toString() === conv._id.toString());
-      const unreadCount = conversationChats.filter(chat => !chat.read && chat.sender.toString() !== userId).length;
+      // Count unread messages for the conversation
+      const unreadCount = await Chat.countDocuments({
+        conversationId,
+        read: false,
+        sender: { $ne: userId }
+      });
+
+      // Find the corresponding conversation
+      const conversation = conversations.find(conv => conv._id.toString() === conversationId.toString());
+
       return {
-        ...conv._doc, // Include conversation fields
+        ...conversation._doc, // Include conversation fields
+        latestMessage,
         unreadCount
       };
+    }));
+
+    // Sort conversations by the latest message timestamp in descending order
+    const sortedConversations = conversationDetails.sort((a, b) => {
+      const dateA = a.latestMessage ? new Date(a.latestMessage.createdAt) : new Date(0);
+      const dateB = b.latestMessage ? new Date(b.latestMessage.createdAt) : new Date(0);
+      return dateB - dateA;
     });
 
-    res.status(200).json(conversationsWithUnreadCounts);
+    res.status(200).json(sortedConversations);
   } catch (error) {
-    console.error('Error fetching conversations:', error); // Log the full error for debugging
-    res.status(500).json({ message: 'Error fetching conversations hahah', error });
+    console.error('Error fetching conversations:', error);
+    res.status(500).json({ message: 'Error fetching conversations', error });
   }
 };
+
 
 
 
@@ -120,12 +138,14 @@ router.get('/conversationId/:participantId', auth, async (req, res) => {
   const userId = req.user.id; // Current logged-in user ID
   const { participantId } = req.params; // The participant's ID from the request parameters
 
-  console.log("aagya")
+  console.log("aagya");
   try {
     // Find a conversation that involves both the user and the participant
     const conversation = await Conversation.findOne({
       participants: { $all: [userId, participantId] }
-    });
+    })
+      .sort({ createdAt: -1 }) // Sort by createdAt in descending order
+      .limit(100); // Limit the result to 100
 
     if (!conversation) {
       return res.status(404).json({ message: 'No conversation found between the users.' });
@@ -138,6 +158,7 @@ router.get('/conversationId/:participantId', auth, async (req, res) => {
     res.status(500).json({ message: 'Error fetching conversation', error });
   }
 });
+
 
 
 router.get('/serach',searchUsers)

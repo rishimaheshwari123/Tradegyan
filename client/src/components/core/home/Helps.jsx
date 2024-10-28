@@ -17,7 +17,7 @@ const Helps = () => {
           <h2 className="lg:text-5xl text-3xl font-semibold text-black">
             Elevate Your Investment Strategy
           </h2>
-          <p className="text-xl text-black">
+          <p className="lg:text-2xl text-sm text-black">
             Gain clarity and confidence with our expert insights and research.
           </p>
           <Link

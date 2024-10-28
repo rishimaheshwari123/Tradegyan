@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import kno from "../assets/kno.png";
 import k1 from "../assets/boomberg.png";
 import k2 from "../assets/invest.jpeg";
-import k3 from "../assets/ret.jpg";
+import k3 from "../assets/Reuters-paywall.jpg";
 
 const Knowledge = () => {
   const blog = [
@@ -28,7 +28,7 @@ const Knowledge = () => {
       type: "news",
       link: "https://www.reuters.com",
       image: k3,
-      title: "Returns",
+      title: "Reuters",
       desc: "Find latest news from every corner of the globe at Reuters.com, your online source for breaking international news coverage.",
     },
   ];

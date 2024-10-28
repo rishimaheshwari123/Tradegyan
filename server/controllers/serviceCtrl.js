@@ -64,20 +64,24 @@ const createService = async (req, res) => {
 
 
 const getAllService = async (req, res) => {
-    try {
-        const services = await Service.find({});
-        return res.status(200).json({
-            success: true,
-            services
-        })
+  try {
+      const services = await Service.find({})
+          .sort({ createdAt: -1 }) // Sort by createdAt in descending order
+          .limit(100); // Limit results to 100
 
-    } catch (error) {
-        return res.status(500).json({
-            message: "Error in getting all services",
-            success: false
-        })
-    }
-}
+      return res.status(200).json({
+          success: true,
+          services
+      });
+
+  } catch (error) {
+      return res.status(500).json({
+          message: "Error in getting all services",
+          success: false
+      });
+  }
+};
+
 
 
 const getSingleService = async (req, res) => {
