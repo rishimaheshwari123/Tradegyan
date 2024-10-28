@@ -10,7 +10,7 @@ import {
 
 const Experience = () => {
   return (
-    <div className="py-16 bg-cover bg-center relative text-center lg:text-start">
+    <div className=" bg-cover bg-center relative text-center lg:text-start ">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5">
         <div className="first">
           <p className="lg:text-5xl text-3xl font-bold mb-4 text-black">

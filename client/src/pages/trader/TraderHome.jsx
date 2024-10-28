@@ -25,7 +25,7 @@ const TraderHome = () => {
       <TradingTips />
       {/* <WhoWeAre /> */}
       <Service />
-      <ScrollingBanner />
+      {/* <ScrollingBanner /> */}
     </div>
   );
 };

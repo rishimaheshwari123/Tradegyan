@@ -1,6 +1,6 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
-
+import shares from '../../../assets/shares22.png'
 const Financial = () => {
   return (
     <div>
@@ -91,15 +91,19 @@ const Financial = () => {
             </ul>
           </div>
           <img
-            src="https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/shares.png"
-            alt="Shares"
-          />
+  src={shares}
+  alt="Shares"
+  className=" lg:ml-24 lg:mt-0 mt-8 w-[80%]"
+
+  style={{ filter: 'grayscale(100%)' }}
+/>
+
         </div>
         <p className=" text-center text-3xl lg:text-5xl font-bold p-5">
           Share Baskets
         </p>
-        <div className="grid lg:grid-cols-2 max-w-7xl mx-auto p-5 mt-10">
-          <div>
+        <div className="grid lg:grid-cols-2 max-w-7xl mx-auto p-5 mt-10 ">
+          <div >
             <p>
               <span>
                 Ride the next big trend with share baskets, these thematic
@@ -119,6 +123,7 @@ const Financial = () => {
           <img
             src="https://d10t455z86w23i.cloudfront.net/public/uploads/editor-images/images/share-basket/sb-icon-markets-b.png"
             alt="Shares"
+            className=" lg:ml-24 lg:mt-0 mt-8"
           />
         </div>
       </div>

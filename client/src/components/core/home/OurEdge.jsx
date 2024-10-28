@@ -27,8 +27,8 @@ const OurEdge = () => {
       <div className="grid lg:grid-cols-2 flex-wrap">
         {/* For mobile view */}
         <div className="lg:hidden text-center w-full my-10">
-          <p className="text-3xl lg:text-4xl font-bold">Our Edge</p>
-          <p className="mt-4 text-lg lg:text-xl text-black]">
+          <p className="lg:text-5xl text-3xl font-bold">Our Edge</p>
+          <p className="mt-4 text-lg lg:text-xl text-black">
             Experience the confidence we bring to the trading world.
           </p>
         </div>
@@ -48,8 +48,8 @@ const OurEdge = () => {
         <div className="lg:w-[95%] mx-auto text-center lg:mt-0 mt-[0px]">
           {/* For larger screens */}
           <div className="hidden lg:block">
-            <p className="text-4xl font-bold">Our Edge</p>
-            <p className="mt-4 text-xl text-[#0afc3e]">
+            <p className="lg:text-5xl text-3xl font-bold">Our Edge</p>
+            <p className="mt-4 text-xl ">
               Experience the confidence we bring to the trading world.
             </p>
           </div>
