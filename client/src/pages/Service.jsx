@@ -22,53 +22,62 @@ const Service = () => {
 
   return (
     <div id="services">
-      <div className="p-6 max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold mb-6 text-center">Our Pricing</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="p-8 max-w-7xl mx-auto">
+        <h1 className="text-3xl font-bold mb-10 text-center text-gray-800">
+          Our Pricing
+        </h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services?.map((service) => (
             <Link
               to={`/trader/service/${service._id}`}
               key={service._id}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6 flex flex-col justify-between items-start"
+              className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out flex flex-col overflow-hidden"
             >
-              {/* Left Side - Icon and Service Details */}
-              <div className="flex items-start w-full">
-                <div className="mr-4">
-                  {/* Placeholder for Service Icon/Image */}
-                  <div className="w-16 h-16 bg-gray-200 rounded-lg flex justify-center items-center">
-                    <FaRupeeSign className="text-green-500 text-3xl" />
+              {/* Rating Badge at the Top */}
+              <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold z-10">
+                {service.rating}⭐
+              </div>
+
+              {/* Main Content */}
+              <div className="flex flex-col justify-between p-6">
+                {/* Icon and Service Name */}
+                <div className="flex items-center space-x-4 mb-4">
+                  <div className="w-14 h-14 bg-gray-200 rounded-full flex justify-center items-center">
+                    <FaRupeeSign className="text-green-500 text-2xl" />
                   </div>
-                </div>
-                <div className="flex-1">
-                  <h2 className="text-xl sm:text-2xl font-semibold text-blue-600 mb-2">
+                  <h2 className="text-xl font-semibold text-blue-600">
                     {service.serviceName}
                   </h2>
-                  <p className="text-gray-600 mb-4 text-sm sm:text-base">
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap items-center space-x-4">
-                    <div className="flex items-center text-gray-600">
-                      <FaRupeeSign className="text-green-500 mr-1" />
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-600 mb-4 text-sm">
+                  {service.description}
+                </p>
+
+                {/* Details Section */}
+                <div className="flex items-center justify-between border-t pt-4 mt-4 text-gray-700">
+                  <div className="text-left space-y-2">
+                    <div className="flex items-center space-x-2">
+                      <FaRupeeSign className="text-green-500" />
                       <span className="font-bold">
                         ₹{service.minInvestment}
                       </span>
                     </div>
-                    <div className="flex items-center text-gray-600">
-                      <AiOutlineCheckCircle className="text-green-500 mr-1" />
+                    <div className="flex items-center space-x-2">
+                      <AiOutlineCheckCircle className="text-green-500" />
                       <span>Low Volatility</span>
                     </div>
-                    <div className="flex items-center text-gray-600">
+                    <div className="text-sm text-gray-500">
                       <span>by {service.advisorName}</span>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              {/* Right Side - Badge */}
-              <div className="text-center bg-green-500 text-white px-4 py-2 rounded-full mt-4 w-full">
-                <span className="text-sm font-semibold">1 Year CAGR</span>
-                <span className="mx-2">|</span>
-                <span className="text-lg font-bold">{service.rating}⭐</span>
+                  {/* Bottom Button */}
+                  <div className="bg-yellow-600 text-white px-4 py-2 rounded-lg text-center">
+                    <span className="text-sm font-semibold">1 Year</span>
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
@@ -76,17 +85,19 @@ const Service = () => {
       </div>
 
       <div className="max-w-7xl mx-auto p-6">
-  <div className="bg-white shadow-md rounded-lg p-6">
-    <h2 className="text-lg font-semibold mb-4">“Free” Advice is more Expensive than “Fee” Advice</h2>
-    <p className="text-gray-700">
-      Clients should be rest assured that advice which is given to them is
-      unbiased, Fiduciary standard, transparent, SEBI Compliant, free from any
-      hidden charges or commissions, and backed by decades of investing and
-      financial planning experience of the team at Trade Gyan Solutions.
-    </p>
-  </div>
-</div>
-
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h2 className="text-lg font-semibold mb-4">
+            “Free” Advice is more Expensive than “Fee” Advice
+          </h2>
+          <p className="text-gray-700">
+            Clients should be rest assured that advice which is given to them is
+            unbiased, Fiduciary standard, transparent, SEBI Compliant, free from
+            any hidden charges or commissions, and backed by decades of
+            investing and financial planning experience of the team at Trade
+            Gyan Solutions.
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

@@ -12,10 +12,9 @@
 html,
 body {
   overflow-x: hidden;
-  /* font-family: "Playfair Display", serif; */
   background-color: white;
   background: url("./assets/bgmain.gif") no-repeat center center fixed;
-  background-size: cover; /* Makes the background image cover the whole viewport */
+  background-size: cover;
   height: 100vh;
 }
 
