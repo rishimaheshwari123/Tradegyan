@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaUserTie, FaChartLine } from "react-icons/fa";
 
 const Investment = () => {
@@ -36,6 +36,12 @@ const Investment = () => {
           >
             Explore Investor Tools
           </button>
+          <Link
+            className="bg-[#44e235] text-black py-2 px-6 rounded-full font-medium text-sm md:text-base hover:bg-[#8a2a2a] transition-colors"
+           to="https://onboarding.dashboardfinreport.com/TradeGyan/onb_process.aspx?a=t830uy5QEhGwzE+RR1buWS3drG1f1V/0LDkpH9b1rKY=&p=" target="_blank"
+          >
+          Subcribe Now
+          </Link>
         </div>
 
         {/* Trader Section */}
