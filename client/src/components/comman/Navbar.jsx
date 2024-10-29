@@ -131,15 +131,18 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
+                {user?.role === "user" && (
+                  <li>
+                    <Link
+                      to="https://onboarding.dashboardfinreport.com/TradeGyan/onb_process.aspx?a=t830uy5QEhGwzE+RR1buWS3drG1f1V/0LDkpH9b1rKY=&p="
+                      className="px-2 py-2 font-bold bg-red-500 text-white rounded"
+                    >
+                      Subscribe Now
+                    </Link>
+                  </li>
+                )}
 
-                <li>
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 font-bold bg-red-500 text-white rounded"
-                  >
-                    Logout
-                  </button>
-                </li>
+              
               </>
             ) : (
               <li>
@@ -152,7 +155,7 @@ const Navbar = () => {
               </li>
             )}
 
-            <li className="bg-green-500 px-8 py-2 rounded-full text-white">
+            {/* <li className="bg-green-500 px-8 py-2 rounded-full text-white">
               <a
                 href="https://wa.me/+917771004878"
                 target="_blank"
@@ -160,7 +163,7 @@ const Navbar = () => {
               >
                 <FaWhatsapp size={28} />
               </a>
-            </li>
+            </li> */}
         {
           token && user?.role ==="user" &&     <li
               className="flex items-center space-x-2 cursor-pointer border-2 p-4 rounded-full"
