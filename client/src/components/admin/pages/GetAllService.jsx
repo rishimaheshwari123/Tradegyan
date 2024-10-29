@@ -6,13 +6,22 @@ import { AiOutlineMessage } from "react-icons/ai"; // Import SMS icon
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'; 
 import axios from "axios";
-
+import { enrolledUser } from "../../../services/operations/order";
+import {useSelector} from "react-redux"
+import EnrollmentForm from "../EnrolledForm";
 const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
 
 const GetAllService = () => {
   const [services, setServices] = useState([]);
   const [showGlobalModal, setShowGlobalModal] = useState(false);
+  const [enrolledModel, setEnrolledModel] = useState(false);
+  const{token} = useSelector(state=>state.auth)
   const [selectedServiceId, setSelectedServiceId] = useState(null);
+  const [selectedServiceName, setSelectedServiceName] = useState("");
+
+  const [minimun, setMinum] = useState(0)
+  const [maxmium, setmaximum] = useState(0)
+
   const [globalMessage, setGlobalMessage] = useState("");
   const [sendVia, setSendVia] = useState({
     whatsapp: false,
@@ -71,6 +80,8 @@ const GetAllService = () => {
     }
   };
 
+
+  
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Our Services</h1>
@@ -115,6 +126,18 @@ const GetAllService = () => {
                 className="bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition duration-200"
               >
                 Send Message
+              </button>
+              <button
+                onClick={() => {
+                  setEnrolledModel(true);
+                  setSelectedServiceId(service?._id);
+                  setSelectedServiceName(service?.serviceName);
+                  setMinum(service.minInvestment ? Number(service.minInvestment) : 0);
+                  setmaximum(service.maxInvestment ? Number(service.maxInvestment) : 0);
+                }}
+                className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+              >
+                Enrolled
               </button>
             </div>
           </div>
@@ -183,6 +206,13 @@ const GetAllService = () => {
           </div>
         </div>
       )}
+
+
+
+
+      {
+       ( enrolledModel && selectedServiceId && selectedServiceName) && <EnrollmentForm serviceId={selectedServiceId} serviceName={selectedServiceName} onClose={setEnrolledModel} minimun={minimun} maxmium={maxmium}  />
+      }
     </div>
   );
 };

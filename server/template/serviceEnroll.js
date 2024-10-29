@@ -94,12 +94,12 @@ const paymentSuccessEmail = (
                     <p><span class="highlight">Expiration Date:</span> ${expirationDate}</p>
                     <p>Thank you for choosing our services! If you have any questions, feel free to reach out.</p>
                 </div>
-                // <a href="http://localhost:3000" class="cta">Visit Your Dashboard</a>
+                
             </div>
             <div class="support">If you need further assistance, please contact our support team.</div>
         </div>
     </body>
-    
+
     </html>
     `;
 };

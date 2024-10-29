@@ -2,7 +2,7 @@ const Service = require('../models/serviceModel');
 const Auth = require("../models/authModel"); // Adjust the path as necessary
 const mailSender = require('../utils/mailSenderr');
 const { messageViaEmail } = require('../template/messageViaEmail');
-
+const axios = require("axios")
 const createService = async (req, res) => {
     try {
         const {
@@ -239,7 +239,7 @@ const sendServiceEnrolledMessage = async (req, res) => {
       // Send SMS
       if (sendVia.includes("sms") || sendVia.includes("both")) {
         try {
-          await sendSMS(user.phoneNumber, message); // Assuming sendSMS is defined
+          await sendSMS(user.contactNumber, message); // Assuming sendSMS is defined
           console.log(`SMS sent to ${user.phoneNumber}`);
         } catch (error) {
           console.error(`Failed to send SMS to ${user.phoneNumber}:`, error.message);
@@ -296,6 +296,37 @@ const sendEmail = async (recipientEmail, messageContent, name) => {
     }
   };
 
+
+  const sendSMS = async (contactNumber, messageContent) => {
+    // Utility function to sanitize the contact number
+    const sanitizeContactNumber = (number) => {
+      // Remove leading 0, +91, or 91
+      return number.replace(/^(0|\+91|91)/, '');
+    };
+  
+    // Sanitize the contact number
+    const sanitizedNumber = sanitizeContactNumber(contactNumber);
+  
+    const url = `http://mysms.msg24.in/api/mt/SendSMS`;
+    const params = {
+      apikey: "fhKQG4QS6kmRZoIzorwjJg", // Your API key
+      senderid: "TDGYAN",
+      channel: "trans",
+      DCS: 0,
+      flashsms: 0,
+      number: `91${sanitizedNumber}`, // Prepend country code
+      text: `TradeGyan option: {#var#} ${messageContent} CALL{#var#}{#var#} Call - {#var#} www.tradegyan.co`,
+      route: 8,
+    };
+  
+    try {
+      const response = await axios.get(url, { params });
+      console.log("SMS sent successfully:", response.data);
+    } catch (error) {
+      console.error("Error sending SMS:", error);
+    }
+  };
+  
 
 
 module.exports = {

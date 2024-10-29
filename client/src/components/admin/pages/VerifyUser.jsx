@@ -99,22 +99,9 @@ const VerifyUser = () => {
       const lowerCaseName = name.replace(/\s+/g, '').toLowerCase();
       const response = await verifyUserApi(lowerCaseName, password, selectedUser._id);
 
-      if (response?.success) {
-        setShowModal(false);
-        // Optionally refresh the user list or show a success message
-        await fetchUser(page, searchQuery, sortOrder,isVerifiedFilter === "all" ? undefined : isVerifiedFilter); // Refresh user list
-        Swal.fire({
-          title: "Success",
-          text: "User verified successfully!",
-          icon: "success",
-        });
-      } else {
-        Swal.fire({
-          title: "Error",
-          text: response?.message || "Failed to verify user.",
-          icon: "error",
-        });
-      }
+if(response){
+  setShowModal(false)
+}
     }
   };
 
@@ -212,7 +199,7 @@ const VerifyUser = () => {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center">
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg w-96 p-6">
             <h2 className="text-xl font-semibold mb-4">Verify User</h2>
             <div className="mb-4">

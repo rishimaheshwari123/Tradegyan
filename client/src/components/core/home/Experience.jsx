@@ -14,11 +14,9 @@ const Experience = () => {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5">
         <div className="first">
           <p className="lg:text-5xl text-3xl  font-bold  mb-4 text-black">
-            Transform Your Trading Journey
+            Transform Your Trading Journey  with Trade Gyan Solutions
           </p>
-          <p className="text-[#282e29] mb-8 lg:text-2xl text-sm">
-            with Trade Gyan Trader
-          </p>
+      
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
             {/* Market Insights */}
             <div className="text-center">
@@ -65,11 +63,11 @@ const Experience = () => {
               <p className="lg:text-sm text-xs text-white">Comprehensive Views</p>
             </div>
 
-            {/* Technical Analyses */}
+            {/* Technical Analysis */}
             <div className="text-center">
               <FaLaptopCode className="text-[#F5C300] lg:text-5xl text-3xl mx-auto" />
               <h4 className="lg:text-lg text-base   text-black">
-                Technical Analyses
+                Technical Analysis
               </h4>
               <p className="lg:text-sm text-xs text-white">In-Depth Insights</p>
             </div>

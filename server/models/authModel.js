@@ -61,10 +61,13 @@ const authSchema = new mongoose.Schema(
           type: Boolean,
           default: true,
         },
-        razorpay_order_id: { // Add this field
-          type: String,
-        },
-        razorpay_payment_id: { // Add this field
+        // razorpay_order_id: { // Add this field
+        //   type: String,
+        // },
+        // razorpay_payment_id: { // Add this field
+        //   type: String,
+        // },
+        transaction_id: { // Add this field
           type: String,
         },
         payable: { // Add this field

@@ -15,7 +15,7 @@ import Faq from "../components/core/home/Faq";
 import Notification from "../components/core/home/Notification";
 import StockTicker from "./GlobleMarket";
 import ComplaintTrends from "../components/ComplainTracker";
-const Home = () => {
+const Home = ({setShowModal}) => {
   return (
     <div>
       {/* <Notification /> */}
@@ -34,7 +34,7 @@ const Home = () => {
       <br />
       <OurEdge />
       <br />
-      <Banner />
+      <Banner setShowModal={setShowModal} />
       <br />
       <LastBanner />
       <br />

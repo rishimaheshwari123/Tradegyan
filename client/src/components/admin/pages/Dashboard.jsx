@@ -12,9 +12,7 @@ const Dashboard = () => {
   const [stats, setStats] = useState({
     totalUsers: 0,
     totalVisits: 0,
-    totalNews: 0,
-    totalCategories: 0,
-    totalSubCategories: 0,
+
   });
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 

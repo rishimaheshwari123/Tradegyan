@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import equity from '../../../../assets/services/quity.png'
 import two from '../../../../assets/services/commodity.png'
@@ -6,6 +6,16 @@ import three from '../../../../assets/services/agri.jpg'
 import four from '../../../../assets/services/forex.jpeg'
 const TradingTips = () => {
   
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash === '#services') {
+      const element = document.getElementById('services');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, []);
+
   const tipsData = [
     {
       title: "Equity Trading",
@@ -33,7 +43,11 @@ const TradingTips = () => {
     {
       title: "Forex",
       description:
-      "The Derivative Trading Tips Services Includes Intraday & Positional Future & Option, BTST Trading Advice, For Stocks Listed in NSE",
+      `           Currency derivatives are used for currency arbitrage or to hedge
+            against foreign exchange risks. Importers and exporters use them to
+            protect against domestic currency fluctuations. Currency derivatives
+            can be traded in currency pairs, such as USD/INR and EUR/INR, or
+            cross-currency pairs, such as EURUSD and GBPUSD. `,
       imgSrc: four,
       path: "/forex/forex",
     },
@@ -43,7 +57,7 @@ const TradingTips = () => {
 
 
 
-      <div className="container mx-auto my-10 px-4">
+      <div className="container mx-auto my-10 px-4" id="services">
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-10">
         Our Services
       </h2>

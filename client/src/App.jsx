@@ -65,33 +65,57 @@ import Articles from "./pages/Articles";
 import CurrentMonthComplaints from "./components/ComplainTracker";
 import CompaintTracker from "./components/admin/pages/CompaintTracker";
 import Whatsapp from "./components/comman/Whatsapp";
+import axios from "axios";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
   const [showModal, setShowModal] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
+
+
+  const visitAdd = async () => {
+    try {
+      const response = await axios.post(`${BASE_URL}/visit`);
+      
+    } catch (error) {
+      console.error('Failed to add visit record dashboard ', error);
+    }
+  };
   useEffect(() => {
     if (token) {
       dispatch(fetchMyProfile(token, navigate));
     }
+
+    if (user?.role !== "Admin" && user?.role !== "SuperAdmin") {
+      visitAdd();
+    }
   }, [token]);
   useSocket();
 
-  useEffect(() => {
-    setShowModal(true);
-  }, []);
+  // useEffect(() => {
+  //   setShowModal(true);
+  // }, []);
 
-  const handleCloseModal = () => {
+  function handleCloseModal() {
+    console.log("Modal state before toggle:", showModal);
     setShowModal(false);
+  }
+  
+
+
+  function handleModel ()  {
+    setShowModal(!showModal); // Toggle modal visibility
+    console.log("Modal state after toggle:", !showModal);
   };
   return (
     <div className="min-w-screen min-h-screen">
       <Notification />
-      {showModal && <Complain onClose={handleCloseModal} />}
+      {showModal && <Complain onClose={handleCloseModal} showModal={showModal} />}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home setShowModal={handleModel} />} />
         <Route path="/complain" element={<CurrentMonthComplaints />} />
      
         <Route path="/partner" element={<Partner />} />

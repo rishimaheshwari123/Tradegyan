@@ -3,8 +3,9 @@ import { toast } from "react-toastify";
 import { apiConnector } from "../apiConnector";
 import { paymentEndpoints } from "../apis";
 import rzpLogo from "../../assets/logo.jpg";
+import Swal from "sweetalert2";
 
-const { PRODUCT_PAYMENT_API, PRODUCT_VERIFY_API } = paymentEndpoints;
+const { PRODUCT_PAYMENT_API, PRODUCT_VERIFY_API,ENROLLED_USER_API } = paymentEndpoints;
 
 // Load the Razorpay SDK from the CDN
 function loadScript(src) {
@@ -126,3 +127,46 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
   toast.dismiss(toastId);
   // dispatch(setPaymentLoading(false))
 }
+
+
+
+
+
+
+
+export const enrolledUser = async (data, token) => {
+  Swal.fire({
+    title: "Loading",
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    showConfirmButton: false,
+    didOpen: () => {
+      Swal.showLoading();
+    },
+  });
+
+  try {
+    const response = await apiConnector("POST", ENROLLED_USER_API, data, {
+ 
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+   
+    });
+
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    Swal.fire({
+      title: response?.data?.message,
+      icon: "success",
+    });
+    return response?.data?.success;
+  } catch (error) {
+    console.error("Error creating service:", error);
+    Swal.fire({
+      title: error?.response?.data?.message,
+      icon: "error",
+    });
+  }
+};

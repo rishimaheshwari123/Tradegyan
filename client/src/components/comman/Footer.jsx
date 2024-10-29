@@ -189,7 +189,7 @@ const Footer = () => {
         <div className="container mx-auto text-sm sm:text-base flex flex-col gap-2">
           <p>
             Copyright © 2017 Trade Gyan Solutions (Investment Advisor #
-            INA000008808)2024. All rights reserved. Himanshu Murlia, Proprietor
+            INA000008808)2024. All rights reserved. Himanshu Muralia, Proprietor
             of Trade Gyan Solutions.
           </p>
 

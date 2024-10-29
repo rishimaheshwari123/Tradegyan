@@ -9,6 +9,8 @@ const Resources = () => {
         "Enhance your trading skills with our comprehensive workshops and interactive webinars tailored for all levels.",
       buttonText: "Join Now",
       icon: <FaChalkboardTeacher className="text-4xl text-[#F5C300]" />,
+      link: "/trader#services",
+
     },
     {
       title: "Strategic Insights",
@@ -21,7 +23,7 @@ const Resources = () => {
     {
       title: "Resource Hub",
       description:
-        "Explore our extensive library filled with articles, videos, and market analyses to stay informed.",
+        "Explore our extensive library filled with articles, videos, and market Analysis to stay informed.",
       buttonText: "Explore Now",
       icon: <FaBookOpen className="text-4xl text-[#F5C300]" />,
       link: "/resource-hub",

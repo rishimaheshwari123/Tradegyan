@@ -33,6 +33,7 @@ export const adminApis = {
 export const paymentEndpoints = {
   PRODUCT_PAYMENT_API: BASE_URL + "/order/capturePayment",
   PRODUCT_VERIFY_API: BASE_URL + "/order/verifyPayment",
+  ENROLLED_USER_API: BASE_URL + "/order/enrolledUser",
 
 
   // Get all orders

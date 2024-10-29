@@ -87,18 +87,7 @@ const SingleService = () => {
                 </p>
               </div>
               <div>
-                <p className="font-semibold">
-                  <span className="font-bold text-gray-800">Advisor Name: </span>
-                  {service.advisorName}
-                </p>
-                <p className="font-semibold">
-                  <span className="font-bold text-gray-800">Rating: </span>
-                  {service.rating}⭐
-                </p>
-                <p className="font-semibold">
-                  <span className="font-bold text-gray-800">Target Audience: </span>
-                  {service.targetAudience}
-                </p>
+            
                 <p className="font-semibold">
                   <span className="font-bold text-gray-800">Risk Level: </span>
                   {service.riskLevel}

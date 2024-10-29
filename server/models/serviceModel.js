@@ -82,13 +82,16 @@ const serviceSchema = new mongoose.Schema(
           type: Date,
           required: true,
         },
-        razorpay_order_id: { // Add this field
+        // razorpay_order_id: { // Add this field
+        //   type: String,
+        //   required: true,
+        // },
+        // razorpay_payment_id: { // Add this field
+        //   type: String,
+        //   required: true,
+        // },
+        transaction_id: { // Add this field
           type: String,
-          required: true,
-        },
-        razorpay_payment_id: { // Add this field
-          type: String,
-          required: true,
         },
         payable: { // Add this field
           type: Number,

@@ -25,7 +25,7 @@ const WhyWorkWithUs = () => {
             Experience
           </h3>
           <p className="mt-2 text-base md:text-lg text-gray-700">
-            Tradegyan Solutions Private Limited has over 20 years of experience
+            Tradegyan Solutions has over 10 years of experience
             in the financial advisory domain.
           </p>
         </div>

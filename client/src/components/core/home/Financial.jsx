@@ -116,7 +116,7 @@ const Financial = () => {
               <br />
               <span>
                 Take advantage of the growth potential from emerging industries,
-                such as autonomous driving and cyber security.
+              
               </span>
             </p>
           </div>
@@ -152,7 +152,7 @@ const Financial = () => {
             </span>
             <br />
             <span>
-              We offer CFDs and Exchange Traded Products on a wide range of cash
+              We offer Exchange Traded Products on a wide range of cash
               and forward commodities instruments, including Brent and WTI Crude
               Oil, Nat Gas, Gold, Silver, Aluminum, Palladium, Copper, Wheat,
               and Sugar.
@@ -217,10 +217,7 @@ const Financial = () => {
                 Tight spreads offering potential to profit from small price
                 movements
               </li>
-              <li className="flex items-center">
-                <FaArrowRight className="mr-2 text-yellow-500" />
-                Flexible leverage to control your level of risk
-              </li>
+         
               <li className="flex items-center">
                 <FaArrowRight className="mr-2 text-yellow-500" />
                 Guaranteed stop loss (GSLO) feature available with some

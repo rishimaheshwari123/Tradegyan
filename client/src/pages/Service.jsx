@@ -34,9 +34,7 @@ const Service = () => {
               className="relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 ease-in-out flex flex-col overflow-hidden transform hover:-translate-y-2"
             >
               {/* Rating Badge */}
-              <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md">
-                {service.rating}⭐
-              </div>
+            
 
               {/* Card Content */}
               <div className="flex flex-col justify-between p-6">
@@ -64,9 +62,7 @@ const Service = () => {
                     <AiOutlineCheckCircle className="text-green-600" />
                     <span>Low Volatility</span>
                   </div>
-                  <div className="text-sm text-[#686767] font-semibold">
-                    By :- <span className="4"> {service.advisorName}</span>
-                  </div>
+                 
                 </div>
               </div>
 

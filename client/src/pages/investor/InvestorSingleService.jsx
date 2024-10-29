@@ -264,7 +264,9 @@ const InvestorServices = () => {
               {serviceItem.servicePlans.map((plan, index) => (
                 <li key={index} className="flex justify-between text-lg">
                   <span>{plan.name}</span>
-                  <span>{plan.priceRange}</span>
+                  <div className="bg-yellow-100 border border-yellow-300 text-yellow-700 font-semibold py-1 px-2 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300 text-lg">
+            {plan.priceRange}
+          </div>
                 </li>
               ))}
             </ul>
@@ -288,7 +290,7 @@ const InvestorServices = () => {
         )}
 
         {/* Marketing Strategy Section */}
-        {serviceItem?.marketingStrategy?.length > 0 && (
+        {/* {serviceItem?.marketingStrategy?.length > 0 && (
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-2xl font-semibold flex items-center">
               <FaChartLine className="mr-2 text-teal-500" /> Marketing Strategy
@@ -301,7 +303,7 @@ const InvestorServices = () => {
               ))}
             </ul>
           </div>
-        )}
+        )} */}
 
         {/* Why Choose Us Section */}
         {serviceItem?.why?.length > 0 && (

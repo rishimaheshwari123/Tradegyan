@@ -11,13 +11,14 @@ const{
 
 const {
     capturePayment,
-    paymentVerification,
+    paymentVerification,enrollInService
  
 } = require("../controllers/payment")
 
 
 router.post("/capturePayment", auth,  capturePayment)
 router.post("/verifyPayment", auth,  paymentVerification)
+router.post("/enrolledUser", auth,  enrollInService)
 
 
 

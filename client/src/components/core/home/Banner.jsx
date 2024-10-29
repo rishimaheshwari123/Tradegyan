@@ -1,8 +1,9 @@
 import React from "react";
 // Import the image if needed, otherwise, you can keep the placeholder URL
 import image from "../../../assets/12.png";
+import { Link } from "react-router-dom";
 
-const Banner = () => {
+const Banner = ({setShowModal}) => {
   return (
     <div className="min-h-[300px] w-full lg:-mb-[10px] p-4 mt-10 text-center lg:text-start">
       <div className="grid lg:grid-cols-2 w-[80%] mx-auto items-center justify-between text-black"> {/* Changed text color to black */}
@@ -14,7 +15,7 @@ const Banner = () => {
             Join TradeGyan and trust us as your premier financial partner.
           </p>
           <div className="flex justify-center lg:justify-start">
-            <button className="lg:p-4 p-2 bg-[#F5C300] rounded-full font-bold text-black text-[14px] lg:text-xl">
+            <button onClick={()=>{setShowModal()}} className="lg:p-4 p-2 bg-[#F5C300] rounded-full font-bold text-black text-[14px] lg:text-xl">
               Get Started Today
             </button>
           </div>

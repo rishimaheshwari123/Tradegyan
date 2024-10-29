@@ -3,8 +3,8 @@ import { FaTimes } from "react-icons/fa";
 import { AiFillPhone } from "react-icons/ai";
 import { toast } from "react-toastify";
 
-const InquiryForm = () => {
-  const [showModal, setShowModal] = useState(true);
+const InquiryForm = ({onClose,showModal}) => {
+ 
   const [name, setName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
 
@@ -13,14 +13,15 @@ const InquiryForm = () => {
     if (name && contactNumber) {
       // Handle form submission logic here
       toast.success("Inquiry submitted successfully!");
-      setShowModal(false); // Close modal after submission
+      onClose(); // Close modal after submission
     } else {
       toast.error("Please fill in all fields.");
     }
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    onClose(); // Close modal after submission
+
   };
 
   return (
