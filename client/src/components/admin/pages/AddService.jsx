@@ -9,9 +9,6 @@ const AddService = () => {
   const [price, setPrice] = useState("");
   const [duration, setDuration] = useState("");
   const [availablePlans, setAvailablePlans] = useState(""); // Changed to string for select
-  const [advisorName, setAdvisorName] = useState("");
-  const [rating, setRating] = useState(0);
-  const [targetAudience, setTargetAudience] = useState("");
   const [riskLevel, setRiskLevel] = useState("");
   const [investmentType, setInvestmentType] = useState("");
   const [minInvestment, setMinInvestment] = useState("");
@@ -30,9 +27,6 @@ const AddService = () => {
       price,
       duration,
       availablePlans,
-      advisorName,
-      rating,
-      targetAudience,
       riskLevel,
       investmentType,
       minInvestment,
@@ -49,10 +43,7 @@ const AddService = () => {
         setPrice("");
         setDuration("");
         setAvailablePlans("");
-        setAdvisorName("");
-        setRating(0);
-        setTargetAudience("");
-        setRiskLevel("");
+          setRiskLevel("");
         setInvestmentType("");
         setMinInvestment("");
         setMaxInvestment("");
@@ -121,32 +112,7 @@ const AddService = () => {
             className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Advisor Name
-          </label>
-          <input
-            type="text"
-            value={advisorName}
-            onChange={(e) => setAdvisorName(e.target.value)}
-            placeholder="Service Name"
-            required
-            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">
-            Target Audience
-          </label>
-          <input
-            type="text"
-            value={targetAudience}
-            onChange={(e) => setTargetAudience(e.target.value)}
-            placeholder="Service Name"
-            required
-            className="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
+  
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Min Investment

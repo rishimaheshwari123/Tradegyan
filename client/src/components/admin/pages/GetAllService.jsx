@@ -103,9 +103,9 @@ const GetAllService = () => {
                 <span className="text-gray-600">Category: {service.serviceCategory || 'N/A'}</span>
                 <span className="text-gray-600">Duration: {service.duration || 'N/A'}</span>
                 <span className="text-gray-600">Available Plans: {service.availablePlans.join(", ") || 'N/A'}</span>
-                <span className="text-gray-600">Advisor: {service.advisorName || 'N/A'}</span>
-                <span className="text-gray-600">Rating: {service.rating ? `${service.rating} ⭐` : 'N/A'}</span>
-                <span className="text-gray-600">Target Audience: {service.targetAudience || 'N/A'}</span>
+                {/* <span className="text-gray-600">Advisor: {service.advisorName || 'N/A'}</span> */}
+                {/* <span className="text-gray-600">Rating: {service.rating ? `${service.rating} ⭐` : 'N/A'}</span> */}
+                {/* <span className="text-gray-600">Target Audience: {service.targetAudience || 'N/A'}</span> */}
                 <span className="text-gray-600">Risk Level: {service.riskLevel || 'N/A'}</span>
                 <span className="text-gray-600">Investment Type: {service.investmentType || 'N/A'}</span>
                 <span className="text-gray-600">Min Investment: ₹{service.minInvestment ? service.minInvestment.toLocaleString() : 'N/A'}</span>

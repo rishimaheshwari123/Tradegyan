@@ -31,7 +31,7 @@ const ComplaintTrends = () => {
   }, []);
 
   return (
-    <div className="p-4 w-11/12 mx-auto text-center">
+    <div className="p-4 w-11/12 mx-auto text-center bg-white">
       <div>
         <h2 className="text-xl font-bold mb-4">Data for the Month End – {currentMonthData?.month}</h2>
         <div className="overflow-x-auto"> {/* Make table horizontally scrollable */}

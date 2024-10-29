@@ -202,7 +202,7 @@ export function fetchMyProfile(token, navigate) {
         error?.response?.data?.message === "Token expired" ||
         error?.response?.data?.message === "token is invalid"
       ) {
-        Swal({
+        Swal.fire({
           title: "Session Expired",
           text: "Please log in again for security purposes.",
           icon: "warning",

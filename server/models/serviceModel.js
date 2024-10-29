@@ -31,20 +31,20 @@ const serviceSchema = new mongoose.Schema(
       type: [String],
       default: [],
     },
-    advisorName: {
-      type: String,
-      trim: true,
-    },
-    rating: {
-      type: Number,
-      default: 0,
-      min: 0,
-      max: 5,
-    },
-    targetAudience: {
-      type: String,
-      trim: true,
-    },
+    // advisorName: {
+    //   type: String,
+    //   trim: true,
+    // },
+    // rating: {
+    //   type: Number,
+    //   default: 0,
+    //   min: 0,
+    //   max: 5,
+    // },
+    // targetAudience: {
+    //   type: String,
+    //   trim: true,
+    // },
     riskLevel: {
       type: String,
       enum: ["Low", "Medium", "High"],

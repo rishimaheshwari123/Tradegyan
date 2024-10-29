@@ -149,13 +149,7 @@ export const datas = {
                     "(NCDEX CALL) OUR 1ST TGT ACHIEVED IN SOYABEAN AT 3320. OUR BUY CALL GIVEN AT 3290.",
                     "(NCDEX CALL) ALL TGT ACHIEVED IN SOYABEAN AT 3370. OUR BUY CALL GIVEN AT 3290."
                 ],
-                pricing: [
-                    { period: "7 Days", amount: 2500, gst: 450, total: 2950 },
-                    { period: "15 Days", amount: 4000, gst: 720, total: 4720 },
-                    { period: "1 Month", amount: 7000, gst: 1260, total: 8260 },
-                    { period: "3 Months", amount: 18000, gst: 3240, total: 21240 },
-                    { period: "6 Months", amount: 32000, gst: 5760, total: 37760 }
-                ],
+           
                 disclaimer: "Investment in securities market is subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors.",
                 contact: "For more Information Call Us: 0281-6199999"
             }
@@ -184,13 +178,7 @@ forex: {
                 "OUR 1ST TGT ACHIEVED IN GBPUSD AT 1.3205. OUR BUY CALL GIVEN AT 1.3172.",
                 "OUR ALL TGT ACHIEVED IN GBPUSD AT 1.3250. OUR BUY CALL GIVEN AT 1.3172."
             ],
-            pricing: [
-                { period: "7 Days", amount: 3500, gst: 630, total: 4130 },
-                { period: "15 Days", amount: 6000, gst: 1080, total: 7080 },
-                { period: "1 Month", amount: 10000, gst: 1800, total: 11800 },
-                { period: "3 Months", amount: 25000, gst: 4500, total: 29500 },
-                { period: "6 Months", amount: 45000, gst: 8100, total: 53100 }
-            ],
+         
             disclaimer: "Investment in securities market is subject to market risks. Read all related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors."
         }
     ]

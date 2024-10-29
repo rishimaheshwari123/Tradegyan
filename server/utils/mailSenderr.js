@@ -18,7 +18,7 @@ const mailSender = async (email, title, body,files) => {
             html: `${body}`,
             attachments:files
         })
-        console.log(info.response)
+        console.log(info)
         return info
     } catch (error) {
         console.log(error.message)

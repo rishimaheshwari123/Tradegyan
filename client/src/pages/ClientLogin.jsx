@@ -33,8 +33,8 @@ function ClientLogin() {
     if (isRegistered) {
       // Logic for login
       if (name && password) {
-      
-        await login(name, password, navigate, dispatch);
+      let namee = name.toLowerCase()
+        await login(namee, password, navigate, dispatch);
       } else {
         alert("Please fill all required fields.");
       }
