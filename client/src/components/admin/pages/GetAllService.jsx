@@ -12,6 +12,7 @@ import axios from "axios";
 import { enrolledUser } from "../../../services/operations/order";
 import { useSelector } from "react-redux";
 import EnrollmentForm from "../EnrolledForm";
+// import Swal from 'sweetalert2';
 const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
 
 const GetAllService = () => {
@@ -41,14 +42,42 @@ const GetAllService = () => {
     }
   };
 
+  // const handleDelete = async (id) => {
+  //   try {
+  //     const res = await deleteServices(id);
+  //     setServices(services.filter((service) => service._id !== id));
+  //   } catch (error) {
+  //     console.log("Error in deleting event in front end");
+  //   }
+  // };
+
+
+
+
   const handleDelete = async (id) => {
     try {
-      const res = await deleteServices(id);
-      setServices(services.filter((service) => service._id !== id));
+      const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "Deleting this service will remove all associated subscriptions. Do you want to proceed?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Delete',
+        cancelButtonText: 'Cancel'
+      });
+  
+      if (result.isConfirmed) {
+        const res = await deleteServices(id);
+        setServices(services.filter((service) => service._id !== id));
+        Swal.fire('Deleted!', 'The service has been deleted successfully.', 'success');
+      }
     } catch (error) {
       console.log("Error in deleting event in front end");
+      Swal.fire('Error', 'An error occurred while deleting the service.', 'error');
     }
   };
+
 
   useEffect(() => {
     getService();

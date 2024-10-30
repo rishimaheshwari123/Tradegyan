@@ -38,8 +38,8 @@ onClose(false)
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="max-w-md w-full mx-auto p-4 bg-white shadow-md rounded ">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 ">
+      <div className="max-w-md w-full mx-auto p-4 bg-white shadow-md rounded max-h-[90vh] overflow-y-scroll py-8">
         <h2 className="text-2xl font-bold mb-4">
           Enroll in Service {serviceName}
         </h2>

@@ -61,41 +61,46 @@ const getAllUsers = async (req, res) => {
 
 
 
-const getUserById = async (req, res) => {
-  try {
+  const getUserById = async (req, res) => {
+    try {
       const userId = req.params.id; // Get the user ID from request parameters
-
+  
       // Check if ID is provided
       if (!userId) {
-          return res.status(400).json({
-              success: false,
-              message: "User ID is required",
-          });
-      }
-
-      // Fetch user by ID and populate the isSubcription field
-      const user = await User.findById(userId).populate('isSubcription'); // Populate the isSubcription field
-
-      if (!user) {
-          return res.status(404).json({
-              success: false,
-              message: "User not found",
-          });
-      }
-
-      res.status(200).json({
-          success: true,
-          message: "User fetched successfully",
-          data: user,
-      });
-  } catch (error) {
-      res.status(500).json({
+        return res.status(400).json({
           success: false,
-          message: "Error fetching user",
-          error: error.message,
+          message: "User ID is required",
+        });
+      }
+  
+      // Fetch user by ID and populate the 'service' field within subscriptions
+      const user = await User.findById(userId).populate({
+        path: 'subscriptions.service',
+        model: 'Service',
       });
-  }
-};
+  
+      if (!user) {
+        return res.status(404).json({
+          success: false,
+          message: "User not found",
+        });
+      }
+  
+      res.status(200).json({
+        success: true,
+        message: "User fetched successfully",
+        data: user,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        success: false,
+        message: "Error fetching user",
+        error: error.message,
+      });
+    }
+  };
+  
 
 const downloadUsersExcel = async (req, res) => {
     try {

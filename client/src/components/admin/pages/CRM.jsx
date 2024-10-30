@@ -270,7 +270,11 @@ function CRM() {
           <tbody>
             {users.map((user) => (
               <tr key={user._id}>
-                <td className="py-2 px-4 border">{user.name}</td>
+                <td className="py-2 px-4 border">
+                  <Link to={`/admin/user/${user?._id}`}>
+                  {user.name}
+                  </Link>
+                </td>
                 <td className="py-2 px-4 border">{user.email}</td>
                 <td className="py-2 px-4 border">{user.contactNumber}</td>
                 <td className="py-2 px-4 border">
