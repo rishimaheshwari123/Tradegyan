@@ -24,6 +24,7 @@ export const navLinks = [
         sublinks: [
             { name: "Investors", path: "/investor" },
             { name: "Traders", path: "/trader" },
+            { name: "Special Report", path: "/investor/services#inservice" },
         ],
     },
 

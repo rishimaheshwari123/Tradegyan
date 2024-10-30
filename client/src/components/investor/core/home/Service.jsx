@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { service } from "../../../../data/investordata";
 import { Link } from "react-router-dom";
 
 const Service = () => {
+
+
   return (
-    <div className="container mx-auto my-10 px-4">
+    <div  className="container mx-auto my-10 px-4" > 
       <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-10">
         Our Services
       </h2>

@@ -1,3 +1,4 @@
+import report from '../assets/report.jpg'
 export const service = [
     {
         id: "1",
@@ -297,5 +298,30 @@ export const service = [
             "Proven Track Record: Consistent results in varying market conditions."
         ],
         desc: ""
+    }
+
+
+    ,
+    {
+        id: "6",
+        img: report,
+        name: "Special Report",
+        tagline: "Special Report.",
+        overview: ".",
+        features: [
+           
+        ],
+        bondCategories: [
+          
+        ],
+        strategies: [
+          
+        ],
+        benefits: [
+           
+        ],
+        servicePlans: [
+         
+        ],
     }
 ]
