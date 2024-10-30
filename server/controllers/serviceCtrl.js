@@ -2,183 +2,202 @@ const Service = require('../models/serviceModel');
 const Auth = require("../models/authModel"); // Adjust the path as necessary
 const mailSender = require('../utils/mailSenderr');
 const { messageViaEmail } = require('../template/messageViaEmail');
-const axios = require("axios")
+const axios = require("axios");
+const serviceModel = require('../models/serviceModel');
 const createService = async (req, res) => {
-    try {
-        const {
-            serviceName,
-            description,
-            serviceCategory,
-            price,
-            duration,
-            availablePlans,
-            riskLevel,
-            investmentType,
-            minInvestment,
-            maxInvestment,
-            serviceAvailability
-        } = req.body;
+  try {
+    const {
+      serviceName,
+      description,
+      serviceCategory,
+      price,
+      duration,
+      availablePlans,
+      riskLevel,
+      investmentType,
+      minInvestment,
+      maxInvestment,
+      serviceAvailability
+    } = req.body;
 
-        if (!serviceName || !description || !serviceCategory || !price || !duration) {
-            return res.status(400).json({
-                success: false,
-                message: 'Please Provide All Fields',
-            });
-        }
-        const newService = new Service({
-            serviceName,
-            description,
-            serviceCategory,
-            price,
-            duration,
-            availablePlans,
-            riskLevel,
-            investmentType,
-            minInvestment,
-            maxInvestment,
-            serviceAvailability
-        });
-
-        const savedService = await newService.save();
-
-        return res.status(201).json({
-            success: true,
-            message: 'Service created successfully',
-            data: savedService
-        });
-    } catch (error) {
-        console.error('Error creating service:', error);
-        return res.status(500).json({
-            success: false,
-            message: 'Failed to create service',
-            error: error.message
-        });
+    if (!serviceName || !description || !serviceCategory || !price || !duration) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please Provide All Fields',
+      });
     }
+    const newService = new Service({
+      serviceName,
+      description,
+      serviceCategory,
+      price,
+      duration,
+      availablePlans,
+      riskLevel,
+      investmentType,
+      minInvestment,
+      maxInvestment,
+      serviceAvailability
+    });
+
+    const savedService = await newService.save();
+
+    return res.status(201).json({
+      success: true,
+      message: 'Service created successfully',
+      data: savedService
+    });
+  } catch (error) {
+    console.error('Error creating service:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to create service',
+      error: error.message
+    });
+  }
 };
 
 
 const getAllService = async (req, res) => {
   try {
-      const services = await Service.find({})
-          .sort({ createdAt: -1 }) // Sort by createdAt in descending order
-          .limit(100); // Limit results to 100
+    const services = await Service.find({})
+      .sort({ createdAt: -1 }) // Sort by createdAt in descending order
+      .limit(100); // Limit results to 100
 
-      return res.status(200).json({
-          success: true,
-          services
-      });
+    return res.status(200).json({
+      success: true,
+      services
+    });
 
   } catch (error) {
-      return res.status(500).json({
-          message: "Error in getting all services",
-          success: false
-      });
+    return res.status(500).json({
+      message: "Error in getting all services",
+      success: false
+    });
   }
 };
 
 
 
 const getSingleService = async (req, res) => {
-    try {
-        const { id } = req.params;
-        if (!id) {
-            return res.status(400).json({
-                success: false,
-                message: "Service ID is required"
-            });
-        }
-
-        const service = await Service.findById(id);
-        if (!service) {
-            return res.status(404).json({
-                success: false,
-                message: "Service not found"
-            });
-        }
-
-        return res.status(200).json({
-            success: true,
-            service
-        });
-
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({
-            message: "Error in getting service",
-            success: false
-        });
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "Service ID is required"
+      });
     }
+
+    const service = await Service.findById(id);
+    if (!service) {
+      return res.status(404).json({
+        success: false,
+        message: "Service not found"
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      service
+    });
+
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: "Error in getting service",
+      success: false
+    });
+  }
 };
 
+const deleteServiceCtrl = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await serviceModel.findByIdAndDelete(id);
+    return res.status(200).json({
+      success: true,
+      message: "Service Delete Successfully!"
+    })
+
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: "Error in deleting service",
+      success: false
+    });
+  }
+}
+
 const singleServiceAdmin = async (req, res) => {
-    try {
-        const { id } = req.params;
-        if (!id) {
-            return res.status(400).json({
-                success: false,
-                message: "Service ID is required"
-            });
-        }
-
-        const service = await Service.findById(id).populate("usersEnroled.user");
-        if (!service) {
-            return res.status(404).json({
-                success: false,
-                message: "Service not found"
-            });
-        }
-
-        return res.status(200).json({
-            success: true,
-            service
-        });
-
-    } catch (error) {
-        console.log(error)
-        return res.status(500).json({
-            message: "Error in getting service",
-            success: false
-        });
+  try {
+    const { id } = req.params;
+    if (!id) {
+      return res.status(400).json({
+        success: false,
+        message: "Service ID is required"
+      });
     }
+
+    const service = await Service.findById(id).populate("usersEnroled.user");
+    if (!service) {
+      return res.status(404).json({
+        success: false,
+        message: "Service not found"
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      service
+    });
+
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({
+      message: "Error in getting service",
+      success: false
+    });
+  }
 };
 
 
 
 
 const getServices = async (req, res) => {
-    try {
-        console.log("first")
-        const userId = req.user.id; // Assuming the user ID is available in req.user
+  try {
+    console.log("first")
+    const userId = req.user.id; // Assuming the user ID is available in req.user
 
-        // Find the user by ID and populate their subscriptions with the corresponding service details
-        const user = await Auth.findById(userId).populate("subscriptions.service");
+    // Find the user by ID and populate their subscriptions with the corresponding service details
+    const user = await Auth.findById(userId).populate("subscriptions.service");
 
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
-
-        // Filter and extract the services from the user's subscriptions
-        const services = user.subscriptions
-            .filter(subscription => subscription.isActive) // Only active subscriptions
-            .map(subscription => ({
-                serviceId: subscription.service._id, // Service ID
-                serviceName: subscription.service.serviceName, // Assuming service has a name field
-                description: subscription.service.description, // Assuming service has a description field
-                enrollmentDate: subscription.enrollmentDate,
-                expirationDate: subscription.expirationDate,
-                // Add any other service fields you want to include
-            }));
-
-        // Send success response along with the services
-        return res.status(200).json({ 
-            success: true, // Success flag
-            message: "Active services retrieved successfully", 
-            services 
-        });
-    } catch (error) {
-        console.error(error); // Log the error for debugging
-        return res.status(500).json({ success: false, message: "Server error", error: error.message });
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
     }
+
+    // Filter and extract the services from the user's subscriptions
+    const services = user.subscriptions
+      .filter(subscription => subscription.isActive) // Only active subscriptions
+      .map(subscription => ({
+        serviceId: subscription.service._id, // Service ID
+        serviceName: subscription.service.serviceName, // Assuming service has a name field
+        description: subscription.service.description, // Assuming service has a description field
+        enrollmentDate: subscription.enrollmentDate,
+        expirationDate: subscription.expirationDate,
+        // Add any other service fields you want to include
+      }));
+
+    // Send success response along with the services
+    return res.status(200).json({
+      success: true, // Success flag
+      message: "Active services retrieved successfully",
+      services
+    });
+  } catch (error) {
+    console.error(error); // Log the error for debugging
+    return res.status(500).json({ success: false, message: "Server error", error: error.message });
+  }
 };
 
 
@@ -249,80 +268,80 @@ const sendServiceEnrolledMessage = async (req, res) => {
 };
 
 
-  
+
 
 
 const sendEmail = async (recipientEmail, messageContent, name) => {
-    try {
-      // Create a transporter object using SMTP transport
-      const res = await mailSender(recipientEmail,"TradeGyan Solution" ,messageViaEmail(messageContent,name) )
-      console.log(res)
-     
-  
-    } catch (error) {
-      throw new Error(`Failed to send email: ${error.message}`);
-    }
-  };
-  
-  // Function to send WhatsApp message using WhatsApp Business API
-  const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
-    try {
-      const url = `https://graph.facebook.com/v12.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
-  
-      const data = {
-        messaging_product: 'whatsapp',
-        to: `whatsapp:${whatsappNumber}`, // WhatsApp number with country code
-        type: 'text',
-        text: {
-          body: messageContent,
-        },
-      };
-  
-      const headers = {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
-      };
-  
-      // Send the WhatsApp message via the API
-      await axios.post(url, data, { headers });
-    } catch (error) {
-      throw new Error(`Failed to send WhatsApp message: ${error.message}`);
-    }
-  };
+  try {
+    // Create a transporter object using SMTP transport
+    const res = await mailSender(recipientEmail, "TradeGyan Solution", messageViaEmail(messageContent, name))
+    console.log(res)
 
 
-  const sendSMS = async (contactNumber, messageContent) => {
-    // Utility function to sanitize the contact number
-    const sanitizeContactNumber = (number) => {
-      // Remove leading 0, +91, or 91
-      return number.replace(/^(0|\+91|91)/, '');
+  } catch (error) {
+    throw new Error(`Failed to send email: ${error.message}`);
+  }
+};
+
+// Function to send WhatsApp message using WhatsApp Business API
+const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
+  try {
+    const url = `https://graph.facebook.com/v12.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
+
+    const data = {
+      messaging_product: 'whatsapp',
+      to: `whatsapp:${whatsappNumber}`, // WhatsApp number with country code
+      type: 'text',
+      text: {
+        body: messageContent,
+      },
     };
-  
-    // Sanitize the contact number
-    const sanitizedNumber = sanitizeContactNumber(contactNumber);
-  
-    const url = `http://mysms.msg24.in/api/mt/SendSMS`;
-    const params = {
-      apikey: "fhKQG4QS6kmRZoIzorwjJg", // Your API key
-      senderid: "TDGYAN",
-      channel: "trans",
-      DCS: 0,
-      flashsms: 0,
-      number: `91${sanitizedNumber}`, // Prepend country code
-      text: `TradeGyan option: {#var#} ${messageContent} CALL{#var#}{#var#} Call - {#var#} www.tradegyan.co`,
-      route: 8,
+
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
     };
-  
-    try {
-      const response = await axios.get(url, { params });
-      console.log("SMS sent successfully:", response.data);
-    } catch (error) {
-      console.error("Error sending SMS:", error);
-    }
+
+    // Send the WhatsApp message via the API
+    await axios.post(url, data, { headers });
+  } catch (error) {
+    throw new Error(`Failed to send WhatsApp message: ${error.message}`);
+  }
+};
+
+
+const sendSMS = async (contactNumber, messageContent) => {
+  // Utility function to sanitize the contact number
+  const sanitizeContactNumber = (number) => {
+    // Remove leading 0, +91, or 91
+    return number.replace(/^(0|\+91|91)/, '');
   };
-  
+
+  // Sanitize the contact number
+  const sanitizedNumber = sanitizeContactNumber(contactNumber);
+
+  const url = `http://mysms.msg24.in/api/mt/SendSMS`;
+  const params = {
+    apikey: "fhKQG4QS6kmRZoIzorwjJg", // Your API key
+    senderid: "TDGYAN",
+    channel: "trans",
+    DCS: 0,
+    flashsms: 0,
+    number: `91${sanitizedNumber}`, // Prepend country code
+    text: `TradeGyan option: {#var#} ${messageContent} CALL{#var#}{#var#} Call - {#var#} www.tradegyan.co`,
+    route: 8,
+  };
+
+  try {
+    const response = await axios.get(url, { params });
+    console.log("SMS sent successfully:", response.data);
+  } catch (error) {
+    console.error("Error sending SMS:", error);
+  }
+};
+
 
 
 module.exports = {
-    createService, getAllService, getSingleService,getServices,singleServiceAdmin,sendServiceEnrolledMessage
+  createService, deleteServiceCtrl, getAllService, getSingleService, getServices, singleServiceAdmin, sendServiceEnrolledMessage
 };

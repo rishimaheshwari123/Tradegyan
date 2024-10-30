@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { getAllService } from "../../../services/operations/auth";
-import { FaWhatsapp } from "react-icons/fa";
+import {
+  deleteServices,
+  getAllService,
+} from "../../../services/operations/auth";
+import { FaTrashAlt, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiOutlineMessage } from "react-icons/ai"; // Import SMS icon
 import { Link } from "react-router-dom";
-import Swal from 'sweetalert2'; 
+import Swal from "sweetalert2";
 import axios from "axios";
 import { enrolledUser } from "../../../services/operations/order";
-import {useSelector} from "react-redux"
+import { useSelector } from "react-redux";
 import EnrollmentForm from "../EnrolledForm";
 const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual backend URL
 
@@ -15,12 +18,12 @@ const GetAllService = () => {
   const [services, setServices] = useState([]);
   const [showGlobalModal, setShowGlobalModal] = useState(false);
   const [enrolledModel, setEnrolledModel] = useState(false);
-  const{token} = useSelector(state=>state.auth)
+  const { token } = useSelector((state) => state.auth);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
   const [selectedServiceName, setSelectedServiceName] = useState("");
 
-  const [minimun, setMinum] = useState(0)
-  const [maxmium, setmaximum] = useState(0)
+  const [minimun, setMinum] = useState(0);
+  const [maxmium, setmaximum] = useState(0);
 
   const [globalMessage, setGlobalMessage] = useState("");
   const [sendVia, setSendVia] = useState({
@@ -38,80 +41,128 @@ const GetAllService = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const res = await deleteServices(id);
+      setServices(services.filter((service) => service._id !== id));
+    } catch (error) {
+      console.log("Error in deleting event in front end");
+    }
+  };
+
   useEffect(() => {
     getService();
   }, []);
 
   const handleSendMessage = async () => {
     Swal.fire({
-      title: 'Sending message...',
-      text: 'Please wait while the message is being sent',
+      title: "Sending message...",
+      text: "Please wait while the message is being sent",
       allowOutsideClick: false,
       showConfirmButton: false,
       didOpen: () => {
         Swal.showLoading();
-      }
+      },
     });
 
     try {
-      const response = await axios.post(`${BASE_URL}/auth/send-message/${selectedServiceId}`, {
-        message: globalMessage,
-        sendVia: Object.keys(sendVia).filter(method => sendVia[method]) // Send only selected methods
-      });
+      const response = await axios.post(
+        `${BASE_URL}/auth/send-message/${selectedServiceId}`,
+        {
+          message: globalMessage,
+          sendVia: Object.keys(sendVia).filter((method) => sendVia[method]), // Send only selected methods
+        }
+      );
 
       Swal.fire({
-        icon: 'success',
-        title: 'Message Sent',
-        text: 'The message was sent successfully!',
+        icon: "success",
+        title: "Message Sent",
+        text: "The message was sent successfully!",
       });
 
       // Reset state
       setShowGlobalModal(false);
-      setGlobalMessage(""); 
+      setGlobalMessage("");
       setSendVia({ whatsapp: false, email: false, sms: false }); // Reset the sending methods
-
     } catch (error) {
       Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Failed to send the message. Please try again.',
+        icon: "error",
+        title: "Error",
+        text: "Failed to send the message. Please try again.",
       });
       console.error("Error sending message:", error);
     }
   };
 
-
-  
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">Our Services</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        Our Services
+      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
           <div
             key={service._id}
             className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out p-6"
           >
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 relative">
+              <button
+                onClick={() => handleDelete(service._id)}
+                className="text-red-600 hover:text-red-800 absolute top-0 right-0"
+              >
+                <FaTrashAlt size={23} />
+              </button>
               <Link to={`/admin/service/${service?._id}`}>
-                <h2 className="text-xl font-semibold text-blue-600">{service.serviceName}</h2>
+                <h2 className="text-xl font-semibold text-blue-600">
+                  {service.serviceName}
+                </h2>
               </Link>
+
               <p className="text-gray-700">{service.description}</p>
               <div className="flex flex-col space-y-2">
                 <span className="font-bold text-lg text-gray-900">
-                  Price: ₹{service.price ? service.price.toLocaleString() : 'N/A'}
+                  Price: ₹
+                  {service.price ? service.price.toLocaleString() : "N/A"}
                 </span>
-                <span className="text-gray-600">Category: {service.serviceCategory || 'N/A'}</span>
-                <span className="text-gray-600">Duration: {service.duration || 'N/A'}</span>
-                <span className="text-gray-600">Available Plans: {service.availablePlans.join(", ") || 'N/A'}</span>
+                <span className="text-gray-600">
+                  Category: {service.serviceCategory || "N/A"}
+                </span>
+                <span className="text-gray-600">
+                  Duration: {service.duration || "N/A"}
+                </span>
+                <span className="text-gray-600">
+                  Available Plans: {service.availablePlans.join(", ") || "N/A"}
+                </span>
                 {/* <span className="text-gray-600">Advisor: {service.advisorName || 'N/A'}</span> */}
                 {/* <span className="text-gray-600">Rating: {service.rating ? `${service.rating} ⭐` : 'N/A'}</span> */}
                 {/* <span className="text-gray-600">Target Audience: {service.targetAudience || 'N/A'}</span> */}
-                <span className="text-gray-600">Risk Level: {service.riskLevel || 'N/A'}</span>
-                <span className="text-gray-600">Investment Type: {service.investmentType || 'N/A'}</span>
-                <span className="text-gray-600">Min Investment: ₹{service.minInvestment ? service.minInvestment.toLocaleString() : 'N/A'}</span>
-                <span className="text-gray-600">Max Investment: ₹{service.maxInvestment ? service.maxInvestment.toLocaleString() : 'N/A'}</span>
-                <span className={`font-bold ${service.serviceAvailability ? 'text-green-600' : 'text-red-600'}`}>
-                  Status: {service.serviceAvailability ? "Available" : "Unavailable"}
+                <span className="text-gray-600">
+                  Risk Level: {service.riskLevel || "N/A"}
+                </span>
+                <span className="text-gray-600">
+                  Investment Type: {service.investmentType || "N/A"}
+                </span>
+                <span className="text-gray-600">
+                  Min Investment: ₹
+                  {service.minInvestment
+                    ? service.minInvestment.toLocaleString()
+                    : "N/A"}
+                </span>
+                <span className="text-gray-600">
+                  Max Investment: ₹
+                  {service.maxInvestment
+                    ? service.maxInvestment.toLocaleString()
+                    : "N/A"}
+                </span>
+                <span
+                  className={`font-bold ${
+                    service.serviceAvailability
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  Status:{" "}
+                  {service.serviceAvailability ? "Available" : "Unavailable"}
                 </span>
               </div>
             </div>
@@ -132,8 +183,12 @@ const GetAllService = () => {
                   setEnrolledModel(true);
                   setSelectedServiceId(service?._id);
                   setSelectedServiceName(service?.serviceName);
-                  setMinum(service.minInvestment ? Number(service.minInvestment) : 0);
-                  setmaximum(service.maxInvestment ? Number(service.maxInvestment) : 0);
+                  setMinum(
+                    service.minInvestment ? Number(service.minInvestment) : 0
+                  );
+                  setmaximum(
+                    service.maxInvestment ? Number(service.maxInvestment) : 0
+                  );
                 }}
                 className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
               >
@@ -148,7 +203,9 @@ const GetAllService = () => {
       {showGlobalModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
-            <h2 className="text-xl font-bold mb-4 text-center">Send Message To All Users</h2>
+            <h2 className="text-xl font-bold mb-4 text-center">
+              Send Message To All Users
+            </h2>
             <textarea
               rows="4"
               placeholder="Type your global message here..."
@@ -164,7 +221,12 @@ const GetAllService = () => {
                 <input
                   type="checkbox"
                   checked={sendVia.whatsapp}
-                  onChange={() => setSendVia(prev => ({ ...prev, whatsapp: !prev.whatsapp }))}
+                  onChange={() =>
+                    setSendVia((prev) => ({
+                      ...prev,
+                      whatsapp: !prev.whatsapp,
+                    }))
+                  }
                   className="mr-2"
                 />
                 <FaWhatsapp className="mr-1" /> WhatsApp
@@ -173,7 +235,9 @@ const GetAllService = () => {
                 <input
                   type="checkbox"
                   checked={sendVia.email}
-                  onChange={() => setSendVia(prev => ({ ...prev, email: !prev.email }))}
+                  onChange={() =>
+                    setSendVia((prev) => ({ ...prev, email: !prev.email }))
+                  }
                   className="mr-2"
                 />
                 <MdEmail className="mr-1" /> Email
@@ -182,7 +246,9 @@ const GetAllService = () => {
                 <input
                   type="checkbox"
                   checked={sendVia.sms}
-                  onChange={() => setSendVia(prev => ({ ...prev, sms: !prev.sms }))}
+                  onChange={() =>
+                    setSendVia((prev) => ({ ...prev, sms: !prev.sms }))
+                  }
                   className="mr-2"
                 />
                 <AiOutlineMessage className="mr-1" /> SMS
@@ -207,12 +273,15 @@ const GetAllService = () => {
         </div>
       )}
 
-
-
-
-      {
-       ( enrolledModel && selectedServiceId && selectedServiceName) && <EnrollmentForm serviceId={selectedServiceId} serviceName={selectedServiceName} onClose={setEnrolledModel} minimun={minimun} maxmium={maxmium}  />
-      }
+      {enrolledModel && selectedServiceId && selectedServiceName && (
+        <EnrollmentForm
+          serviceId={selectedServiceId}
+          serviceName={selectedServiceName}
+          onClose={setEnrolledModel}
+          minimun={minimun}
+          maxmium={maxmium}
+        />
+      )}
     </div>
   );
 };

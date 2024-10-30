@@ -16,6 +16,7 @@ export const endpoints = {
   CONTACT: BASE_URL + "/contact/create",
   CREATE_SERVICE: BASE_URL + "/service/create",
   GET_SERVICE: BASE_URL + "/service/getAll",
+  DELETE_SERVICE: BASE_URL + "/service/delete",
   GET_SINGLE_SERVICE: BASE_URL + "/service/get",
   GET_SINGLE_ADMIN_SERVICE: BASE_URL + "/service/get/admin",
   CREATE_QUERY: BASE_URL + "/query/create",

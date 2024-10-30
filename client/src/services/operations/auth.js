@@ -18,6 +18,7 @@ const {
   GET_ALL_SERVICE,
   GET_SINGLE_ADMIN_SERVICE,
   SINGLE_USER_API,
+  DELETE_SERVICE,
   VERIFY_USER_API
 } = endpoints;
 
@@ -315,6 +316,24 @@ export const getAllServices = async (token) => {
     }
     const result = response?.data?.services;
     return result;
+  } catch (error) {
+    console.log(error);
+    return []
+  }
+};
+export const deleteServices = async (id) => {
+  try {
+
+    const response = await apiConnector("DELETE", `${DELETE_SERVICE}/${id}`)
+    if (!response.data.success) {
+      throw new Error(response.data.message);
+    }
+    Swal.fire({
+      title: response?.data?.message,
+      icon: "success",
+    });
+
+
   } catch (error) {
     console.log(error);
     return []
