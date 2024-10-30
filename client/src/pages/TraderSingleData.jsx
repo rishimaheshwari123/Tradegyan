@@ -43,7 +43,8 @@ function TraderSingleData() {
                   <strong>Ideal for:</strong> {data.idealFor}
                 </p>
                 <p className="text-base lg:text-lg">
-                  <strong>Product Description:</strong> {data.productDescription}
+                  <strong>Product Description:</strong>{" "}
+                  {data.productDescription}
                 </p>
 
                 <h2 className="text-2xl font-semibold mt-6 mb-4">Features:</h2>
@@ -51,7 +52,15 @@ function TraderSingleData() {
                   {data.features &&
                     Object.entries(data.features).map(([key, value]) => (
                       <li key={key} className="text-base lg:text-lg">
-                        <strong>{key.charAt(0).toUpperCase() + key.slice(1)}:</strong> {value}
+                        <strong>
+                          {
+                            key
+                              .replace(/([A-Z])/g, " $1") // Add space before each uppercase letter
+                              .replace(/^./, (str) => str.toUpperCase()) // Capitalize the first character
+                          }
+                          :
+                        </strong>{" "}
+                        {value}
                       </li>
                     ))}
                 </ul>
@@ -71,7 +80,9 @@ function TraderSingleData() {
                 {/* Pricing Table */}
                 {data.pricing && (
                   <>
-                    <h2 className="text-2xl font-semibold mt-6 mb-4">Pricing:</h2>
+                    <h2 className="text-2xl font-semibold mt-6 mb-4">
+                      Pricing:
+                    </h2>
                     <table className="min-w-full table-auto border border-gray-300 mb-6">
                       <thead>
                         <tr className="bg-gray-200">
@@ -120,7 +131,9 @@ function TraderSingleData() {
               <div className="h-[calc(100vh-100px)] flex flex-col items-center justify-center">
                 {data.image && (
                   <div className="flex flex-col items-center gap-4">
-                    <h3 className="text-4xl font-semibold text-[#6c75aa]">Risko Meter</h3>
+                    <h3 className="text-4xl font-semibold text-[#6c75aa]">
+                      Risko Meter
+                    </h3>
                     <img
                       src={data.image}
                       alt={data.name}

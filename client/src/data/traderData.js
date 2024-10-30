@@ -16,8 +16,8 @@ export const datas = {
     equity: {
         "cash": [
             {
-                name:"Equity Cash",
-                image:"https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ce914ac4294ba46621713_5e43dbb9d5c9238077b143a8_medium.png",
+                name: "Equity Cash",
+                image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ce914ac4294ba46621713_5e43dbb9d5c9238077b143a8_medium.png",
                 description: "A product designed for traders who aim to grab high potential trades from Cash market.",
                 what: "Intraday recommendations in Cash Segment based on Technical analysis with Occasional Holding.",
                 whom: "Intra-day/Short-term Traders in Equity Market.",
@@ -38,8 +38,8 @@ export const datas = {
         ],
         "alpha-premium": [
             {
-                name:'ALPHA PREMIUM EQUITY',
-                image:"https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
+                name: 'ALPHA PREMIUM EQUITY',
+                image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
                 description: "It is one of our premium services exclusively designed for those traders who want to trade under the guidance of market experts.",
                 what: "Intraday Recommendation in Cash and Option Segment with occasional BTST recommendations.",
                 whom: "Intraday Traders in Cash and Option Segment.",
@@ -61,8 +61,8 @@ export const datas = {
         ],
         "equity-options": [
             {
-                name:'Equity Options',
-                image:"https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
+                name: 'Equity Options',
+                image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
                 description: "A product designed for traders who aim to grab high potential trades in the Options Segment.",
                 what: "Intraday recommendations in Indices/Stocks options based on Technical Analysis.",
                 whom: "Intra-day/Short-term Traders in Equity Options.",
@@ -85,8 +85,8 @@ export const datas = {
     commodity: {
         "mcx": [
             {
-                name:'MCX',
-                image:"https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
+                name: 'MCX',
+                image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
                 description: "A product designed for traders who aim to grab high potential trades from Commodity market.",
                 what: "Intraday based recommendation in MCX commodity in the segment of Base Metals, Gold Mini, Silver Mini, Natural Gas with Occasional Holding.",
                 whom: "Intra-day/Short-term Traders in Commodity Market.",
@@ -106,8 +106,8 @@ export const datas = {
         ],
         "mcx-options": [
             {
-                name:'MCX Options',
-                image:'https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png',
+                name: 'MCX Options',
+                image: 'https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png',
                 description: "A retail service designed for traders who want to trade in Commodity Options.",
                 what: "Recommendations in MCX Options in Gold, Silver and Crude Oil Commodities.",
                 whom: "Intraday / BTST Trader who trades on Options in MCX listed commodities.",
@@ -127,7 +127,7 @@ export const datas = {
             }
         ]
     }
-,
+    ,
 
     'agri': {
         "ncdex": [
@@ -149,41 +149,41 @@ export const datas = {
                     "(NCDEX CALL) OUR 1ST TGT ACHIEVED IN SOYABEAN AT 3320. OUR BUY CALL GIVEN AT 3290.",
                     "(NCDEX CALL) ALL TGT ACHIEVED IN SOYABEAN AT 3370. OUR BUY CALL GIVEN AT 3290."
                 ],
-           
+
                 disclaimer: "Investment in securities market is subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors.",
                 contact: "For more Information Call Us: 0281-6199999"
             }
         ]
     },
 
-forex: {
-    forex: [
-        {
-            id: 'forex',
-            name: 'Forex ',
-            image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
-            description: "This package is suitable for small and medium traders who trade in international currencies like EURUSD, GBPUSD, USDJPY, and many others.",
-            what: "Daily recommendations for trading in Forex covering major currency pairs.",
-            whom: "Small and medium intraday/BTST traders who trade in Forex.",
-            idealFor: "Ideal for clients looking to trade in international currency markets.",
-            productDescription: "Provides 20-22 Foreign Currency recommendations in a month with timely entry and exit.",
-            features: {
-                recommendationFrequency: "1-2 recommendations daily, 20-22 monthly",
-                minimumInvestment: "INR 3,500 for 7 days, INR 6,000 for 15 days, INR 10,000 for 1 month, INR 25,000 for 3 months, INR 45,000 for 6 months",
-                followUp: "Yes, follow-up calls for achieved targets",
-                modeOfRecommendation: "Web Login / App"
-            },
-            sample: [
-                "BUY GBPUSD ABOVE 1.3172 TGT 1.3205, 1.3250 SL 1.3130",
-                "OUR 1ST TGT ACHIEVED IN GBPUSD AT 1.3205. OUR BUY CALL GIVEN AT 1.3172.",
-                "OUR ALL TGT ACHIEVED IN GBPUSD AT 1.3250. OUR BUY CALL GIVEN AT 1.3172."
-            ],
-         
-            disclaimer: "Investment in securities market is subject to market risks. Read all related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors."
-        }
-    ]
-}
+    forex: {
+        forex: [
+            {
+                id: 'forex',
+                name: 'Forex ',
+                image: "https://cdn.prod.website-files.com/593e207ebedace68bd410daa/5e5ca74863723e867eae11eb_risko-meter-prime-gold.png",
+                description: "This package is suitable for small and medium traders who trade in international currencies like EURUSD, GBPUSD, USDJPY, and many others.",
+                what: "Daily recommendations for trading in Forex covering major currency pairs.",
+                whom: "Small and medium intraday/BTST traders who trade in Forex.",
+                idealFor: "Ideal for clients looking to trade in international currency markets.",
+                productDescription: "Provides 20-22 Foreign Currency recommendations in a month with timely entry and exit.",
+                features: {
+                    recommendationFrequency: "1-2 recommendations daily, 20-22 monthly",
+                    minimumInvestment: "INR 3,500 for 7 days, INR 6,000 for 15 days, INR 10,000 for 1 month, INR 25,000 for 3 months, INR 45,000 for 6 months",
+                    followUp: "Yes, follow-up calls for achieved targets",
+                    modeOfRecommendation: "Web Login / App"
+                },
+                sample: [
+                    "BUY GBPUSD ABOVE 1.3172 TGT 1.3205, 1.3250 SL 1.3130",
+                    "OUR 1ST TGT ACHIEVED IN GBPUSD AT 1.3205. OUR BUY CALL GIVEN AT 1.3172.",
+                    "OUR ALL TGT ACHIEVED IN GBPUSD AT 1.3250. OUR BUY CALL GIVEN AT 1.3172."
+                ],
+
+                disclaimer: "Investment in securities market is subject to market risks. Read all related documents carefully before investing. Registration granted by SEBI, membership of BASL, and certification from NISM in no way guarantees performance of the intermediary or provide any assurance of returns to investors."
+            }
+        ]
+    }
 
 
-     
+
 };
