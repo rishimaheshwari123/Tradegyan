@@ -24,12 +24,12 @@ exports.getCurrentMonthData = async (req, res) => {
       {
         $group: {
           _id: null,
-          received: { $sum: "$received" },
-          resolved: { $sum: "$resolved" },
-          pending: { $sum: "$pending" },
-          pendingLastMonth: { $sum: "$pendingLastMonth" },
-          pendingComplaintsLessThanThreeMonths: { $sum: "$pendingComplaintsLessThanThreeMonths" },
-          averageResolutionTime: { $avg: "$averageResolutionTime" }
+          received: { $sum: "$received" }||0,
+          resolved: { $sum: "$resolved" }||0,
+          pending: { $sum: "$pending" }||0,
+          pendingLastMonth: { $sum: "$pendingLastMonth" }||0,
+          pendingComplaintsLessThanThreeMonths: { $sum: "$pendingComplaintsLessThanThreeMonths" }||0,
+          averageResolutionTime: { $avg: "$averageResolutionTime" } ||0
         }
       }
     ]);

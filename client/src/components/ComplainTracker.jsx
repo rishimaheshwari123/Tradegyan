@@ -12,24 +12,39 @@ const ComplaintTrends = () => {
       try {
         // Fetch current month data
         const currentMonthResponse = await axios.get(
-          "http://localhost:8080/current-month-data"
+          "https://tradegyan.mahitechnocrafts.in/current-month-data"
         );
         setCurrentMonthData(currentMonthResponse?.data?.monthEndData);
 
         // Fetch past months data
-        const monthsResponse = await axios.get(
-          "http://localhost:8080/monthly-trend"
-        );
-        setPastMonthsData(monthsResponse?.data?.pastMonthsData);
 
         // Fetch past years data
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+      
+      try {
+        const monthsResponse = await axios.get(
+          "https://tradegyan.mahitechnocrafts.in/monthly-trend"
+        );
+        console.log(monthsResponse)
+        setPastMonthsData(monthsResponse?.data?.pastMonthsData);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        
+      }
+      try {
         const yearsResponse = await axios.get(
-          "http://localhost:8080/annual-trend"
+          "https://tradegyan.mahitechnocrafts.in/annual-trend"
         );
         setPastYearsData(yearsResponse?.data?.pastYearsData);
         setGrandTotalYears(yearsResponse?.data?.grandTotal);
+        
       } catch (error) {
         console.error("Error fetching data:", error);
+        
       }
     };
 
