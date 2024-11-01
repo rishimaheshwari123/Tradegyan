@@ -55,7 +55,7 @@ const Service = () => {
                 <div className="flex flex-col items-start border-t pt-4 mt-4 space-y-2 text-gray-700">
                   <div className="flex items-center space-x-2">
                     <FaRupeeSign className="text-green-600" />
-                    <span className="font-bold text-lg">₹{service.minInvestment}</span>
+                    <span className="font-bold text-lg">₹{service.price}</span>
                     <span className="text-sm text-gray-500">/ {service?.duration}</span>
                   </div>
                   <div className="flex items-center space-x-2">
