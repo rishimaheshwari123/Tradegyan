@@ -15,13 +15,13 @@ import Faq from "../components/core/home/Faq";
 import Notification from "../components/core/home/Notification";
 import StockTicker from "./GlobleMarket";
 import ComplaintTrends from "../components/ComplainTracker";
-const Home = ({setShowModal}) => {
+const Home = ({ setShowModal }) => {
   return (
     <div>
       {/* <Notification /> */}
       <Navbar />
       <Slider />
-      <LivePrice />
+      {/* <LivePrice /> */}
       <Investment />
       {/* <StockTicker /> */}
       <Opportunities />
