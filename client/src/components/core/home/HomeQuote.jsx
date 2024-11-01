@@ -7,7 +7,7 @@ const HomeQuote = () => {
     email: "",
     contact: "",
     message: "",
-    role: "", // New field for radio button selection
+    role: "Investor", // New field for radio button selection
   };
 
   const [formData, setFormData] = useState(initialFormData);

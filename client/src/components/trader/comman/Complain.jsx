@@ -2,18 +2,25 @@ import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { AiFillPhone } from "react-icons/ai";
 import { toast } from "react-toastify";
+import { sendContactForm } from "../../../services/operations/auth";
 
 const InquiryForm = ({onClose,showModal}) => {
  
   const [name, setName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (name && contactNumber) {
       // Handle form submission logic here
+    const response = await sendContactForm({name,contact:contactNumber});
+    
+
+    if (response?.data?.success) {
+
       toast.success("Inquiry submitted successfully!");
       onClose(); // Close modal after submission
+    }
     } else {
       toast.error("Please fill in all fields.");
     }
