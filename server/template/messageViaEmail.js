@@ -1,10 +1,10 @@
 
 const messageViaEmail = (
-    messageContent,userName
+  messageContent, userName
 
 
 ) => {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -93,7 +93,7 @@ const messageViaEmail = (
 
     <p>If you have any questions or require further details, please do not hesitate to contact us. Stay informed and take wise steps in the stock market!</p>
 
-    <a href="https://www.tradegyan.com" class="cta-button">Visit TradeGyan</a>
+    <a href="https://www.tradegyan.co" class="cta-button">Visit TradeGyan</a>
 
     <p class="footer">
       You are receiving this email because you subscribed to TradeGyan. If you wish to unsubscribe, please click <a href="{{unsubscribeLink}}">here</a>.
