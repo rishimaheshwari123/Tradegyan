@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="bg-white text-black p-4 border-b-2 relative">
-        <div className="max-w-7xl mx-auto">
+        <div className="w-11/12 mx-auto">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="text-2xl font-bold">
