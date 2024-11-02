@@ -492,11 +492,13 @@ const verifyUserCtrl = async (req, res) => {
       { new: true }
     );
 
-    await mailSender(
+    const mail = await mailSender(
       user?.email,
       "TradeGyan Solution",
       accountVerifiedEmail(username, password)
     );
+
+    console.log(mail)
     return res.status(201).json({
       success: true,
       message: "User verified successfully",
