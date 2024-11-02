@@ -65,7 +65,7 @@ const Knowledge = () => {
             <img src={kno} alt="not found" />
             <p>
               It’s time to treat your grey cells, every now and then. We bring
-              you interesting facts about anything & everything finance – from
+              you interesting facts about anything & everything Finance – from
               currencies to Presidents, from instruments to Stock markets. We
               vouch to keep you surprised.
             </p>

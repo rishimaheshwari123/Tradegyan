@@ -360,6 +360,19 @@ export const getSingelServiceAdmin = async (id) => {
   }
 };
 
+
+export const getLast5MonthsComplaints = async () => {
+  try {
+    const response = await apiConnector("GET", `http://localhost:8080/last-5-months`);
+  //  console.log(response?.data)
+    const result = response;
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 export const createQueryApi = async (formData) => {
   Swal.fire({
     title: "Loading...",

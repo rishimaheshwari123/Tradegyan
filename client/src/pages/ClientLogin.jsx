@@ -158,7 +158,7 @@ function ClientLogin() {
                   type="email"
                   id="email"
                   className="w-full p-2 border rounded-md"
-                  placeholder="Enter your name"
+                  placeholder="Enter your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -169,7 +169,9 @@ function ClientLogin() {
 
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">
-             User Name:
+           {
+            isRegistered ? " User Name:" : "Full Name"
+           } 
             </label>
             <input
               type="text"
@@ -177,7 +179,7 @@ function ClientLogin() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full p-2 border rounded-md"
-              placeholder="Enter your Username"
+              placeholder={`${isRegistered ? "Enter your Username" : "Enter your Full name"}`}
               required
             />
           </div>

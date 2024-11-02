@@ -71,7 +71,7 @@ const Team = () => {
               </p>
               <p className="text-gray-500 mb-4">
                 Mr. Vishal Singh Gill Certified Wealth and Investment Manager
-                and Master in FInance Marketing having 13+ years of
+                and Master in Finance Marketing having 13+ years of
                 experience as an Research and Finance professional.His
                 unwavering perseverance and dedication to fostering financial
                 inclusion have been instrumental in transforming the lives of

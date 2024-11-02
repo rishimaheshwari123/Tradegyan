@@ -29,7 +29,7 @@ export const service = [
             { name: "Monthly rebalancing, review, and priority support", priceRange: "₹60,000 - 1,20,000 per annum" }
         ],
         deliveryChannels: ["In-Person Meetings: One-on-one consultations at Trade Gyan Solutions.", " Video Conferencing: Virtual meetings for convenience", "Phone/Email Support: Ongoing assistance and query resolution."],
-        marketingStrategy: ["Digital Presence: Website, social media, and online advertising.", "Referral Program: Incentives for client referrals.", " Seminar/Workshops: Educational events on personal finance and investing.", ". Partnerships: Collaborations with banks, insurance companies, and other financial institutions."
+        marketingStrategy: ["Digital Presence: Website, social media, and online advertising.", "Referral Program: Incentives for client referrals.", " Seminar/Workshops: Educational events on personal Finance and investing.", ". Partnerships: Collaborations with banks, insurance companies, and other financial institutions."
         ],
 
         why: [

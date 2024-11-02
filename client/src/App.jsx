@@ -66,6 +66,7 @@ import CurrentMonthComplaints from "./components/ComplainTracker";
 import CompaintTracker from "./components/admin/pages/CompaintTracker";
 import Whatsapp from "./components/comman/Whatsapp";
 import axios from "axios";
+import AddComplaint from "./components/admin/pages/CompaintTracker";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -259,7 +260,7 @@ const App = () => {
               path="/admin/create-Complaints"
               element={
                 <PrivateRoute>
-                  <AddQuery />
+                  <AddComplaint />
                 </PrivateRoute>
               }
             />

@@ -2,21 +2,22 @@ const { contactUsEmail } = require("../template/contactFormRes");
 const mailSender = require("../utils/mailSenderr");
 
 const contactCtrl = async (req, res) => {
-    const { name, email, contact, message } = req.body;
+    const { name, email, contact, message,role } = req.body;
     try {
-        const emailRes = await mailSender(
-            // "info.inextets@gmail.com",
-            "vikasmaheshwari6267@gmail.com",
-             "Your Data send successfully",
-            contactUsEmail(name, email, contact, message)
-        )
-        console.log(emailRes)
-        if (!email || !name || !contact || !message) {
+   
+        if (!name || !contact ) {
             return res.status(500).send({
                 message: "Plase provide all fields",
                 success: false
             })
         }
+
+        const emailRes = await mailSender(
+            // "info.inextets@gmail.com",
+            "vikasmaheshwari6267@gmail.com",
+             "Your Data send successfully",
+            contactUsEmail(name, email, contact, message,role)
+        )
         res.status(200).send({
             message: "Email send successfully.Our team will contact you soon!",
             emailRes,
