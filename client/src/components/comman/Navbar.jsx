@@ -261,6 +261,16 @@ const Navbar = () => {
                       <span className="font-bold">{user.name}</span>
                     </li>
                   )}
+                  {user?.role === "user" && (
+                    <li>
+                      <Link
+                        to="https://onboarding.dashboardfinreport.com/TradeGyan/onb_process.aspx?a=t830uy5QEhGwzE+RR1buWS3drG1f1V/0LDkpH9b1rKY=&p="
+                        className="px-2 py-2 font-bold bg-red-500 text-white rounded"
+                      >
+                        Subscribe Now
+                      </Link>
+                    </li>
+                  )}
 
                   <li>
                     <button
