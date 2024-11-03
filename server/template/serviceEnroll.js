@@ -83,7 +83,7 @@ const paymentSuccessEmail = (
     <body>
         <div class="container">
             <a href="https://www.tradegyan.co/"><img class="logo"
-                    src="https://i.ibb.co/qp9kBWJ/logo.jpg" alt="Not Found Logo"></a>
+                    src="https://i.ibb.co/ZdF6Cdr/tradegyan.png" alt="Trade GyanLogo"></a>
             <div class="message">Payment Successful</div>
             <div class="body">
                 <p>Dear <span class="highlight">${name}</span>,</p>

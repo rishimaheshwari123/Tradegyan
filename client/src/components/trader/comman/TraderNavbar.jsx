@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaWhatsapp, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { traderNavLinks } from "../../../data/navbar";
-import logo from "../../../assets/logo.gif";
+import logo from "../../../assets/tradegyan.png";
 
 const TraderNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);

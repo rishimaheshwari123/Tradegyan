@@ -80,8 +80,8 @@ const accountVerifiedEmail = (name, password) => {
     
     <body>
         <div class="container">
-            <a href="https://tradegyan-nine.vercel.app"><img class="logo"
-                    src="https://i.ibb.co/cvPYkP8/logo.jpg" alt="Logo"></a>
+            <a href="https://tradegyan.co"><img class="logo"
+                    src="https://i.ibb.co/ZdF6Cdr/tradegyan.png" alt="Logo"></a>
             <div class="message">Your Account is Verified</div>
             <div class="body">
                 <p>Dear <span class="highlight">User</span>,</p>
@@ -90,7 +90,7 @@ const accountVerifiedEmail = (name, password) => {
                     <p><span class="highlight">Username:</span> ${name}</p>
                     <p><span class="highlight">Password:</span> ${password}</p>
                 </div>
-                <a href="https://tradegyan-nine.vercel.app/client-login" class="cta">Login Here</a>
+                <a href="https://tradegyan.co/client-login" class="cta">Login Here</a>
             </div>
             <div class="support">
                 <p>If you did not request this verification, please contact support immediately.</p>

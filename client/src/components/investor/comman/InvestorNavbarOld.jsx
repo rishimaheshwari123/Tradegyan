@@ -10,7 +10,7 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-import logo from "../../../assets/logo.gif";
+import logo from "../../../assets/tradegyan.png";
 
 const InvestorNavbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
