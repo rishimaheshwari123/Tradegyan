@@ -61,6 +61,7 @@ function SingleServiceAdmin() {
                                         {enrollment?.user?.name}
                                     </h3>
                                     <p className="text-gray-500">{enrollment?.user?.email}</p>
+                                    <p className="text-gray-500">{enrollment?.user?.contactNumber}</p>
                                 </div>
                                 <div className="text-right">
                                     <p className="text-gray-600 flex items-center">
@@ -77,8 +78,7 @@ function SingleServiceAdmin() {
                             </div>
                             <div className="mt-4 text-gray-600">
                                 <p><strong>Payable Amount:</strong> ₹{enrollment.payable}</p>
-                                <p><strong>Order ID:</strong> {enrollment.razorpay_order_id}</p>
-                                <p><strong>Payment ID:</strong> {enrollment.razorpay_payment_id}</p>
+                                <p><strong>Transaction Id:</strong> {enrollment.transaction_id}</p>
                             </div>
                         </div>
                     ))
