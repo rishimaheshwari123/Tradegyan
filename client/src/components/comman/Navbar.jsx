@@ -72,12 +72,12 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="bg-white text-black p-4 border-b-2 relative">
+      <nav className="bg-white text-black p-1 border-b-2 relative">
         <div className="w-11/12 mx-auto">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="text-2xl font-bold">
-              <img src={image} alt="logo" className="lg:h-[70px] h-[46px]" />
+            <Link to="/" className="text-2xl font-bold ">
+              <img src={image} alt="logo" className="lg:h-[80px] h-[46px]" />
             </Link>
 
             {/* Desktop Links */}

@@ -27,8 +27,8 @@ const InvestorNavbar = () => {
   };
 
   return (
-    <nav className="bg-white text-black px-4 py-1 border-b-2 relative">
-      <div className="max-w-7xl mx-auto">
+    <nav className="bg-white text-black p-1 border-b-2 relative">
+      <div className="w-11/12 mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold">
