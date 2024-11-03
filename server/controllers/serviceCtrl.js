@@ -205,7 +205,7 @@ const getServices = async (req, res) => {
 const sendServiceEnrolledMessage = async (req, res) => {
   const { serviceId } = req.params;
   const { message, sendVia } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
 
   try {
     // Find the service by ID and populate users enrolled
@@ -253,7 +253,7 @@ const sendServiceEnrolledMessage = async (req, res) => {
       if (sendVia.includes("sms") || sendVia.includes("both")) {
         try {
           await sendSMS(user.contactNumber, message); // Assuming sendSMS is defined
-          console.log(`SMS sent to ${user.phoneNumber}`);
+          console.log(`SMS sent to ${user.contactNumber}`);
         } catch (error) {
           console.error(`Failed to send SMS to ${user.phoneNumber}:`, error.message);
         }
@@ -286,24 +286,20 @@ const sendEmail = async (recipientEmail, messageContent, name) => {
 // Function to send WhatsApp message using WhatsApp Business API
 const sendWhatsAppMessage = async (whatsappNumber, messageContent) => {
   try {
-    const url = `https://graph.facebook.com/v12.0/${process.env.WHATSAPP_PHONE_NUMBER_ID}/messages`;
 
-    const data = {
-      messaging_product: 'whatsapp',
-      to: `whatsapp:${whatsappNumber}`, // WhatsApp number with country code
-      type: 'text',
-      text: {
-        body: messageContent,
-      },
+    const sanitizeContactNumber = (number) => {
+      // Remove leading 0, +91, or 91
+      return number.replace(/^(0|\+91|91)/, '');
     };
+  
+    // Sanitize the contact number
+    const sanitizedNumber = sanitizeContactNumber(whatsappNumber);
 
-    const headers = {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.WHATSAPP_ACCESS_TOKEN}`,
-    };
+    console.log('No.',sanitizedNumber)
+    const url = `http://cloudapi.msg24.in/wapp/api/send?apikey=cea1e160b903415087e2e2d878ffd0d0&mobile=${sanitizedNumber}&msg=${messageContent}`;
 
     // Send the WhatsApp message via the API
-    await axios.post(url, data, { headers });
+    await axios.post(url);
   } catch (error) {
     throw new Error(`Failed to send WhatsApp message: ${error.message}`);
   }
