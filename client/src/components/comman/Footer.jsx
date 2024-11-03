@@ -26,9 +26,10 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
           <p className="text-sm sm:text-base">
-            Trade Gyan Solutions is an investment advisor in India. The company
-            provides recommendations for stocks, cash, and F&O traded in NSE &
-            BSE.
+            A Investment advisory company assisting investors diversify their
+            investments and reap earnings through its profound industry
+            expertise and a keen eye for detail that enables it to predict the
+            market flow in an efficient manner
           </p>
           <div className="mt-4 flex items-center">
             <FaPhone className="mr-2" />
@@ -193,20 +194,17 @@ const Footer = () => {
             of Trade Gyan Solutions.
           </p>
 
-          <p>
-            Contact Details :+91 7771004878 E-Mail id :-
-            121@tradegyan.co
-          </p>
+          <p>Contact Details :+91 7771004878 E-Mail id :- 121@tradegyan.co</p>
           <p>Principal Officer Contact Details :+91 7771004878</p>
           <p>E-Mail id :- 121@tradegyan.co</p>
-     
+
           <p>SEBI Registration Number: INA000008808</p>
           <p>Trade Name : TRADE GYAN SOLUTIONS</p>
           <p>Type of Registration : Individual.</p>
           <p>Validity of Registration- Nov. 2017 to Perpetual.</p>
           <p>
-            Address :- Plot No.9, Sector C, Govindpura Industrial
-            Area, J.K. Road, Bhopal, Madhya Pradesh, 462023
+            Address :- Plot No.9, Sector C, Govindpura Industrial Area, J.K.
+            Road, Bhopal, Madhya Pradesh, 462023
           </p>
           <p>
             Registration granted by SEBI, membership of BASL and certification

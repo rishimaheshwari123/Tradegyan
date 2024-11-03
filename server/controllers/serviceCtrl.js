@@ -253,7 +253,7 @@ const sendServiceEnrolledMessage = async (req, res) => {
       if (sendVia.includes("sms") || sendVia.includes("both")) {
         try {
           await sendSMS(user.contactNumber, message); // Assuming sendSMS is defined
-          console.log(`SMS sent to ${user.contactNumber}`);
+          // console.log(`SMS sent to ${user.contactNumber}`);
         } catch (error) {
           console.error(`Failed to send SMS to ${user.phoneNumber}:`, error.message);
         }
