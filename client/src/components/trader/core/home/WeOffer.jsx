@@ -12,13 +12,13 @@ const WeOffer = () => {
             <div className="border-l-4 ml-2 border-teal-500 h-16 hidden lg:flex" />
           </div>
           <p className=" lg:text-sm   lg:text-left lg:ml-6 max-w-2xl text-[13px]">
-            Trade Gyan Solutions is an investment advisory in India. The company
-            provides recommendations for stocks cash &amp; F&amp;O traded in NSE
-            &amp; BSE, including bullions, metals, and agro commodities traded
-            in MCX &amp; NCDEX. For more information, visit{" "}
+          A Investment advisory company assisting investors diversify their
+            investments and reap earnings through its profound industry
+            expertise and a keen eye for detail that enables it to predict the
+            market flow in an efficient manner. For more information, visit{" "}
             <a
-              href="https://example.com"
-              className=""
+              href="https://tradegyan.co"
+              className=" underline text-blue-800"
               target="_blank"
               rel="noopener noreferrer"
             >

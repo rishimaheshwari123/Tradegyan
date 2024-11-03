@@ -29,7 +29,7 @@ const Footer = () => {
             A Investment advisory company assisting investors diversify their
             investments and reap earnings through its profound industry
             expertise and a keen eye for detail that enables it to predict the
-            market flow in an efficient manner
+            market flow in an efficient manner.
           </p>
           <div className="mt-4 flex items-center">
             <FaPhone className="mr-2" />
