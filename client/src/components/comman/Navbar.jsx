@@ -77,7 +77,7 @@ const Navbar = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="text-2xl font-bold ">
-              <img src={image} alt="logo" className="lg:h-[80px] h-[46px]" />
+              <img src={image} alt="logo" className="lg:h-[80px] h-[60px]" />
             </Link>
 
             {/* Desktop Links */}
