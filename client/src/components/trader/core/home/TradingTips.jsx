@@ -20,14 +20,14 @@ const TradingTips = () => {
     {
       title: "Equity Trading",
       description:
-        "The Equity Trading Tips Services Includes Intraday & Positional Stock Trading Advice, BTST For Stocks Listed in NSE And BSE",
+        "The Equity Trading Recommendation Services Includes Intraday & Positional Stock Trading Advice, BTST For Stocks Listed in NSE And BSE",
       imgSrc:equity,
       path: "/equity",
     },
     {
       title: "Commodity",
       description:
-      "The MCX Trading Tips Services Includes Intraday & Positional Gold, Silver, Crude, Zinc, NG, Copper, Etc Trading Advice Listed in MCX.",
+      "The MCX Trading Recommendation Services Includes Intraday & Positional Gold, Silver, Crude, Zinc, NG, Copper, Etc Trading Advice Listed in MCX.",
     
       imgSrc:two,
       path: "/commodity",
@@ -35,7 +35,7 @@ const TradingTips = () => {
     {
       title: "Agri Commodity",
       description:
-        "The NCDEX Trading Tips Services Includes Intraday & Positional Zeera, Dhaniya, Chana, Turmeric, SoyaBean, Etc Trading Advice",
+        "The NCDEX Trading Recommendation Services Includes Intraday & Positional Zeera, Dhaniya, Chana, Turmeric, SoyaBean, Etc Trading Advice",
      
       imgSrc:three,
       path: "/agri/ncdex",

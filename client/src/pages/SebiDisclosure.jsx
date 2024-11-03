@@ -155,7 +155,7 @@ const SebiDisclosure = () => {
                 <h3 className="text-xl font-semibold">Don’ts</h3>
                 <ul className="list-disc list-inside mt-2 space-y-2">
                   <li>
-                    Don’t fall for stock tips under the pretext of investment
+                    Don’t fall for stock Recommendation under the pretext of investment
                     advice.
                   </li>
                   <li>

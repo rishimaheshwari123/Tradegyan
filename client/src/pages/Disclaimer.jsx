@@ -48,7 +48,7 @@ const policiesData = [
 
           "All materials, products, and services from this Site are provided 'As is' with no representations or warranties of any kind, either express or implied.",
 
-          "You have to subscribe to the service in order to get full access to the site and to receive alert emails when tips are released. You agree to provide accurate and current information about yourself as requested on the registration form and subscription payment process. We reserve the right to terminate this Agreement and your use of the Site if the information provided by you is false in any way or for any other reason we deem necessary to maintain the operation and integrity of the Site.",
+          "You have to subscribe to the service in order to get full access to the site and to receive alert emails when Recommendation are released. You agree to provide accurate and current information about yourself as requested on the registration form and subscription payment process. We reserve the right to terminate this Agreement and your use of the Site if the information provided by you is false in any way or for any other reason we deem necessary to maintain the operation and integrity of the Site.",
 
           "While using the Site, you agree not to inhibit others from using the Site, deface the Site, or in any way do anything that would be dishonest or harmful to others.  TradeGyan Solution.com as well as the design and information contained in this site is valuable and exclusive property of  TradeGyan Solution.com, and nothing in this Agreement shall be construed as transferring or assigning any such ownership rights to you or any other person or entity.",
 

@@ -165,7 +165,7 @@ const InvestorCharter = () => {
               <h3 className="text-xl font-bold">Don'ts</h3>
               <ul className="list-disc pl-6">
                 <li>
-                  Don’t fall for stock tips offered under the pretext of
+                  Don’t fall for stock Recommendation offered under the pretext of
                   investment advice.
                 </li>
                 <li>
