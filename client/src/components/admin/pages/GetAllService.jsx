@@ -18,6 +18,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL; // Update this to your actual b
 const GetAllService = () => {
   const [services, setServices] = useState([]);
   const [showGlobalModal, setShowGlobalModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [enrolledModel, setEnrolledModel] = useState(false);
   const { token } = useSelector((state) => state.auth);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
@@ -34,12 +35,14 @@ const GetAllService = () => {
   });
 
   const getService = async () => {
+    setLoading(true)
     try {
       const response = await getAllService();
       setServices(response); // Assuming response is an array of services
     } catch (error) {
       console.error("Failed to fetch services:", error);
     }
+    setLoading(false)
   };
 
   // const handleDelete = async (id) => {
@@ -123,6 +126,17 @@ const GetAllService = () => {
     }
   };
 
+
+  if (loading || !services) {
+    return (
+      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+        Our Services
+      </h1>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">

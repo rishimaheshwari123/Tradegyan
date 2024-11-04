@@ -9,10 +9,15 @@ const ConversationList = ({ onConversationSelect, onUserSelect }) => {
   const { user } = useSelector(state => state.auth);
   const [socket, setSocket] = useState(null);
   const BASE_URL = process.env.REACT_APP_SOCKET_BASE_URL
-
+  const[first,setFirst] = useState(true)
+  const [loading, setLoading] = useState(false);
 
 
   const fetchConversations = async () => {
+    if(first){
+      setLoading(true)
+
+    }
     try {
       const { data } = await axios.get(`${BASE_URL}/api/v1/chat/conversations`, {
         headers: { Authorization: `Bearer ${token}` }
@@ -22,6 +27,8 @@ const ConversationList = ({ onConversationSelect, onUserSelect }) => {
     } catch (error) {
       console.error('Error fetching conversations:', error);
     }
+    setFirst(false)
+    setLoading(false)
   };
 
   useEffect(() => {
@@ -58,6 +65,18 @@ const ConversationList = ({ onConversationSelect, onUserSelect }) => {
     fetchConversations(); // Refresh the conversations after a user is selected
   };
 
+
+  if (loading && conversations.length === 0) {
+    return (
+      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+     Conversations
+
+      </h1>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return (
     <div className="p-4 bg-gray-50 rounded-lg shadow-md w-full">
       <h2 className="text-xl font-semibold mb-4">Conversations</h2>
