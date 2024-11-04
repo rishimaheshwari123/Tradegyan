@@ -222,7 +222,7 @@ const Footer = () => {
             Opposite C-21 Mall, Indore, Madhya Pradesh 452010
           </p>
           <hr />
-          <p className="text-center">Made By I Next Ets❤️</p>
+          <p className="text-center">Made By TG IT Team❤️</p>
         </div>
       </div>
     </footer>
