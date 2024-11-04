@@ -28,7 +28,7 @@ connectDB();
 const server = http.createServer(app);
 const io = socketIO(server, {
   cors: {
-    origin: ["http://localhost:3000", 'https://tradegyan.vercel.app', 'https://tradegyan-nine.vercel.app', 'https://tradegyan-nine.vercel.app'],
+    origin: ["http://localhost:3000", 'https://tradegyan.vercel.app', 'https://tradegyan-nine.vercel.app', 'https://tradegyansolutions.vercel.app/'],
     methods: ["GET", "POST"],
   },
 });

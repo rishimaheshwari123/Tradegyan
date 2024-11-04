@@ -8,8 +8,8 @@ const mailSender = require('../utils/mailSenderr');
 const checkExpiredServices = async () => {
   try {
     const currentDate = new Date();
-    // , sentEmail: false
-    const expirations = await ScheduledExpiration.find({ expirationDate: { $lt: currentDate } });
+    // , 
+    const expirations = await ScheduledExpiration.find({ expirationDate: { $lt: currentDate } ,sentEmail: false});
 
     for (const expiration of expirations) {
       const user = await authModel.findById(expiration.user);
@@ -32,7 +32,7 @@ const checkExpiredServices = async () => {
     }
 
     // Optionally, delete sent expirations
-    // await ScheduledExpiration.deleteMany({ sentEmail: true });
+    await ScheduledExpiration.deleteMany({ sentEmail: true });
 
     console.log('Checked and updated expired services.');
   } catch (error) {
