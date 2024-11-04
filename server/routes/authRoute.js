@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.post("/login", loginCtrl)
 router.post("/register", registerCtrl)
-router.put("/verify/:id", verifyUserCtrl)
+router.put("/verify/:id", auth, verifyUserCtrl)
 router.post("/send-message", sendMessageCtrl)
 router.post("/send-message/:serviceId", sendServiceEnrolledMessage)
 

@@ -6,6 +6,7 @@ const mailSender = require("../utils/mailSenderr");
 const { instance } = require("../config/razorpay");
 const crypto = require("crypto")
 const PDFDocument = require('pdfkit');
+const ScheduledExpiration = require("../models/expiryScheduleModel")
 
 const capturePayment = async (req, res) => {
   const { serviceId } = req.body;
@@ -176,6 +177,7 @@ const enrollInService = async (req, res) => {
       timePeriods, // This should be a string like '1 Month', '3 Month', '6 Month'
     } = req.body;
 
+    console.log(timePeriods)
     // Fetch the service
     const service = await Service.findById(serviceId);
     if (!service) {
@@ -213,6 +215,7 @@ const enrollInService = async (req, res) => {
       "6 Month": 6,
     }[timePeriods];
 
+    
     if (!durationInMonths) {
       return res.status(400).json({ success: false, message: "Invalid time period provided" });
     }
@@ -247,6 +250,13 @@ const enrollInService = async (req, res) => {
           payable,
         },
       },
+    });
+
+
+    await ScheduledExpiration.create({
+      user: userDetails._id,
+      service: serviceId,
+      expirationDate: expirationDate,
     });
 
     // Generate the PDF Invoice
@@ -288,8 +298,8 @@ const enrollInService = async (req, res) => {
       paymentSuccessEmail(
         userDetails.name,
         service.serviceName,
-        enrollmentDate,
-        expirationDate
+        formattedEnrollmentDate,
+        formattedExpirationDate
       ),
       attachments
     );

@@ -4,6 +4,9 @@ const mailSender = require('../utils/mailSenderr');
 const { messageViaEmail } = require('../template/messageViaEmail');
 const axios = require("axios");
 const serviceModel = require('../models/serviceModel');
+const authModel = require('../models/authModel');
+const { serviceExpiredEmail } = require('../template/expiryService');
+
 const createService = async (req, res) => {
   try {
     const {

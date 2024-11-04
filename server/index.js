@@ -11,7 +11,14 @@ const socketIO = require('socket.io');
 const { setIO } = require('./socketIO/socket');
 const http = require('http');
 const Chat = require("./models/chtasSchema")
+// In your main application file (e.g., app.js or server.js)
+const expiry = require('./controllers/scheduler.js'); // Adjust the path based on where your scheduler.js file is located
+const cron = require('node-cron');
 
+cron.schedule('0 * * * *', () => {
+  console.log('Running job to check for expired services...');
+  expiry();
+});
 
 dotenv.config();
 
@@ -121,6 +128,8 @@ io.on('connection', (socket) => {
     console.log('User disconnected');
   });
 })
+
+
 server.listen(PORT, () => {
   console.log(`Server is running at port no ${PORT}`)
 })

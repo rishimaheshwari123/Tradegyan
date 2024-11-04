@@ -1,9 +1,4 @@
-
-const messageViaEmail = (
-  messageContent, userName
-
-
-) => {
+const messageViaEmail = (messageContent, userName) => {
   return `<!DOCTYPE html>
 <html lang="en">
 
@@ -83,28 +78,21 @@ const messageViaEmail = (
   <div class="container">
     <h1>Message from TradeGyan</h1>
 
-    <p>Dear <strong>${userName}</strong>,</p>
-
+    ${userName ? `<p>Dear <strong>${userName}</strong>,</p>` : ''}
+    
     <p>We hope this message finds you well. As part of our continued effort to provide valuable stock market insights, we wanted to reach out to you with the following information:</p>
 
-    <div class="message-content">
-      ${messageContent}
-    </div>
+    ${messageContent ? `<div class="message-content">${messageContent}</div>` : ''}
 
     <p>If you have any questions or require further details, please do not hesitate to contact us. Stay informed and take wise steps in the stock market!</p>
 
     <a href="https://www.tradegyan.co" class="cta-button">Visit TradeGyan</a>
 
-    <p class="footer">
-      You are receiving this email because you subscribed to TradeGyan. If you wish to unsubscribe, please click <a href="{{unsubscribeLink}}">here</a>.
-    </p>
+  
   </div>
 </body>
 
-</html>
+</html>`;
+};
 
-    `
-}
-
-
-module.exports = { messageViaEmail }
+module.exports = { messageViaEmail };

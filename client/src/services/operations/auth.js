@@ -76,7 +76,7 @@ export async function signUp(formData, navigate, dispatch) {
 
 
 
-export async function verifyUserApi(name, password, id) {
+export async function verifyUserApi(name, password, id,token) {
   Swal.fire({
     title: "Loading",
     allowOutsideClick: false,
@@ -89,7 +89,12 @@ export async function verifyUserApi(name, password, id) {
   });
 
   try {
-    const response = await apiConnector("PUT", `${VERIFY_USER_API}/${id}`, { name, password });
+    const response = await apiConnector("PUT", `${VERIFY_USER_API}/${id}`, { name, password },
+      {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      }
+    );
 
     console.log("Verify API RESPONSE............", response);
 

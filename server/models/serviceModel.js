@@ -97,6 +97,10 @@ const serviceSchema = new mongoose.Schema(
           type: Number,
           required: true,
         },
+        expiryMail:{
+          type:Number,
+          default:0
+        }
       },
     ],
   

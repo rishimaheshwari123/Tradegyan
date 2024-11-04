@@ -7,124 +7,10 @@ const mailSender = require("../utils/mailSenderr");
 const { messageViaEmail } = require("../template/messageViaEmail");
 const axios = require("axios");
 const { accountVerifiedEmail } = require("../template/accountVerified");
+const { serviceExpiredEmail } = require("../template/expiryService");
+const serviceModel = require('../models/serviceModel')
+const moment = require("moment");
 
-// const registerCtrl = async (req, res) => {
-//   try {
-//     const { name, email, password, location } = req.body;
-
-//     if (!name || !email || !password || !location) {
-//       return res.status(403).send({
-//         success: false,
-//         message: "All Fields are required",
-//       });
-//     }
-
-//     const existingUser = await authModel.findOne({ email });
-//     if (existingUser) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "User already exists. Please sign in to continue.",
-//       });
-//     }
-
-//     const hashedPassword = await bcrypt.hash(password, 10);
-//     const user = await authModel.create({
-//       name,
-//       email,
-//       location,
-//       password: hashedPassword,
-//     });
-
-//     const token = jwt.sign(
-//       { email: user.email, id: user._id, role: user.role },
-//       process.env.JWT_SECRET
-//     );
-
-//     // Set cookie for token
-//     const options = {
-//       expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-//       httpOnly: true,
-//     };
-//     res.cookie("token", token, options);
-
-//     return res.status(200).json({
-//       success: true,
-//       token,
-//       user,
-//       message: "User registered successfully",
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({
-//       success: false,
-//       message: "User cannot be registered. Please try again.",
-//     });
-//   }
-// };
-
-// const registerCtrl = async (req, res) => {
-//   try {
-//     const { name, email, contactNumber, whatsappNumber, password } = req.body;
-
-//     // Ensure all fields are provided
-//     if (!name || !email || !contactNumber || !whatsappNumber || !password) {
-//       return res.status(403).send({
-//         success: false,
-//         message: "All fields are required",
-//       });
-//     }
-
-//     // Check if the user already exists
-//     const existingUser = await authModel.findOne({ email });
-//     if (existingUser) {
-//       return res.status(400).json({
-//         success: false,
-//         message: "User already exists. Please sign in to continue.",
-//       });
-//     }
-
-//     // Hash the password
-//     const hashedPassword = await bcrypt.hash(password, 10);
-
-//     // Create new user with all the provided fields
-//     const user = await authModel.create({
-//       name,
-//       email,
-//       contactNumber,
-//       whatsappNumber,
-//       image:`https://api.dicebear.com/5.x/initials/svg?seed=${name}`,
-
-//       password: hashedPassword,
-//     });
-
-//     // Generate JWT token
-//     const token = jwt.sign(
-//       { email: user.email, id: user._id, role: user.role },
-//       process.env.JWT_SECRET
-//     );
-
-//     // Set cookie for token
-//     const options = {
-//       expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // Cookie expires in 3 days
-//       httpOnly: true,
-//     };
-//     res.cookie("token", token, options);
-
-//     // Respond with success
-//     return res.status(200).json({
-//       success: true,
-//       token,
-//       user,
-//       message: "User registered successfully",
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(500).json({
-//       success: false,
-//       message: "User cannot be registered. Please try again.",
-//     });
-//   }
-// };
 
 const registerCtrl = async (req, res) => {
   try {
@@ -255,6 +141,7 @@ const loginCtrl = async (req, res) => {
       const options = {
         httpOnly: true,
       };
+      await checkForExpiredSubscriptions(user._id)
       res.cookie("token", token, options).status(200).json({
         success: true,
         token,
@@ -419,6 +306,8 @@ const fetchMyProfile = async (req, res) => {
       });
     }
 
+    await checkForExpiredSubscriptions(id)
+
     return res.status(200).json({
       user,
       success: true,
@@ -432,6 +321,59 @@ const fetchMyProfile = async (req, res) => {
     });
   }
 };
+
+
+const checkForExpiredSubscriptions = async (userId) => {
+  try {
+    const user = await authModel.findById(userId).populate("subscriptions");
+    if (!user) {
+      throw new Error("User not found");
+    }
+console.log("enter checking")
+    let hasExpiredSubscriptions = false;
+
+    // Iterate over subscriptions to check for expiration
+    for (const subscription of user.subscriptions) {
+      if (new Date() > subscription.expirationDate) {
+        subscription.isActive = false;
+        subscription.expiryMail += 1;
+        hasExpiredSubscriptions = true;
+
+        // Check if the subscription is associated with any services
+        const service = await serviceModel.findById(subscription.service); // Assuming you have serviceId in the subscription
+        if (service) {
+          const enrolledUser = service.usersEnroled.find(userEnrolled => userEnrolled.user.toString() === userId.toString());
+          if (enrolledUser) {
+    const formattedExpirationDate = moment(subscription.expirationDate).format('dddd, MMMM Do YYYY, h:mm:ss A');
+        if(subscription.expiryMail < 1){
+          await mailSender(
+            user.email,
+            "TradeGyan Solutions",
+            serviceExpiredEmail(user.name,service.serviceName,formattedExpirationDate)
+          );
+        }
+                
+            
+            enrolledUser.isActive = false; // Update the enrollment to inactive
+            service.expiryMail += 1; // Set this to indicate a mail has been sent for expiry (if required)
+            await service.save(); // Save the updated service document
+            // console.log(`Service availability updated to inactive for service ${service._id} due to expiration.`);
+          }
+        }
+      }
+    }
+
+    // Save user only if there are changes (inactive subscriptions)
+    if (hasExpiredSubscriptions) {
+      await user.save();
+      // console.log(`Expired subscriptions updated for user ${userId}`);
+    }
+  } catch (error) {
+    console.error("Error checking for expired subscriptions:", error.message);
+    throw new Error(error.message || "Failed to check subscriptions");
+  }
+};
+
 
 const getSingleUserCtrl = async (req, res) => {
   try {
@@ -520,4 +462,5 @@ module.exports = {
   fetchMyProfile,
   getSingleUserCtrl,
   verifyUserCtrl,
+  checkForExpiredSubscriptions
 };

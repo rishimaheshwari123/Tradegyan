@@ -1,16 +1,10 @@
-
-const contactUsEmail = (
-    name, email, contact, message,role
-
-
-) => {
+const contactUsEmail = (name, email, contact, message, role) => {
     return `<!DOCTYPE html>
     <html>
     
     <head>
         <meta charset="UTF-8">
-        <title>
-Become an Associate Form Query</title>
+        <title>Become an Associate Form Query</title>
         <style>
             body {
                 background-color: #f4f4f4;
@@ -85,28 +79,25 @@ Become an Associate Form Query</title>
     </head>
     
     <body>
-        <div className="container">
-            <a href="https://tradegyan.co"><img className="logo"
+        <div class="container">
+            <a href="https://tradegyan.co"><img class="logo"
                     src="https://i.ibb.co/ZdF6Cdr/tradegyan.png" alt="TradeGyan Solution Logo"></a>
-            <div className="message">New Business Related Query</div>
-            <div className="body">
-                <p>Dear <span className="highlight">Admin</span>,</p>
-                <div className="info">
+            <div class="message">New Business Related Query</div>
+            <div class="body">
+                <p>Dear <span class="highlight">Admin</span>,</p>
+                <div class="info">
                     <p>A new query related to business</p>
-                    <p><span className="highlight">Name:</span> ${name}</p>
-                    <p><span className="highlight">Email:</span> ${email}</p>
-                    <p><span className="highlight">Contact Number:</span> ${contact}</p>
-                    <p><span className="highlight">Message:</span> ${message}</p>
-                    <p><span className="highlight">For :</span> ${role}</p>
-                    
+                    ${name ? `<p><span class="highlight">Name:</span> ${name}</p>` : ''}
+                    ${email ? `<p><span class="highlight">Email:</span> ${email}</p>` : ''}
+                    ${contact ? `<p><span class="highlight">Contact Number:</span> ${contact}</p>` : ''}
+                    ${message ? `<p><span class="highlight">Message:</span> ${message}</p>` : ''}
+                    ${role ? `<p><span class="highlight">For:</span> ${role}</p>` : ''}
                 </div>
             </div>
         </div>
     </body>
     
-    </html>
-    `
+    </html>`;
 }
 
-
-module.exports = { contactUsEmail }
+module.exports = { contactUsEmail };

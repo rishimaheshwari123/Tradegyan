@@ -1,12 +1,12 @@
-const paymentSuccessEmail = (
-    name, serviceName, enrollmentDate, expirationDate
+const serviceExpiredEmail = (
+    name, serviceName, expirationDate
 ) => {
     return `<!DOCTYPE html>
     <html lang="en">
 
     <head>
         <meta charset="UTF-8">
-        <title>Payment Successful</title>
+        <title>Service Expired</title>
         <style>
             body {
                 background-color: #f4f4f4;
@@ -38,7 +38,7 @@ const paymentSuccessEmail = (
             .message {
                 font-size: 28px;
                 font-weight: bold;
-                color: #4CAF50;
+                color: #f44336; /* Red color for expiration alert */
                 margin-bottom: 15px;
             }
 
@@ -64,46 +64,6 @@ const paymentSuccessEmail = (
                 color: #FFA500;
             }
 
-            .invoice {
-                margin-top: 20px;
-                padding: 20px;
-                background-color: #f9f9f9;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-            }
-
-            .invoice-title {
-                font-size: 22px;
-                font-weight: bold;
-                color: #333;
-                text-align: center;
-                margin-bottom: 15px;
-            }
-
-            .cta {
-                display: inline-block;
-                padding: 12px 24px;
-                background-color: #4CAF50;
-                color: #ffffff;
-                text-decoration: none;
-                border-radius: 5px;
-                font-size: 18px;
-                font-weight: bold;
-                margin: 20px 0;
-                text-align: center;
-            }
-
-            .cta:hover {
-                background-color: #45a049;
-            }
-
-            .support {
-                font-size: 14px;
-                color: #999;
-                text-align: center;
-                margin-top: 30px;
-            }
-
             .footer {
                 font-size: 12px;
                 color: #777;
@@ -126,10 +86,6 @@ const paymentSuccessEmail = (
                 .body {
                     font-size: 16px;
                 }
-                .cta {
-                    font-size: 16px;
-                    padding: 10px 20px;
-                }
             }
         </style>
     </head>
@@ -140,24 +96,19 @@ const paymentSuccessEmail = (
                 <a href="https://www.tradegyan.co/">
                     <img class="logo" src="https://i.ibb.co/ZdF6Cdr/tradegyan.png" alt="Trade Gyan Logo">
                 </a>
-                <div class="message">Payment Successful</div>
+                <div class="message">Service Expired</div>
+                 <div class="info">
+                <p><span class="highlight">Service Name:</span> ${serviceName}</p>
+            </div>
             </div>
             <div class="body">
                 <p>Dear <span class="highlight">${name}</span>,</p>
-                <p>Your payment for the service has been successfully processed. Here are your details:</p>
+                <p>We regret to inform you that your service has expired as of <span class="highlight">${expirationDate}</span>. Here are the details of your service:</p>
             </div>
-            <div class="invoice">
-                <div class="invoice-title">Invoice Details</div>
-                <div class="info">
-                    <p><span class="highlight">Service Name:</span> ${serviceName}</p>
-                    <p><span class="highlight">Enrollment Date:</span> ${enrollmentDate}</p>
-                    <p><span class="highlight">Expiration Date:</span> ${expirationDate}</p>
-                </div>
-                <p>Thank you for choosing our services! If you have any questions, feel free to reach out.</p>
-            </div>
-            <a href="https://www.tradegyan.co" class="cta">Visit TradeGyan</a>
-            <div class="support">If you need further assistance, please contact our support team.</div>
            
+            <p>To continue enjoying our services, please consider renewing your subscription.</p>
+            <a href="https://www.tradegyan.co" class="cta">Contact For Renew </a>
+          
         </div>
     </body>
 
@@ -165,4 +116,4 @@ const paymentSuccessEmail = (
     `;
 };
 
-module.exports = { paymentSuccessEmail };
+module.exports = { serviceExpiredEmail };

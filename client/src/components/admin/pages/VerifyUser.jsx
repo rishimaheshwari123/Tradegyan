@@ -4,6 +4,7 @@ import { verifyUserApi } from "../../../services/operations/auth";
 import { FaCheckCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import Pagination from "../Pagination";
+import { useSelector } from "react-redux";
 
 const VerifyUser = () => {
   const [users, setUsers] = useState([]);
@@ -15,7 +16,7 @@ const VerifyUser = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isVerifiedFilter, setIsVerifiedFilter] = useState("all"); // New state for verification filter
-
+  const {token} = useSelector(state=>state.auth)
   const [formData, setFormData] = useState({
     name: "",
     password: "",
@@ -97,7 +98,7 @@ const VerifyUser = () => {
     if (selectedUser) {
       // Convert name to lowercase and sanitize by removing spaces before sending to the backend
       const lowerCaseName = name.replace(/\s+/g, '').toLowerCase();
-      const response = await verifyUserApi(lowerCaseName, password, selectedUser._id);
+      const response = await verifyUserApi(lowerCaseName, password, selectedUser._id,token);
 
 if(response){
   setShowModal(false)

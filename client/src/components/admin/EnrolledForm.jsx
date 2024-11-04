@@ -101,8 +101,8 @@ onClose(false)
           >
             <option value="">Select Duration</option>
             <option value="1 Month">1 Month</option>
-            <option value="3 Months">3 Months</option>
-            <option value="6 Months">6 Months</option>
+            <option value="3 Month">3 Months</option>
+            <option value="6 Month">6 Months</option>
           </select>
         </div>
         <div className="mb-4">

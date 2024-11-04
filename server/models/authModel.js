@@ -73,6 +73,10 @@ const authSchema = new mongoose.Schema(
         payable: { // Add this field
           type: Number,
         },
+        expiryMail:{
+          type:Number,
+          default:0
+        }
       },
     ],
     token: {
