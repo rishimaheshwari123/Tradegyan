@@ -7,8 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
-const dispatch = useDispatch()
-const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     dispatch(setUser(null));
     dispatch(setToken(null));
@@ -16,41 +17,36 @@ const navigate = useNavigate()
     localStorage.removeItem("user");
     toast.success("Logout Successfully");
     navigate("/client-login");
-    // setIsOpen(false); // Close sidebar on logout
   };
+
   return (
-    <div className="flex justify-center items-center w-screen h-screen bg-gradient-to-r ">
-      <div className="text-center">
+    <div className="flex justify-center items-center w-full min-h-screen bg-gradient-to-r from-gray-200 to-gray-400">
+      <div className="text-center p-4 max-w-sm w-full">
         {/* Profile Avatar */}
-        <div className="w-28 h-28 bg-gray-300 rounded-full flex items-center justify-center text-black text-5xl font-bold mx-auto">
-          {/* Display the first letter of the user's name */}
+        <div className="w-24 h-24 md:w-28 md:h-28 bg-gray-300 rounded-full flex items-center justify-center text-black text-4xl md:text-5xl font-bold mx-auto">
           {user?.name?.[0]?.toUpperCase() || <FaUserCircle />}
         </div>
 
         {/* Profile Name */}
-        <h2 className="text-4xl mt-4 font-bold text-black">{user?.name}</h2>
+        <h2 className="text-2xl md:text-4xl mt-4 font-bold text-black">
+          {user?.name}
+        </h2>
 
         {/* Profile Details */}
-        <div className="mt-6 text-xl text-black space-y-4">
+        <div className="mt-4 md:mt-6 text-base md:text-xl text-black space-y-2 md:space-y-4">
           <p>
             <span className="font-semibold">Email:</span> {user?.email}
           </p>
-          {/* <p>
-            <span className="font-semibold">Subscription Status:</span>{" "}
-            {user?.isSubscription ? (
-              <span className="text-green-300 font-semibold">Active</span>
-            ) : (
-              <span className="text-red-300 font-semibold">Inactive</span>
-            )}
-          </p> */}
+
+          {/* Logout Button */}
           <div>
-                  <button
-                    onClick={handleLogout}
-                    className="px-4 py-2 font-bold bg-red-500 text-white rounded"
-                  >
-                    Logout
-                  </button>
-                </div>
+            <button
+              onClick={handleLogout}
+              className="px-3 py-1 md:px-4 md:py-2 font-bold bg-red-500 text-white rounded hover:bg-red-600 transition"
+            >
+              Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>

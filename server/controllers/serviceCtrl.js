@@ -179,11 +179,11 @@ const getServices = async (req, res) => {
       return res.status(404).json({ success: false, message: "User not found" });
     }
 
+    // console.log(user)
     // Filter and extract the services from the user's subscriptions
     const services = user.subscriptions
-      .filter(subscription => subscription.isActive) // Only active subscriptions
       .map(subscription => ({
-        serviceId: subscription.service._id, // Service ID
+        serviceId: subscription.service, // Service ID
         serviceName: subscription.service.serviceName, // Assuming service has a name field
         description: subscription.service.description, // Assuming service has a description field
         enrollmentDate: subscription.enrollmentDate,

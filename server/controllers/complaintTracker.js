@@ -79,7 +79,7 @@ exports.getPastMonthsData = async (req, res) => {
     const pastMonthsData = [];
 
     // Loop through the last 12 months
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 3; i++) {
       const date = new Date(currentDate);
       date.setMonth(currentDate.getMonth() - i);
       const month = date.toLocaleString('default', { month: 'long' });

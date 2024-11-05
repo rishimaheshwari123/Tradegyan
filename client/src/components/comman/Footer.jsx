@@ -12,13 +12,13 @@ import {
 import { Link, NavLink, useLocation } from "react-router-dom"; // Import Link and useLocation
 
 const Footer = () => {
-  const location = useLocation(); // Get the current URL path
+  const location = useLocation(); // Get the current URL path chats
 
   // Check if the current path includes "/admin"
-  if (location.pathname.includes("/admin")) {
-    return null; // Do not render the footer if the URL contains "/admin"
+  if (location.pathname.includes("/admin") || location.pathname.includes("/profile") || location.pathname.includes("/subscription") || location.pathname.includes("/chats") ) {
+    return null; // Do not render the footer if the URL contains "/admin" or "/profile/subscription"
   }
-
+  
   return (
     <footer className="bg-gray-900 text-gray-300 py-10">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
@@ -222,7 +222,7 @@ const Footer = () => {
             Opposite C-21 Mall, Indore, Madhya Pradesh 452010
           </p>
           <hr />
-          <p className="text-center">Made By I Next Ets❤️</p>
+          <p className="text-center">Made By TG IT Team❤️</p>
         </div>
       </div>
     </footer>

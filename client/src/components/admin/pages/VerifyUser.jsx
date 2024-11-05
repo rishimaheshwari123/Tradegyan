@@ -14,6 +14,7 @@ const VerifyUser = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState("newest");
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const [isVerifiedFilter, setIsVerifiedFilter] = useState("all"); // New state for verification filter
   const {token} = useSelector(state=>state.auth)
@@ -25,6 +26,7 @@ const VerifyUser = () => {
 
   // Fetch all users
   const fetchUser = async (currentPage, searchQuery, sortOrder,isVerifiedFilter) => {
+    setLoading(true)
     const response = await getAllUser(
       currentPage,
       limit,
@@ -36,13 +38,14 @@ const VerifyUser = () => {
       setUsers(response.data);
       setTotalPages(response.totalPages);
     }
+    setLoading(false)
   };
 
 
   const handlePageChange = (newPage) => {
     setPage(newPage);
   };
-
+  
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
     setPage(1);
@@ -117,6 +120,20 @@ if(response){
     setIsVerifiedFilter(e.target.value);
     setPage(1);
   };
+
+
+
+  if (loading || !users) {
+    return (
+      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
+     Verify / Unverify Users List
+
+      </h1>
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4 text-center">Verify Users</h1>

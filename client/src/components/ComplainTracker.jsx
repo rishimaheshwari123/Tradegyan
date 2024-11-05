@@ -6,60 +6,50 @@ const ComplaintTrends = () => {
   const [pastMonthsData, setPastMonthsData] = useState([]);
   const [pastYearsData, setPastYearsData] = useState([]);
   const [grandTotalYears, setGrandTotalYears] = useState({});
+  const BASE_URL = process.env.REACT_APP_SOCKET_BASE_URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch current month data
         const currentMonthResponse = await axios.get(
-          "https://tradegyan.mahitechnocrafts.in/current-month-data"
+          `${BASE_URL}/current-month-data`
         );
         setCurrentMonthData(currentMonthResponse?.data?.monthEndData);
-
-        // Fetch past months data
-
-        // Fetch past years data
-
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching current month data:", error);
       }
-      
+
       try {
         const monthsResponse = await axios.get(
-          "https://tradegyan.mahitechnocrafts.in/monthly-trend"
+          `${BASE_URL}/monthly-trend`
         );
-        console.log(monthsResponse)
         setPastMonthsData(monthsResponse?.data?.pastMonthsData);
-        
       } catch (error) {
-        console.error("Error fetching data:", error);
-        
+        console.error("Error fetching past months data:", error);
       }
+
       try {
         const yearsResponse = await axios.get(
-          "https://tradegyan.mahitechnocrafts.in/annual-trend"
+         `${BASE_URL}/annual-trend`
         );
         setPastYearsData(yearsResponse?.data?.pastYearsData);
         setGrandTotalYears(yearsResponse?.data?.grandTotal);
-        
       } catch (error) {
-        console.error("Error fetching data:", error);
-        
+        console.error("Error fetching past years data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [BASE_URL]);
 
   return (
-    <div className="p-4 w-11/12 mx-auto text-center bg-white">
+    <div className="p-4 w-full md:w-10/12 mx-auto text-center bg-white">
       <div>
-        <h2 className="text-xl font-bold mb-4">
+        <h2 className="text-lg md:text-xl font-bold mb-4">
           Data for the Month End – {currentMonthData?.month}
         </h2>
         <div className="overflow-x-auto">
-          {" "}
-          {/* Make table horizontally scrollable */}
           <table className="min-w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-200">
@@ -127,12 +117,10 @@ const ComplaintTrends = () => {
         </div>
       </div>
 
-      <h2 className="text-xl font-bold mt-8 mb-4">
+      <h2 className="text-lg md:text-xl font-bold mt-8 mb-4">
         Trend of monthly disposal of complaints
       </h2>
       <div className="overflow-x-auto">
-        {" "}
-        {/* Make table horizontally scrollable */}
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-200">
@@ -158,12 +146,10 @@ const ComplaintTrends = () => {
         </table>
       </div>
 
-      <h2 className="text-xl font-bold mt-8 mb-4">
+      <h2 className="text-lg md:text-xl font-bold mt-8 mb-4">
         Trend of annual disposal of complaints
       </h2>
       <div className="overflow-x-auto">
-        {" "}
-        {/* Make table horizontally scrollable */}
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-200">

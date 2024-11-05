@@ -26,7 +26,7 @@ function CRM() {
   const [messageContent, setMessageContent] = useState("");
   const [sendVia, setSendVia] = useState("whatsapp"); // Default to WhatsApp
   const [isGlobalMessage, setIsGlobalMessage] = useState(false); // Flag to indicate if sending globally
-  const [seletcUser, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log("user");
@@ -34,6 +34,7 @@ function CRM() {
   }, []);
 
   const fetchUser = async (currentPage, searchQuery, sortOrder) => {
+    setLoading(true)
     const response = await getAllUser(
       currentPage,
       limit,
@@ -44,6 +45,7 @@ function CRM() {
       setUsers(response.data);
       setTotalPages(response.totalPages);
     }
+    setLoading(false)
   };
 
   useEffect(() => {
@@ -144,6 +146,13 @@ function CRM() {
     setShowMessageModal(true);
   };
 
+  if (loading || !users) {
+    return (
+      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
   return (
     <div className="p-6 bg-gray-100">
       <div className="flex lg:justify-between my-5 flex-col lg:flex-row">

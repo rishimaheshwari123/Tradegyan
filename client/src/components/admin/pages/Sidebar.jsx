@@ -7,15 +7,12 @@ import { MdLogout } from "react-icons/md";
 import { FaHome } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../services/operations/auth";
-import { FaUsersGear } from "react-icons/fa6";
 import { IoIosChatboxes } from "react-icons/io";
-import {
-  FcBullish,
-  FcMms,
-  FcMultipleCameras,
-  FcServices,
-  FcViewDetails,
-} from "react-icons/fc";
+import {   FaRegNewspaper } from "react-icons/fa";
+import { FcBullish, FcServices, FcViewDetails, FcAbout } from "react-icons/fc";
+import { AiOutlineWarning, AiOutlineFileText } from "react-icons/ai";
+import { MdOutlineVerifiedUser, MdOutlineFeedback } from "react-icons/md";
+
 
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(
@@ -61,7 +58,7 @@ const Sidebar = () => {
     { to: "/admin/get-service", icon: <FcViewDetails />, label: "Get Service" },
     {
       to: "/admin/users",
-      icon: <FaUsersGear className="text-red-500" />,
+      icon: <MdOutlineVerifiedUser className="text-red-500" />,
       label: "Users",
     },
     {
@@ -71,27 +68,27 @@ const Sidebar = () => {
     },
     {
       to: "/admin/create-Complaints",
-      icon: <FaUsersGear className="text-red-500" />,
+      icon: <AiOutlineWarning className="text-red-500" />,
       label: "Create Complaints",
     },
-    {
-      to: "/admin/get-Complaints",
-      icon: <FcViewDetails className="text-red-500" />,
-      label: "Get Complaints",
-    },
+    // {
+    //   to: "/admin/get-Complaints",
+    //   icon: <FcAbout className="text-red-500" />,
+    //   label: "Get Complaints",
+    // },
     {
       to: "/admin/addBlog",
-      icon: <FcMultipleCameras />,
+      icon: <FaRegNewspaper />,
       label: "Add Blog",
     },
     {
       to: "/admin/getBlog",
-      icon: <FcMms />,
+      icon: <MdOutlineFeedback />,
       label: "Get Blog",
     },
     {
       to: "/admin/verify-user",
-      icon: <FcMms />,
+      icon: <AiOutlineFileText />,
       label: "Verify User",
     },
   ];

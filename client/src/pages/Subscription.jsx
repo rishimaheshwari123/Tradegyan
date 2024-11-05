@@ -61,7 +61,7 @@ const ServicesList = () => {
     }, [token]);
 
     return (
-        <div className="services-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+        <div className="services-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 min-h-screen overflow-y-scroll max-h-screen min-w-full  bg-gradient-to-r from-gray-200 to-gray-400 ">
             {services.length > 0 ? (
                 services.map((service) => (
                     <ServiceCard key={service.serviceId} service={service} />

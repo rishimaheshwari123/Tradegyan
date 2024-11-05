@@ -6,7 +6,7 @@ function Layout() {
     <div className="">
       <Sidebar />
 
-      <div className="lg:ml-24 mx-5 mt-3 ml-[100px] min-h-screen">
+      <div className="lg:ml-24 mx-5 mt-3 ml-[100px] min-h-screen  bg-gradient-to-r from-gray-200 to-gray-400">
         <Outlet />
       </div>
     </div>

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
@@ -79,24 +78,24 @@ const AddBlog = () => {
   };
 
   return (
-    <>
-      <h1 className="text-blue-600 text-center text-3xl border border-b-2 border-blue-600 pb-2">
+    <div className="container mx-auto p-4">
+      <h1 className="text-blue-600 text-center text-2xl md:text-3xl border-b-2 border-blue-600 pb-2">
         Add Blogs
       </h1>
       <form
         onSubmit={handleSubmit}
-        className="sm:grid grid-cols-1 md:grid-cols-2 md:gap-4 md:mt-20 mt-10"
+        className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"
       >
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-xl font-bold mb-2"
+            className="block text-gray-700 text-lg md:text-xl font-bold mb-2"
             htmlFor="title"
           >
-            Title : <span className="text-red-500">*</span>
+            Title: <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg"
             name="title"
             id="title"
             value={formData.title}
@@ -104,16 +103,17 @@ const AddBlog = () => {
             required
           />
         </div>
+
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-xl font-bold mb-2"
+            className="block text-gray-700 text-lg md:text-xl font-bold mb-2"
             htmlFor="desc"
           >
-            Description : <span className="text-red-500">*</span>
+            Description: <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg"
             name="desc"
             id="desc"
             value={formData.desc}
@@ -121,15 +121,16 @@ const AddBlog = () => {
             required
           />
         </div>
+
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-xl font-bold mb-2"
+            className="block text-gray-700 text-lg md:text-xl font-bold mb-2"
             htmlFor="type"
           >
-            Type : <span className="text-red-500">*</span>
+            Type: <span className="text-red-500">*</span>
           </label>
           <select
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg"
             name="type"
             id="type"
             value={formData.type}
@@ -147,13 +148,13 @@ const AddBlog = () => {
 
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-xl font-bold mb-2"
+            className="block text-gray-700 text-lg md:text-xl font-bold mb-2"
             htmlFor="image"
           >
             Image:
           </label>
           <input
-            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-[50px] text-2xl border-none"
+            className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-lg"
             id="image"
             type="file"
             accept="image/*"
@@ -161,16 +162,16 @@ const AddBlog = () => {
           />
         </div>
 
-        <div className="flex items-center justify-between mt-5">
+        <div className="flex items-center justify-center md:justify-start">
           <button
-            className="px-8 py-4 bg-black text-white rounded-md text-sm"
+            className="px-6 py-2 bg-black text-white rounded-md text-base md:text-lg hover:bg-gray-800 transition"
             type="submit"
           >
             Create Blog
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
