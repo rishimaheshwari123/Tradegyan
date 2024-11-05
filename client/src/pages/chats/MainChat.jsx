@@ -33,7 +33,7 @@ const ChatsApp = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen  bg-gradient-to-r from-gray-200 to-gray-400">
       <div className="w-screen border-r p-4">
        
         <ConversationList onUserSelect={handleUserSelect} />

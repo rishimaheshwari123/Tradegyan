@@ -68,12 +68,12 @@ const AddComplaint = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10">
-      <h2 className="text-xl font-bold mb-4">Add Complaint</h2>
+    <div className="max-w-sm mx-auto p-4 sm:p-6 lg:p-8">
+      <h2 className="text-lg sm:text-xl font-bold mb-4">Add Complaint</h2>
       {error && <p className="text-red-500">{error}</p>}
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-4 sm:px-8 pt-6 pb-8 mb-4">
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Year</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Year</label>
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
@@ -87,7 +87,7 @@ const AddComplaint = () => {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Month</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Month</label>
           <select
             value={month}
             onChange={(e) => setMonth(e.target.value)}
@@ -101,7 +101,7 @@ const AddComplaint = () => {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Source</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Source</label>
           <select
             value={source}
             onChange={(e) => setSource(e.target.value)}
@@ -115,7 +115,7 @@ const AddComplaint = () => {
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Received From</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Received From</label>
           <input
             type="text"
             value={receivedFrom}
@@ -125,7 +125,7 @@ const AddComplaint = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Received</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Received</label>
           <input
             type="number"
             value={received}
@@ -134,7 +134,7 @@ const AddComplaint = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Resolved</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Resolved</label>
           <input
             type="number"
             value={resolved}
@@ -143,7 +143,7 @@ const AddComplaint = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Pending</label>
+          <label className="block text-gray-700 text-sm sm:text-base font-bold mb-2">Pending</label>
           <input
             type="number"
             value={pending}
@@ -153,7 +153,7 @@ const AddComplaint = () => {
         </div>
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Add Complaint
         </button>
