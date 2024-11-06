@@ -8,7 +8,7 @@ import {
   FaCoins,
 } from "react-icons/fa";
 import img from "../../../assets/shares.png";
-import bgImage from "../../../assets/dotted-map.png";
+import bgImage from '../../../assets/dotted-map.png';
 
 const Opportunities = () => {
   return (
@@ -18,14 +18,13 @@ const Opportunities = () => {
         backgroundImage: bgImage,
       }}
     >
-      <div className="lg:max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 items-center">
+      <div className="lg:max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5">
         <div className="first">
           <p className="lg:text-5xl text-3xl font-bold mb-4 text-black text-center lg:text-start">
             Diverse Investment Opportunities, Tailored for You
           </p>
           <p className="text-black mb-8 lg:text-2xl text-sm text-center lg:text-start">
-            Discover a variety of financial products that empower you to make
-            informed investment decisions.
+            Discover a variety of financial products that empower you to make informed investment decisions.
           </p>
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-3 gap-6">
             {/* Shares */}
@@ -69,7 +68,7 @@ const Opportunities = () => {
           <img
             src={img}
             alt="Investment Opportunities"
-            className="max-w-full h-[90%] rounded-lg shadow-lg"
+            className="max-w-full h-[75%] rounded-lg shadow-lg"
           />
         </div>
       </div>
