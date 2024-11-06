@@ -24,7 +24,7 @@ const edge = [
 const OurEdge = () => {
   return (
     <div className="lg:w-[80%] w-11/12 mx-auto text-black lg:mt-10 ">
-      <div className="grid lg:grid-cols-2 flex-wrap">
+      <div className="grid lg:grid-cols-2 ">
         {/* For mobile view */}
         <div className="lg:hidden text-center w-full my-10">
           <p className="lg:text-5xl text-3xl font-bold">Our Edge</p>
@@ -55,7 +55,7 @@ const OurEdge = () => {
           </div>
 
           <div className="">
-            <ul className="grid grid-cols-2 gap-8 md:gap-12">
+            <ul className="grid grid-cols-2 gap-8 md:gap-12 place-content-between ">
               {edge.map((ele, ind) => (
                 <li
                   key={ind}

@@ -5,7 +5,7 @@ const PartnershipBlock = () => {
     <div className="partnership-blk py-4 relative z-0">
       <div className="container mx-auto py-5">
         <div className="flex justify-end py-5">
-          <div className="lg:w-[430px] lg:absolute lg:top-[100px] right-[150px] w-full text-center pt-4 lg:text-left ml-3 text-[#323232] -mt-10 ">
+          <div className="lg:w-[430px] lg:absolute lg:top-[100px] right-[110px] w-full text-center pt-4 lg:text-left ml-3 text-[#323232] -mt-10 ">
             {/* Large Screen Heading */}
             <h2 className="lg:text-5xl font-bold mb-3 hidden lg:flex wow fadeInUp ">
               Empower Your Journey.

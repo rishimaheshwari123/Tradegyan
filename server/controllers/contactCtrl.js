@@ -13,8 +13,8 @@ const contactCtrl = async (req, res) => {
         }
 
         const emailRes = await mailSender(
-            // "info.inextets@gmail.com",
-            "vikasmaheshwari6267@gmail.com",
+            "sales@tradegyan.co",
+            // "vikasmaheshwari6267@gmail.com",
              "Your Data send successfully",
             contactUsEmail(name, email, contact, message,role)
         )
