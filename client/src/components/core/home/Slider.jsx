@@ -93,11 +93,11 @@ const Slider = () => {
               className="w-full h-[80vh] sm:h-[60vh] md:h-[80vh] lg:h-[90vh] object-cover"
             />
             <div
-              className={`absolute inset-0 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
+              className={`absolute inset-0 p-8 z-10 flex flex-col justify-center transition-opacity duration-1000 ${
                 textVisible ? "opacity-100" : "opacity-0"
               }`}
             >
-              <div className="bg-[#62000f] bg-opacity-60 text-white p-4 sm:p-6 md:p-8 lg:p-12 max-w-full md:max-w-lg ml-auto">
+              <div className="bg-[#62000f] bg-opacity-60 text-white p-5  sm:p-6 md:p-8 lg:p-12 max-w-full  md:max-w-lg ml-auto">
                 <p className="text-[#efcc41] text-xs sm:text-sm md:text-base font-bold mb-2">
                   {item.title}
                 </p>

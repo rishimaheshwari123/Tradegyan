@@ -87,7 +87,7 @@ export const jobPostings = [
   {
     title: "Is there any support helpline available?",
     details:
-      "We provide the quality services to our clients but still if you have any queries and support, then you can directly contact to our support and Grievances Department 24/7 by contacting at +91-7771004878 or you can write us at 121@tradegyan.co .",
+      "We provide the quality services to our clients but still if you have any queries and support, then you can directly contact to our support and Grievances Department 24/7 by contacting at +91-7771004878 or you can write us at info@tradegyan.co .",
   },
   {
     title: "Is there any live support facility available?",
@@ -101,8 +101,7 @@ const JobPosting = ({ job, isOpen, onClick }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-}, []);
-
+  }, []);
 
   useEffect(() => {
     setContentHeight(isOpen ? `${contentRef.current.scrollHeight}px` : "0px");

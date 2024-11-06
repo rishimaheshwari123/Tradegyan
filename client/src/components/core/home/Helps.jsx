@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const Helps = () => {
   return (
     <div className="">
-      <div className="lg:max-w-7xl mx-auto p-5 grid lg:grid-cols-2 gap-8 -mt-10  ">
+      <div className="lg:max-w-7xl mx-auto p-5 grid lg:grid-cols-2 gap-8 -mt-10 items-center  ">
         <div className="relative">
           <img
             src="https://img.freepik.com/free-photo/chart-analysis_1098-15090.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1726790400&semt=ais_hybrid"
             alt="Sounding Board"
-            className="w-[90%] h-auto rounded-lg shadow-lg mx-auto lg:mx-0"
+            className="w-[100%] h-auto rounded-lg shadow-lg mx-auto lg:mx-0"
           />
         </div>
 

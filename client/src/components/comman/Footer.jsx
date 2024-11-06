@@ -15,10 +15,15 @@ const Footer = () => {
   const location = useLocation(); // Get the current URL path chats
 
   // Check if the current path includes "/admin"
-  if (location.pathname.includes("/admin") || location.pathname.includes("/profile") || location.pathname.includes("/subscription") || location.pathname.includes("/chats") ) {
+  if (
+    location.pathname.includes("/admin") ||
+    location.pathname.includes("/profile") ||
+    location.pathname.includes("/subscription") ||
+    location.pathname.includes("/chats")
+  ) {
     return null; // Do not render the footer if the URL contains "/admin" or "/profile/subscription"
   }
-  
+
   return (
     <footer className="bg-gray-900 text-gray-300 py-10">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
@@ -35,7 +40,7 @@ const Footer = () => {
             <FaPhone className="mr-2" />
             <span>+91 777-100 4878</span>
           </div>
-          <p className="text-sm mt-1 sm:text-base">121@tradegyan.co</p>
+          <p className="text-sm mt-1 sm:text-base">info@tradegyan.co</p>
         </div>
 
         {/* Client Zone */}
@@ -194,9 +199,9 @@ const Footer = () => {
             of Trade Gyan Solutions.
           </p>
 
-          <p>Contact Details :+91 7771004878 E-Mail id :- 121@tradegyan.co</p>
+          <p>Contact Details :+91 7771004878 E-Mail id :- info@tradegyan.co</p>
           <p>Principal Officer Contact Details :+91 7771004878</p>
-          <p>E-Mail id :- 121@tradegyan.co</p>
+          <p>E-Mail id :- info@tradegyan.co</p>
 
           <p>SEBI Registration Number: INA000008808</p>
           <p>Trade Name : TRADE GYAN SOLUTIONS</p>

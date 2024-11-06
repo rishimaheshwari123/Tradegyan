@@ -11,12 +11,12 @@ import {
 const Experience = () => {
   return (
     <div className=" bg-cover bg-center relative text-center lg:text-start ">
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 p-5 items-center">
         <div className="first">
           <p className="lg:text-5xl text-3xl  font-bold  mb-4 text-black">
-            Transform Your Trading Journey  with Trade Gyan Solutions
+            Transform Your Trading Journey with Trade Gyan Solutions
           </p>
-      
+
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
             {/* Market Insights */}
             <div className="text-center">
@@ -42,7 +42,9 @@ const Experience = () => {
               <h4 className="lg:text-lg text-base   text-black">
                 Advanced Charting
               </h4>
-              <p className="lg:text-sm text-xs text-white">Strategic Analysis</p>
+              <p className="lg:text-sm text-xs text-white">
+                Strategic Analysis
+              </p>
             </div>
 
             {/* Investment Strategies */}
@@ -51,7 +53,9 @@ const Experience = () => {
               <h4 className="lg:text-lg text-base   text-black">
                 Investment Strategies
               </h4>
-              <p className="lg:text-sm text-xs text-white">Tailored Approaches</p>
+              <p className="lg:text-sm text-xs text-white">
+                Tailored Approaches
+              </p>
             </div>
 
             {/* Market Perspectives */}
@@ -60,7 +64,9 @@ const Experience = () => {
               <h4 className="lg:text-lg text-base   text-black">
                 Market Perspectives
               </h4>
-              <p className="lg:text-sm text-xs text-white">Comprehensive Views</p>
+              <p className="lg:text-sm text-xs text-white">
+                Comprehensive Views
+              </p>
             </div>
 
             {/* Technical Analysis */}

@@ -55,7 +55,7 @@ const Partner = () => {
         <div className=" lg:w-[28%] w-[60%]">
           <h3 className="  lg:text-3xl font-sans text-xl">Mail Us</h3>
           <p className="  lg:text-xl text-sm">
-            <a href="mailto:thebharatexporter@gmail.com">121@tradegyan.co</a>
+            <a href="mailto:thebharatexporter@gmail.com">info@tradegyan.co</a>
           </p>
         </div>
       </div>

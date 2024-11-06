@@ -35,7 +35,7 @@ const Support = () => {
               <FaEnvelope className="text-4xl  mb-4" />
               <h2 className="text-xl font-semibold mb-2">Email Support</h2>
               <p className="text-gray-600">Send us an email:</p>
-              <p className="font-bold ">121@tradegyan.co</p>
+              <p className="font-bold ">info@tradegyan.co</p>
             </div>
 
             {/* Office Location */}
@@ -46,7 +46,6 @@ const Support = () => {
               <p className="font-bold ">
                 Plot No.9, Sector C, JK Road Bhoapl, MP 462023 India
               </p>
-           
             </div>
           </div>
 

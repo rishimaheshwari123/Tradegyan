@@ -5,7 +5,7 @@ const offices = [
     city: "Bhopal",
     address: "Plot No.9, Sector C, JK Road Bhoapl, MP 462023 India",
     phone: "+(91) 777-100 4878",
-    email: "121@tradegyan.co",
+    email: "info@tradegyan.co",
   },
 ];
 

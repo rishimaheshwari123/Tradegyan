@@ -39,7 +39,7 @@ const InvestorContact = () => {
 
   return (
     <div>
-        {/* <Notification /> */}
+      {/* <Notification /> */}
       <InvestorNavbar />
       <div className="relative flex justify-center items-center">
         <img
@@ -69,7 +69,7 @@ const InvestorContact = () => {
           </div>
           <div>
             <h3 className="text-xl font-semibold">Email:</h3>
-            <p>121@tradegyan.co</p>
+            <p>info@tradegyan.co</p>
           </div>
 
           <button

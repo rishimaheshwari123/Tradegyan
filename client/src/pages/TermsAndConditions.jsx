@@ -87,10 +87,10 @@ const TermsAndConditions = () => {
           <div className="flex items-center mb-4">
             <FaEnvelope className="mr-2" />
             <a
-              href="mailto:121@tradegyan.co"
+              href="mailto:info@tradegyan.co"
               className="text-blue-600 hover:underline"
             >
-              121@tradegyan.co
+              info@tradegyan.co
             </a>
           </div>
         </div>

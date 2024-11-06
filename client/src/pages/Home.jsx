@@ -26,6 +26,10 @@ const Home = ({ setShowModal }) => {
       {/* <StockTicker /> */}
       <Opportunities />
       <br />
+      <br />
+
+      <br />
+      <br />
       <Helps />
       <br />
       <Experience />
