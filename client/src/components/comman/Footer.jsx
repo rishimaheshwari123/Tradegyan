@@ -63,7 +63,7 @@ const Footer = () => {
               </Link>
             </li> */}
             <li>
-              <Link to="/disclaimer/risk" className="hover:text-yellow-400">
+              <Link to="/risk-profile" className="hover:text-yellow-400">
                 Risk Profile
               </Link>
             </li>
@@ -102,7 +102,10 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/disclaimer" className="hover:text-yellow-400">
+              <Link
+                to="/disclaimer-and-terms"
+                className="hover:text-yellow-400"
+              >
                 Disclaimer And Disclosure
               </Link>
             </li>

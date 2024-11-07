@@ -67,6 +67,7 @@ import CompaintTracker from "./components/admin/pages/CompaintTracker";
 import Whatsapp from "./components/comman/Whatsapp";
 import axios from "axios";
 import AddComplaint from "./components/admin/pages/CompaintTracker";
+import Prising from "./pages/Prising";
 
 const App = () => {
   const { user, token } = useSelector((state) => state.auth);
@@ -75,14 +76,11 @@ const App = () => {
   const navigate = useNavigate();
   const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-
-
   const visitAdd = async () => {
     try {
       const response = await axios.post(`${BASE_URL}/visit`);
-      
     } catch (error) {
-      console.error('Failed to add visit record dashboard ', error);
+      console.error("Failed to add visit record dashboard ", error);
     }
   };
   useEffect(() => {
@@ -104,28 +102,28 @@ const App = () => {
     console.log("Modal state before toggle:", showModal);
     setShowModal(false);
   }
-  
 
-
-  function handleModel ()  {
+  function handleModel() {
     setShowModal(!showModal); // Toggle modal visibility
     console.log("Modal state after toggle:", !showModal);
-  };
+  }
   return (
     <div className="min-w-screen min-h-screen">
       <Notification />
-      {showModal && <Complain onClose={handleCloseModal} showModal={showModal} />}
+      {showModal && (
+        <Complain onClose={handleCloseModal} showModal={showModal} />
+      )}
       <Routes>
         <Route path="/" element={<Home setShowModal={handleModel} />} />
         <Route path="/complain" element={<CurrentMonthComplaints />} />
-     
+
         <Route path="/partner" element={<Partner />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Partner />} />
         <Route path="/stocktable" element={<StockTable />} />
         <Route path="/service" element={<Service />} />
         <Route path="/disclaimer" element={<Disclaimer />} />
-        <Route path="/disclaimer/:name" element={<Disclaimer />} />
+        <Route path=":name" element={<Disclaimer />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/support" element={<Support />} />
         <Route path="/team" element={<Team />} />
@@ -159,6 +157,7 @@ const App = () => {
         <Route path="/podcast" element={<Podcast />} />
         <Route path="/podcast/:id" element={<SinglePodcast />} />
         <Route path="/message" element={<SendMessage />} />
+        <Route path="/trade-gyan-pricing-payment" element={<Prising />} />
 
         <Route element={<ProfileLayout />}>
           <Route path="/profile" element={<Profile />} />
@@ -302,7 +301,6 @@ const App = () => {
 
       <Footer />
 
-      
       <div className="fixed bottom-0 md:left-10 left-0 z-50">
         <Whatsapp />
       </div>

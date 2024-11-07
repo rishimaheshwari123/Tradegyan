@@ -99,7 +99,7 @@ const policiesData = [
 
   {
     title: "Disclaimer Policies",
-    id: "disclaimer",
+    id: "disclaimer-and-terms",
     content: [
       {
         heading: "Important Disclaimers",
@@ -163,7 +163,7 @@ const policiesData = [
   },
   {
     title: "Risk Profile",
-    id: "risk",
+    id: "risk-profile",
     content: [
       {
         heading: "Risk Considerations",
