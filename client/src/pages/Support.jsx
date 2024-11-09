@@ -50,7 +50,7 @@ const Support = () => {
           </div>
 
           {/* FAQ Section */}
-          <div className="mt-12">
+          {/* <div className="mt-12">
             <h2 className="text-2xl font-semibold  mb-4 text-center">
               Frequently Asked Questions
             </h2>
@@ -74,7 +74,7 @@ const Support = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

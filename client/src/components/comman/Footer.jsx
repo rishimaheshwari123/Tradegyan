@@ -26,7 +26,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-gray-300 py-10">
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
         {/* About Us */}
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
@@ -195,7 +195,7 @@ const Footer = () => {
 
       {/* Bottom section */}
       <div className="mt-10 border-t border-gray-700 pt-4 p-4">
-        <div className="container mx-auto text-sm sm:text-base flex flex-col gap-2">
+        <div className="max-w-7xl mx-auto text-sm sm:text-base flex flex-col gap-2">
           <p>
             Copyright © 2017 Trade Gyan Solutions (Investment Advisor #
             INA000008808)2024. All rights reserved. Himanshu Muralia, Proprietor

@@ -74,7 +74,7 @@ const InvestorContact = () => {
 
           <button
             onClick={toggleModal}
-            className="mt-6 px-6 py-3 bg-[#631f28] text-white text-lg font-bold rounded-lg hover:bg-[#3b4451] transition duration-300"
+            className="mt-6 w-fit p-2  bg-[#631f28] text-white text-lg font-bold rounded-lg hover:bg-[#3b4451] transition duration-300"
           >
             Enquiry Now
           </button>
