@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import OpenRoute from "./components/admin/auth/OpenRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -98,6 +98,19 @@ const App = () => {
   //   setShowModal(true);
   // }, []);
 
+  function PageTracker() {
+    const location = useLocation();
+
+    useEffect(() => {
+      // Log the pageview with gtag
+      window.gtag("config", "G-WQCT7BHH4L", {
+        page_path: location.pathname,
+      });
+    }, [location]);
+
+    return null;
+  }
+
   function handleCloseModal() {
     console.log("Modal state before toggle:", showModal);
     setShowModal(false);
@@ -110,6 +123,8 @@ const App = () => {
   return (
     <div className="min-w-screen min-h-screen">
       <Notification />
+      <PageTracker />
+
       {showModal && (
         <Complain onClose={handleCloseModal} showModal={showModal} />
       )}

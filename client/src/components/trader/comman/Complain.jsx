@@ -4,23 +4,20 @@ import { AiFillPhone } from "react-icons/ai";
 import { toast } from "react-toastify";
 import { sendContactForm } from "../../../services/operations/auth";
 
-const InquiryForm = ({onClose,showModal}) => {
- 
+const InquiryForm = ({ onClose, showModal }) => {
   const [name, setName] = useState("");
   const [contactNumber, setContactNumber] = useState("");
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (name && contactNumber) {
       // Handle form submission logic here
-    const response = await sendContactForm({name,contact:contactNumber});
-    
+      const response = await sendContactForm({ name, contact: contactNumber });
 
-    if (response?.data?.success) {
-
-      toast.success("Inquiry submitted successfully!");
-      onClose(); // Close modal after submission
-    }
+      if (response?.data?.success) {
+        toast.success("Inquiry submitted successfully!");
+        onClose(); // Close modal after submission
+      }
     } else {
       toast.error("Please fill in all fields.");
     }
@@ -28,7 +25,6 @@ const InquiryForm = ({onClose,showModal}) => {
 
   const closeModal = () => {
     onClose(); // Close modal after submission
-
   };
 
   return (
@@ -48,7 +44,7 @@ const InquiryForm = ({onClose,showModal}) => {
               <div className="mb-4 text-center text-lg font-semibold text-blue-600">
                 “Free” Advice is more Expensive than “Fee” Advice
               </div>
-              
+
               <h2 className="text-xl font-semibold mb-4 text-center">
                 Inquiry Form
               </h2>
@@ -96,10 +92,16 @@ const InquiryForm = ({onClose,showModal}) => {
                   />
                 </div>
 
+                {/* Service Information */}
+                <div className="mt-4 text-center text-sm text-gray-600 bg-gray-100 p-2 rounded-md">
+                  One-time service for two days recommendation in any segment -{" "}
+                  <strong>₹1000</strong>
+                </div>
+
                 <div>
                   <button
                     type="submit"
-                    className="w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                    className="w-full p-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 mt-4"
                   >
                     Register
                   </button>
