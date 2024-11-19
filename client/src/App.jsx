@@ -103,7 +103,7 @@ const App = () => {
 
     useEffect(() => {
       // Log the pageview with gtag
-      window.gtag("config", "G-WQCT7BHH4L", {
+      window.gtag("config", "G-B0XMXZ31CE", {
         page_path: location.pathname,
       });
     }, [location]);
